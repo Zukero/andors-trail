@@ -1026,7 +1026,7 @@ msgstr "Cela dépend de ce que vous attendez de moi."
 
 #: conversationlist_algangror.json:algangror_task2_4:3
 msgid "Something feels wrong here. I don't think I should help you."
-msgstr "Quelque chose ne m'inspire pas confiance je ne crois pas que je devrais faire ça."
+msgstr "Quelque chose ne m'inspire pas confiance. Je ne crois pas que je devrais faire ça."
 
 #: conversationlist_algangror.json:algangror_task2_5
 msgid "As I said, I cannot tell you what task I have in mind, or my reasoning behind it until you are done. I would need your total .. cooperation with this."
