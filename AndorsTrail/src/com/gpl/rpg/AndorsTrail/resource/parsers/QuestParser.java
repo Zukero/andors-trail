@@ -54,6 +54,7 @@ public final class QuestParser extends JsonCollectionParserFor<Quest> {
 				, stages
 				, o.optInt(JsonFieldNames.Quest.showInLog, 0) > 0
 				, sortOrder
+                , o.optInt(JsonFieldNames.Quest.repeatable, 0) > 0
 		));
 	}
 }

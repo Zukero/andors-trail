@@ -10,6 +10,7 @@ public final class Quest implements Comparable<Quest> {
 	public final QuestLogEntry[] stages; //Must be sorted in ascending stage order
 	public final boolean showInLog;
 	public final int sortOrder;
+    public final boolean repeatable;
 
 	public Quest(
 			String questID
@@ -17,12 +18,14 @@ public final class Quest implements Comparable<Quest> {
 			, QuestLogEntry[] stages
 			, boolean showInLog
 			, int sortOrder
+            , boolean repeatable
 	) {
 		this.questID = questID;
 		this.name = name;
 		this.stages = stages;
 		this.showInLog = showInLog;
 		this.sortOrder = sortOrder;
+        this.repeatable = repeatable;
 	}
 
 	public QuestLogEntry getQuestLogEntry(final int progress) {
