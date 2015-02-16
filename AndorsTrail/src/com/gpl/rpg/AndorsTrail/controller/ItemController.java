@@ -230,6 +230,7 @@ public final class ItemController {
 		for (Loot l : lootBags) {
 			if (!removeLootBagIfEmpty(l)) isEmpty = false;
 		}
+		quickSlotListeners.onQuickSlotChanged(0);
 		return isEmpty;
 	}
 
