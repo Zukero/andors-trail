@@ -141,6 +141,7 @@
 	<string name="shop_yourgold">Your gold: %1$d</string>
 	<string name="shop_item_bought">%1$s bought.</string>
 	<string name="shop_item_sold">%1$s sold.</string>
+	<string name="shop_inventory">Inventory</string>
 
 	<string name="levelup_title">Level up</string>
 	<string name="levelup_description">Welcome to level %1$d!</string>

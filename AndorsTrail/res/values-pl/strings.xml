@@ -141,7 +141,8 @@
 	<string name="shop_yourgold">Twoje złoto: %1$d</string>
 	<string name="shop_item_bought">Kupiłeś %1$s.</string>
 	<string name="shop_item_sold">Sprzedałeś %1$s.</string>
-
+	<string name="shop_inventory">Inwentarz</string>
+	
 	<string name="levelup_title">Podnieś poziom</string>
 	<string name="levelup_description">Witaj na poziomie %1$d!</string>
 	<string name="levelup_buttontext">Podnieś poziom</string>

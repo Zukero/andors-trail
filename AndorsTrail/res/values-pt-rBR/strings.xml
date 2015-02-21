@@ -141,7 +141,8 @@
 	<string name="shop_yourgold">As suas moedas: %1$d</string>
 	<string name="shop_item_bought">%1$s comprados.</string>
 	<string name="shop_item_sold">%1$s vendidos.</string>
-
+	<string name="shop_inventory">Inventário</string>
+	
 	<string name="levelup_title">Aumento de nível</string>
 	<string name="levelup_description">Benvindo ao nível %1$d!</string>
 	<string name="levelup_buttontext">Aumento de nível</string>

@@ -141,7 +141,8 @@
 	<string name="shop_yourgold">Votre or : %1$d</string>
 	<string name="shop_item_bought">%1$s acheté.</string>
 	<string name="shop_item_sold">%1$s vendu.</string>
-
+	<string name="shop_inventory">Inventaire</string>
+	
 	<string name="levelup_title">Niveau supérieur</string>
 	<string name="levelup_description">Bienvenue au niveau %1$d !</string>
 	<string name="levelup_buttontext">Niveau supérieur</string>
