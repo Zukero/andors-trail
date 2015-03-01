@@ -25,7 +25,7 @@ public final class ShopActivity extends FragmentActivity {
 		final Resources res = getResources();
 
 		FragmentTabHost tabHost = (FragmentTabHost) findViewById(android.R.id.tabhost);
-		tabHost.setup(this, getSupportFragmentManager(), R  .id.realtabcontent);
+		tabHost.setup(this, getSupportFragmentManager(), R.id.realtabcontent);
 
 		tabHost.addTab(tabHost.newTabSpec("buy")
 				.setIndicator(res.getString(R.string.shop_buy))
