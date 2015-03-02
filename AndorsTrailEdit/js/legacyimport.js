@@ -7,7 +7,7 @@ var ATEditor = (function(ATEditor, model, FieldList, _) {
 				+ "hasAbilityEffect|boostMaxHP|boostMaxAP|moveCostPenalty|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|"
 				+ "];"
 			);
-		model.quests.legacyFieldList = new FieldList("[id|name|showInLog|stages[progress|logText|rewardExperience|finishesQuest|]|];");
+		model.quests.legacyFieldList = new FieldList("[id|name|showInLog|stages[progress|logText|rewardExperience|removeQuestProgress|finishesQuest|]|];");
 		model.items.legacyFieldList = new FieldList("[id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|"
 				+ "hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|"
 				+ "hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|"
@@ -94,7 +94,7 @@ var ATEditor = (function(ATEditor, model, FieldList, _) {
 	
 	
 	function convertQuest(obj) {
-		// [id|name|showInLog|stages[progress|logText|rewardExperience|finishesQuest|]|];
+		// [id|name|showInLog|stages[progress|logText|rewardExperience|removeQuestProgress|finishesQuest|]|];
 		return obj;
 	}
 	

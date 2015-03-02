@@ -1,4 +1,4 @@
-<h3>Quest</h3>
+c<h3>Quest</h3>
 <fieldset>
 	<legend>General</legend>
 	<div class="fieldWithLabel">
@@ -22,6 +22,7 @@
 				<th><span class="hint  hint--top" data-hint="This number will not be displayed to the player. Must be some unique number for this quest though. Prefer values from 10-100.">Progress</span></th>
 				<th>Logtext</th>
 				<th><span class="hint  hint--top" data-hint="Reaching this quest stage gives this much experience">Experience</span></th>
+				<th><span class="hint  hint--top" data-hint="Finishing this stage will get you back to a specified progress">Remove quest progress</span></th>
 				<th>Finishes quest</th>
 				<th></th>
 			</tr></thead>
@@ -30,6 +31,7 @@
 					<td><input type="text" size="3" ng-model="stage.progress" class="at-input-stat"/></td>
 					<td><textarea rows="2" cols="40" ng-model="stage.logText"></textarea></td>
 					<td><input type="text" size="7" ng-model="stage.rewardExperience" class="at-input-stat"/></td>
+					<td><input type="text" size="7" ng-model="stage.removeQuestProgress" class="at-input-stat"/></td>
 					<td><input type="checkbox" ng-model="stage.finishesQuest" ng-true-value="1" ng-false-value="0" /></td>
 					<td><a ng-click="removeQuestStage(stage)" class="btn btn-mini" title="Remove row"><i class="icon-trash"></i></a></td>
 				</tr>
