@@ -91,6 +91,7 @@ public final class JsonFieldNames {
 		public static final String name = "name";
 		public static final String showInLog = "showInLog";
 		public static final String stages = "stages";
+        public static final String repeatable = "repeatable";
 	}
 
 	public static final class QuestLogEntry {

@@ -11,6 +11,8 @@ import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.item.DropListCollection;
 import com.gpl.rpg.AndorsTrail.model.item.Inventory;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
+import com.gpl.rpg.AndorsTrail.model.quest.Quest;
+import com.gpl.rpg.AndorsTrail.model.quest.QuestLogEntry;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
 import com.gpl.rpg.AndorsTrail.savegames.LegacySavegameFormatReaderForPlayer;
@@ -153,6 +155,13 @@ public final class Player extends Actor {
 		questProgress.get(progress.questID).add(progress.progress);
 		return true; //Progress was added.
 	}
+
+    public void resetQuestIfFinished(Quest quest, int progress){
+        QuestLogEntry logEntry =  quest.getQuestLogEntry(progress);
+        if(logEntry.finishesQuest){
+            questProgress.remove(quest.questID);
+        }
+    }
 
 	public void recalculateLevelExperience() {
 		int experienceRequiredToReachThisLevel = getRequiredExperience(level);

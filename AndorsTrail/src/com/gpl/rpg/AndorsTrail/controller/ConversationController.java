@@ -18,6 +18,7 @@ import com.gpl.rpg.AndorsTrail.model.map.LayeredTileMap;
 import com.gpl.rpg.AndorsTrail.model.map.MapObject;
 import com.gpl.rpg.AndorsTrail.model.map.MonsterSpawnArea;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
+import com.gpl.rpg.AndorsTrail.model.quest.Quest;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestLogEntry;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
 import com.gpl.rpg.AndorsTrail.model.script.Requirement;
@@ -155,7 +156,13 @@ public final class ConversationController {
 
 	private void addQuestProgressReward(Player player, String questID, int questProgress, ScriptEffectResult result) {
 		QuestProgress progress = new QuestProgress(questID, questProgress);
-		boolean added = player.addQuestProgress(progress);
+        Quest currentQuest = world.quests.getQuest(questID);
+
+        boolean added = player.addQuestProgress(progress);
+        if(currentQuest.repeatable) {
+            player.resetQuestIfFinished(currentQuest, questProgress);
+        }
+
 		if (!added) return; // Only apply exp reward if the quest stage was reached just now (and not re-reached)
 
 		QuestLogEntry stage = world.quests.getQuestLogEntry(progress);
