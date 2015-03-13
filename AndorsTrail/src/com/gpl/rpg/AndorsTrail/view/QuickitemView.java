@@ -4,6 +4,7 @@ import android.R.color;
 import android.content.Context;
 import android.content.res.Resources;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -157,6 +158,15 @@ public final class QuickitemView extends LinearLayout implements OnClickListener
 		setLayoutParams(params);
 	}
 
+	private boolean isItemOnQuickButton(String itemID){
+		for(QuickButton button : buttons){
+			if(itemID.equals(button.getCurrentItemID())){
+				return true;
+			}
+		}
+		return false;
+	}
+
 	@Override
 	public void onQuickSlotChanged(int slotId) {
 		refreshQuickitems();
@@ -165,6 +175,13 @@ public final class QuickitemView extends LinearLayout implements OnClickListener
 	@Override
 	public void onQuickSlotUsed(int slotId) {
 		refreshQuickitems();
+	}
+
+	@Override
+	public void onQuickSlotItemLooted(String itemID) {
+		if(isItemOnQuickButton(itemID)){
+			refreshQuickitems();
+		}
 	}
 
 	public void subscribe() {

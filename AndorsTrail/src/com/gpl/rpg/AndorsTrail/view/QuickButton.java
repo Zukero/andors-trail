@@ -5,6 +5,7 @@ import android.content.res.Resources;
 import android.graphics.ColorFilter;
 import android.graphics.ColorMatrixColorFilter;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.widget.Button;
 import com.gpl.rpg.AndorsTrail.R;
@@ -79,5 +80,11 @@ public final class QuickButton extends Button {
 
 	public static class QuickButtonContextMenuInfo implements ContextMenu.ContextMenuInfo{
 		public int index;
+	}
+
+	public String getCurrentItemID(){
+		if(currentItemID == null)
+			return "";
+		return this.currentItemID;
 	}
 }

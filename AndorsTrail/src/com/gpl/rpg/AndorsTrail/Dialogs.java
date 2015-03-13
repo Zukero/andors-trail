@@ -181,18 +181,8 @@ public final class Dialogs {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
 
-				final String itemTypeID = ((ItemContainerAdapter) parent.getAdapter()).getItem(position).itemType.id;
-				boolean removeFromCombinedLoot = true;
-				for (Loot l : lootBags) {
-					if (l == combinedLoot) removeFromCombinedLoot = false;
-					if (l.items.removeItem(itemTypeID)) {
-						controllers.itemController.removeLootBagIfEmpty(l);
-						break;
-					}
-				}
-				if (removeFromCombinedLoot) combinedLoot.items.removeItem(itemTypeID);
-				ItemType type = world.itemTypes.getItemType(itemTypeID);
-				world.model.player.inventory.addItem(type);
+				final ItemType itemTypeID = ((ItemContainerAdapter) parent.getAdapter()).getItem(position).itemType;
+				controllers.itemController.pickupItem(itemTypeID, lootBags, combinedLoot);
 				((ItemContainerAdapter) itemList.getAdapter()).notifyDataSetChanged();
 			}
 		});
