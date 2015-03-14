@@ -36,6 +36,7 @@
 		<item>@raw/itemlist_v0611_3</item>
 		<item>@raw/itemlist_v070</item>
 		<item>@raw/itemlist_v070_questitems</item>
+		<item>@raw/itemlist_gorwath</item>
 	</array>
 
 	<array name="loadresource_droplists">
@@ -71,6 +72,7 @@
 		<item>@raw/questlist_v070_lowyna</item>
 		<item>@raw/questlist_v070_misc</item>
 		<item>@raw/questlist_halvor</item>
+		<item>@raw/questlist_gorwath</item>
 	</array>
 
 	<array name="loadresource_conversationlists">
@@ -226,6 +228,7 @@
 		<item>@raw/conversationlist_vilegard_v070</item>
 		<item>@raw/conversationlist_fallhaven_potions</item>
 		<item>@raw/conversationlist_halvor</item>
+		<item>@raw/conversationlist_gorwath</item>
 	</array>
 
 	<array name="loadresource_monsters">
@@ -254,6 +257,7 @@
 		<item>@raw/monsterlist_v070_roadcave</item>
 		<item>@raw/monsterlist_v070_npcs</item>
 		<item>@raw/monsterlist_halvor</item>
+		<item>@raw/monsterlist_gorwath</item>
 	</array>
 
 	<array name="loadresource_maps">

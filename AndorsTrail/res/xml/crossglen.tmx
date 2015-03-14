@@ -209,6 +209,7 @@
   </object>
   <object name="Odair" type="spawn" x="896" y="32" width="32" height="32"/>
   <object name="Oromir" type="spawn" x="896" y="864" width="32" height="32"/>
+  <object name="gorwath" type="spawn" x="352" y="128" width="32" height="32"/>
   <object name="Halvor" type="spawn" x="736" y="608" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="Keys"/>
