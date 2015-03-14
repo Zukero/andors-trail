@@ -1,0 +1,13 @@
+[
+    {
+        "id":"halvor",
+        "phraseID":"halvor_0",
+        "maxHP":5,
+        "unique":1,
+        "monsterClass":"humanoid",
+        "name":"Halvor",
+        "movementAggressionType":"none",
+        "spawnGroup":"Halvor",
+        "iconID":"monsters_mage2:0"
+    }
+]

@@ -1,0 +1,177 @@
+[
+    {
+        "id":"halvor_0",
+        "replies":[
+                    {
+                "nextPhraseID":"halvor_loop",
+                "requires":[
+                    {
+                        "requireType":"questProgress",
+                        "value":20,
+                        "requireID":"halvor_surprise"
+                    }
+                ]
+            },
+            {
+                "nextPhraseID":"halvor_wings",
+                "requires":[
+                    {
+                        "requireType":"questProgress",
+                        "value":10,
+                        "requireID":"halvor_surprise"
+                    }
+                ]
+            },
+            {
+                "nextPhraseID":"halvor_encounter"
+            }
+        ]
+    },
+    {
+        "message":"Hello. I don't have the time to speak with you. I search something ...",
+        "id":"halvor_encounter",
+        "replies":[
+            {
+                "nextPhraseID":"X",
+                "text":"Ok. Good bye"
+            },
+            {
+                "nextPhraseID":"halvor_quest_start",
+                "text":"Maybe I can help you ?"
+            }
+        ]
+    },
+    {
+        "message":"Hey, why not ? I need something for surprising a friend. I think 5 insect wings would be enough.",
+        "id":"halvor_quest_start",
+        "replies":[
+            {
+                "nextPhraseID":"X",
+                "text":"Ok, let's go"
+            }
+        ],
+        "rewards":[
+            {
+                "value":10,
+                "rewardID":"halvor_surprise",
+                "rewardType":"questProgress"
+            }
+        ]
+    },
+    {
+        "message":"Hi, do you have some insect wings for me ?",
+        "id":"halvor_wings",
+        "replies":[
+            {
+                "nextPhraseID":"X",
+                "text":"No, I'll come back with your wings"
+            },
+            {
+                "nextPhraseID":"halvor_wings_end",
+                "text":"Yes, I have !",
+                "requires":[
+                    {
+                        "requireType":"inventoryRemove",
+                        "value":5,
+                        "requireID":"insectwing"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "message":"Thanks, but I think it will not be enough. Can you found some rat tails for me ?",
+        "id":"halvor_wings_end",
+        "replies":[
+            {
+                "nextPhraseID":"X",
+                "text":"I go found that for you"
+            }
+        ],
+        "rewards":[
+            {
+                "value":20,
+                "rewardID":"halvor_surprise",
+                "rewardType":"questProgress"
+            },
+            {
+                "value":2,
+                "rewardID":"gold",
+                "rewardType":"giveItem"
+            }
+        ]
+    },
+    {
+        "message":"So, these tails ?",
+        "id":"halvor_loop",
+        "replies":[
+            {
+                "nextPhraseID":"halvor_loop_1",
+                "text":"Here they are",
+                "requires":[
+                    {
+                        "requireType":"inventoryRemove",
+                        "value":5,
+                        "requireID":"rat_tail"
+                    }
+                ]
+            },
+            {
+                "nextPhraseID":"X",
+                "text":"I'll come back"
+            }
+        ]
+    },
+    {
+        "message":"Thanks, but it will not be enough. Can you found 5 others for me ?",
+        "id":"halvor_loop_1",
+        "replies":[
+            {
+                "nextPhraseID":"X",
+                "text":"Ok, let's go"
+            },
+            {
+                "nextPhraseID":"halvor_quest_end",
+                "text":"Again ? Is this a joke ?"
+            }
+        ],
+        "rewards":[
+            {
+                "value":4,
+                "rewardID":"gold",
+                "rewardType":"giveItem"
+            }
+        ]
+    },
+    {
+        "message":"No, please, help me. I need these ones",
+        "id":"halvor_quest_end",
+        "replies":[
+            {
+                "nextPhraseID":"X",
+                "text":"Ok, let's go another time ..."
+            },
+            {
+                "nextPhraseID":"halvor_quest_final",
+                "text":"No, you will not use me. Go found your stuff yourself"
+            }
+        ]
+    },
+    {
+        "message":"Ok, I don't need you no more. Take that and go out of my view",
+        "id":"halvor_quest_final",
+        "replies":[
+            {
+                "nextPhraseID":"R",
+                "text":"Don't worry, I'll never come back"
+            }
+        ],
+        "rewards":[
+            {
+                "value":100,
+                "rewardID":"halvor_surprise",
+                "rewardType":"questProgress"
+            }
+        ]
+    }
+]

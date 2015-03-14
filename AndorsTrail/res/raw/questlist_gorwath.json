@@ -1,0 +1,22 @@
+[
+    {
+        "id":"postman",
+        "name":"You're the postman",
+        "showInLog":1,
+        "stages":[
+            {
+                "progress":10,
+                "logText":"Gorwath would like me to give a letter to Arensia, in Fallhaven."
+            },
+            {
+                "progress":20,
+                "logText":"I gave the letter to Arensia. I need to tell Gorwath it's done."
+            },
+            {
+                "progress":30,
+                "finishesQuest":1,
+                "logText":"I said Gorwath I gave the letter to Arensia. He's happy."
+            }
+        ]
+    }
+]

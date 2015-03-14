@@ -1,0 +1,24 @@
+[
+    {
+        "id":"halvor_surprise",
+        "name":"Surprise ?",
+        "showInLog":1,
+        "stages":[
+            {
+                "progress":10,
+                "logText":"Halvor need some insect wings for surprising somebody. "
+            },
+            {
+                "progress":20,
+                "rewardExperience":40,
+                "logText":"Halvor now need some more stuff. He just asked me to found some rat tails."
+            },
+            {
+                "progress":100,
+                "rewardExperience":100,
+                "finishesQuest":1,
+                "logText":""
+            }
+        ]
+    }
+]
