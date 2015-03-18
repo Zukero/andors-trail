@@ -373,5 +373,6 @@ public final class ResourceLoader {
 		loader.prepareTileset(R.drawable.effect_blood4, "effect_blood4", new Size(7, 2), defaultTileSize);
 		loader.prepareTileset(R.drawable.effect_heal2, "effect_heal2", new Size(8, 2), defaultTileSize);
 		loader.prepareTileset(R.drawable.effect_poison1, "effect_poison1", new Size(8, 2), defaultTileSize);
+		loader.prepareTileset(R.drawable.effect_miss1, "effect_miss1", new Size(8, 2), defaultTileSize);
 	}
 }

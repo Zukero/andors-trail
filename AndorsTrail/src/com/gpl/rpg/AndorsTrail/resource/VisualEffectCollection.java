@@ -9,7 +9,8 @@ public final class VisualEffectCollection {
 	public static enum VisualEffectID {
 		redSplash
 		,blueSwirl
-		,greenSplash;
+		,greenSplash
+		,miss;;
 
 		public static VisualEffectID fromString(String s, VisualEffectID default_) {
 			if (s == null) return default_;
@@ -23,6 +24,7 @@ public final class VisualEffectCollection {
 		effects[VisualEffectID.redSplash.ordinal()] = createEffect(loader, R.drawable.effect_blood4, new ConstRange(14, 0), 400, Color.RED);
 		effects[VisualEffectID.blueSwirl.ordinal()] = createEffect(loader, R.drawable.effect_heal2, new ConstRange(16, 0), 400, Color.rgb(150, 150, 255));
 		effects[VisualEffectID.greenSplash.ordinal()] = createEffect(loader, R.drawable.effect_poison1, new ConstRange(16, 0), 400, Color.GREEN);
+		effects[VisualEffectID.miss.ordinal()] = createEffect(loader, R.drawable.effect_miss1, new ConstRange(16, 0), 400, Color.GRAY);
 	}
 
 	public VisualEffect getVisualEffect(VisualEffectID effectID) {
