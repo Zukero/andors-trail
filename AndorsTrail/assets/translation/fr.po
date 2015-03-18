@@ -25,7 +25,7 @@ msgstr ""
 
 #: actorconditions_v0610.json:chaotic_curse
 msgid "Chaotic curse"
-msgstr "Méladiction du chaos"
+msgstr "Malédiction du chaos"
 
 #: actorconditions_v0610.json:chaotic_grip
 msgid "Chaotic grip"
@@ -41,7 +41,7 @@ msgstr "Infection d'insectes"
 
 #: actorconditions_v0611.json:focus_ac
 msgid "Focused accuracy"
-msgstr "Précision ciblée"
+msgstr "Visée précise"
 
 #: actorconditions_v0611.json:focus_dmg
 msgid "Focused damage"
@@ -93,7 +93,7 @@ msgstr "Nourriture"
 
 #: actorconditions_v0612_2.json:foodp
 msgid "Food-poisoning"
-msgstr "Indigestion alimentaire"
+msgstr "Intoxication alimentaire"
 
 #: actorconditions_v069.json:bless
 msgid "Bless"
@@ -121,7 +121,7 @@ msgstr "Blessure saignante"
 
 #: actorconditions_v069_bwm.json:dazed
 msgid "Dazed"
-msgstr "Hébétude"
+msgstr "Confus"
 
 #: actorconditions_v069_bwm.json:fatigue_minor
 msgid "Minor fatigue"
@@ -133,7 +133,7 @@ msgstr "Maladresse mineure au combat"
 
 #: actorconditions_v069_bwm.json:intoxicated
 msgid "Intoxicated"
-msgstr "Intoxication"
+msgstr "Intoxiqué"
 
 #: actorconditions_v069_bwm.json:rage_minor
 msgid "Minor berserker rage"
@@ -193,7 +193,7 @@ msgstr "Protection de l'Ombre"
 
 #: actorconditions_v070.json:slime
 msgid "Corrosive Slime"
-msgstr "Bave Corrosive"
+msgstr "Bave corrosive"
 
 #: actorconditions_v070.json:sting_minor
 msgid "Minor sting"
@@ -201,7 +201,7 @@ msgstr "Piqûre légère"
 
 #: conversationlist_agthor.json:agthor0
 msgid "Hello there. Please move along. These things are property of Feygard, and you have no business here."
-msgstr "Bien le bonjour. Merci de circuler. Ceci est la propriété de Feygard, et vous n'avez rien à faire ici."
+msgstr "Bonjour, veuillez circuler. Ceci est la propriété de Feygard et vous n'avez rien à faire ici."
 
 #: conversationlist_agthor.json:agthor_guard0
 msgid "Talk to Agthor."
@@ -253,7 +253,7 @@ msgstr "Où pourrais-je me procurer cette belle armure que vous portez ?"
 
 #: conversationlist_agthor.json:agthor_guard0_1
 msgid "Agthor. Talk to him. *points at Agthor*"
-msgstr "Agthor. Parlez à lui. *pointe vers Agthor*"
+msgstr "Agthor. Parlez à lui. *pointe du doigt Agthor*"
 
 #: conversationlist_agthor.json:agthor_y1
 msgid "Hey, you're that kid! That kid that we've been hearing about. It's great to finally get a face on the stories we've heard."
@@ -265,7 +265,7 @@ msgstr "Je vous en prie, qu'est-ce que je peux faire pour vous ?"
 
 #: conversationlist_agthor.json:agthor_y2:0
 msgid "Care to trade some items?"
-msgstr "Cela vous dirait d'échanger quelques objets ?"
+msgstr "Ça vous dirait d'échanger quelques objets ?"
 
 #: conversationlist_agthor.json:agthor_y2:1
 #: conversationlist_fallhaven_unnmir.json:unnmir_6:0
@@ -287,20 +287,20 @@ msgstr "Commerce"
 
 #: conversationlist_ailshara.json:ailshara_1
 msgid "Psst, hey. Interested in doing some trading? I am always looking for acquiring.. well, items of others.."
-msgstr "Pssst, hé vous, ça vous dirait de faire affaire ? Je suis toujours à la recherche de... disons, d'objets récupérés ailleurs..."
+msgstr "Pssst, hé vous, ça vous dirait de faire affaire ? Je suis toujours à la recherche de... disons, d'objets récupérés..."
 
 #: conversationlist_ailshara.json:ailshara_1:0
 #: conversationlist_charwood1.json:khorailla2:0
-msgid "Sure, let me see what you have."
+msgid "re, let me see what you have."
 msgstr "Bien sûr, faites-moi voir ce que vous avez."
 
 #: conversationlist_ailshara.json:ailshara_1:1
 msgid "Items of others?"
-msgstr "\"Récupérés ailleurs\" ?"
+msgstr "\"Récupérés\" ?"
 
 #: conversationlist_ailshara.json:ailshara_2
 msgid "Oh yes. You see, these Feygard patrol guards carry some really interesting things. They don't seem to care much if some of their shipments.. well, disappear."
-msgstr "Oh oui. Vous savez, ces gardes de la patrouille de Feygard transportent de bien belles choses. Il ne se rendront sûrement compte de rien si certaines de leurs marchandises... eh bien, disparaissent."
+msgstr "Oui oui. Vous savez, ces gardes de la patrouille de Feygard transportent de bien belles choses. Ils ne se rendront sûrement compte de rien si certaines de leurs marchandises... eh bien, disparaissent."
 
 #: conversationlist_ailshara.json:ailshara_2:0
 #: conversationlist_hadracor.json:hadracor_complete_3:1
@@ -308,10 +308,10 @@ msgid "Ok, let me see what you have."
 msgstr "Ok, faites voir ce que vous avez."
 
 #: conversationlist_ailshara.json:ailshara_2:1
-msgid "I should really not get involved in this. Goodbye."
+msgid "should really not get involved in this. Goodbye."
 msgstr "Je ne devrais vraiment pas me mêler de ça. Au revoir."
 
-#: conversationlist_ailshara.json:ailshara_completed_n_1
+#: conversationlist_ailshara.json:ailshara_completed_n
 msgid "Sigh, it's you. What do you want?"
 msgstr "Ah... c'est vous. Qu'est-ce que vous voulez ?"
 
@@ -344,12 +344,12 @@ msgstr "Laissez-tomber, faites-moi voir ce que vous avez à vendre."
 #: conversationlist_ailshara.json:ailshara_deliver_1:2
 #: conversationlist_ailshara.json:ailshara_interested_8:1
 msgid "No. I will help Feygard instead."
-msgstr "Non, je vais finalement aider Feygard."
+msgstr "Non, je vais plutôt aider Feygard."
 
 #: conversationlist_ailshara.json:ailshara_deliver_1:3
 #: conversationlist_prim_guthbered.json:guthbered_killharl_1:0
 msgid "Can you tell me again what I was supposed to do?"
-msgstr "Pourriez-vous me rappeler ce que j'étais sensé faire ?"
+msgstr "Pourriez-vous me rappeler ce que j'étais censé faire ?"
 
 #: conversationlist_ailshara.json:ailshara_deliver_1:4
 msgid "Not yet."
@@ -393,7 +393,7 @@ msgstr "Oui, Gandoren veut que je délivre de l'équipement à Feygard. Est-ce q
 
 #: conversationlist_ailshara.json:ailshara_interested_2
 msgid "Hah, of course. Gandoren would not like it if I were to get a glimpse into his business. I assume you are helping him deliver those items somewhere. Tell me this, what did he promise you in return? Gold? Honor? No?"
-msgstr "Haha, bien sûr. Gandoren n'aimerait pas entendre que je mets mon nez dans ses affaires. Je suppose que vous l'aidez à transporter ces marchandises quelque part. Dites-moi, que vous a-t-il promis en échange ? De l'or ? Des privilèges ? Ou bien ?"
+msgstr "Haha, bien sûr. Gandoren n'aimerait pas entendre que je mets mon nez dans ses affaires. Je suppose que vous l'aidez à transporter ces marchandises quelque part. Dites-moi, que vous a-t-il promis en échange ? De l'or ? Des privilèges ? Autre chose ?"
 
 #: conversationlist_ailshara.json:ailshara_interested_2:0
 msgid "Now that you mention it, he didn't actually say there would be a reward."
@@ -677,7 +677,7 @@ msgstr "(Mentir) Ok"
 
 #: conversationlist_algangror.json:algangror_remgard_6
 msgid "Thank you. Under no circumstances should you tell them where I am. They will most likely try to persuade you into revealing my location."
-msgstr "Merci. Sous aucunes circonstances tu ne dois leur parler de cet endroit. Ils vont sûrement t'interroger sur le sujet, mais bouche cousue !"
+msgstr "Merci. Sous aucunes circonstances tu ne dois leur parler de cet endroit. Ils vont sûrement t'interroger sur le sujet."
 
 #: conversationlist_algangror.json:algangror_remgard_7
 msgid "Under no circumstances."
@@ -697,7 +697,7 @@ msgstr "Je suis toujours sur la tâche. A bientôt."
 
 #: conversationlist_algangror.json:algangror_return_1:2
 msgid "I won't do your stupid task, count me out."
-msgstr "Je ne toucherai pas à ce travail stupide, ne comptez pas sur moi."
+msgstr "Je ne m'occuperai pas de ce travail stupide, ne comptez pas sur moi."
 
 #: conversationlist_algangror.json:algangror_return_1:3
 msgid "I have decided not to help you with your rodents."
@@ -729,7 +729,7 @@ msgstr "Te revoilà, merci pour m'avoir aidé pour ce... euh, problème de rats 
 
 #: conversationlist_algangror.json:algangror_return_c3
 msgid "I hope that will teach those *other* rats."
-msgstr "J'espère que ça leur apprendra, à ces autres rats."
+msgstr "J'espère que ça leur apprendra, aux autres rats."
 
 #: conversationlist_algangror.json:algangror_return_c4
 msgid "Say, you seem like a resourceful person. Would you be interested in helping me with yet another .. task?"
@@ -779,7 +779,7 @@ msgstr "Si, faites-le s'il vous plaît."
 
 #: conversationlist_algangror.json:algangror_story:1
 msgid "Can we just skip to the end?"
-msgstr "Est-ce qu'on peut aller tout de suite à la fin ?"
+msgstr "Est-ce qu'on peut passer tout de suite à la fin ?"
 
 #: conversationlist_algangror.json:algangror_story1
 msgid "You see, I used to live in the city of Remgard. The times were good, and the city prospered."
@@ -804,7 +804,7 @@ msgstr "Pour je ne sais quelle raison, les autres à Remgard commencaient à me 
 
 #: conversationlist_algangror.json:algangror_story13
 msgid "I was even barred from the tavern. 'People come here for a good time, and we don't want people like you here ruining that' they said. What fools they are."
-msgstr "Je fus même exclue de la taverne. « Les gens viennent ici pour passer un bon moment, on ne veut pas de gens comme toi pour tout gâcher » disaient-ils. Quels insolents."
+msgstr "Je fus même exclue de la taverne. « Les gens viennent ici pour passer un bon moment, on ne veut pas de gens comme toi pour tout gâcher » disaient-ils. Quels imbéciles."
 
 #: conversationlist_algangror.json:algangror_story14
 msgid "I heard one woman whispering to her boy, 'Don't look at her, she'll turn you to stone!'. Others just turned the other way when they met me."
@@ -820,7 +820,7 @@ msgstr "Et donc qu'est-il arrivé ?"
 
 #: conversationlist_algangror.json:algangror_story16
 msgid "One day, Jhaeld showed up at my doorstep with a group of guards."
-msgstr "Un jour, Jhaeld est présenté devant chez moi, accompagné d'un groupe de gardes."
+msgstr "Un jour, Jhaeld s'est présenté devant chez moi, accompagné d'un groupe de gardes."
 
 #: conversationlist_algangror.json:algangror_story17
 msgid "The people of Remgard had decided that I could not stay there anymore, he said. The things I did were causing other people harm, he said."
@@ -828,11 +828,11 @@ msgstr "Les habitants de Remgard ont décidé que je ne pouvais plus rester ici,
 
 #: conversationlist_algangror.json:algangror_story18
 msgid "What had I done, I asked myself? I had never hurt anyone, much less affected anyone with my .. experiments. Am I not allowed to do what I wish?"
-msgstr "Je me demandai, « mais qu'est-ce j'ai bien pu faire ? ». Je n'avais fait de mal a personne, et encore moins affecté qui que ce soit lors de mes... expériences. Est-ce que je n'ai pas le droit de faire ce que je veux ?"
+msgstr "Je me demandais, « mais qu'est-ce j'ai bien pu faire ? ». Je n'avais fait de mal a personne, et encore moins affecté qui que ce soit lors de mes... expériences. N'avais je pas le droit de faire ce que je veux ?"
 
 #: conversationlist_algangror.json:algangror_story19
 msgid "I had little chance to argue, however. The guards led me out of the city. They did not even let me gather my things. All my books, all my notes and all my findings - gone. I lost everything."
-msgstr "Je n'ai pas eu mot mot à dire, malheureusement. Les gardes m'ont conduit hors de la ville. Ils ne m'ont même pas laissé rassembler mes affaires. Tous mes livres, mes notes, mes découvertes - perdus. J'avais tout perdu."
+msgstr "Je n'ai pas eu mon mot à dire, malheureusement. Les gardes m'ont conduit hors de la ville. Ils ne m'ont même pas laissé rassembler mes affaires. Tous mes livres, mes notes, mes découvertes - perdus. J'avais tout perdu."
 
 #: conversationlist_algangror.json:algangror_story19:0
 #: conversationlist_maevalia.json:maevalia15:0
@@ -876,7 +876,7 @@ msgstr "Il y a sûrement quelque chose que j'ai mal compris dans mes livres, car
 
 #: conversationlist_algangror.json:algangror_story26
 msgid "Practice makes perfect, I suppose. Ha ha."
-msgstr "C'est en forgeant qu'on devient forgeront, j'imagine. Ha ha."
+msgstr "C'est en forgeant qu'on devient forgeron, j'imagine. Ha ha."
 
 #: conversationlist_algangror.json:algangror_story26:0
 msgid "Wait, does this mean that those rats I killed for you were.."
@@ -892,11 +892,11 @@ msgstr "Bref, voilà mon histoire. Merci de m'avoir écoutée."
 
 #: conversationlist_algangror.json:algangror_story28:0
 msgid "I understand, and I agree with your actions."
-msgstr "Je comprends, je suis d'accord avec ce vous avez bien fait."
+msgstr "Je comprends, je suis d'accord avec ce vous avez fait."
 
 #: conversationlist_algangror.json:algangror_story28:1
 msgid "I do not fully agree with your actions."
-msgstr "Je ne suis pas sûr que vous auriez du faire tout cela."
+msgstr "Je ne suis pas sûr que vous auriez dû faire tout cela."
 
 #: conversationlist_algangror.json:algangror_story28:2
 msgid "What you did could never be justified!"
@@ -932,7 +932,7 @@ msgstr "Naturellement, j'étais très enthousiasmée par ces nouvelles expérien
 
 #: conversationlist_algangror.json:algangror_story8
 msgid "As I got back home, I wanted to continue practicing what I had observed and learned while in Nor City."
-msgstr "À mon retour, je voulais continuer à pratique ce que j'avais observé et appris pendant mon séjour à Norville."
+msgstr "À mon retour, je voulais continuer à pratiquer ce que j'avais observé et appris pendant mon séjour à Norville."
 
 #: conversationlist_algangror.json:algangror_story9
 msgid "You could say I got obsessed with learning more. I guess the others living in Remgard did not .. share my enthusiasm. Some of them even questioned the fact that I wanted to learn more."
@@ -1001,7 +1001,7 @@ msgstr "Va maintenant, et fais vite, nous n'avons pas beaucoup de temps."
 
 #: conversationlist_algangror.json:algangror_task2_2
 msgid "Nor can I describe my reasoning behind this task before you are done with it."
-msgstr "Je ne peux pas non plus d'expliquer la raison de cette tâche avant que tu l'aie achevée."
+msgstr "Je ne peux pas non plus t'expliquer la raison de cette tâche avant que tu l'aie achevée."
 
 #: conversationlist_algangror.json:algangror_task2_3
 msgid "Rest assured, you will be sufficiently rewarded by helping me. In fact, you see this necklace here? It has some peculiar powers that many people seek."
@@ -1026,7 +1026,7 @@ msgstr "Cela dépend de ce que vous attendez de moi."
 
 #: conversationlist_algangror.json:algangror_task2_4:3
 msgid "Something feels wrong here. I don't think I should help you."
-msgstr "Quelque chose ne m'inspire pas confiant, je ne crois pas que je devrais faire ça."
+msgstr "Quelque chose ne m'inspire pas confiance. Je ne crois pas que je devrais faire ça."
 
 #: conversationlist_algangror.json:algangror_task2_5
 msgid "As I said, I cannot tell you what task I have in mind, or my reasoning behind it until you are done. I would need your total .. cooperation with this."
@@ -1363,7 +1363,7 @@ msgstr "Hmmm, laissez-moi réfléchir."
 
 #: conversationlist_arghes.json:arghes_8
 msgid "No, I cannot tell you anything at this time. You are welcome to return once your path has become .. clearer."
-msgstr "Non, je ne peux encore rien vous dévoiler pour le moment. Vous serez le bienvenu pour en rediscuter quand votre chemin sera devenir... plus clair."
+msgstr "Non, je ne peux encore rien vous dévoiler pour le moment. Vous serez le bienvenu pour en rediscuter quand votre chemin sera devenu... plus clair."
 
 #: conversationlist_arghes.json:arghes_shop
 #: conversationlist_ervelyn.json:ervelyn_shop
@@ -1598,7 +1598,7 @@ msgstr "Il m'a dit que vous avez massacré ses compagnons."
 
 #: conversationlist_aulowenn.json:aulowenn_tq1
 msgid "Of course we have! They've been attacking us, and we've taken precautions by hunting them so they can't kill more of us."
-msgstr "Bien sûr que oui ! Ils nous attaquaient sans répit, nous n'avions pas d'autre choix que de les éliminer afin qu'il ne puissent plus tuer les nôtres."
+msgstr "Bien sûr que oui ! Ils nous attaquaient sans répit, nous n'avions pas d'autre choix que de les éliminer afin qu'ils ne puissent plus tuer les nôtres."
 
 #: conversationlist_aulowenn.json:aulowenn_tq2
 msgid "To think that they believe they have a chance against the forces of Feygard. Hah! We will cut them down like sheep once the reinforcements get here."
@@ -1629,7 +1629,7 @@ msgstr "Vous ne pouvez rien contre moi."
 
 #: conversationlist_aulowenn.json:aulowenn_tq4
 msgid "Hah! See, there are those lies that I told you about. They. Attacked. Us. Get it?"
-msgstr "Ha ! Vous voyez, les voilà ces mensonges dont je vous parlais. Ils. Nous. Ont... Attaqués ! Compris ?"
+msgstr "Ha ! Vous voyez, les voilà ces mensonges dont je vous parlais. Ils. Nous. Ont. Attaqués ! Compris ?"
 
 #: conversationlist_aulowenn.json:aulowenn_wb0
 msgid "Welcome back my friend. Thank you for helping me defeat that foul creature that was haunting the grave of my fellow guards."
@@ -1641,7 +1641,7 @@ msgstr "Splendide !"
 
 #: conversationlist_benbyr.json:benbyr_accept_2
 msgid "I happen to know that there are eight of his sheep in total, and they should all be to the northwest of here."
-msgstr "Je suis informé qu'il y a huit moutons au total, ils devraient tous se trouver au nord-ouest d'ici."
+msgstr "On m'a informé qu'il y a huit moutons au total, ils devraient tous se trouver au nord-ouest d'ici."
 
 #: conversationlist_benbyr.json:benbyr_accept_3
 msgid "Return to me with proof that you have slain all eight of them."
@@ -2064,7 +2064,7 @@ msgid ""
 "\n"
 "Pick any bed you want."
 msgstr ""
-"Bien sûr gamin,tu peux te reposer ici.\n"
+"Bien sûr gamin, tu peux te reposer ici.\n"
 "\n"
 "Prends le lit que tu veux."
 
@@ -2080,7 +2080,7 @@ msgid ""
 "\n"
 "Please browse my selection of fine wares."
 msgstr ""
-"Bienvenue dans mon échope !\n"
+"Bienvenue dans mon échoppe !\n"
 "\n"
 "Veuillez prendre la peine de regarder tous mes articles."
 
@@ -2379,8 +2379,7 @@ msgstr ""
 "Tu as appris quelque chose au sujet de mon mari ? Il devait m'aider à la ferme aujourd'hui, mais comme d'habitude il n'est pas là.\n"
 "Pffff."
 
-#: conversationlist_crossglen_leta.json:leta_oromir1:0
-#: conversationlist_rogorn.json:rogorn_story_6:3
+#: conversationlist_crossglen_leta.json:leta_oromir1:0: conversationlist_rogorn.json:rogorn_story_6:3
 #: conversationlist_rogorn.json:rogorn_story_7:4
 msgid "I have no idea."
 msgstr "Je ne sais pas."
@@ -2806,7 +2805,7 @@ msgstr "Très bien, je vais vous en ramener."
 
 #: conversationlist_fallhaven_athamyr.json:athamyr_complete
 msgid "Thanks, this will do nicely."
-msgstr "Merci,cela ira très bien."
+msgstr "Merci, cela ira très bien."
 
 #: conversationlist_fallhaven_athamyr.json:athamyr_complete_2
 msgid "You have my permission to enter the catacombs of Fallhaven Church."
@@ -2906,7 +2905,7 @@ msgstr "Qu, quoi ? Non, je ne sais rien de tout cela."
 
 #: conversationlist_fallhaven_bucus.json:bucus_umar_1
 msgid "Ok kid. You've proven yourself to me. Yes, I saw some other kid by that description running around here a few days ago."
-msgstr "C'est bon gamin. Tu as fait tes preuves. Oui, j'ai vu un autre gamin ressemblant à cela se baladant dans les environs il y a quelques jours."
+msgstr "C'est bon gamin. Tu as fait tes preuves. Oui, j'ai vu un autre gamin ressemblant à ta description, se baladant dans les environs il y a quelques jours."
 
 #: conversationlist_fallhaven_bucus.json:bucus_umar_2
 msgid "I don't know what he was up to though. He kept asking a lot of questions. Kind of like you do. *snicker*"
@@ -2981,7 +2980,7 @@ msgstr "C'est notre chapelle de piété à Fallhaven. Notre communauté compte s
 
 #: conversationlist_fallhaven_church.json:thoronir_church_2
 msgid "This church has withstood hundreds of years, and has been kept safe from grave robbers."
-msgstr "Cette église se dresse depuis des centaines d'années ; elle nous a protégé des pilleurs de tombes."
+msgstr "Cette église se dresse depuis des centaines d'années, elle nous a protégé des pilleurs de tombes."
 
 #: conversationlist_fallhaven_church.json:thoronir_church_3
 msgid "The catacombs beneath the church house the remains of our passed leaders. Our great King Luthor is rumored to be buried there."
@@ -3007,6 +3006,7 @@ msgstr "D'accord, je vais aller le voir."
 #: conversationlist_fallhaven_church.json:thoronir_complete_2
 msgid "Give me some time to mix the Bonemeal potion. It is a very potent healing potion. Come back in a little while."
 msgstr "Laisse-moi un peu de temps pour concocter des potions d'os. Ce sont des potions de soins très efficaces. Reviens dans quelques temps."
+
 
 #: conversationlist_fallhaven_church.json:thoronir_default
 msgid "Bask in the Shadow, my child."
@@ -3122,7 +3122,7 @@ msgstr "Attends, qui t'es toi ? C'est toi le garde ?"
 
 #: conversationlist_fallhaven_drunk.json:fallhaven_drunk_3_1
 msgid "Oh, sir. I'm not causing any trouble anymore, see? I sits outside now as you says, ok?"
-msgstr "Oh, monsieur. Tu vois, j'fais plus de problème maintenant. Je reste assis comme tu l'as dit maintenant, c'est bon ?"
+msgstr "Oh, monsieur. Tu vois, j'fais plus d'histoires. Je reste assis comme tu l'as dit maintenant, c'est bon ?"
 
 #: conversationlist_fallhaven_drunk.json:fallhaven_drunk_3_2
 msgid "Oh good. That guard threw me out of the tavern. If I see him again I'll show him one thing or another."
@@ -3134,7 +3134,7 @@ msgstr "Boire, boire, boire encore et encore. Boire encore un petit coup ... Eh,
 
 #: conversationlist_fallhaven_drunk.json:fallhaven_drunk_5
 msgid "Were you saying something? Where was I? Yes, so we were in this dungeon."
-msgstr "Tu me parlais ? Où c'était déjà ? Ah oui, on était dans ce donjon."
+msgstr "Tu disais ? Où en étais-je déjà ? Ah oui, on était au donjon."
 
 #: conversationlist_fallhaven_drunk.json:fallhaven_drunk_6
 msgid "Or was it a house? I can't remember."
@@ -3156,7 +3156,7 @@ msgstr ""
 
 #: conversationlist_fallhaven_drunk.json:fallhaven_drunk_9_1
 msgid "Well then give it back! Or go buy me another mead."
-msgstr "Alors tu va me l'a rendre ! Ou alors tu vas m'en acheter d'autre."
+msgstr "Alors tu vas me le rendre ! Ou alors tu vas m'en acheter d'autre."
 
 #: conversationlist_fallhaven_drunk.json:fallhaven_drunk_9_1:0
 #: conversationlist_fallhaven_drunk.json:fallhaven_drunk_9_2:0
@@ -3215,7 +3215,7 @@ msgstr "Considère que c'est une faveur en remerciement de l'aide que tu as appo
 
 #: conversationlist_fallhaven_gaela.json:gaela_r
 msgid "Hello again. I hope you will find what you are looking for."
-msgstr "Hello again. I hope you will find what you are looking for."
+msgstr "Re-bonjour. J'espère que tu trouvera ce que tu cherches."
 
 #: conversationlist_fallhaven_larcal.json:larcal
 msgid "I don't have time for you, kid. Get lost."
@@ -3239,7 +3239,7 @@ msgstr "Écoute, ne nous énervons pas. Tu t'en vas, tu oublies ce livre et peut
 
 #: conversationlist_fallhaven_larcal.json:larcal_3:0
 msgid "Very well. Keep your book."
-msgstr "Très bien, gardez vore livre."
+msgstr "Très bien, gardez votre livre."
 
 #: conversationlist_fallhaven_larcal.json:larcal_3:1
 msgid "No, you will give me that book."
@@ -3268,11 +3268,11 @@ msgstr "Tu es encore là ? Et bien si tu veux tellement avoir ce livre, il va fa
 
 #: conversationlist_fallhaven_larcal.json:larcal_6:0
 msgid "At last, a fight. I have been waiting for this!"
-msgstr "Enfin un bagarre. Je l'attendais !"
+msgstr "Enfin une bagarre. Depuis le temps que j'attends ça !"
 
 #: conversationlist_fallhaven_larcal.json:larcal_6:1
 msgid "I had hoped it wouldn't come to this."
-msgstr "J'aurais préféré que cela n'en arrive pas là.."
+msgstr "J'aurais préféré qu'on en arrive pas là."
 
 #: conversationlist_fallhaven_nocmar.json:nocmar
 msgid "Hello. I'm Nocmar."
@@ -3427,7 +3427,7 @@ msgstr "D'accord, je vais demander à Arcir. Au revoir."
 
 #: conversationlist_fallhaven_oldman.json:fallhaven_oldman_complete
 msgid "My book! Thank you, thank you! Where was it? No, don't tell me. Here, take these coins for your trouble."
-msgstr "Mon livre ! Merci, merci ! Où était-il ? Non, ne me le dites pas. Tenez, prenez cet argent pour votre dédommagement."
+msgstr "Mon livre ! Merci, merci ! Où était-il ? Non, ne me le dites pas. Tenez, prenez cet argent pour vous dédommager."
 
 #: conversationlist_fallhaven_oldman.json:fallhaven_oldman_complete:0
 #: conversationlist_fallhaven_warden.json:fallhaven_warden_36:0
@@ -3488,11 +3488,11 @@ msgstr "Avez-vous des chambres libres ?"
 
 #: conversationlist_fallhaven_tavern.json:bela_room_1
 msgid "A room will cost you only 10 gold."
-msgstr "Une chambre ne vous coûtera que 10 ors."
+msgstr "Une chambre ne vous coûtera que 10 pièces d'ors."
 
 #: conversationlist_fallhaven_tavern.json:bela_room_1:0
 msgid "Buy [10 gold]"
-msgstr "Acheter [10 ors]"
+msgstr "Acheter [10 pièces d'ors]"
 
 #: conversationlist_fallhaven_tavern.json:bela_room_2
 msgid "Thanks. Take the last room down at the end of the hall."
@@ -3518,7 +3518,7 @@ msgstr "Auriez-vous des informations concernant la guilde des voleurs ?"
 
 #: conversationlist_fallhaven_tavern.json:ganos_1
 msgid "Thieves' Guild? How would I know? Do I look like a thief to you?! Hrmpf."
-msgstr "La guilde des voleurs ? Comment saurais-je ? Est-ce que je ressemble à un voleur d'après vous ? Hrmpf."
+msgstr "La guilde des voleurs ? Comment le saurais-je ? Est-ce que je ressemble à un voleur d'après vous ? Hrmpf."
 
 #: conversationlist_fallhaven_unnmir.json:unnmir_0
 msgid "Hi there."
@@ -3574,7 +3574,7 @@ msgstr "Alors quelle est ton histoire, gamin ? Comment es-tu arrivé ici à Fall
 
 #: conversationlist_fallhaven_unnmir.json:unnmir_7
 msgid "Yeah yeah, I get it. Your brother has probably run off to some dungeon, trying to go adventuring. *rolls eyes*"
-msgstr "Ah, oui, je comprends. Ton frère est probablement parti en quête de quelque donjon, à l'aventure. *roule des yeux*"
+msgstr "Ah, oui, je comprends. Ton frère est probablement parti en quête de quelques donjons, à l'aventure. *roule des yeux*"
 
 #: conversationlist_fallhaven_unnmir.json:unnmir_8
 msgid "Or maybe he has gone to one of the bigger cities to the north."
@@ -3586,7 +3586,7 @@ msgstr "Je ne peux guère le blâmer d'avoir envie de voir du pays."
 
 #: conversationlist_fallhaven_unnmir.json:unnmir_r
 msgid "Hello again. You should go talk to Nocmar."
-msgstr "Hello again. You should go talk to Nocmar."
+msgstr "Re-bonjour. Tu devrais parler à Nocmar."
 
 #: conversationlist_fallhaven_unzel.json:unzel_1
 msgid "Hello. I'm Unzel."
@@ -3610,7 +3610,7 @@ msgstr "Il a même commencé à mettre en doute l'Ombre. Je savais que je devais
 
 #: conversationlist_fallhaven_unzel.json:unzel_12
 msgid "I started questioning him about what he was up to, but he just wanted to keep on going."
-msgstr "J'ai commencé à l'interroger sur ce qu'il comptait faire, mais il n'en faisait qu' sa tête."
+msgstr "J'ai commencé à l'interroger sur ce qu'il comptait faire, mais il n'en faisait qu'à sa tête."
 
 #: conversationlist_fallhaven_unzel.json:unzel_13
 msgid "After a while, he became obsessed with the thought of a rift spell. He said it would grant him unlimited powers against the Shadow."
@@ -3691,7 +3691,7 @@ msgstr "Merci pour votre aide. Maintenant, nous sommes à l'abri du sort de scis
 
 #: conversationlist_fallhaven_unzel.json:unzel_40:0
 msgid "I have a message for you from Kaverin in Remgard."
-msgstr "I have a message for you from Kaverin in Remgard"
+msgstr "J'ai un message pour vous de la part de Kaverin de Remgard"
 
 #: conversationlist_fallhaven_unzel.json:unzel_5
 msgid "Thank you for listening."
@@ -3703,7 +3703,7 @@ msgstr "Très bien alors, en garde.."
 
 #: conversationlist_fallhaven_unzel.json:unzel_fight:0
 msgid "A fight it is!"
-msgstr "A fight it is!"
+msgstr "C'est donc un combat !"
 
 #: conversationlist_fallhaven_unzel.json:unzel_return_1
 msgid "Welcome back. Did you talk to Vacor?"
@@ -3799,7 +3799,7 @@ msgstr "Oui, ce sont bien les quatre parties que ces bandits m'ont prises."
 
 #: conversationlist_fallhaven_vacor.json:vacor_42
 msgid "Now I should be able to finish the rift spell and open up the Shadow rift .. erm I mean open up new possibilities. Yes, that's what I meant."
-msgstr "Maintenant je vais pouvoir finir le sort de scission et ouvrir la faille de l'Ombre ... Heu, je veux dire ouvrir les nouvelles possibilités. Oui, c'est ce que je voulais dire."
+msgstr "Maintenant je vais pouvoir finir le sort de scission et ouvrir la faille de l'Ombre ... Heu, je veux dire ouvrir de nouvelles possibilités. Oui, c'est ce que je voulais dire."
 
 #: conversationlist_fallhaven_vacor.json:vacor_43
 msgid "The only obstacle between me and continuing my rift spell research is that stupid Unzel fellow."
@@ -3875,7 +3875,7 @@ msgstr "Quoi ? Il t'a raconté son histoire ? Et tu l'as cru ?"
 
 #: conversationlist_fallhaven_vacor.json:vacor_71
 msgid "I will give you one more chance. Either kill Unzel for me, and I will reward you handsomely, or you will have to fight me."
-msgstr "Je te donne encore une chance. Soit tu tues Unzel pour moi, auquel cas je te récompenserais avec largesse, soit tu devras me combattre."
+msgstr "Je te donne encore une chance. Soit tu tues Unzel pour moi, auquel cas je te récompenserais avec générosité, soit tu devras me combattre."
 
 #: conversationlist_fallhaven_vacor.json:vacor_71:0
 msgid "No. You must be stopped."
@@ -3990,7 +3990,7 @@ msgstr ""
 #: conversationlist_flagstone.json:flagstone_sentry_return2:1
 #: conversationlist_jan.json:jan_default13:1
 msgid "Can you tell me the story again?"
-msgstr "Background"
+msgstr "Pourriez vous me répéter l'histoire s'il vous plaît"
 
 #: conversationlist_foamingflask.json:torilo_1
 msgid "Welcome to the Foaming Flask tavern. We welcome all travelers in here."
@@ -4002,7 +4002,7 @@ msgstr "J'espère que l'Ombre veille sur nous, et que rien n'arrivera à la tave
 
 #: conversationlist_foamingflask.json:torilo_rest_3
 msgid "Oh yes. We have a very comfortable back room here in the Foaming Flask tavern."
-msgstr "Oh oui. Nous avons une chambre très confortable dans cette taverne."
+msgstr "Oui oui. Nous avons une chambre très confortable dans cette taverne."
 
 #: conversationlist_foamingflask_guards.json:ff_captain_4:1
 #: conversationlist_foamingflask_guards.json:ff_guard_rincel_2:0
@@ -4315,7 +4315,7 @@ msgstr "Cela n'est pas grave, il sera probablement bientôt de retour."
 
 #: conversationlist_mikhail.json:mikhail_andor1
 msgid "As I said, Andor went out yesterday and hasn't been back since. I'm starting to worry about him. Please go look for your brother, he said he would only be out a short while."
-msgstr "Comme je te le disais, Andor est sorti hier et n'est pas revenu depuis lors. Je commence à m'inquiéter à son sujet. S'il te plaît, part à sa recherche, il a dit qu'il n'en aurait pas pour très longtemps."
+msgstr "Comme je te le disais, Andor est sorti hier et n'est pas revenu depuis. Je commence à m'inquiéter à son sujet. S'il te plaît, part à sa recherche, il a dit qu'il n'en aurait pas pour très longtemps."
 
 #: conversationlist_mikhail.json:mikhail_andor2
 msgid "Maybe he went into that supply cave again and got stuck. Or maybe he's in Leta's basement training with that wooden sword again. Please go look for him in town."
@@ -4550,7 +4550,7 @@ msgstr "Ce ragoût a l'air abominable"
 
 #: conversationlist_thievesguild_1.json:thievesguild_cook_2:2
 msgid "Never mind, bye"
-msgstr "Non rien, bye"
+msgstr "Non rien, au revoir"
 
 #: conversationlist_thievesguild_1.json:thievesguild_cook_3
 msgid "Thanks. This stew is coming along nicely."
@@ -4558,7 +4558,7 @@ msgstr "Merci. Ce pot-au-feu se présente pas mal."
 
 #: conversationlist_thievesguild_1.json:thievesguild_cook_3:0
 msgid "I'm interested in buying some of that."
-msgstr "Je serais intéressé par en acheter un peu."
+msgstr "Je serais intéressé pour en acheter un peu."
 
 #: conversationlist_thievesguild_1.json:thievesguild_cook_4
 msgid "Yeah, I know. With ingredients this bad, what can you do? Anyway, it keeps us fed."
@@ -4931,7 +4931,7 @@ msgstr "Queue de rat"
 
 #: itemlist_animal.json:shell
 msgid "Insect shell"
-msgstr "Carapace d'animal"
+msgstr "Carapace d'insecte"
 
 #: itemlist_armour.json:armor1
 msgid "Leather armour"
@@ -5415,7 +5415,7 @@ msgstr "Gants du Fauteur de troubles"
 
 #: itemlist_v0610_1.json:gloves_troublemaker:description
 msgid "In Lower Fallhaven there is honor among thieves. Everyone else is a mark."
-msgstr "À Lower Fallhaven il y a du respect entre voleurs. Tous les autres sont des cibles."
+msgstr "Dans les bas-fond de Fallhaven il y a du respect entre voleurs. Tous les autres sont des cibles."
 
 #: itemlist_v0610_1.json:gloves_woodcutter
 msgid "Woodcutter's gloves"
@@ -5867,7 +5867,7 @@ msgstr "Bague de la patrouille de Feygard"
 
 #: itemlist_v068.json:gloves_fancy
 msgid "Fancy gloves"
-msgstr "Gants fantaisistes"
+msgstr "Gants luxueux"
 
 #: itemlist_v068.json:gloves_grip
 msgid "Gloves of better grip"
@@ -6007,7 +6007,7 @@ msgstr "Gants tâchés de sang"
 
 #: itemlist_v069_questitems.json:bjorgur_dagger
 msgid "Bjorgur's family dagger"
-msgstr "Dague de famille de Bjorgur"
+msgstr "Dague familial de Bjorgur"
 
 #: itemlist_v069_questitems.json:bwm_claws
 msgid "White wyrm claw"
@@ -6776,7 +6776,7 @@ msgstr "Habitant maussade"
 #: monsterlist_v0611_npcs2.json:remgard_g3
 #: monsterlist_v070_npcs.json:charwd_guard
 msgid "Guard"
-msgstr "Guard"
+msgstr "Garde"
 
 #: monsterlist_fallhaven_npcs.json:jakrar
 msgid "Jakrar"
@@ -6861,55 +6861,55 @@ msgstr "Rat"
 #: monsterlist_v0610_monsters1.json:fieldwasp_2
 #: monsterlist_v0610_npcs1.json:fieldwasp_unique
 msgid "Frantic forest wasp"
-msgstr "Frantic forest wasp"
+msgstr "Guêpe sylveste énervé"
 
 #: monsterlist_v0610_monsters1.json:frog_1
 msgid "River frog"
-msgstr "River frog"
+msgstr "Grenouille de rivière"
 
 #: monsterlist_v0610_monsters1.json:frog_2
 msgid "Tough river frog"
-msgstr "Tough river frog"
+msgstr "Grenouille de rivière coricace"
 
 #: monsterlist_v0610_monsters1.json:frog_3
 msgid "Poisonous river frog"
-msgstr "Poisonous river frog"
+msgstr "Grenouille de rivère venimeuse"
 
 #: monsterlist_v0610_monsters1.json:grass_ant
 msgid "Grasslands ant"
-msgstr "Grasslands ant"
+msgstr "Fourmi des plaines"
 
 #: monsterlist_v0610_monsters1.json:grass_ant2
 msgid "Tough grasslands ant"
-msgstr "Tough grasslands ant"
+msgstr "Fourmi des plaines coriace"
 
 #: monsterlist_v0610_monsters1.json:grass_beetle
 msgid "Grasslands beetle"
-msgstr "Grasslands beetle"
+msgstr "Scarabée des plaines"
 
 #: monsterlist_v0610_monsters1.json:grass_beetle2
 msgid "Tough grasslands beetle"
-msgstr "Tough grasslands beetle"
+msgstr "Scarabée des plaines coriace"
 
 #: monsterlist_v0610_monsters1.json:grass_lizard
 msgid "Grasslands lizard"
-msgstr "Grasslands lizard"
+msgstr "Lézard des plaines"
 
 #: monsterlist_v0610_monsters1.json:grass_lizard2
 msgid "Black grasslands lizard"
-msgstr "Black grasslands lizard"
+msgstr "Lézard des plaines noir"
 
 #: monsterlist_v0610_monsters1.json:grass_snake
 msgid "Grasslands snake"
-msgstr "Grasslands snake"
+msgstr "Serpent des plaines"
 
 #: monsterlist_v0610_monsters1.json:grass_snake2
 msgid "Tough grasslands snake"
-msgstr "Tough grasslands snake"
+msgstr "Serpent des plaines coriace"
 
 #: monsterlist_v0610_monsters1.json:izthiel_1
 msgid "Young Izthiel"
-msgstr "Young Izthiel"
+msgstr "Jeune Izthiel"
 
 #: monsterlist_v0610_monsters1.json:izthiel_2
 msgid "Izthiel"
@@ -6917,12 +6917,12 @@ msgstr "Izthiel"
 
 #: monsterlist_v0610_monsters1.json:izthiel_3
 msgid "Strong Izthiel"
-msgstr "Strong Izthiel"
+msgstr "Gros Izthiel"
 
 #: monsterlist_v0610_monsters1.json:izthiel_4
 #: monsterlist_v0611_npcs2.json:izthiel_cr
 msgid "Izthiel Guardian"
-msgstr "Izthiel Guardian"
+msgstr "Gardien Izthiel"
 
 #: monsterlist_v0610_monsters1.json:keknazar
 msgid "Keknazar"
@@ -6931,69 +6931,69 @@ msgstr "Keknazar"
 #: monsterlist_v0610_monsters1.json:larval_boss
 #: monsterlist_v0611_monsters1.json:burrower_3
 msgid "Strong larval burrower"
-msgstr "Strong larval burrower"
+msgstr "Grosse larve de terrier"
 
 #: monsterlist_v0610_monsters1.json:larval_burrower
 msgid "Larval burrower"
-msgstr "Larval burrower"
+msgstr "Larve de terrier"
 
 #: monsterlist_v0610_monsters1.json:rivertroll
 msgid "River troll"
-msgstr "River troll"
+msgstr "Troll des rivières"
 
 #: monsterlist_v0610_monsters1.json:young_larval_burrower
 msgid "Young larval burrower"
-msgstr "Young larval burrower"
+msgstr "Jeune larve des terriers"
 
 #: monsterlist_v0610_monsters2.json:iqhan_1a
 msgid "Iqhan worker thrall"
-msgstr "Iqhan worker thrall"
+msgstr "Travailleur esclave Iqhan"
 
 #: monsterlist_v0610_monsters2.json:iqhan_1b
 msgid "Iqhan thrall servant"
-msgstr "Iqhan thrall servant"
+msgstr "Servant esclave Iqhan"
 
 #: monsterlist_v0610_monsters2.json:iqhan_2a
 msgid "Iqhan guard thrall"
-msgstr "Iqhan guard thrall"
+msgstr "Guarde esclave Iqhan"
 
 #: monsterlist_v0610_monsters2.json:iqhan_2b
 msgid "Iqhan thrall"
-msgstr "Iqhan thrall"
+msgstr "Esclave Iqhan"
 
 #: monsterlist_v0610_monsters2.json:iqhan_3a
 msgid "Iqhan warrior thrall"
-msgstr "Iqhan warrior thrall"
+msgstr "Soldat esclave Iqhan"
 
 #: monsterlist_v0610_monsters2.json:iqhan_3b
 #: monsterlist_v0610_monsters2.json:iqhan_4a
 #: monsterlist_v0610_monsters2.json:iqhan_4b
 msgid "Iqhan master"
-msgstr "Iqhan master"
+msgstr "Maître Iqhan"
 
 #: monsterlist_v0610_monsters2.json:iqhan_boss
 msgid "Iqhan chaos enslaver"
-msgstr "Iqhan chaos enslaver"
+msgstr "Esclavagiste du chaos Iqhan"
 
 #: monsterlist_v0610_monsters2.json:iqhan_ch_1a
 #: monsterlist_v0610_monsters2.json:iqhan_ch_1b
 msgid "Iqhan chaos evoker"
-msgstr "Iqhan chaos evoker"
+msgstr "Invoqueur du chaos Iqhan"
 
 #: monsterlist_v0610_monsters2.json:iqhan_ch_2a
 #: monsterlist_v0610_monsters2.json:iqhan_ch_2b
 msgid "Iqhan chaos servant"
-msgstr "Iqhan chaos servant"
+msgstr "Serviteur du chaos Iqhan"
 
 #: monsterlist_v0610_monsters2.json:iqhan_ch_3a
 #: monsterlist_v0610_monsters2.json:iqhan_ch_3b
 msgid "Iqhan chaos master"
-msgstr "Iqhan chaos master"
+msgstr "Maître du chaos Iqhan"
 
 #: monsterlist_v0610_monsters2.json:iqhan_chb_1a
 #: monsterlist_v0610_monsters2.json:iqhan_chb_1b
 msgid "Iqhan chaos beast"
-msgstr "Iqhan chaos beast"
+msgstr "Bête du chaos Iqhan"
 
 #: monsterlist_v0610_monsters2.json:iqhan_greeter
 msgid "Rancent"
@@ -7025,7 +7025,7 @@ msgstr "Conren"
 
 #: monsterlist_v0610_npcs1.json:crossroads_guest
 msgid "Visitor"
-msgstr "Visitor"
+msgstr "Visiteur"
 
 #: monsterlist_v0610_npcs1.json:erinith
 msgid "Erinith"
@@ -7037,7 +7037,7 @@ msgstr "Fanamor"
 
 #: monsterlist_v0610_npcs1.json:feygard_bridgeguard
 msgid "Feygard bridge guard"
-msgstr "Feygard bridge guard"
+msgstr "Garde du pont de Feygard"
 
 #: monsterlist_v0610_npcs1.json:gallain
 msgid "Gallain"
@@ -7065,7 +7065,7 @@ msgstr "Kuldan"
 
 #: monsterlist_v0610_npcs1.json:kuldan_guard
 msgid "Kuldan's Guard"
-msgstr "Kuldan's Guard"
+msgstr "Garde de Kuldan"
 
 #: monsterlist_v0610_npcs1.json:landa
 msgid "Landa"
@@ -7073,11 +7073,11 @@ msgstr "Landa"
 
 #: monsterlist_v0610_npcs1.json:loneford_chapelguard
 msgid "Chapel guard"
-msgstr "Chapel guard"
+msgstr "Garde de la chapelle"
 
 #: monsterlist_v0610_npcs1.json:loneford_tavern_patron
 msgid "Tavern owner"
-msgstr "Tavern owner"
+msgstr "Tavernier"
 
 #: monsterlist_v0610_npcs1.json:loneford_villager0
 #: monsterlist_v0610_npcs1.json:loneford_villager1
@@ -7085,14 +7085,14 @@ msgstr "Tavern owner"
 #: monsterlist_v0610_npcs1.json:loneford_villager3
 #: monsterlist_v0610_npcs1.json:loneford_villager4
 msgid "Villager"
-msgstr "Villager"
+msgstr "Villageois"
 
 #: monsterlist_v0610_npcs1.json:lostsheep1
 #: monsterlist_v0610_npcs1.json:lostsheep2
 #: monsterlist_v0610_npcs1.json:lostsheep3
 #: monsterlist_v0610_npcs1.json:lostsheep4 monsterlist_v0610_npcs1.json:sheep1
 msgid "Sheep"
-msgstr "Sheep"
+msgstr "Mouton"
 
 #: monsterlist_v0610_npcs1.json:mienn
 msgid "Mienn"
@@ -7104,7 +7104,7 @@ msgstr "Minarra"
 
 #: monsterlist_v0610_npcs1.json:puny_warehouserat
 msgid "Warehouse rat"
-msgstr "Warehouse rat"
+msgstr "Rat d'entrepôt"
 
 #: monsterlist_v0610_npcs1.json:rogorn
 msgid "Rogorn"
@@ -7112,7 +7112,7 @@ msgstr "Rogorn"
 
 #: monsterlist_v0610_npcs1.json:rogorn_henchman
 msgid "Rogorn's henchman"
-msgstr "Rogorn's henchman"
+msgstr "Homme de main de Rogorn"
 
 #: monsterlist_v0610_npcs1.json:rolwynn
 msgid "Rolwynn"
@@ -7124,7 +7124,7 @@ msgstr "Sienn"
 
 #: monsterlist_v0610_npcs1.json:sienn_pet
 msgid "Sienn's pet"
-msgstr "Sienn's pet"
+msgstr "Animal de compagnie de Sienn"
 
 #: monsterlist_v0610_npcs1.json:siola
 msgid "Siola"
@@ -7156,11 +7156,11 @@ msgstr "Wallach"
 #: monsterlist_v0610_npcs1.json:woodcutter_4
 #: monsterlist_v0610_npcs1.json:woodcutter_5
 msgid "Woodcutter"
-msgstr "Woodcutter"
+msgstr "Bûcheron"
 
 #: monsterlist_v0611_monsters1.json:allaceph_1
 msgid "Young Allaceph"
-msgstr "Young Allaceph"
+msgstr "Jeune Allaceph"
 
 #: monsterlist_v0611_monsters1.json:allaceph_2
 msgid "Allaceph"
@@ -7168,20 +7168,20 @@ msgstr "Allaceph"
 
 #: monsterlist_v0611_monsters1.json:allaceph_3
 msgid "Strong Allaceph"
-msgstr "Strong Allaceph"
+msgstr "Gros Allaceph"
 
 #: monsterlist_v0611_monsters1.json:allaceph_4
 msgid "Tough Allaceph"
-msgstr "Tough Allaceph"
+msgstr "Allaceph coriace"
 
 #: monsterlist_v0611_monsters1.json:allaceph_5
 msgid "Radiant Allaceph"
-msgstr "Radiant Allaceph"
+msgstr "Allaceph radieux"
 
 #: monsterlist_v0611_monsters1.json:allaceph_6
 #: monsterlist_v0611_npcs2.json:allaceph_cr
 msgid "Ancient Allaceph"
-msgstr "Ancient Allaceph"
+msgstr "Allaceph ancient"
 
 #: monsterlist_v0611_monsters1.json:arulir_1
 msgid "Arulir"
@@ -7189,56 +7189,56 @@ msgstr "Arulir"
 
 #: monsterlist_v0611_monsters1.json:arulir_2
 msgid "Giant Arulir"
-msgstr "Giant Arulir"
+msgstr "Arulir géant"
 
 #: monsterlist_v0611_monsters1.json:burrower_1
 msgid "Larval cave burrower"
-msgstr "Larval cave burrower"
+msgstr "Larve de terrier de cave"
 
 #: monsterlist_v0611_monsters1.json:burrower_2
 msgid "Cave burrower"
-msgstr "Cave burrower"
+msgstr "Terrier de cave"
 
 #: monsterlist_v0611_monsters1.json:burrower_4
 #: monsterlist_v0611_npcs2.json:burrower_cr
 msgid "Giant larval burrower"
-msgstr "Giant larval burrower"
+msgstr "Larve géante de terrier"
 
 #: monsterlist_v0611_monsters1.json:cbeetle_1
 msgid "Young carrion beetle"
-msgstr "Young carrion beetle"
+msgstr "Jeune scarabée charognard"
 
 #: monsterlist_v0611_monsters1.json:cbeetle_2
 msgid "Carrion beetle"
-msgstr "Carrion beetle"
+msgstr "Scarabée charognard"
 
 #: monsterlist_v0611_monsters1.json:erumen_1
 msgid "Young Erumem Lizard"
-msgstr "Young Erumem Lizard"
+msgstr "Jeune lézard d'Erumem"
 
 #: monsterlist_v0611_monsters1.json:erumen_2
 msgid "Spotted Erumem Lizard"
-msgstr "Spotted Erumem Lizard"
+msgstr "Lézard à pois d'Erumem"
 
 #: monsterlist_v0611_monsters1.json:erumen_3
 msgid "Erumem Lizard"
-msgstr "Erumem Lizard"
+msgstr "Lézard à pois"
 
 #: monsterlist_v0611_monsters1.json:erumen_4
 msgid "Strong Erumen Lizard"
-msgstr "Strong Erumen Lizard"
+msgstr "Gros lézard à pois"
 
 #: monsterlist_v0611_monsters1.json:erumen_5
 msgid "Vile Erumen Lizard"
-msgstr "Vile Erumen Lizard"
+msgstr "Infâme lézard à pois"
 
 #: monsterlist_v0611_monsters1.json:erumen_6
 msgid "Tough Erumen Lizard"
-msgstr "Tough Erumen Lizard"
+msgstr "Lézard à pois coriace"
 
 #: monsterlist_v0611_monsters1.json:erumen_7
 msgid "Hardened Erumen Lizard"
-msgstr "Hardened Erumen Lizard"
+msgstr "Lézard à pois résistant"
 
 #: monsterlist_v0611_monsters1.json:irdegh_1
 msgid "Irdegh"
@@ -7246,15 +7246,15 @@ msgstr "Irdegh"
 
 #: monsterlist_v0611_monsters1.json:irdegh_2
 msgid "Venomous Irdegh"
-msgstr "Venomous Irdegh"
+msgstr "Irdegh venimeux"
 
 #: monsterlist_v0611_monsters1.json:irdegh_3
 msgid "Piercing Irdegh"
-msgstr "Piercing Irdegh"
+msgstr "Irdegh cinglant"
 
 #: monsterlist_v0611_monsters1.json:irdegh_4
 msgid "Ancient piercing Irdegh"
-msgstr "Ancient piercing Irdegh"
+msgstr "Ancien Irdegh cinglant"
 
 #: monsterlist_v0611_monsters1.json:irdegh_sp_1
 #: monsterlist_v0611_monsters1.json:irdegh_sp_2
@@ -7263,108 +7263,108 @@ msgstr "Engeance d'Irdegh"
 
 #: monsterlist_v0611_monsters1.json:maonit_1
 msgid "Maonit troll"
-msgstr "Maonit troll"
+msgstr "Troll Maonit"
 
 #: monsterlist_v0611_monsters1.json:maonit_2
 msgid "Giant Maonit troll"
-msgstr "Giant Maonit troll"
+msgstr "Troll géant Maonit"
 
 #: monsterlist_v0611_monsters1.json:maonit_3
 msgid "Strong Maonit troll"
-msgstr "Strong Maonit troll"
+msgstr "Gros troll Maonit"
 
 #: monsterlist_v0611_monsters1.json:maonit_4
 msgid "Maonit brute"
-msgstr "Maonit brute"
+msgstr "Brute Maonit"
 
 #: monsterlist_v0611_monsters1.json:maonit_5
 msgid "Tough Maonit brute"
-msgstr "Tough Maonit brute"
+msgstr "Brute Maonit coriace"
 
 #: monsterlist_v0611_monsters1.json:maonit_6
 #: monsterlist_v0611_npcs2.json:maonit_cr
 msgid "Strong Maonit brute"
-msgstr "Strong Maonit brute"
+msgstr "Grosse brute Maonit"
 
 #: monsterlist_v0611_monsters1.json:mbrute_1
 msgid "Young mountain brute"
-msgstr "Young mountain brute"
+msgstr "Jeune brute des montagnes"
 
 #: monsterlist_v0611_monsters1.json:mbrute_10
 msgid "Tough mountain brute"
-msgstr "Tough mountain brute"
+msgstr "Brute coriace des montagnes"
 
 #: monsterlist_v0611_monsters1.json:mbrute_11
 msgid "Fearless mountain brute"
-msgstr "Fearless mountain brute"
+msgstr "Brute sans peurs des montagnes"
 
 #: monsterlist_v0611_monsters1.json:mbrute_12
 msgid "Enraged mountain brute"
-msgstr "Enraged mountain brute"
+msgstr "Brute enragée des montagnes"
 
 #: monsterlist_v0611_monsters1.json:mbrute_2
 msgid "Weak mountain brute"
-msgstr "Weak mountain brute"
+msgstr "Brute faible des montagnes"
 
 #: monsterlist_v0611_monsters1.json:mbrute_3
 msgid "Whitefur mountain brute"
-msgstr "Whitefur mountain brute"
+msgstr "Brute à fourure blanche des montagnes"
 
 #: monsterlist_v0611_monsters1.json:mbrute_4
 msgid "Mountain brute"
-msgstr "Mountain brute"
+msgstr "Brute des montagnes"
 
 #: monsterlist_v0611_monsters1.json:mbrute_5
 msgid "Large mountain brute"
-msgstr "Large mountain brute"
+msgstr "Brute large des montagnes"
 
 #: monsterlist_v0611_monsters1.json:mbrute_6
 msgid "Fast mountain brute"
-msgstr "Fast mountain brute"
+msgstr "Brute très rapide des montagnes"
 
 #: monsterlist_v0611_monsters1.json:mbrute_7
 msgid "Quick mountain brute"
-msgstr "Quick mountain brute"
+msgstr "Brute rapide des montagnes"
 
 #: monsterlist_v0611_monsters1.json:mbrute_8
 msgid "Aggressive mountain brute"
-msgstr "Aggressive mountain brute"
+msgstr "Brute aggressive tes montagnes"
 
 #: monsterlist_v0611_monsters1.json:mbrute_9
 msgid "Strong mountain brute"
-msgstr "Strong mountain brute"
+msgstr "Grosse brute des montagnes"
 
 #: monsterlist_v0611_monsters1.json:mwolf_1
 msgid "Mountain wolf pup"
-msgstr "Mountain wolf pup"
+msgstr "Louveteau des montagnes"
 
 #: monsterlist_v0611_monsters1.json:mwolf_2
 msgid "Young mountain wolf"
-msgstr "Young mountain wolf"
+msgstr "Jeune loup des montagnes"
 
 #: monsterlist_v0611_monsters1.json:mwolf_3
 msgid "Young mountain fox"
-msgstr "Young mountain fox"
+msgstr "Jeune renard des montagnes"
 
 #: monsterlist_v0611_monsters1.json:mwolf_4
 msgid "Mountain fox"
-msgstr "Mountain fox"
+msgstr "Renard des montagnes"
 
 #: monsterlist_v0611_monsters1.json:mwolf_5
 msgid "Ferocious mountain fox"
-msgstr "Ferocious mountain fox"
+msgstr "Renard féroce des montagnes"
 
 #: monsterlist_v0611_monsters1.json:mwolf_6
 msgid "Rabid mountain wolf"
-msgstr "Rabid mountain wolf"
+msgstr "Loup enragé des montagnes"
 
 #: monsterlist_v0611_monsters1.json:mwolf_7
 msgid "Strong mountain wolf"
-msgstr "Strong mountain wolf"
+msgstr "Gros loup des montagnes"
 
 #: monsterlist_v0611_monsters1.json:mwolf_8
 msgid "Ferocious mountain wolf"
-msgstr "Ferocious mountain wolf"
+msgstr "Loup féroce des montagnes"
 
 #: monsterlist_v0611_monsters1.json:plaguesp_1
 msgid "Puny Plaguecrawler"
@@ -7372,20 +7372,20 @@ msgstr "Peste-rampant chétif"
 
 #: monsterlist_v0611_monsters1.json:plaguesp_10
 msgid "Vile Plaguestrider"
-msgstr "Vile Plaguestrider"
+msgstr "Vile Marche-peste"
 
 #: monsterlist_v0611_monsters1.json:plaguesp_11
 msgid "Nesting Plaguestrider"
-msgstr "Nesting Plaguestrider"
+msgstr "Marche-peste nichant"
 
 #: monsterlist_v0611_monsters1.json:plaguesp_12
 msgid "Plaguestrider servant"
-msgstr "Plaguestrider servant"
+msgstr "Servant Marche-peste"
 
 #: monsterlist_v0611_monsters1.json:plaguesp_13
 #: monsterlist_v0611_npcs2.json:plaguesp_cr
 msgid "Plaguestrider master"
-msgstr "Plaguestrider master"
+msgstr "Maître Marche-peste"
 
 #: monsterlist_v0611_monsters1.json:plaguesp_2
 msgid "Plaguecrawler"
@@ -7401,31 +7401,31 @@ msgstr "Peste-rampant noir"
 
 #: monsterlist_v0611_monsters1.json:plaguesp_5
 msgid "Plaguestrider"
-msgstr "Plaguestrider"
+msgstr "Marche-peste"
 
 #: monsterlist_v0611_monsters1.json:plaguesp_6
 msgid "Hardshell Plaguestrider"
-msgstr "Hardshell Plaguestrider"
+msgstr "Marche-peste cuirassé"
 
 #: monsterlist_v0611_monsters1.json:plaguesp_7
 msgid "Tough Plaguestrider"
-msgstr "Tough Plaguestrider"
+msgstr "Marche-peste coriace"
 
 #: monsterlist_v0611_monsters1.json:plaguesp_8
 msgid "Wooly Plaguestrider"
-msgstr "Wooly Plaguestrider"
+msgstr "Marche-peste laineux"
 
 #: monsterlist_v0611_monsters1.json:plaguesp_9
 msgid "Tough wooly Plaguestrider"
-msgstr "Tough wooly Plaguestrider"
+msgstr "Marche-peste laineux coriace"
 
 #: monsterlist_v0611_monsters1.json:scaradon_1
 msgid "Young Scaradon"
-msgstr "Young Scaradon"
+msgstr "Jeune Scaradon"
 
 #: monsterlist_v0611_monsters1.json:scaradon_2
 msgid "Small Scaradon"
-msgstr "Small Scaradon"
+msgstr "Petit Scaradon"
 
 #: monsterlist_v0611_monsters1.json:scaradon_3
 msgid "Scaradon"
@@ -7433,11 +7433,11 @@ msgstr "Scaradon"
 
 #: monsterlist_v0611_monsters1.json:scaradon_4
 msgid "Tough Scaradon"
-msgstr "Tough Scaradon"
+msgstr "Scaradon coriace"
 
 #: monsterlist_v0611_monsters1.json:scaradon_5
 msgid "Hardshell Scaradon"
-msgstr "Hardshell Scaradon"
+msgstr "Scaradon cuirassé"
 
 #: monsterlist_v0611_monsters1.json:vaeregh_1
 msgid "Vaeregh"
@@ -7453,15 +7453,15 @@ msgstr "Gylew"
 
 #: monsterlist_v0611_npcs1.json:gylew_henchman
 msgid "Gylew's henchman"
-msgstr "Gylew's henchman"
+msgstr "Homme de main Gylew"
 
 #: monsterlist_v0611_npcs1.json:lonelyhouse_sp
 msgid "Basement rat"
-msgstr "Basement rat"
+msgstr "Rat de cave"
 
 #: monsterlist_v0611_npcs1.json:remgard_bridge
 msgid "Bridge lookout"
-msgstr "Bridge lookout"
+msgstr "Guetteur du pont"
 
 #: monsterlist_v0611_npcs1.json:thorin
 msgid "Thorin"
@@ -7473,7 +7473,7 @@ msgstr "Toszylae"
 
 #: monsterlist_v0611_npcs1.json:toszylae_guard
 msgid "Radiant guardian"
-msgstr "Radiant guardian"
+msgstr "Gardien radieux"
 
 #: monsterlist_v0611_npcs1.json:ulirfendor
 msgid "Ulirfendor"
@@ -7526,7 +7526,7 @@ msgstr "Elwyl"
 #: monsterlist_v0611_npcs2.json:elythom_kn1
 #: monsterlist_v0611_npcs2.json:elythom_kn2
 msgid "Knight of Elythom"
-msgstr "Chevailer d'Elythom"
+msgstr "Chevalier d'Elythom"
 
 #: monsterlist_v0611_npcs2.json:emerei
 msgid "Emerei"
@@ -7604,7 +7604,7 @@ msgstr "Reinkarr"
 #: monsterlist_v0611_npcs2.json:remgard_d2
 #: monsterlist_v068_npcs.json:tavern_guest
 msgid "Tavern guest"
-msgstr "Invité de la taverne"
+msgstr "Client de la taverne"
 
 #: monsterlist_v0611_npcs2.json:remgard_pg
 msgid "Prison Guard"
@@ -7795,7 +7795,7 @@ msgstr "Engeance des tombes"
 
 #: monsterlist_v069_monsters.json:graverobber
 msgid "Graverobber"
-msgstr "Graverobber"
+msgstr "Pilleur de tombe"
 
 #: monsterlist_v069_monsters.json:hatchling_white_wyrm
 msgid "Hatchling white wyrm"
@@ -7803,11 +7803,11 @@ msgstr "Wyrm blanc juste éclos"
 
 #: monsterlist_v069_monsters.json:kazaul_guardian
 msgid "Kazaul guardian"
-msgstr "Kazaul guardian"
+msgstr "Gardien Kazaul"
 
 #: monsterlist_v069_monsters.json:kazaul_imp
 msgid "Kazaul imp"
-msgstr "Kazaul imp"
+msgstr "Lutin Kazaul"
 
 #: monsterlist_v069_monsters.json:kazaul_spawn
 msgid "Kazaul spawn"
@@ -7823,7 +7823,7 @@ msgstr "Chien de chasse enragé"
 
 #: monsterlist_v069_monsters.json:restless_apparition
 msgid "Restless apparition"
-msgstr "Restless apparition"
+msgstr "Apparition tourmentée"
 
 #: monsterlist_v069_monsters.json:restless_dead
 msgid "Restless dead"
@@ -7835,7 +7835,7 @@ msgstr "Croc de venin géant"
 
 #: monsterlist_v069_monsters.json:skeletal_reaper
 msgid "Skeletal reaper"
-msgstr "Skeletal reaper"
+msgstr "Moissonneur de squelettes"
 
 #: monsterlist_v069_monsters.json:slithering_venomfang
 msgid "Slithering venomfang"
@@ -7901,47 +7901,47 @@ msgstr "Bjorgur"
 
 #: monsterlist_v069_npcs.json:blackwater_border_patrol
 msgid "Blackwater border patrol"
-msgstr "Blackwater border patrol"
+msgstr "Garde de frontière de Blackwater"
 
 #: monsterlist_v069_npcs.json:blackwater_chamber_guard
 msgid "Blackwater chamber guard"
-msgstr "Blackwater chamber guard"
+msgstr "Garde Blackwater"
 
 #: monsterlist_v069_npcs.json:blackwater_cook
 msgid "Blackwater cook"
-msgstr "Blackwater cook"
+msgstr "Cuisinier de Blackwater"
 
 #: monsterlist_v069_npcs.json:blackwater_dinner_guest
 msgid "Blackwater dinner guest"
-msgstr "Blackwater dinner guest"
+msgstr "Invité du banquet de Blackwater"
 
 #: monsterlist_v069_npcs.json:blackwater_entrance_guard
 msgid "Blackwater entrance guard"
-msgstr "Blackwater entrance guard"
+msgstr "Gardien de l'entrée de Blackwater"
 
 #: monsterlist_v069_npcs.json:blackwater_fighter
 msgid "Blackwater fighter"
-msgstr "Blackwater fighter"
+msgstr "Combattant de Blackwater"
 
 #: monsterlist_v069_npcs.json:blackwater_guard
 msgid "Blackwater guard"
-msgstr "Blackwater guard"
+msgstr "Garde Blackwater"
 
 #: monsterlist_v069_npcs.json:blackwater_inhabitant
 msgid "Blackwater inhabitant"
-msgstr "Blackwater inhabitant"
+msgstr "Habitant de Blackwater"
 
 #: monsterlist_v069_npcs.json:blackwater_mage
 msgid "Blackwater mage"
-msgstr "Blackwater mage"
+msgstr "Mage de Blackwater"
 
 #: monsterlist_v069_npcs.json:blackwater_priest
 msgid "Blackwater priest"
-msgstr "Blackwater priest"
+msgstr "Prête de Blackwater"
 
 #: monsterlist_v069_npcs.json:blackwater_pupil
 msgid "Blackwater pupil"
-msgstr "Blackwater pupil"
+msgstr "Élève de Blackwater"
 
 #: monsterlist_v069_npcs.json:fulus
 msgid "Fulus"
@@ -7953,7 +7953,7 @@ msgstr "Guthbered"
 
 #: monsterlist_v069_npcs.json:guthbereds_bodyguard
 msgid "Guthbered's bodyguard"
-msgstr "Guthbered's bodyguard"
+msgstr "Garde du corps de Guthbered"
 
 #: monsterlist_v069_npcs.json:harlenn
 msgid "Harlenn"
@@ -7961,7 +7961,7 @@ msgstr "Harlenn"
 
 #: monsterlist_v069_npcs.json:harlenns_bodyguard
 msgid "Harlenn's bodyguard"
-msgstr "Harlenn's bodyguard"
+msgstr "Garde du corps d'Harlenn"
 
 #: monsterlist_v069_npcs.json:herec
 msgid "Herec"
@@ -7997,79 +7997,79 @@ msgstr "Moyra"
 
 #: monsterlist_v069_npcs.json:prim_armorer
 msgid "Prim armorer"
-msgstr "Prim armorer"
+msgstr "Armurier de Prim"
 
 #: monsterlist_v069_npcs.json:prim_bar_guest
 msgid "Prim bar guest"
-msgstr "Prim bar guest"
+msgstr "Client du bar de Prim"
 
 #: monsterlist_v069_npcs.json:prim_bar_regular
 msgid "Prim bar regular"
-msgstr "Prim bar regular"
+msgstr "Habitué du bar de Prim"
 
 #: monsterlist_v069_npcs.json:prim_citizen
 msgid "Prim citizen"
-msgstr "Prim citizen"
+msgstr "Citoyen de Prim"
 
 #: monsterlist_v069_npcs.json:prim_commoner
 msgid "Prim commoner"
-msgstr "Prim commoner"
+msgstr "Roturier de Prim"
 
 #: monsterlist_v069_npcs.json:prim_cook
 msgid "Prim cook"
-msgstr "Prim cook"
+msgstr "Cusinier de Prim"
 
 #: monsterlist_v069_npcs.json:prim_evoker
 msgid "Prim evoker"
-msgstr "Prim evoker"
+msgstr "Invoqueur de Prim"
 
 #: monsterlist_v069_npcs.json:prim_guard
 msgid "Prim guard"
-msgstr "Prim guard"
+msgstr "Garde de Prim"
 
 #: monsterlist_v069_npcs.json:prim_priestly_acolyte
 msgid "Prim priestly acolyte"
-msgstr "Prim priestly acolyte"
+msgstr "Acolyte prêtre de Prim"
 
 #: monsterlist_v069_npcs.json:prim_prisoner
 msgid "Prim prisoner"
-msgstr "Prim prisoner"
+msgstr "Prisonnier de Prim"
 
 #: monsterlist_v069_npcs.json:prim_pupil
 msgid "Prim pupil"
-msgstr "Prim pupil"
+msgstr "Élève de Prim"
 
 #: monsterlist_v069_npcs.json:prim_resident
 msgid "Prim resident"
-msgstr "Prim resident"
+msgstr "Habitant de Prim"
 
 #: monsterlist_v069_npcs.json:prim_sentry
 msgid "Prim sentry"
-msgstr "Prim sentry"
+msgstr "Sentinelle de Prim"
 
 #: monsterlist_v069_npcs.json:prim_tavern_guest
 msgid "Prim tavern guest"
-msgstr "Prim tavern guest"
+msgstr "Client de la taverne de Prim"
 
 #: monsterlist_v069_npcs.json:prim_tavern_regular
 msgid "Prim tavern regular"
-msgstr "Prim tavern regular"
+msgstr "Habitué de la taverne de Prim"
 
 #: monsterlist_v069_npcs.json:prim_treasury_guard
 msgid "Prim treasury guard"
-msgstr "Prim treasury guard"
+msgstr "Garde du trésor de Prim"
 
 #: monsterlist_v069_npcs.json:prim_visitor
 msgid "Prim visitor"
-msgstr "Prim visitor"
+msgstr "Visiteur de Prim"
 
 #: monsterlist_v069_npcs.json:prim_weapon_guard
 msgid "Prim weapon guard"
-msgstr "Prim weapon guard"
+msgstr "Garde des armes de Prim"
 
 #: monsterlist_v069_npcs.json:reading_prim_pupil
 msgid "Reading Prim pupil"
-msgstr "Reading Prim pupil"
+msgstr "Élève de Prim en pleine lecture"
 
 #: monsterlist_v069_npcs.json:samar
 msgid "Samar"
@@ -8077,11 +8077,11 @@ msgstr "Samar"
 
 #: monsterlist_v069_npcs.json:studying_blackwater_priest
 msgid "Studying Blackwater priest"
-msgstr "Studying Blackwater priest"
+msgstr "Prêtre en pleine étude de Blackwater"
 
 #: monsterlist_v069_npcs.json:studying_prim_pupil
 msgid "Studying Prim pupil"
-msgstr "Studying Prim pupil"
+msgstr "Élève en pleine étude de Prim"
 
 #: monsterlist_v069_npcs.json:throdna
 msgid "Throdna"
@@ -8089,11 +8089,11 @@ msgstr "Throdna"
 
 #: monsterlist_v069_npcs.json:throdnas_guard
 msgid "Throdna's guard"
-msgstr "Throdna's guard"
+msgstr "Garde de Throdna"
 
 #: monsterlist_v069_npcs.json:tired_prim_guard
 msgid "Tired Prim guard"
-msgstr "Tired Prim guard"
+msgstr "Garde fatigué de Prim"
 
 #: monsterlist_v069_npcs.json:tonis
 msgid "Tonis"
@@ -10162,7 +10162,7 @@ msgstr "J'ai parlé à Jolnor de la chapelle de Vilegard. Il m'a suggéré d'aid
 
 #: questlist_v068.json:vilegard:30
 msgid "I have helped all three people in Vilegard that Jolnor suggested. Now the people of Vilegard should trust me more."
-msgstr "J'ai aidé les trois personnes de Vilegard ainsi que Jolnor me le suggérait. Maintenant, j'ai gagné la confiance des gens de Vilegard."
+msgstr "J'ai aidé les trois personnes de Vilegard ainsi que Jolnor me le suggérait. Maintenant, j'ai gagné la confian des gens de Vilegard."
 
 #: questlist_v068.json:wrye
 msgid "Uncertain cause"
@@ -10322,7 +10322,7 @@ msgstr "J'ai dit à Guthbered que j'avais été envoyé pour le tuer, mais l'ai 
 
 #: questlist_v069.json:bwm_agent:149
 msgid "I have told Harlenn that Guthbered is gone."
-msgstr "I have told Harlenn that Guthbered is gone."
+msgstr "J'ai dit à Harlenn que Guthbered est parti."
 
 #: questlist_v069.json:bwm_agent:150
 msgid "Harlenn thanked me for the help I have provided. Hopefully, the attacks on the Blackwater Mountain settlement should stop now."
@@ -10478,7 +10478,7 @@ msgstr "J'ai dit à Harlenn que j'avais été envoyé pour le tuer, mais l'ai la
 
 #: questlist_v069.json:prim_hunt:99
 msgid "I have told Guthbered that Harlenn is gone."
-msgstr "I have told Guthbered that Harlenn is gone."
+msgstr "J'ai dit à Guthbered que Harlenn est parti."
 
 #: questlist_v069.json:prim_hunt:100
 msgid "Guthbered thanked me for the help I have provided to Prim. Hopefully, the attacks on Prim should stop now. As thanks, Guthbered gave me some items and a forged permit so that I can enter the inner chamber up in the Blackwater Mountain settlement."
@@ -10677,23 +10677,23 @@ msgid "Maevalia was happy to hear that I killed the source of the monster invasi
 msgstr "Maevalia était rassurée d'apprendre que j'ai tué la source de l'invasion des monstres."
 
 #: questlist_v070_lodar.json:lodar13_rest
-msgid "No rest for the guilty"
+msgid "No rest for the glty"
 msgstr "Pas de repos pour les coupables"
 
 #: questlist_v070_lodar.json:lodar13_rest:10
 msgid "In the maze of green vines east of the Duleian road, I met a guard named Aulowenn from Feygard, guarding some crates. She told me that she was part of a larger group of guards searching for a madman that supposedly hides somewhere in the nearby hills, but that the other guards are now dead or missing."
-msgstr "Dans le labyrinthe à l'est de la route de Duleian, j'ai rencontré une garde de Feygard nommée Aulowenn, qui protégeait quelques coffres et caisses. Elle m'a dit qu'elle faisait partie d'un groupe à la recherche d'un homme fou caché dans ces collines. Malheureusement, les autres gardes sont maintenant tous morts ou disparus."
+msgstr "Dans le labyrinthe à l'est de la route de Duleian, j'ai rencontré une garde de Feygard nommée Aulowenn, qui protégeait quelques coffres et caisses. Elle m'a dit qu'elle faisait partie d'un groupe à la recherche d'un homme fou caché dans ces collines. Malheureusement, les autres gardes sont maintenant tous morts ou dparus."
 
 #: questlist_v070_lodar.json:lodar13_rest:11
 msgid "Aulowenn requested my help in defeating a monster that haunts the grave of her fellow guards to the east. She warned me that the foul beast will most likely try to trick me into listening to its story."
-msgstr "Aulowenn m'a demandé de l'aider à tuer un monstre qui hante les tombes de ses confrères, à l'est. Elle m'a averti que la créature essaierait sûrement d'utiliser ses mensonges pour me retourner contre elle."
+msgstr "Aulowenn m'a demandé de l'aider à tuer un monstre qui hante les tombes de ses confrères, à l'est. Elle m'a averti que la créature essaierait sûrement d'utiliser ses mensonges pour me retoner contre elle."
 
 #: questlist_v070_lodar.json:lodar13_rest:20
 msgid "I have met the creature that Aulowenn spoke of."
 msgstr "J'ai rencontré le monstre dont Aulowenn m'a parlé."
 
 #: questlist_v070_lodar.json:lodar13_rest:22
-msgid "I listened to the creature's story. Its name is Tiqui, and he is the head of his clan. Apparently, the guards have been ruthlessly killing off his kin. He asked me to kill the guard for him, as revenge for what they have done."
+msgid "I stened to the creature's story. Its name is Tiqui, and he is the head of his clan. Apparently, the guards have been ruthlessly killing off his kin. He asked me to kill the guard for him, as revenge for what they have done."
 msgstr "J'ai écouté l'histoire de la créature. Son nom est Tiqui, il est le chef de son clan. Il m'a affirmé que les gardes ont exterminé sans pitié tout le reste de son clan. Il souhaite que je fasse justice en tuant le garde pour lui."
 
 #: questlist_v070_lodar.json:lodar13_rest:24
@@ -10866,7 +10866,7 @@ msgstr "Je dois lui rapporter une Glande à venin, deux morceaux de Pelage d'ani
 
 #: questlist_v070_misc.json:antifoodp:30
 msgid "I have brought the ingredients for the potion."
-msgstr "J'ai ramené les ingrédients de la potion."
+msgstr "J'ai ramené les ingrédients pour la potion."
 
 #: questlist_v070_misc.json:antifoodp:35
 msgid "I received a potion of antidote, that should help me if I get food-poisoning."
