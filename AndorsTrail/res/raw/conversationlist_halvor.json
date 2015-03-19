@@ -28,7 +28,7 @@
         ]
     },
     {
-        "message":"Hello. I don't have the time to speak with you. I search something ...",
+        "message":"Hello. I have no time to speak with you. I look for something...",
         "id":"halvor_encounter",
         "replies":[
             {
@@ -64,7 +64,7 @@
         "replies":[
             {
                 "nextPhraseID":"X",
-                "text":"No, I'll come back with your wings"
+                "text":"No, I'll come back with your wings later."
             },
             {
                 "nextPhraseID":"halvor_wings_end",
@@ -80,7 +80,7 @@
         ]
     },
     {
-        "message":"Thanks, but I think it will not be enough. Can you found some rat tails for me ?",
+        "message":"Thanks, but it won't be enough though. Can you found some rat tails for me?",
         "id":"halvor_wings_end",
         "replies":[
             {
@@ -102,7 +102,7 @@
         ]
     },
     {
-        "message":"So, these tails ?",
+        "message":"So, these tails?",
         "id":"halvor_loop",
         "replies":[
             {
@@ -123,7 +123,7 @@
         ]
     },
     {
-        "message":"Thanks, but it will not be enough. Can you found 5 others for me ?",
+        "message":"Thanks, but it will not be enough. Can you found 5 more tails for me?",
         "id":"halvor_loop_1",
         "replies":[
             {
@@ -153,12 +153,12 @@
             },
             {
                 "nextPhraseID":"halvor_quest_final",
-                "text":"No, you will not use me. Go found your stuff yourself"
+                "text":"No, you won't exploit me. Go get your stuff yourself"
             }
         ]
     },
     {
-        "message":"Ok, I don't need you no more. Take that and go out of my view",
+        "message":"Ok, I don't need you anymore. Take that and get out.",
         "id":"halvor_quest_final",
         "replies":[
             {

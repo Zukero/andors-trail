@@ -1,22 +1,9 @@
 [
     {
-        "message":"Hello.",
         "id":"gorwath",
         "replies":[
             {
-                "nextPhraseID":"gorwath_letter",
-                "text":"Hey!",
-                "requires":[
-                    {
-                        "requireType":"questLatestProgress",
-                        "value":0,
-                        "requireID":"postman"
-                    }
-                ]
-            },
-            {
                 "nextPhraseID":"gorwath_done",
-                "text":"Hello.",
                 "requires":[
                     {
                         "requireType":"questProgress",
@@ -27,7 +14,6 @@
             },
             {
                 "nextPhraseID":"gorwath_love",
-                "text":"Hi.",
                 "requires":[
                     {
                         "requireType":"questLatestProgress",
@@ -35,6 +21,19 @@
                         "requireID":"postman"
                     }
                 ]
+            },
+            {
+                "nextPhraseID":"gorwath_tmp",
+                "requires":[
+                    {
+                        "requireType":"questLatestProgress",
+                        "value":10,
+                        "requireID":"postman"
+                    }
+                ]
+            },
+            {
+                "nextPhraseID":"gorwath_letter"
             }
         ]
     },
@@ -87,20 +86,19 @@
         "id":"arensia",
         "replies":[
             {
-                "nextPhraseID":"arensia_done",
-                "text":"Hello.",
-                "requires":[
-                    {
-                        "negate":true,
-                        "requireType":"questProgress",
-                        "value":10,
-                        "requireID":"postman"
-                    }
-                ]
+                "nextPhraseID":"X",
+                "text":"Hello"
             },
             {
                 "nextPhraseID":"arensia_letter",
-                "text":"I have something for you."
+                "text":"I have a letter for you.",
+                "requires":[
+                    {
+                        "requireType":"inventoryKeep",
+                        "value":1,
+                        "requireID":"gorwath_letter"
+                    }
+                ]
             }
         ]
     },
@@ -114,7 +112,7 @@
         "replies":[
             {
                 "nextPhraseID":"arensia_letter_1",
-                "text":"N",
+                "text":"Gorwath, from Crossglen !",
                 "requires":[
                     {
                         "requireType":"inventoryRemove",
@@ -122,11 +120,6 @@
                         "requireID":"gorwath_letter"
                     }
                 ]
-            }
-        ],
-        "rewards":[
-            {
-                "rewardType":"giveItem"
             }
         ]
     },
@@ -155,7 +148,16 @@
                 "value":30,
                 "rewardID":"postman",
                 "rewardType":"questProgress"
+            },
+            {
+                "value":4,
+                "rewardID":"gold",
+                "rewardType":"giveItem"
             }
         ]
+    },
+    {
+        "message":"Did you give the letter yet?",
+        "id":"gorwath_tmp"
     }
 ]

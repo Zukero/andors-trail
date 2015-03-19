@@ -14,6 +14,7 @@
             },
             {
                 "progress":30,
+                "rewardExperience":50,
                 "finishesQuest":1,
                 "logText":"I said Gorwath I gave the letter to Arensia. He's happy."
             }
