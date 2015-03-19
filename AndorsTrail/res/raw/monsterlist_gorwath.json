@@ -1,0 +1,20 @@
+[
+    {
+        "id":"gorwath",
+        "phraseID":"gorwath",
+        "unique":1,
+        "monsterClass":"humanoid",
+        "name":"Gorwath",
+        "spawnGroup":"gorwath",
+        "iconID":"monsters_ld1:88"
+    },
+    {
+        "id":"arensia",
+        "phraseID":"arensia",
+        "unique":1,
+        "monsterClass":"humanoid",
+        "name":"Arensia",
+        "spawnGroup":"arensia",
+        "iconID":"monsters_ld1:145"
+    }
+]
