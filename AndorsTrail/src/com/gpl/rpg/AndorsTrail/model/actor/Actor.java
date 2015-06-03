@@ -1,6 +1,5 @@
 package com.gpl.rpg.AndorsTrail.model.actor;
 
-import android.util.FloatMath;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
 import com.gpl.rpg.AndorsTrail.util.Coord;
@@ -71,7 +70,7 @@ public class Actor {
 	public int getEffectiveCriticalChance() { return getEffectiveCriticalChance(getCriticalSkill()); }
 	public static int getEffectiveCriticalChance(int criticalSkill) {
 		if (criticalSkill <= 0) return 0;
-		int v = (int) (-5 + 2 * FloatMath.sqrt(5*criticalSkill));
+		int v = (int) (-5 + 2 * Math.sqrt(5*criticalSkill));
 		if (v < 0) return 0;
 		return v;
 	}

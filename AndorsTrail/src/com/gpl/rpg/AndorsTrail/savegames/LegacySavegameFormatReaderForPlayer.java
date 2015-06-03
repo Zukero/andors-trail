@@ -1,6 +1,5 @@
 package com.gpl.rpg.AndorsTrail.savegames;
 
-import android.util.FloatMath;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.Constants;
@@ -124,7 +123,7 @@ public final class LegacySavegameFormatReaderForPlayer {
 	public static int getExpectedNumberOfSkillpointsForLevel(int level) {
 		level -= Constants.FIRST_SKILL_POINT_IS_GIVEN_AT_LEVEL;
 		if (level < 0) return 0;
-		return 1 + (int) FloatMath.floor((float) level / Constants.NEW_SKILL_POINT_EVERY_N_LEVELS);
+		return 1 + (int) Math.floor((float) level / Constants.NEW_SKILL_POINT_EVERY_N_LEVELS);
 	}
 
 	private static void correctActorConditionsFromItemsPre0611b1(Player player, String conditionTypeID, WorldContext world, ControllerContext controllers, String itemTypeIDWithCondition) {
