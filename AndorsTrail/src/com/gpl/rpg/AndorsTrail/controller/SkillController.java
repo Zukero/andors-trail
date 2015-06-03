@@ -421,9 +421,9 @@ public final class SkillController {
 		if (originalValue == 0) {
 			return 0;
 		} else if (originalValue > 0) {
-			return (int) FloatMath.floor(originalValue * percentForPositiveValues / 100.0f);
+			return (int) Math.floor(originalValue * percentForPositiveValues / 100.0f);
 		} else {
-			return (int) FloatMath.floor(originalValue * percentForNegativeValues / 100.0f);
+			return (int) Math.floor(originalValue * percentForNegativeValues / 100.0f);
 		}
 	}
 	
