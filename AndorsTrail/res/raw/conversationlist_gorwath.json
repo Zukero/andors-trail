@@ -1,0 +1,163 @@
+[
+    {
+        "id":"gorwath",
+        "replies":[
+            {
+                "nextPhraseID":"gorwath_done",
+                "requires":[
+                    {
+                        "requireType":"questProgress",
+                        "value":30,
+                        "requireID":"postman"
+                    }
+                ]
+            },
+            {
+                "nextPhraseID":"gorwath_love",
+                "requires":[
+                    {
+                        "requireType":"questLatestProgress",
+                        "value":20,
+                        "requireID":"postman"
+                    }
+                ]
+            },
+            {
+                "nextPhraseID":"gorwath_tmp",
+                "requires":[
+                    {
+                        "requireType":"questLatestProgress",
+                        "value":10,
+                        "requireID":"postman"
+                    }
+                ]
+            },
+            {
+                "nextPhraseID":"gorwath_letter"
+            }
+        ]
+    },
+    {
+        "message":"I have a letter for...a lovely girl.",
+        "id":"gorwath_letter",
+        "replies":[
+            {
+                "nextPhraseID":"gorwath_letter_1",
+                "text":"Huh?"
+            }
+        ]
+    },
+    {
+        "message":"Thanks again.",
+        "id":"gorwath_done"
+    },
+    {
+        "message":"Yeah. Would be kind enough to give her that letter?",
+        "id":"gorwath_letter_1",
+        "replies":[
+            {
+                "nextPhraseID":"gorwath_letter_2",
+                "text":"Yeah sure, why not?"
+            },
+            {
+                "nextPhraseID":"X",
+                "text":"No I'm busy. Good bye."
+            }
+        ]
+    },
+    {
+        "message":"Thanks a lot. Here's the letter. Go to Fallhaven and look for Arensia.",
+        "id":"gorwath_letter_2",
+        "rewards":[
+            {
+                "value":10,
+                "rewardID":"postman",
+                "rewardType":"questProgress"
+            },
+            {
+                "value":1,
+                "rewardID":"gorwath_letter",
+                "rewardType":"giveItem"
+            }
+        ]
+    },
+    {
+        "message":"Hi.",
+        "id":"arensia",
+        "replies":[
+            {
+                "nextPhraseID":"X",
+                "text":"Hello"
+            },
+            {
+                "nextPhraseID":"arensia_letter",
+                "text":"I have a letter for you.",
+                "requires":[
+                    {
+                        "requireType":"inventoryKeep",
+                        "value":1,
+                        "requireID":"gorwath_letter"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "message":"What a beautiful day, isn't it?",
+        "id":"arensia_done"
+    },
+    {
+        "message":"Oh really? From whom?",
+        "id":"arensia_letter",
+        "replies":[
+            {
+                "nextPhraseID":"arensia_letter_1",
+                "text":"Gorwath, from Crossglen !",
+                "requires":[
+                    {
+                        "requireType":"inventoryRemove",
+                        "value":1,
+                        "requireID":"gorwath_letter"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "message":"Oh that's cute. Tell Gorwath I love him too.",
+        "id":"arensia_letter_1",
+        "replies":[
+            {
+                "nextPhraseID":"R",
+                "text":"Ok, I'll tell him."
+            }
+        ],
+        "rewards":[
+            {
+                "value":20,
+                "rewardID":"postman",
+                "rewardType":"questProgress"
+            }
+        ]
+    },
+    {
+        "message":"Thanks.",
+        "id":"gorwath_love",
+        "rewards":[
+            {
+                "value":30,
+                "rewardID":"postman",
+                "rewardType":"questProgress"
+            },
+            {
+                "value":15,
+                "rewardID":"gold",
+                "rewardType":"giveItem"
+            }
+        ]
+    },
+    {
+        "message":"Did you give the letter yet?",
+        "id":"gorwath_tmp"
+    }
+]
