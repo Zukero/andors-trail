@@ -97,7 +97,15 @@ public final class DebugInterface {
 					showToast(mainActivity, "DEBUG: hp set to max", Toast.LENGTH_SHORT);
 				}
 			})
-			/*
+				/*
+				,new DebugButton("gold", new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				world.model.player.inventory.gold += 9999;
+				showToast(mainActivity, "DEBUG: gold increased", Toast.LENGTH_SHORT);
+			}
+		})
+
 			,new DebugButton("cg", new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
