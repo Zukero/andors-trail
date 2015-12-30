@@ -8,11 +8,15 @@ I'm also working on adding ranged-attacks, which are intitially only enabled thr
 
 #Commit #1
 Code needs to be cleaned but works fine (considering the missing implementations)
+
 1. Debug options: Added ranged & teleport button
+
 2. InputController: If ranged or teleport enabled, take position of original touched-tile (and not relative to current_tile).
 This allows for distant tiles to be selected for attack/teleport.
+
 3. CombatController: Monsters follow player when aroused (is a customizable property)
-+ incomplete support for fleeing when attacked/ below HP threshold.
+incomplete support for fleeing when attacked/ below HP threshold.
+
 4. MonsterType: Added messy enum table for properties (to be integrated later into monster data).
 e.g. "flees-for-HP", "flees-directly", "doesn't flee", "does/doesn't engage when attacked with range"
 
