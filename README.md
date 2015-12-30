@@ -6,7 +6,7 @@ In this fork I'm adding more options for monster AI
 
 I'm also working on adding ranged-attacks, which are intitially only enabled through debug-buttons.
 
-#Commit#  1
+#Commit #1
 Code needs to be cleaned but works fine (considering the missing implementations)
 1. Debug options: Added ranged & teleport button
 2. InputController: If ranged or teleport enabled, take position of original touched-tile (and not relative to current_tile).
