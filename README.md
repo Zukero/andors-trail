@@ -22,4 +22,4 @@ To be done:
 - Make fleeing more user-friendly (auto, like attacking, instead of current re-clicks of button)
 - Monsters flee by going opposite direction?
  (Maybe djksitra maps e.g. brogue)
- - Issuing ranged-attacks without going into combat screen? Need to better understand the signals sent between screens.
+- Issuing ranged-attacks without going into combat screen? Need to better understand the signals sent between screens.
