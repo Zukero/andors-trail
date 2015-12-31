@@ -13,6 +13,7 @@ import com.gpl.rpg.AndorsTrail.model.map.MonsterSpawnArea;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.CoordRect;
+import com.gpl.rpg.AndorsTrail.util.Size;
 
 public final class MonsterMovementController implements EvaluateWalkable {
     private final ControllerContext controllers;
@@ -40,8 +41,8 @@ public final class MonsterMovementController implements EvaluateWalkable {
         for (MonsterSpawnArea a : world.model.currentMap.spawnAreas) {
             for (Monster m : a.monsters) {
                 if (!
-                        (m.isAgressive() || (m.updatedRageLevel())
-                        )) continue;
+                        (m.isAgressive() || (m.updatedRageLevel()))
+                        || m.willFlee()) continue;
                 if (!m.isAdjacentTo(world.model.player)) continue;
                 // ^ this leaves out monster ranged-attacks
                 int aggressionChanceBias = world.model.player.getSkillLevel(SkillCollection.SkillID.evasion) * SkillCollection.PER_SKILLPOINT_INCREASE_EVASION_MONSTER_ATTACK_CHANCE_PERCENTAGE;
@@ -97,7 +98,7 @@ public final class MonsterMovementController implements EvaluateWalkable {
             }
             if (m.nextPosition.contains(world.model.player.position)) {
                 if (!
-                        (m.isAgressive() || m.updatedRageLevel())
+                        (m.isAgressive() && m.updatedRageLevel())
                         ) {
                     cancelCurrentMonsterMovement(m);
                     return;
@@ -111,6 +112,9 @@ public final class MonsterMovementController implements EvaluateWalkable {
     }
 
     private void determineMonsterNextPosition(Monster m, MonsterSpawnArea area, Coord playerPosition) {
+        if (m.willFlee())
+            if (findFleePathFor(m, playerPosition)) return;
+
         boolean searchForPath = false;
         if (m.isAgressive()) {
             if (m.getMovementAggressionType() == MonsterType.AggressionType.protectSpawn) {
@@ -120,10 +124,7 @@ public final class MonsterMovementController implements EvaluateWalkable {
             }
         }
 
-        if (m.updatedRageLevel())
-            searchForPath = true;
-
-        if (searchForPath)
+        if (m.updatedRageLevel() || searchForPath)
             if (findPathFor(m, playerPosition)) return;
 
         // Monster is moving in a straight line.
@@ -158,6 +159,39 @@ public final class MonsterMovementController implements EvaluateWalkable {
 
     public boolean findPathFor(Monster m, Coord to) {
         return pathfinder.findPathBetween(m.rectPosition, to, m.nextPosition);
+    }
+
+    public boolean findFleePathFor(Monster m, Coord to) {
+        int relativeX = Math.abs(m.position.x - to.x);
+        int relativeY = Math.abs(m.position.y - to.y);
+        Coord target = m.position;
+        Coord temp;
+
+        boolean done = false;
+        //Move to any adjacent tile away from player
+        for(int i = -1; i <2; i++){
+            int targetX = Math.abs(m.position.x - to.x + i);
+            for(int j = -1; j<2; j++){
+                int targetY = Math.abs(m.position.y - to.y + j);
+                if(targetX >= relativeX && targetY >= relativeY
+                        && !(i ==0 && j ==0)){
+                    temp = new Coord(m.position.x +i, m.position.y +j);
+                    if(isWalkable(new CoordRect(
+                            temp, new Size(
+                            WorldMapController.WORLDMAP_DISPLAY_TILESIZE,
+                            WorldMapController.WORLDMAP_DISPLAY_TILESIZE)))){
+                        target = temp;
+                        done = true;
+                    }
+                }
+                if(done)
+                    break;
+            }
+            if(done)
+                break;
+        }
+
+        return pathfinder.findPathBetween(m.rectPosition, target, m.nextPosition);
     }
 
     @Override

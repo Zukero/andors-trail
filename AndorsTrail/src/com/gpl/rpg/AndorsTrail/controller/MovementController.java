@@ -119,6 +119,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 
 		if (!findWalkablePosition(dx, dy)) return;
 
+		//todo,twirl when long-press ranged, use following snippet to start combat screen
 		Monster m = world.model.currentMap.getMonsterAt(world.model.player.nextPosition);
 		if (m != null) {
 			controllers.mapController.steppedOnMonster(m, world.model.player.nextPosition);

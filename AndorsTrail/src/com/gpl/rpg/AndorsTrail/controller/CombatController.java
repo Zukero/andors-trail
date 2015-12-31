@@ -123,8 +123,8 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	}
 
 	public boolean canExitCombat() {
-		return getAdjacentAggressiveMonster() == null
-				&& getNearbyEngagedMonster() == null;
+		return getAdjacentAggressiveMonster() == null;
+				//&& getNearbyEngagedMonster() == null;
 	}
 	private Monster getAdjacentAggressiveMonster() {
 		return MovementController.getAdjacentAggressiveMonster(world.model.currentMap, world.model.player);
@@ -334,7 +334,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 
 		for (MonsterSpawnArea a : world.model.currentMap.spawnAreas) {
 			for (Monster m : a.monsters) {
-				if (!m.isAgressive() && !m.updatedRageLevel() && !m.willFlee()) continue;
+				if (!(m.isAgressive() || m.updatedRageLevel() || m.willFlee())) continue;
 
 				if (shouldAttackWithMonsterInCombat(m, playerPosition)) {
 					currentActiveMonster = m;
@@ -352,7 +352,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		if (!m.hasAPs(m.getAttackCost())) return false;
 		if(m.willFlee()) return false;
 		if (!m.rectPosition.isAdjacentTo(playerPosition)) return false;
-		// If above line is changed, will they use ranged attacks?
+		// TO TEST If above line is changed, will they use ranged attacks?
 
 		if(!m.isAgressive()){
 			//	Attacks even when not attacked first?
@@ -367,8 +367,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 
 		if (!m.hasAPs(m.getMoveCost())) return false;
 
-		// Fleeing
-		// todo,twirl currently not working b/c they flee towards player
+		// Fleeing.
 		if(m.willFlee()) return true;
 
 		//	Move towards player if enraged or angry
@@ -412,11 +411,25 @@ public final class CombatController implements VisualEffectCompletedCallback {
 
 	private void moveCurrentMonster() {
 		controllers.actorStatsController.useAPs(currentActiveMonster, currentActiveMonster.getMoveCost());
-		if (!controllers.monsterMovementController.findPathFor(currentActiveMonster, world.model.player.position)) {
-			// Couldn't find a path to move on.
-			currentActiveMonster.isEnraged = false;
-			handleNextMonsterAction();
-			return;
+
+		if(!currentActiveMonster.willFlee()){
+			//if not fleeing, move towards player
+			if (!controllers.monsterMovementController.findPathFor(currentActiveMonster, world.model.player.position)) {
+				// Couldn't find a path to move on.
+				currentActiveMonster.isEnraged = false;
+				handleNextMonsterAction();
+				return;
+			}
+		}else{
+			//flee away from player. If can't, keep attacking.
+			if (!controllers.monsterMovementController.findFleePathFor(currentActiveMonster, world.model.player.position)) {
+				// Couldn't find a path to flee to; keep attacking.
+
+				// todo,twirl might not keep attacking, just freeze, or even crash
+				// currentActiveMonster.isEnraged = true;
+				handleNextMonsterAction();
+				return;
+			}
 		}
 		
 		final Monster movingMonster = currentActiveMonster;

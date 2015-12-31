@@ -22,7 +22,10 @@ public final class Monster extends Actor {
 	public final CoordRect nextPosition;
 
 	public boolean isEnraged = false; //for pathfinding purposes
-	public int THRESHOLD_HP_FLEE_PERCENT = 20;
+	public double THRESHOLD_HP_FLEE_PERCENT = 0.2;
+
+	//	This value is for whether the monster will flee from ranged opponents
+	boolean weaponCheck = true;
 
 	private boolean forceAggressive = false;
 	private ItemContainer shopItems = null;
@@ -195,30 +198,29 @@ public final class Monster extends Actor {
 	}
 
 	public boolean doesFleeFromLowHP(){
-		return (this.monsterType.braveryType == MonsterType.BraveryType.coward)
-				|| (this.monsterType.braveryType  == MonsterType.BraveryType.brave)
-				|| (this.monsterType.braveryType == MonsterType.BraveryType.confused);
+		return !((this.monsterType.braveryType == MonsterType.BraveryType.none)
+				|| (this.monsterType.braveryType  == MonsterType.BraveryType.kamikaze));
 	}
 
 	public boolean willFlee() {
-		if(this.monsterType.braveryType == MonsterType.BraveryType.coward){
+		// todo,twirl add a status condition for it to check if attacked
+		if(this.monsterType.braveryType == MonsterType.BraveryType.coward)
 			return true;
-			/* //todo,twirl Not implemented because will also flee when player flees
-			*if(this.monsterType.braveryType == MonsterType.BraveryType.confused && (!this.isAdjacentTo(world.model.player)){
-			*}
-			*/
-		}
+
+		// Fear of ranged weapons
+		if(!weaponCheck && this.monsterType.braveryType == MonsterType.BraveryType.confused)
+			return true;
+
 		if(doesFleeFromLowHP()
-				&& (this.health.current <= this.health.max * (this.THRESHOLD_HP_FLEE_PERCENT /100 ))) {
+				&& (this.health.current <= this.health.max * this.THRESHOLD_HP_FLEE_PERCENT))
 			return true;
-		}
+
 		return false;
 	}
 
 	public void setRagedLevel(boolean weaponType)
 	{
-		boolean weaponCheck = true;
-
+		// Confusion caused by ranged weapons
 		if(weaponType)
 			weaponCheck = doesEngageWithRanged();
 
@@ -226,7 +228,8 @@ public final class Monster extends Actor {
 	}
 
 	public boolean updatedRageLevel(){
-		this.isEnraged = this.isEnraged && !willFlee();
+		if(willFlee())
+			this.isEnraged = false;
 		return this.isEnraged;
 	}
 }
