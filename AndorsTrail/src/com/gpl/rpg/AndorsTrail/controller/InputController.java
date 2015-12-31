@@ -72,7 +72,7 @@ public final class InputController implements OnClickListener, OnLongClickListen
 		}
 		else{
 			controllers.combatController.setCombatSelection(lastTouchPosition_tileCoords);
-			//todo,twirl the former line is a very bad hack. Input and Game logic should be separate
+			//todo,twirl the former line is maybe  a very bad hack.
 			onRelativeMovement(lastTouchPosition_tileCoords.x, lastTouchPosition_tileCoords.y);
 			//todo,twirl the ranged attack/move should have an adjustble max-range
 			//e.g. if abs(currentActor.pos - target.pos)>mag -> cancel;

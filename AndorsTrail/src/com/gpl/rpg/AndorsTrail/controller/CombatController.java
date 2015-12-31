@@ -80,7 +80,8 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	}
 	public void setCombatSelection(Monster selectedMonster, Coord selectedPosition) {
 		if (selectedMonster != null) {
-			if (!selectedMonster.isAgressive()) return;
+			if (!selectedMonster.isAgressive()
+					&& !selectedMonster.updatedRageLevel()) return;
 		}
 		Coord previousSelection = world.model.uiSelections.selectedPosition;
 		if (previousSelection != null) {
@@ -333,7 +334,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 
 		for (MonsterSpawnArea a : world.model.currentMap.spawnAreas) {
 			for (Monster m : a.monsters) {
-				if (!m.isAgressive()) continue;
+				if (!m.isAgressive() && !m.updatedRageLevel() && !m.willFlee()) continue;
 
 				if (shouldAttackWithMonsterInCombat(m, playerPosition)) {
 					currentActiveMonster = m;
@@ -349,26 +350,50 @@ public final class CombatController implements VisualEffectCompletedCallback {
 
 	private static boolean shouldAttackWithMonsterInCombat(Monster m, Coord playerPosition) {
 		if (!m.hasAPs(m.getAttackCost())) return false;
+		if(m.willFlee()) return false;
 		if (!m.rectPosition.isAdjacentTo(playerPosition)) return false;
+		// If above line is changed, will they use ranged attacks?
+
+		if(!m.isAgressive()){
+			//	Attacks even when not attacked first?
+			//	Simple to change but not sure if good gameplay-wise
+			return false;
+		}
+
 		return true;
 	}
 	private static boolean shouldMoveMonsterInCombat(Monster m, MonsterSpawnArea a, Coord playerPosition) {
-		if (!m.hasAPs(m.getMoveCost())) return false;
-		if (m.position.isAdjacentTo(playerPosition)) return false;
-		if( m.updatedRageLevel() || m.willFlee()) return true;
-		if (!m.isAgressive()) return false;
+		//	Currently only moves towards player and not away
 
-		final MonsterType.AggressionType movementAggressionType = m.getMovementAggressionType();
-		if (movementAggressionType == MonsterType.AggressionType.protectSpawn) {
-			if (a.area.contains(playerPosition)) return true;
-		} else if (movementAggressionType == MonsterType.AggressionType.helpOthers) {
-			for (Monster o : a.monsters) {
-				if (o == m) continue;
-				if (o.rectPosition.isAdjacentTo(playerPosition)) return true;
+		if (!m.hasAPs(m.getMoveCost())) return false;
+
+		// Fleeing
+		// todo,twirl currently not working b/c they flee towards player
+		if(m.willFlee()) return true;
+
+		//	Move towards player if enraged or angry
+		if(!m.position.isAdjacentTo(playerPosition)){
+			if(m.updatedRageLevel())
+				// Anger handlers
+				return true;
+			else{
+				// Aggression handlers
+				if (!m.isAgressive()) return false;
+				final MonsterType.AggressionType movementAggressionType = m.getMovementAggressionType();
+				if (movementAggressionType == MonsterType.AggressionType.protectSpawn) {
+					if (a.area.contains(playerPosition)) return true;
+				} else if (movementAggressionType == MonsterType.AggressionType.helpOthers) {
+					for (Monster o : a.monsters) {
+						if (o == m) continue;
+						if (o.rectPosition.isAdjacentTo(playerPosition)) return true;
+					}
+				} else if (movementAggressionType == MonsterType.AggressionType.wholeMap) {
+					return true;
+				}
 			}
-		} else if (movementAggressionType == MonsterType.AggressionType.wholeMap) {
-			return true;
 		}
+
+		// Has AP, not fleeing, and is standing near person
 		return false;
 	}
 

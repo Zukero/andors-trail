@@ -359,7 +359,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 	public static Monster getNearbyEngagedMonster(PredefinedMap map, Player player) {
 		for (MonsterSpawnArea a : map.spawnAreas) {
 			for (Monster m : a.monsters) {
-				if (m.isEnraged && !m.willFlee()) return m;
+				if (m.updatedRageLevel()) return m;
 			}
 		}
 		return null;
