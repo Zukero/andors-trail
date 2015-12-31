@@ -42,10 +42,27 @@ public final class Player extends Actor {
 	public int reequipCost;
 	public int totalExperience;
 
+	public boolean inTeleportMode = false;
+	public boolean inRangedMode = false; //enabled through debug button menu
+	//allows player to attack from afar
+
+
 	private final HashMap<String, HashSet<Integer> > questProgress = new HashMap<String, HashSet<Integer> >();
 	private String spawnMap;
 	private String spawnPlace;
 	private final HashMap<String, Integer> alignments = new HashMap<String, Integer>();
+
+	public boolean toggleRangedMode() {
+		if(!this.inRangedMode) this.inRangedMode = true;
+		else this.inRangedMode = false;
+		return this.inRangedMode;
+	}
+
+	public boolean toggleTeleportMode() {
+		if(!this.inTeleportMode) this.inTeleportMode = true;
+		else this.inTeleportMode = false;
+		return this.inTeleportMode;
+	}
 
 	// Unequipped stats
 	public static final class PlayerBaseTraits {

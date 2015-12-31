@@ -355,4 +355,14 @@ public final class MovementController implements TimedMessageTask.Callback {
 		}
 		return null;
 	}
+
+	public static Monster getNearbyEngagedMonster(PredefinedMap map, Player player) {
+		for (MonsterSpawnArea a : map.spawnAreas) {
+			for (Monster m : a.monsters) {
+				if (m.isEnraged && !m.willFlee()) return m;
+			}
+		}
+		return null;
+
+	}
 }

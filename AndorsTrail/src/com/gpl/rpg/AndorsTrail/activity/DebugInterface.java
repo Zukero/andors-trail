@@ -97,6 +97,28 @@ public final class DebugInterface {
 					showToast(mainActivity, "DEBUG: hp set to max", Toast.LENGTH_SHORT);
 				}
 			})
+			,new DebugButton("ranged", new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+					boolean change = world.model.player.toggleRangedMode();
+					if(change){
+						showToast(mainActivity, "DEBUG: ranged attack ON", Toast.LENGTH_SHORT);
+					}else{
+						showToast(mainActivity, "DEBUG: ranged attack OFF", Toast.LENGTH_SHORT);
+					}
+			}
+			})
+			,new DebugButton("teleport", new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				boolean change = world.model.player.toggleTeleportMode();
+				if(change){
+					showToast(mainActivity, "DEBUG: teleport ON", Toast.LENGTH_SHORT);
+				}else{
+					showToast(mainActivity, "DEBUG: teleport OFF", Toast.LENGTH_SHORT);
+				}
+			}
+			})
 				/*
 				,new DebugButton("gold", new OnClickListener() {
 			@Override

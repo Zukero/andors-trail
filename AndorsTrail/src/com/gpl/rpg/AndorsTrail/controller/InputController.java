@@ -63,14 +63,29 @@ public final class InputController implements OnClickListener, OnLongClickListen
 
 	@Override
 	public void onClick(View arg0) {
-		if (!world.model.uiSelections.isInCombat) return;
-		onRelativeMovement(lastTouchPosition_dx, lastTouchPosition_dy);
+		//todo,twirl why was the below line present? The code doesn't go into this function outside combat
+		//if (!world.model.uiSelections.isInCombat) return;
+
+
+		if(!world.model.player.inRangedMode && !world.model.player.inTeleportMode){
+			onRelativeMovement(lastTouchPosition_dx, lastTouchPosition_dy);
+		}
+		else{
+			controllers.combatController.setCombatSelection(lastTouchPosition_tileCoords);
+			//todo,twirl the former line is a very bad hack. Input and Game logic should be separate
+			onRelativeMovement(lastTouchPosition_tileCoords.x, lastTouchPosition_tileCoords.y);
+			//todo,twirl the ranged attack/move should have an adjustble max-range
+			//e.g. if abs(currentActor.pos - target.pos)>mag -> cancel;
+		}
+
+
 	}
 
 	@Override
 	public boolean onLongClick(View arg0) {
 		if (world.model.uiSelections.isInCombat) {
 			//TODO: Should be able to mark positions far away (mapwalk / ranged combat)
+			// ^ what do you mean exactly? code unclear -twirl
 			if (lastTouchPosition_dx == 0 && lastTouchPosition_dy == 0) return false;
 			if (Math.abs(lastTouchPosition_dx) > 1) return false;
 			if (Math.abs(lastTouchPosition_dy) > 1) return false;

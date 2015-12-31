@@ -21,6 +21,9 @@ public final class Monster extends Actor {
 	public long nextActionTime = 0;
 	public final CoordRect nextPosition;
 
+	public boolean isEnraged = false; //for pathfinding purposes
+	public int THRESHOLD_HP_FLEE_PERCENT = 20;
+
 	private boolean forceAggressive = false;
 	private ItemContainer shopItems = null;
 
@@ -59,6 +62,7 @@ public final class Monster extends Actor {
 	public String getFaction() { return monsterType.faction; }
 	public MonsterType.MonsterClass getMonsterClass() { return monsterType.monsterClass; }
 	public MonsterType.AggressionType getMovementAggressionType() { return monsterType.aggressionType; }
+	public MonsterType.BraveryType getMovementBraveryType() {return monsterType.braveryType;}
 
 	public void createLoot(Loot container, Player player) {
 		int exp = this.getExp();
@@ -183,5 +187,46 @@ public final class Monster extends Actor {
 		} else {
 			dest.writeBoolean(false);
 		}
+	}
+
+	public boolean doesEngageWithRanged(){
+		return (this.monsterType.braveryType == MonsterType.BraveryType.brave)
+				|| (this.monsterType.braveryType  == MonsterType.BraveryType.kamikaze);
+	}
+
+	public boolean doesFleeFromLowHP(){
+		return (this.monsterType.braveryType == MonsterType.BraveryType.coward)
+				|| (this.monsterType.braveryType  == MonsterType.BraveryType.brave)
+				|| (this.monsterType.braveryType == MonsterType.BraveryType.confused);
+	}
+
+	public boolean willFlee() {
+		if(this.monsterType.braveryType == MonsterType.BraveryType.coward){
+			return true;
+			/* //todo,twirl Not implemented because will also flee when player flees
+			*if(this.monsterType.braveryType == MonsterType.BraveryType.confused && (!this.isAdjacentTo(world.model.player)){
+			*}
+			*/
+		}
+		if(doesFleeFromLowHP()
+				&& (this.health.current <= this.health.max * (this.THRESHOLD_HP_FLEE_PERCENT /100 ))) {
+			return true;
+		}
+		return false;
+	}
+
+	public void setRagedLevel(boolean weaponType)
+	{
+		boolean weaponCheck = true;
+
+		if(weaponType)
+			weaponCheck = doesEngageWithRanged();
+
+		this.isEnraged = weaponCheck && !willFlee();
+	}
+
+	public boolean updatedRageLevel(){
+		this.isEnraged = this.isEnraged && !willFlee();
+		return this.isEnraged;
 	}
 }
