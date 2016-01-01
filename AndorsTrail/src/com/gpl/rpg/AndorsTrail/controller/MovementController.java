@@ -119,7 +119,6 @@ public final class MovementController implements TimedMessageTask.Callback {
 
 		if (!findWalkablePosition(dx, dy)) return;
 
-		//todo,twirl when long-press ranged, use following snippet to start combat screen
 		Monster m = world.model.currentMap.getMonsterAt(world.model.player.nextPosition);
 		if (m != null) {
 			controllers.mapController.steppedOnMonster(m, world.model.player.nextPosition);
@@ -127,6 +126,32 @@ public final class MovementController implements TimedMessageTask.Callback {
 		}
 
 		moveToNextIfPossible();
+	}
+
+	private void movePlayerRanged(int dx, int dy, Coord dest){
+		world.model.player.nextPosition.set(dest);
+
+		//todo,twirl when wielding a ranged weapon: Cannot move, and cannot exit combat
+		//						 Is it a bug or a feature?
+		Monster m = world.model.currentMap.getMonsterAt(dest);
+		if (m != null && world.model.player.isWieldingRanged) {
+			controllers.mapController.steppedOnMonster(m, dest);
+			//controllers.combatController.setCombatSelection(nextPos);
+			//controllers.combatController.executeMoveAttack(dx, dy);
+			return;
+		}
+		else if (world.model.player.inTeleportMode){
+			//	Currently teleports even if tile unwalkable.
+			moveToNextIfPossible();
+		}
+		/*
+		else{
+			//	Currently not possible to walk in ranged mode
+			world.model.player.nextPosition.set( new Coord(dx, dy));
+			moveToNextIfPossible();
+		}
+		*/
+
 	}
 
 	private boolean findWalkablePosition(int dx, int dy) {
@@ -311,10 +336,12 @@ public final class MovementController implements TimedMessageTask.Callback {
 
 	private int movementDx;
 	private int movementDy;
+	private Coord movementDest;
 	public void startMovement(int dx, int dy, Coord destination) {
 		if (!mayMovePlayer()) return;
 		if (dx == 0 && dy == 0) return;
 
+		movementDest = destination;
 		movementDx = dx;
 		movementDy = dy;
 		movementHandler.start();
@@ -329,7 +356,10 @@ public final class MovementController implements TimedMessageTask.Callback {
 		if (!world.model.uiSelections.isMainActivityVisible) return false;
 		if (world.model.uiSelections.isInCombat) return false;
 
-		movePlayer(movementDx, movementDy);
+		if(!(world.model.player.isWieldingRanged || world.model.player.inTeleportMode))
+			movePlayer(movementDx, movementDy);
+		else
+			movePlayerRanged(movementDx, movementDy, movementDest);
 
 		return true;
 	}
@@ -360,7 +390,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 	public static Monster getNearbyEngagedMonster(PredefinedMap map, Player player) {
 		for (MonsterSpawnArea a : map.spawnAreas) {
 			for (Monster m : a.monsters) {
-				if (m.updatedRageLevel()) return m;
+				if (m.getIsEnraged()) return m;
 			}
 		}
 		return null;

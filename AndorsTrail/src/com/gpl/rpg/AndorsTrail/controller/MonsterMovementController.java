@@ -41,8 +41,8 @@ public final class MonsterMovementController implements EvaluateWalkable {
         for (MonsterSpawnArea a : world.model.currentMap.spawnAreas) {
             for (Monster m : a.monsters) {
                 if (!
-                        (m.isAgressive() || (m.updatedRageLevel()))
-                        || m.willFlee()) continue;
+                        (m.isAgressive() || (m.getIsEnraged()))
+                        || m.isFleeing()) continue;
                 if (!m.isAdjacentTo(world.model.player)) continue;
                 // ^ this leaves out monster ranged-attacks
                 int aggressionChanceBias = world.model.player.getSkillLevel(SkillCollection.SkillID.evasion) * SkillCollection.PER_SKILLPOINT_INCREASE_EVASION_MONSTER_ATTACK_CHANCE_PERCENTAGE;
@@ -98,7 +98,7 @@ public final class MonsterMovementController implements EvaluateWalkable {
             }
             if (m.nextPosition.contains(world.model.player.position)) {
                 if (!
-                        (m.isAgressive() && m.updatedRageLevel())
+                        (m.isAgressive() && m.getIsEnraged())
                         ) {
                     cancelCurrentMonsterMovement(m);
                     return;
@@ -112,7 +112,7 @@ public final class MonsterMovementController implements EvaluateWalkable {
     }
 
     private void determineMonsterNextPosition(Monster m, MonsterSpawnArea area, Coord playerPosition) {
-        if (m.willFlee())
+        if (m.isFleeing())
             if (findFleePathFor(m, playerPosition)) return;
 
         boolean searchForPath = false;
@@ -124,7 +124,7 @@ public final class MonsterMovementController implements EvaluateWalkable {
             }
         }
 
-        if (m.updatedRageLevel() || searchForPath)
+        if (m.getIsEnraged() || searchForPath)
             if (findPathFor(m, playerPosition)) return;
 
         // Monster is moving in a straight line.

@@ -43,7 +43,7 @@ public final class Player extends Actor {
 	public int totalExperience;
 
 	public boolean inTeleportMode = false;
-	public boolean inRangedMode = false; //enabled through debug button menu
+	public boolean isWieldingRanged = false; //enabled through debug button menu
 	//allows player to attack from afar
 
 
@@ -53,9 +53,9 @@ public final class Player extends Actor {
 	private final HashMap<String, Integer> alignments = new HashMap<String, Integer>();
 
 	public boolean toggleRangedMode() {
-		if(!this.inRangedMode) this.inRangedMode = true;
-		else this.inRangedMode = false;
-		return this.inRangedMode;
+		if(!this.isWieldingRanged) this.isWieldingRanged = true;
+		else this.isWieldingRanged = false;
+		return this.isWieldingRanged;
 	}
 
 	public boolean toggleTeleportMode() {

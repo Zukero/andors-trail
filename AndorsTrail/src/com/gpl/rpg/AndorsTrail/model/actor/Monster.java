@@ -25,7 +25,7 @@ public final class Monster extends Actor {
 	public double THRESHOLD_HP_FLEE_PERCENT = 0.2;
 
 	//	This value is for whether the monster will flee from ranged opponents
-	boolean weaponCheck = true;
+	boolean isFearsRanged = true;
 
 	private boolean forceAggressive = false;
 	private ItemContainer shopItems = null;
@@ -202,13 +202,13 @@ public final class Monster extends Actor {
 				|| (this.monsterType.braveryType  == MonsterType.BraveryType.kamikaze));
 	}
 
-	public boolean willFlee() {
+	public boolean isFleeing() {
 		// todo,twirl add a status condition for it to check if attacked
 		if(this.monsterType.braveryType == MonsterType.BraveryType.coward)
 			return true;
 
 		// Fear of ranged weapons
-		if(!weaponCheck && this.monsterType.braveryType == MonsterType.BraveryType.confused)
+		if(!isFearsRanged && this.monsterType.braveryType == MonsterType.BraveryType.confused)
 			return true;
 
 		if(doesFleeFromLowHP()
@@ -218,17 +218,17 @@ public final class Monster extends Actor {
 		return false;
 	}
 
-	public void setRagedLevel(boolean weaponType)
+	public void setIsEnraged(boolean weaponType)
 	{
 		// Confusion caused by ranged weapons
 		if(weaponType)
-			weaponCheck = doesEngageWithRanged();
+			isFearsRanged = doesEngageWithRanged();
 
-		this.isEnraged = weaponCheck && !willFlee();
+		this.isEnraged = isFearsRanged && !isFleeing();
 	}
 
-	public boolean updatedRageLevel(){
-		if(willFlee())
+	public boolean getIsEnraged(){
+		if(isFleeing())
 			this.isEnraged = false;
 		return this.isEnraged;
 	}

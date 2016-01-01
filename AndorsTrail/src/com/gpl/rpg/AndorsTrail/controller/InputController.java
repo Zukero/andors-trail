@@ -76,7 +76,7 @@ public final class InputController implements OnClickListener, OnLongClickListen
 			// ^ what do you mean exactly? code unclear -twirl
 
 			if (lastTouchPosition_dx == 0 && lastTouchPosition_dy == 0) return false;
-			if(!world.model.player.inRangedMode && !world.model.player.inTeleportMode) {
+			if(!world.model.player.isWieldingRanged && !world.model.player.inTeleportMode) {
 				if (Math.abs(lastTouchPosition_dx) > 1) return false;
 				if (Math.abs(lastTouchPosition_dy) > 1) return false;
 			}
@@ -106,11 +106,7 @@ public final class InputController implements OnClickListener, OnLongClickListen
 		if (world.model.uiSelections.isInCombat) return false;
 
 		/*	This broke something. Or maybe something else broke it...
-		//todo,twirl make sure the following sends the correct signals
-		if(world.model.player.inRangedMode || world.model.player.inTeleportMode) {
-			controllers.combatController.setCombatSelection(lastTouchPosition_tileCoords);
-			controllers.movementController.startMovement(tile_x, tile_y, lastTouchPosition_tileCoords);
-		}
+		todo,twirl make sure the following sends the correct signals
 		*/
 
 		controllers.movementController.startMovement(lastTouchPosition_dx, lastTouchPosition_dy, lastTouchPosition_tileCoords);

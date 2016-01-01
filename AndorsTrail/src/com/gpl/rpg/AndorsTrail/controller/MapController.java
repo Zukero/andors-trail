@@ -105,7 +105,7 @@ public final class MapController {
 	}
 
 	public void steppedOnMonster(Monster m, Coord p) {
-		if (m.isAgressive() || (m.updatedRageLevel())) {
+		if (m.isAgressive() || (m.getIsEnraged())) {
 			controllers.combatController.setCombatSelection(m, p);
 			if (controllers.preferences.confirmAttack) {
 				worldEventListeners.onPlayerSteppedOnMonster(m);
