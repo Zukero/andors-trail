@@ -305,10 +305,6 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	}
 
 	public void endPlayerTurn() {
-		//todo,twirl need to make the turn end automatically when fleeing and not enough AP
-		// N.B. for quick access, see usage.
-		// N.B. Perhaps, if not enough AP for flee,
-		// 		attempt to flee but with probablity = current AP/ neeed AP
 		beginMonsterTurn(false);
 	}
 	private void beginMonsterTurn(boolean isFirstRound) {
