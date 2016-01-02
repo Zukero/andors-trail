@@ -131,10 +131,8 @@ public final class MovementController implements TimedMessageTask.Callback {
 	private void movePlayerRanged(int dx, int dy, Coord dest){
 		world.model.player.nextPosition.set(dest);
 
-		//todo,twirl when wielding a ranged weapon: Cannot move, and cannot exit combat
-		//						 Is it a bug or a feature?
 		Monster m = world.model.currentMap.getMonsterAt(dest);
-		if (m != null && world.model.player.isWieldingRanged) {
+		if (m != null && world.model.player.isWieldingRanged) { // inAimMode
 			controllers.mapController.steppedOnMonster(m, dest);
 			//controllers.combatController.setCombatSelection(nextPos);
 			//controllers.combatController.executeMoveAttack(dx, dy);
@@ -144,13 +142,6 @@ public final class MovementController implements TimedMessageTask.Callback {
 			//	Currently teleports even if tile unwalkable.
 			moveToNextIfPossible();
 		}
-		/*
-		else{
-			//	Currently not possible to walk in ranged mode
-			world.model.player.nextPosition.set( new Coord(dx, dy));
-			moveToNextIfPossible();
-		}
-		*/
 
 	}
 

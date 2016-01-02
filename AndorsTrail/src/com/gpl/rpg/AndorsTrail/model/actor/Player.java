@@ -45,6 +45,7 @@ public final class Player extends Actor {
 	public boolean inTeleportMode = false;
 	public boolean isWieldingRanged = false; //enabled through debug button menu
 	//allows player to attack from afar
+	public boolean inAimMode = false; //needs to be enabled in order to initiate ranged-attack outside combat
 
 
 	private final HashMap<String, HashSet<Integer> > questProgress = new HashMap<String, HashSet<Integer> >();
@@ -62,6 +63,12 @@ public final class Player extends Actor {
 		if(!this.inTeleportMode) this.inTeleportMode = true;
 		else this.inTeleportMode = false;
 		return this.inTeleportMode;
+	}
+
+	public boolean toggleAimMode() {
+		if(!this.inAimMode && this.isWieldingRanged) this.inAimMode = true;
+		else this.inAimMode = false;
+		return this.inAimMode;
 	}
 
 	// Unequipped stats

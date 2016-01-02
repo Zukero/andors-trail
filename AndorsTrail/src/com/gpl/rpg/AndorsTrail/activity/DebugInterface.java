@@ -97,18 +97,29 @@ public final class DebugInterface {
 					showToast(mainActivity, "DEBUG: hp set to max", Toast.LENGTH_SHORT);
 				}
 			})
-			,new DebugButton("ranged", new OnClickListener() {
+			,new DebugButton("equip-ranged", new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 					boolean change = world.model.player.toggleRangedMode();
 					if(change){
-						showToast(mainActivity, "DEBUG: ranged attack ON", Toast.LENGTH_SHORT);
+						showToast(mainActivity, "DEBUG: ranged weapon ON", Toast.LENGTH_SHORT);
 					}else{
-						showToast(mainActivity, "DEBUG: ranged attack OFF", Toast.LENGTH_SHORT);
+						showToast(mainActivity, "DEBUG: ranged weapon OFF", Toast.LENGTH_SHORT);
 					}
 			}
 			})
-			,new DebugButton("teleport", new OnClickListener() {
+			,new DebugButton("aim-mode", new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				boolean change = world.model.player.toggleAimMode();
+				if(change){
+					showToast(mainActivity, "DEBUG: aim-mode ON", Toast.LENGTH_SHORT);
+				}else{
+					showToast(mainActivity, "DEBUG: aim-mode OFF", Toast.LENGTH_SHORT);
+				}
+			}
+			})
+				,new DebugButton("teleport", new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 				boolean change = world.model.player.toggleTeleportMode();

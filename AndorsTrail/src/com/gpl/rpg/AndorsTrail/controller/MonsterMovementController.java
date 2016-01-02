@@ -112,7 +112,7 @@ public final class MonsterMovementController implements EvaluateWalkable {
     }
 
     private void determineMonsterNextPosition(Monster m, MonsterSpawnArea area, Coord playerPosition) {
-        if (m.isFleeing())
+        if (m.isFleeing()) //if (m.isFleeing() && ! m.isDesperate)
             if (findFleePathFor(m, playerPosition)) return;
 
         boolean searchForPath = false;

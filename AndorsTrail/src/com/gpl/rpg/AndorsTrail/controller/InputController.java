@@ -105,10 +105,6 @@ public final class InputController implements OnClickListener, OnLongClickListen
 
 		if (world.model.uiSelections.isInCombat) return false;
 
-		/*	This broke something. Or maybe something else broke it...
-		todo,twirl make sure the following sends the correct signals
-		*/
-
 		controllers.movementController.startMovement(lastTouchPosition_dx, lastTouchPosition_dy, lastTouchPosition_tileCoords);
 		return true;
 	}

@@ -31,6 +31,7 @@ public final class Monster extends Actor {
 	private ItemContainer shopItems = null;
 
 	private final MonsterType monsterType;
+	public boolean isDesperate = false;
 
 	public Monster(MonsterType monsterType) {
 		super(monsterType.tileSize, false, monsterType.isImmuneToCriticalHits());

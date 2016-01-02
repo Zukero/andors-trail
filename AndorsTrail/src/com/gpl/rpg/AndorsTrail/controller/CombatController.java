@@ -179,6 +179,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		this.lastAttackResult = attack;
 
 		target.setIsEnraged(world.model.player.isWieldingRanged); //monster is now focused on player
+		//world.model.player.inAimMode= false; // aim mode is only for outside combat
 		if (attack.isHit) {
 			combatActionListeners.onPlayerAttackSuccess(target, attack);
 
@@ -308,6 +309,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		beginMonsterTurn(false);
 	}
 	private void beginMonsterTurn(boolean isFirstRound) {
+        //resetMonsterDesperation();
 		controllers.actorStatsController.setActorMinAP(world.model.player);
 		world.model.uiSelections.isPlayersCombatTurn = false;
 		for (MonsterSpawnArea a : world.model.currentMap.spawnAreas) {
@@ -321,8 +323,18 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	}
 
 	private static enum MonsterAction {
-		none, attack, move
+		none, attack, move, flee
 	}
+
+	private void resetMonsterDesperation() {
+        if(currentActiveMonster.isDesperate){
+            // this makes fleeing monsters re-attempt to flee when they have the chance
+
+            // if this code is removed, monsters will only try to flee once in their life
+            // and then keep fighting (forever, until dead)
+            currentActiveMonster.isDesperate = false;
+        }
+    }
 	private MonsterAction determineNextMonsterAction(Coord playerPosition) {
 		if (currentActiveMonster != null) {
 			if (shouldAttackWithMonsterInCombat(currentActiveMonster, playerPosition)) return MonsterAction.attack;
@@ -347,6 +359,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	private static boolean shouldAttackWithMonsterInCombat(Monster m, Coord playerPosition) {
 		if (!m.hasAPs(m.getAttackCost())) return false;
 		if(m.isFleeing()) return false;
+        //if (m.isFleeing() && !m.isDesperate) return false;
 		if (!m.rectPosition.isAdjacentTo(playerPosition)) return false;
 		// TO TEST If above line is changed, will they use ranged attacks?
 
@@ -359,7 +372,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		return true;
 	}
 	private static boolean shouldMoveMonsterInCombat(Monster m, MonsterSpawnArea a, Coord playerPosition) {
-		//	Currently only moves towards player and not away
+		//	Only moves towards player
 
 		if (!m.hasAPs(m.getMoveCost())) return false;
 
@@ -391,6 +404,16 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		// Has AP, not fleeing, and is standing near person
 		return false;
 	}
+
+    private static boolean shouldFleeMonsterInCombat(Monster m, MonsterSpawnArea a, Coord playerPosition) {
+        if (!m.hasAPs(m.getMoveCost())) return false;
+
+        // Fleeing.
+        if (m.isFleeing()) return true;
+        //if (m.isFleeing() && !m.isDesperate) return true;
+
+        return false;
+    }
 
 	private void handleNextMonsterAction() {
 		if (!world.model.uiSelections.isMainActivityVisible) return;
@@ -427,7 +450,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 				return;
 			}
 		}
-		
+
 		final Monster movingMonster = currentActiveMonster;
 		controllers.monsterMovementController.moveMonsterToNextPositionDuringCombat(currentActiveMonster, world.model.currentMap, new VisualEffectController.VisualEffectCompletedCallback(){
 			@Override
@@ -436,7 +459,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 				handleNextMonsterAction();
 			}
 		});
-		
+
 	}
 
 	private void attackWithCurrentMonster() {
@@ -488,7 +511,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 				, callback
 				, callbackValue);
 	}
-	
+
 	private void startMissedEffect(AttackResult attack, final Coord position, VisualEffectCompletedCallback callback, int callbackValue) {
 		if (controllers.preferences.attackspeed_milliseconds <= 0) {
 			callback.onVisualEffectCompleted(callbackValue);
@@ -501,8 +524,8 @@ public final class CombatController implements VisualEffectCompletedCallback {
 				, callback
 				, callbackValue);
 	}
-	
-	
+
+
 	private void endMonsterTurn() {
 		currentActiveMonster = null;
 		newPlayerTurn(false);
