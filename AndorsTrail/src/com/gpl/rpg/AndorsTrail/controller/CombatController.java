@@ -123,7 +123,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	}
 
 	public boolean canExitCombat() {
-		return getAdjacentAggressiveMonster() == null && !world.model.player.isWieldingRanged;
+		return getAdjacentAggressiveMonster() == null && !world.model.player.inAimMode;
 				//&& getNearbyEngagedMonster() == null;
 	}
 	private Monster getAdjacentAggressiveMonster() {
@@ -179,7 +179,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		this.lastAttackResult = attack;
 
 		target.setIsEnraged(world.model.player.isWieldingRanged); //monster is now focused on player
-		//world.model.player.inAimMode= false; // aim mode is only for outside combat
+		world.model.player.inAimMode= false; // aim mode is only for outside combat
 		if (attack.isHit) {
 			combatActionListeners.onPlayerAttackSuccess(target, attack);
 

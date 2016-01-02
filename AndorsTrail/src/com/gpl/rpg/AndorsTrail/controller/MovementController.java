@@ -132,7 +132,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 		world.model.player.nextPosition.set(dest);
 
 		Monster m = world.model.currentMap.getMonsterAt(dest);
-		if (m != null && world.model.player.isWieldingRanged) { // inAimMode
+		if (m != null && world.model.player.inAimMode) { // inAimMode
 			controllers.mapController.steppedOnMonster(m, dest);
 			//controllers.combatController.setCombatSelection(nextPos);
 			//controllers.combatController.executeMoveAttack(dx, dy);
@@ -347,7 +347,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 		if (!world.model.uiSelections.isMainActivityVisible) return false;
 		if (world.model.uiSelections.isInCombat) return false;
 
-		if(!(world.model.player.isWieldingRanged || world.model.player.inTeleportMode))
+		if(!(world.model.player.inAimMode || world.model.player.inTeleportMode))
 			movePlayer(movementDx, movementDy);
 		else
 			movePlayerRanged(movementDx, movementDy, movementDest);
