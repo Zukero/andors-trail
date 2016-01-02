@@ -158,6 +158,9 @@ public final class CombatController implements VisualEffectCompletedCallback {
 			setCombatSelection(m);
 			executePlayerAttack();
 		}
+
+		world.model.player.inAimMode= false; // aim mode needs to be disabled after player turn
+		// OR ELSE he will exit comat still in aim mode
 	}
 
 	private void executeFlee(int dx, int dy) {
@@ -179,7 +182,6 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		this.lastAttackResult = attack;
 
 		target.setIsEnraged(world.model.player.isWieldingRanged); //monster is now focused on player
-		world.model.player.inAimMode= false; // aim mode is only for outside combat
 		if (attack.isHit) {
 			combatActionListeners.onPlayerAttackSuccess(target, attack);
 
@@ -350,7 +352,11 @@ public final class CombatController implements VisualEffectCompletedCallback {
 				} else if (shouldMoveMonsterInCombat(m, a, playerPosition)) {
 					currentActiveMonster = m;
 					return MonsterAction.move;
+				}else if (shouldFleeMonsterInCombat(m, a, playerPosition)) {
+					currentActiveMonster = m;
+					return MonsterAction.flee;
 				}
+
 			}
 		}
 		return MonsterAction.none;
@@ -377,7 +383,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		if (!m.hasAPs(m.getMoveCost())) return false;
 
 		// Fleeing.
-		if(m.isFleeing()) return true;
+		//if(m.isFleeing()) return true;
 
 		//	Move towards player if enraged or angry
 		if(!m.position.isAdjacentTo(playerPosition)){
@@ -424,6 +430,8 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		} else if (nextMonsterAction == MonsterAction.attack) {
 			attackWithCurrentMonster();
 		} else if (nextMonsterAction == MonsterAction.move) {
+			moveCurrentMonster();
+		} else if(nextMonsterAction == MonsterAction.flee) {
 			moveCurrentMonster();
 		}
 	}
