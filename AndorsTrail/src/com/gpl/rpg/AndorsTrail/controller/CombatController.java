@@ -128,7 +128,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	}
 
 	private Monster getInRangeAggressiveMonster(){
-		if(world.model.player.inAimMode)
+		if(world.model.player.isInAimMode())
 			return MovementController.getInRangeAggressiveMonster(world.model.currentMap, world.model.player);
 		else
 			return MovementController.getAdjacentAggressiveMonster(world.model.currentMap, world.model.player);
@@ -185,7 +185,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		if (!useAPs(world.model.player.getAttackCost())) return;
 		final Monster target = world.model.uiSelections.selectedMonster;
 		final Coord attackPosition = world.model.uiSelections.selectedPosition;
-		setCombatSelection(target);
+		//setCombatSelection(target); //redundant
 
 		final AttackResult attack = playerAttacks(target);
 		this.lastAttackResult = attack;
@@ -559,6 +559,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	}
 
 	private void newPlayerTurn(boolean isFirstRound) {
+		setCombatSelection(world.model.uiSelections.selectedMonster); //stutters but it's okay I guess
 		if (canExitCombat()) {
 			exitCombat(true);
 			return;

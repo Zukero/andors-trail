@@ -67,12 +67,18 @@ public final class Player extends Actor {
 	}
 
 	public boolean toggleAimMode() {
-		if(!this.inAimMode
+		if(!this.isInAimMode()
 				&& this.isWieldingRangedWeapon())
 			this.inAimMode = true;
 		else
 			this.inAimMode = false;
 		return this.inAimMode;
+	}
+
+	public boolean isInAimMode() {
+		if(!this.isWieldingRangedWeapon())
+			inAimMode = false;
+		return inAimMode;
 	}
 
 	// Unequipped stats
@@ -447,17 +453,17 @@ public final class Player extends Actor {
 		this.inAimMode = false;
 	}
 
-	public boolean isWieldingRangedWeapon(){
+	public boolean isJokeWieldingRangedWeapon(){
 		return this.hasRangedWeaponEquippedInInventory;
 	}
 
-	public boolean isMostlyWieldingRangedWeapon(){
+	public boolean isWieldingRangedWeapon(){
 
 		if( this.inventory.getItemTypeInWearSlot(
-				Inventory.WearSlot.hand) == null)
+				Inventory.WearSlot.weapon) == null)
 			return false;
-		if(this.inventory.getItemTypeInWearSlot(
-				Inventory.WearSlot.hand).isRangedWeapon())
+		else if (this.inventory.getItemTypeInWearSlot(
+				Inventory.WearSlot.weapon).isRangedWeapon())
 			return true;
 		return false;
 	}
