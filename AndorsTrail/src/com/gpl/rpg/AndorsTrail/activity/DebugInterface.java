@@ -100,13 +100,13 @@ public final class DebugInterface {
 					showToast(mainActivity, "DEBUG: maps respawned", Toast.LENGTH_SHORT);
 				}
 			})*/
-			,new DebugButton("spawn longbow", new OnClickListener() {
+			,new DebugButton("+1 longbow", new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 				ItemType itemType = world.itemTypes.getItemType("wooden_longbow");
 				world.model.player.inventory.addItem(itemType);
 				controllerContext.itemController.equipItem(itemType, Inventory.WearSlot.weapon);
-				showToast(mainActivity, "DEBUG: ranged weapon spawned", Toast.LENGTH_SHORT);
+				showToast(mainActivity, "DEBUG: equipped a new bow. \nRange atm: " + +world.model.player.increaseMaxRange, Toast.LENGTH_SHORT);
 					/*boolean change = world.model.player.toggleEquipOfRangedWeapon();
 					if(change){
 						showToast(mainActivity, "DEBUG: ranged weapon ON", Toast.LENGTH_SHORT);
@@ -115,14 +115,21 @@ public final class DebugInterface {
 					}*/
 			}
 			})
+				,new DebugButton("+maxRange", new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				world.model.player.increaseMaxRange +=1;
+				showToast(mainActivity, "DEBUG: new range = "+ world.model.player.increaseMaxRange, Toast.LENGTH_SHORT);
+			}
+		})
 			,new DebugButton("aim-mode", new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 				boolean change = world.model.player.toggleAimMode();
 				if(change){
-					showToast(mainActivity, "DEBUG: aim-mode ON", Toast.LENGTH_SHORT);
+					showToast(mainActivity, "DEBUG: aim-mode is ON. \nYou stand immobile as you pick a target.", Toast.LENGTH_SHORT);
 				}else{
-					showToast(mainActivity, "DEBUG: aim-mode OFF", Toast.LENGTH_SHORT);
+					showToast(mainActivity, "DEBUG: aim-mode is OFF. ", Toast.LENGTH_SHORT);
 				}
 			}
 			})
@@ -131,9 +138,9 @@ public final class DebugInterface {
 			public void onClick(View arg0) {
 				boolean change = world.model.player.toggleTeleportMode();
 				if(change){
-					showToast(mainActivity, "DEBUG: teleport ON", Toast.LENGTH_SHORT);
+					showToast(mainActivity, "DEBUG: teleport ON. \nLiterally unplayable.", Toast.LENGTH_SHORT);
 				}else{
-					showToast(mainActivity, "DEBUG: teleport OFF", Toast.LENGTH_SHORT);
+					showToast(mainActivity, "DEBUG: teleport OFF.", Toast.LENGTH_SHORT);
 				}
 			}
 			})
@@ -144,9 +151,9 @@ public final class DebugInterface {
 						!controllerContext.monsterMovementController.existAngryFollowingRealtime;
 				boolean change = controllerContext.monsterMovementController.existAngryFollowingRealtime;
 				if(change){
-					showToast(mainActivity, "DEBUG: realtime following ON", Toast.LENGTH_SHORT);
+					showToast(mainActivity, "DEBUG: realtime following ON. \nPissed-off monsters stalk you when you flee.", Toast.LENGTH_SHORT);
 				}else{
-					showToast(mainActivity, "DEBUG: realtime following OFF", Toast.LENGTH_SHORT);
+					showToast(mainActivity, "DEBUG: realtime following OFF.", Toast.LENGTH_SHORT);
 				}
 			}
 		})

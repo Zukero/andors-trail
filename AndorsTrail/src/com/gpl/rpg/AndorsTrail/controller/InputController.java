@@ -76,10 +76,18 @@ public final class InputController implements OnClickListener, OnLongClickListen
 			// ^ what do you mean exactly? code unclear -twirl
 
 			if (lastTouchPosition_dx == 0 && lastTouchPosition_dy == 0) return false;
-			if(!world.model.player.isWieldingRangedWeapon() && !world.model.player.inTeleportMode) {
-				if (Math.abs(lastTouchPosition_dx) > 1) return false;
-				if (Math.abs(lastTouchPosition_dy) > 1) return false;
-			}
+
+
+			/*int touchRange = 1;
+			if(world.model.player.isInAimMode())
+				touchRange = world.model.player.maxRangeOfWeapon();
+			else if(world.model.player.inTeleportMode)
+				touchRange = world.model.player.maxTeleportRange; // Finally some hard-coding!
+
+			if (Math.abs(lastTouchPosition_dx) > touchRange) return false;
+			if (Math.abs(lastTouchPosition_dy) > touchRange) return false;
+			*/
+
 			controllers.combatController.setCombatSelection(lastTouchPosition_tileCoords);
 			//onRelativeMovement(lastTouchPosition_tileCoords.x, lastTouchPosition_tileCoords.y);
 			return true;

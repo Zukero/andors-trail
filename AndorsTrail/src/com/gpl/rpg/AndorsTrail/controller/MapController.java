@@ -105,6 +105,9 @@ public final class MapController {
 	}
 
 	public void steppedOnMonster(Monster m, Coord p) {
+		if(m == null)
+			return;
+
 		if (m.isAgressive() || (m.getIsEnraged())) {
 			controllers.combatController.setCombatSelection(m, p);
 			if (controllers.preferences.confirmAttack) {

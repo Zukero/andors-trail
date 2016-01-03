@@ -132,17 +132,38 @@ public final class MovementController implements TimedMessageTask.Callback {
 		world.model.player.nextPosition.set(dest);
 
 		Monster m = world.model.currentMap.getMonsterAt(dest);
-		if (m != null && (world.model.player.isInAimMode() || world.model.player.inTelepathyMode)) { // inAimMode
-			controllers.mapController.steppedOnMonster(m, dest);
-			//controllers.combatController.setCombatSelection(nextPos);
-			//controllers.combatController.executeMoveAttack(dx, dy);
-			return;
+		if (m != null){
+			if (world.model.player.isInAimMode()) {
+				if(isWithinRange(world.model.player.position, dest, world.model.player.maxRangeOfWeapon())){
+					controllers.mapController.steppedOnMonster(m, dest);
+					//controllers.combatController.setCombatSelection(nextPos);
+					// controllers.combatController.executeMoveAttack(dx, dy);
+					return;
+				}
+				else {
+					// Target is out of range
+					// Cancel aim mode?
+				}
+			}
+			else if ( world.model.player.inTelepathyMode){
+				if(isWithinRange(world.model.player.position, dest, world.model.player.maxTelepathyRange))
+					controllers.mapController.steppedOnMonster(m, dest);
+			}
 		}
 		else if (world.model.player.inTeleportMode){
 			//	Currently teleports even if tile unwalkable.
-			moveToNextIfPossible();
+			if(isWithinRange(world.model.player.position, dest, world.model.player.maxTeleportRange))
+				moveToNextIfPossible();
 		}
 
+	}
+
+	public static boolean isWithinRange(Coord root, Coord target, int maxRange){
+		int distance_x = Math.abs((target.x - root.x));
+		int distance_y = Math.abs((target.y - root.y));
+		if(distance_x <= maxRange && distance_y <= maxRange)
+			return true;
+		return false;
 	}
 
 	private boolean findWalkablePosition(int dx, int dy) {

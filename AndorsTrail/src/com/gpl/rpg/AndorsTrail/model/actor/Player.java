@@ -42,6 +42,9 @@ public final class Player extends Actor {
 	public int reequipCost;
 	public int totalExperience;
 
+	public int maxTelepathyRange = 20;
+	//public int increaseMaxRange;
+
 	public boolean inTeleportMode = false;
 	public boolean inTelepathyMode = false;
 	public boolean hasRangedWeaponEquippedInInventory = false; //enabled through debug button menu
@@ -53,6 +56,7 @@ public final class Player extends Actor {
 	private String spawnMap;
 	private String spawnPlace;
 	private final HashMap<String, Integer> alignments = new HashMap<String, Integer>();
+	public int maxTeleportRange = 20;
 
 	public boolean toggleEquipOfRangedWeapon() {
 		if(!this.hasRangedWeaponEquippedInInventory) this.hasRangedWeaponEquippedInInventory = true;
@@ -67,7 +71,7 @@ public final class Player extends Actor {
 	}
 
 	public boolean toggleAimMode() {
-		if(!this.isInAimMode()
+		if(!this.inAimMode
 				&& this.isWieldingRangedWeapon())
 			this.inAimMode = true;
 		else
@@ -79,6 +83,10 @@ public final class Player extends Actor {
 		if(!this.isWieldingRangedWeapon())
 			inAimMode = false;
 		return inAimMode;
+	}
+
+	public int maxRangeOfWeapon() {
+		return increaseMaxRange;
 	}
 
 	// Unequipped stats
@@ -96,6 +104,7 @@ public final class Player extends Actor {
 		public int damageResistance;
 		public int useItemCost;
 		public int reequipCost;
+		public int increaseMaxRange =1;
 	}
 
 	public void resetStatsToBaseTraits() {
@@ -112,6 +121,7 @@ public final class Player extends Actor {
 		this.damageResistance = this.baseTraits.damageResistance;
 		this.useItemCost = this.baseTraits.useItemCost;
 		this.reequipCost = this.baseTraits.reequipCost;
+		this.increaseMaxRange = this.baseTraits.increaseMaxRange; //is not a base trait because share with actor class
 	}
 
 	public Player() {
@@ -139,6 +149,7 @@ public final class Player extends Actor {
 		baseTraits.damageResistance = 0;
 		baseTraits.useItemCost = 5;
 		baseTraits.reequipCost = 5;
+		baseTraits.increaseMaxRange=1;
 		this.name = playerName;
 		this.level = 1;
 		this.totalExperience = 1;

@@ -36,6 +36,8 @@ public final class SkillCollection {
 		,rejuvenation	// Reduces magnitudes of conditions
 		,taunt			// Causes AP loss of attackers that miss
 		,concussion		// AC loss for monsters with (AC-BC)>N
+		,weaponProficiency2hranged // e.g. Longbows
+		,weaponProficiency1hranged // e.g. Crossbows
 		,weaponProficiencyDagger
 		,weaponProficiency1hsword
 		,weaponProficiency2hsword

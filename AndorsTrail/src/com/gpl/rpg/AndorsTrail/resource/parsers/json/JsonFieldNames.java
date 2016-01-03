@@ -32,6 +32,7 @@ public final class JsonFieldNames {
 		public static final String increaseAttackDamage = "increaseAttackDamage";
 		public static final String increaseBlockChance = "increaseBlockChance";
 		public static final String increaseDamageResistance = "increaseDamageResistance";
+		public static final String increaseMaxRange = "increaseMaxRange";
 	}
 
 	public static final class ItemCategory {

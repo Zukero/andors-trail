@@ -145,15 +145,28 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		if (!world.model.uiSelections.isPlayersCombatTurn) return;
 
 		if (world.model.uiSelections.selectedMonster != null) {
-			if(world.model.uiSelections.selectedMonster.isAdjacentTo(world.model.player)
-					|| world.model.player.isWieldingRangedWeapon()){
-			executePlayerAttack();
+			if(MovementController.isWithinRange(
+					world.model.uiSelections.selectedMonster.position,
+					world.model.player.position,
+					world.model.player.increaseMaxRange)){
+				executePlayerAttack();
+			}
+			else{
+				combatActionListeners.onTargetOutsideRange();
+				//combatActionListeners.onTargetOutsideRange(world.model.uiSelections.selectedMonster);
 			}
 		} else if (world.model.uiSelections.selectedPosition != null) {
-			if(world.model.uiSelections.selectedPosition.isAdjacentTo(world.model.player.position)
-					|| world.model.player.inTeleportMode){
+			int range = 1;
+			if(world.model.player.inTeleportMode)
+				range = world.model.player.maxTeleportRange;
+			if(MovementController.isWithinRange(
+					world.model.uiSelections.selectedPosition,
+					world.model.player.position, range)){
 				world.model.player.cancelAimMode();
 				executeCombatMove(world.model.uiSelections.selectedPosition);
+			}
+			else{
+				combatActionListeners.onTargetOutsideRange();
 			}
 		} else if (controllers.effectController.isRunningVisualEffect()) {
 			return;
@@ -559,7 +572,8 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	}
 
 	private void newPlayerTurn(boolean isFirstRound) {
-		setCombatSelection(world.model.uiSelections.selectedMonster); //stutters but it's okay I guess
+		if(world.model.uiSelections.selectedMonster !=null)
+			setCombatSelection(world.model.uiSelections.selectedMonster); //stutters but it's okay I guess
 		if (canExitCombat()) {
 			exitCombat(true);
 			return;

@@ -311,6 +311,11 @@ public final class MainActivity
 	}
 
 	@Override
+	public void onTargetOutsideRange() {
+		message("Target is out of range!");
+	}
+
+	@Override
 	public void onMonsterAttackSuccess(Monster attacker, AttackResult attackResult) {
 		final String monsterName = attacker.getName();
 		if (attackResult.isCriticalHit) {
