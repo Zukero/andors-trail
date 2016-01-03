@@ -1,5 +1,12 @@
 [
     {
+        "id":"rangedweapon_big",
+        "name":"Bow 2H",
+        "inventorySlot":"weapon",
+        "actionType":"equip",
+        "size":"large"
+    },
+    {
         "id": "dagger",
         "name": "Dagger",
         "actionType": "equip",

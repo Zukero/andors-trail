@@ -12,6 +12,7 @@ import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.activity.fragment.HeroinfoActivity_Inventory;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.model.item.Inventory;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 
@@ -102,14 +103,16 @@ public final class DebugInterface {
 			,new DebugButton("spawn longbow", new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				/*ItemType itemType = world.itemTypes.getItemType("wooden_longbow");
-				controllerContext.itemController.dropItem(itemType, 1);*/
-					boolean change = world.model.player.toggleEquipOfRangedWeapon();
+				ItemType itemType = world.itemTypes.getItemType("wooden_longbow");
+				world.model.player.inventory.addItem(itemType);
+				controllerContext.itemController.equipItem(itemType, Inventory.WearSlot.weapon);
+				showToast(mainActivity, "DEBUG: ranged weapon spawned", Toast.LENGTH_SHORT);
+					/*boolean change = world.model.player.toggleEquipOfRangedWeapon();
 					if(change){
 						showToast(mainActivity, "DEBUG: ranged weapon ON", Toast.LENGTH_SHORT);
 					}else{
 						showToast(mainActivity, "DEBUG: ranged weapon OFF", Toast.LENGTH_SHORT);
-					}
+					}*/
 			}
 			})
 			,new DebugButton("aim-mode", new OnClickListener() {

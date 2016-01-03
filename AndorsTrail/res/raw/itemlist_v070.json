@@ -1,5 +1,17 @@
 [
     {
+        "id":"wooden_longbow",
+        "category":"rangedweapon_big",
+        "baseMarketCost":1000,
+        "description":"A most basic ranged weapon.",
+        "name":"Wooden Longbow",
+        "equipEffect":{
+            "increaseAttackCost":10,
+            "increaseAttackChance":-10
+        },
+        "iconID":"items_misc_2:56"
+    },
+    {
         "id": "ltbdy_lthr",
         "name": "Sturdy leather cuirass",
         "category": "bdy_lt",
