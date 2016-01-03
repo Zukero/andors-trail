@@ -20,6 +20,8 @@ public final class MonsterMovementController implements EvaluateWalkable {
     private final WorldContext world;
     public final MonsterMovementListeners monsterMovementListeners = new MonsterMovementListeners();
 
+    public boolean existAngryFollowingRealtime = false;
+
     public MonsterMovementController(ControllerContext controllers, WorldContext world) {
         this.controllers = controllers;
         this.world = world;
@@ -40,8 +42,7 @@ public final class MonsterMovementController implements EvaluateWalkable {
     public void attackWithAgressiveMonsters() {
         for (MonsterSpawnArea a : world.model.currentMap.spawnAreas) {
             for (Monster m : a.monsters) {
-                if (!
-                        (m.isAgressive() || (m.getIsEnraged()))
+                if (!m.isAgressive() || !m.getIsEnraged()
                         || m.isFleeing()) continue;
                 if (!m.isAdjacentTo(world.model.player)) continue;
                 // ^ this leaves out monster ranged-attacks
@@ -97,8 +98,8 @@ public final class MonsterMovementController implements EvaluateWalkable {
                 return;
             }
             if (m.nextPosition.contains(world.model.player.position)) {
-                if (!
-                        (m.isAgressive() && m.getIsEnraged())
+                if (! //do not step on player unless agressive or enraged
+                        (m.isAgressive() && (m.getIsEnraged()))//||m.isDesperate))
                         ) {
                     cancelCurrentMonsterMovement(m);
                     return;
@@ -124,7 +125,8 @@ public final class MonsterMovementController implements EvaluateWalkable {
             }
         }
 
-        if (m.getIsEnraged() || searchForPath)
+        if ( searchForPath || ( m.getIsEnraged() && existAngryFollowingRealtime )
+                )
             if (findPathFor(m, playerPosition)) return;
 
         // Monster is moving in a straight line.
@@ -173,7 +175,8 @@ public final class MonsterMovementController implements EvaluateWalkable {
             int targetX = Math.abs(m.position.x - to.x + i);
             for(int j = -1; j<2; j++){
                 int targetY = Math.abs(m.position.y - to.y + j);
-                if(targetX >= relativeX && targetY >= relativeY
+                if((targetX >= relativeX && !(targetY < relativeY))
+                        || (!(targetX < relativeX) && (targetY >= relativeY))
                         && !(i ==0 && j ==0)){
                     temp = new Coord(m.position.x +i, m.position.y +j);
                     if(isWalkable(new CoordRect(

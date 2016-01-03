@@ -56,6 +56,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	public void exitCombat(boolean pickupLootBags) {
 		setCombatSelection(null, null);
 		world.model.uiSelections.isInCombat = false;
+		//world.model.player.inAimMode = false;
 		combatTurnListeners.onCombatEnded();
 		world.model.uiSelections.selectedPosition = null;
 		world.model.uiSelections.selectedMonster = null;
@@ -80,8 +81,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	}
 	public void setCombatSelection(Monster selectedMonster, Coord selectedPosition) {
 		if (selectedMonster != null) {
-			if (!(selectedMonster.isAgressive()
-					|| !selectedMonster.getIsEnraged())) return;
+			if (!(selectedMonster.isAgressive())) return;
 		}
 		Coord previousSelection = world.model.uiSelections.selectedPosition;
 		if (previousSelection != null) {
@@ -185,6 +185,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		if (!useAPs(world.model.player.getAttackCost())) return;
 		final Monster target = world.model.uiSelections.selectedMonster;
 		final Coord attackPosition = world.model.uiSelections.selectedPosition;
+		setCombatSelection(target);
 
 		final AttackResult attack = playerAttacks(target);
 		this.lastAttackResult = attack;
@@ -379,11 +380,8 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		if (!m.rectPosition.isAdjacentTo(playerPosition)) return false;
 		// TO TEST If above line is changed, will they use ranged attacks?
 
-		if(!m.isAgressive()){
-			//	Attacks even when not attacked first?
-			//	Simple to change but not sure if good gameplay-wise
+		if(!m.isAgressive())
 			return false;
-		}
 
 		return true;
 	}
@@ -392,11 +390,9 @@ public final class CombatController implements VisualEffectCompletedCallback {
 
 		if (!m.hasAPs(m.getMoveCost())) return false;
 
-		// Fleeing.
-		//if(m.isFleeing()) return true;
-
 		//	Move towards player if enraged or angry
 		if(!m.position.isAdjacentTo(playerPosition)){
+			//m.isDesperate = false;
 			if(m.getIsEnraged())
 				// Anger handlers
 				return true;
@@ -425,7 +421,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
         if (!m.hasAPs(m.getMoveCost())) return false;
 
         // Fleeing.
-        if (m.isFleeing()) return true;
+        if (m.isFleeing() && !m.hasFleePath) return true;
         //if (m.isFleeing() && !m.isDesperate) return true;
 
         return false;
@@ -451,7 +447,8 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		controllers.actorStatsController.useAPs(currentActiveMonster, currentActiveMonster.getMoveCost());
 
 		//flee away from player. If can't, keep attacking.
-		if (!controllers.monsterMovementController.findFleePathFor(currentActiveMonster, world.model.player.position)) {
+		if (//!currentActiveMonster.hasFleePath &&
+		!controllers.monsterMovementController.findFleePathFor(currentActiveMonster, world.model.player.position)) {
 			// Couldn't find a path to flee to; keep attacking.
 
 			// todo,twirl might not keep attacking, just freeze, or even crash

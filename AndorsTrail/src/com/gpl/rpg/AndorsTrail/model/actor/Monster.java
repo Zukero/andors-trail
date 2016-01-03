@@ -23,6 +23,7 @@ public final class Monster extends Actor {
 
 	public boolean isEnraged = false; //for pathfinding purposes
 	public double THRESHOLD_HP_FLEE_PERCENT = 0.2;
+	public boolean hasFleePath = false;
 
 	//	This value is for whether the monster will flee from ranged opponents
 	boolean fearsRangedWeapons = true;

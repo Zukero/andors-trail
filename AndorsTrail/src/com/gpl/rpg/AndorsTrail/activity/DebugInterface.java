@@ -123,7 +123,7 @@ public final class DebugInterface {
 				}
 			}
 			})
-				,new DebugButton("teleport", new OnClickListener() {
+			,new DebugButton("teleport", new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 				boolean change = world.model.player.toggleTeleportMode();
@@ -134,9 +134,25 @@ public final class DebugInterface {
 				}
 			}
 			})
-				,new DebugButton("NPC telepathy", new OnClickListener() {
+				,new DebugButton("realtime following", new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
+				controllerContext.monsterMovementController.existAngryFollowingRealtime =
+						!controllerContext.monsterMovementController.existAngryFollowingRealtime;
+				boolean change = controllerContext.monsterMovementController.existAngryFollowingRealtime;
+				if(change){
+					showToast(mainActivity, "DEBUG: realtime following ON", Toast.LENGTH_SHORT);
+				}else{
+					showToast(mainActivity, "DEBUG: realtime following OFF", Toast.LENGTH_SHORT);
+				}
+			}
+		})
+
+
+			/*,new DebugButton("NPC telepathy", new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+			//Can interact with any NPC or monster without moving.
 				world.model.player.inTelepathyMode = !world.model.player.inTelepathyMode;
 				boolean change = world.model.player.inTelepathyMode;
 				if(change){
@@ -145,7 +161,7 @@ public final class DebugInterface {
 					showToast(mainActivity, "DEBUG: NPC telepathy OFF", Toast.LENGTH_SHORT);
 				}
 			}
-		})
+		})*/
 				/*
 				,new DebugButton("gold", new OnClickListener() {
 			@Override
