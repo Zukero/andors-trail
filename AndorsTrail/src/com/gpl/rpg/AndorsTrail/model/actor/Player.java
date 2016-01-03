@@ -43,7 +43,8 @@ public final class Player extends Actor {
 	public int totalExperience;
 
 	public boolean inTeleportMode = false;
-	public boolean isWieldingRanged = false; //enabled through debug button menu
+	public boolean inTelepathyMode = false;
+	public boolean hasRangedWeaponEquippedInInventory = false; //enabled through debug button menu
 	//allows player to attack from afar
 	public boolean inAimMode = false; //needs to be enabled in order to initiate ranged-attack outside combat
 
@@ -53,10 +54,10 @@ public final class Player extends Actor {
 	private String spawnPlace;
 	private final HashMap<String, Integer> alignments = new HashMap<String, Integer>();
 
-	public boolean toggleRangedMode() {
-		if(!this.isWieldingRanged) this.isWieldingRanged = true;
-		else this.isWieldingRanged = false;
-		return this.isWieldingRanged;
+	public boolean toggleEquipOfRangedWeapon() {
+		if(!this.hasRangedWeaponEquippedInInventory) this.hasRangedWeaponEquippedInInventory = true;
+		else this.hasRangedWeaponEquippedInInventory = false;
+		return this.hasRangedWeaponEquippedInInventory;
 	}
 
 	public boolean toggleTeleportMode() {
@@ -66,8 +67,11 @@ public final class Player extends Actor {
 	}
 
 	public boolean toggleAimMode() {
-		if(!this.inAimMode && this.isWieldingRanged) this.inAimMode = true;
-		else this.inAimMode = false;
+		if(!this.inAimMode
+				&& this.isWieldingRangedWeapon())
+			this.inAimMode = true;
+		else
+			this.inAimMode = false;
 		return this.inAimMode;
 	}
 
@@ -435,6 +439,33 @@ public final class Player extends Actor {
 			dest.writeUTF(e.getKey());
 			dest.writeInt(e.getValue());
 		}
+	}
+
+	public void cancelAimMode(){
+		// this makes player flee instead of moving in combat
+		// allows player to flee from from combat mode
+		this.inAimMode = false;
+	}
+
+	public boolean isWieldingRangedWeapon(){
+		return this.hasRangedWeaponEquippedInInventory;
+	}
+
+	public boolean isMostlyWieldingRangedWeapon(){
+
+		if( this.inventory.getItemTypeInWearSlot(
+				Inventory.WearSlot.hand) == null)
+			return false;
+		if(this.inventory.getItemTypeInWearSlot(
+				Inventory.WearSlot.hand).isRangedWeapon())
+			return true;
+		return false;
+	}
+	public boolean isKindaWieldingRangedWeapon(){
+		if(this.inventory.isWearing("wooden_longbow")){
+			return true;
+		}
+		return false;
 	}
 }
 

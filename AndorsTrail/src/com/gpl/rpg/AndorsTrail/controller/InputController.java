@@ -76,7 +76,7 @@ public final class InputController implements OnClickListener, OnLongClickListen
 			// ^ what do you mean exactly? code unclear -twirl
 
 			if (lastTouchPosition_dx == 0 && lastTouchPosition_dy == 0) return false;
-			if(!world.model.player.isWieldingRanged && !world.model.player.inTeleportMode) {
+			if(!world.model.player.isWieldingRangedWeapon() && !world.model.player.inTeleportMode) {
 				if (Math.abs(lastTouchPosition_dx) > 1) return false;
 				if (Math.abs(lastTouchPosition_dy) > 1) return false;
 			}

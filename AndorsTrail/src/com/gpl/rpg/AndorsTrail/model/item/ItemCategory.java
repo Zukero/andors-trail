@@ -16,6 +16,7 @@ public final class ItemCategory {
 	public final Inventory.WearSlot inventorySlot;
 	private final ActionType actionType;
 	private final ItemCategorySize size;
+	//private final boolean CanTargetDistantTiles;
 
 	public ItemCategory(
 			String id
@@ -23,12 +24,14 @@ public final class ItemCategory {
 			, ActionType actionType
 			, Inventory.WearSlot inventorySlot
 			, ItemCategorySize size
+			//, boolean targetsDistantTiles
 	) {
 		this.id = id;
 		this.displayName = displayName;
 		this.inventorySlot = inventorySlot;
 		this.size = size;
 		this.actionType = actionType;
+		//this.CanTargetDistantTiles = targetsDistantTiles;
 	}
 
 	public static enum ActionType {
@@ -55,5 +58,16 @@ public final class ItemCategory {
 		else if (size == ItemCategorySize.light) return true;
 		else if (size == ItemCategorySize.std) return true;
 		else return false;
+	}
+
+	public boolean isRangedWeapon() {
+		if (!isWeapon()) return false;
+		else if (id == "rangedweapon_small"
+				|| id == "rangedweapon_big"){
+			//todo,twirl I'm not sure how to integrate this with ATCS better
+			return true;
+		}
+
+		return false;
 	}
 }

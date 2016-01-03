@@ -25,13 +25,13 @@ public final class Monster extends Actor {
 	public double THRESHOLD_HP_FLEE_PERCENT = 0.2;
 
 	//	This value is for whether the monster will flee from ranged opponents
-	boolean isFearsRanged = true;
+	boolean fearsRangedWeapons = true;
+	public boolean isDesperate = false;
 
 	private boolean forceAggressive = false;
 	private ItemContainer shopItems = null;
 
 	private final MonsterType monsterType;
-	public boolean isDesperate = false;
 
 	public Monster(MonsterType monsterType) {
 		super(monsterType.tileSize, false, monsterType.isImmuneToCriticalHits());
@@ -88,6 +88,10 @@ public final class Monster extends Actor {
 	}
 	public boolean isAdjacentTo(Player p) {
 		return this.rectPosition.isAdjacentTo(p.position);
+	}
+	public boolean isInRangeOf(Player p) {
+		//return this.rectPosition.isAdjacentTo(p.position);
+		return true;
 	}
 
 	public boolean isAgressive() {
@@ -209,7 +213,7 @@ public final class Monster extends Actor {
 			return true;
 
 		// Fear of ranged weapons
-		if(!isFearsRanged && this.monsterType.braveryType == MonsterType.BraveryType.confused)
+		if(!fearsRangedWeapons && this.monsterType.braveryType == MonsterType.BraveryType.confused)
 			return true;
 
 		if(doesFleeFromLowHP()
@@ -223,9 +227,9 @@ public final class Monster extends Actor {
 	{
 		// Confusion caused by ranged weapons
 		if(weaponType)
-			isFearsRanged = doesEngageWithRanged();
+			fearsRangedWeapons = doesEngageWithRanged();
 
-		this.isEnraged = isFearsRanged && !isFleeing();
+		this.isEnraged = fearsRangedWeapons && !isFleeing();
 	}
 
 	public boolean getIsEnraged(){

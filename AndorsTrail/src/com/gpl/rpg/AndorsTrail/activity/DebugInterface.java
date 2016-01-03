@@ -9,8 +9,10 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
+import com.gpl.rpg.AndorsTrail.activity.fragment.HeroinfoActivity_Inventory;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 
 public final class DebugInterface {
@@ -30,7 +32,17 @@ public final class DebugInterface {
 		if (!AndorsTrailApplication.DEVELOPMENT_DEBUGBUTTONS) return;
 
 		addDebugButtons(new DebugButton[] {
-			new DebugButton("dmg", new OnClickListener() {
+				new DebugButton("hp", new OnClickListener() {
+				@Override
+				public void onClick(View arg0) {
+					world.model.player.baseTraits.maxHP = 500;
+					world.model.player.health.max = world.model.player.baseTraits.maxHP;
+					controllerContext.actorStatsController.setActorMaxHealth(world.model.player);
+					world.model.player.conditions.clear();
+					showToast(mainActivity, "DEBUG: hp set to max", Toast.LENGTH_SHORT);
+			}
+		})
+			/*,new DebugButton("dmg", new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
 					world.model.player.damagePotential.set(500, 500);
@@ -38,7 +50,7 @@ public final class DebugInterface {
 					world.model.player.attackCost = 1;
 					showToast(mainActivity, "DEBUG: damagePotential=500, chance=500%, cost=1", Toast.LENGTH_SHORT);
 				}
-			})
+			})*/
 			/*,new DebugButton("dmg=1", new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
@@ -78,7 +90,7 @@ public final class DebugInterface {
 					showToast(mainActivity, "DEBUG: given 10000 exp", Toast.LENGTH_SHORT);
 				}
 			})*/
-			,new DebugButton("reset", new OnClickListener() {
+			/*,new DebugButton("reset", new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
 					for(PredefinedMap map : world.maps.getAllMaps()) {
@@ -86,21 +98,13 @@ public final class DebugInterface {
 					}
 					showToast(mainActivity, "DEBUG: maps respawned", Toast.LENGTH_SHORT);
 				}
-			})
-			,new DebugButton("hp", new OnClickListener() {
-				@Override
-				public void onClick(View arg0) {
-					world.model.player.baseTraits.maxHP = 500;
-					world.model.player.health.max = world.model.player.baseTraits.maxHP;
-					controllerContext.actorStatsController.setActorMaxHealth(world.model.player);
-					world.model.player.conditions.clear();
-					showToast(mainActivity, "DEBUG: hp set to max", Toast.LENGTH_SHORT);
-				}
-			})
-			,new DebugButton("equip-ranged", new OnClickListener() {
+			})*/
+			,new DebugButton("spawn longbow", new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-					boolean change = world.model.player.toggleRangedMode();
+				/*ItemType itemType = world.itemTypes.getItemType("wooden_longbow");
+				controllerContext.itemController.dropItem(itemType, 1);*/
+					boolean change = world.model.player.toggleEquipOfRangedWeapon();
 					if(change){
 						showToast(mainActivity, "DEBUG: ranged weapon ON", Toast.LENGTH_SHORT);
 					}else{
@@ -130,6 +134,18 @@ public final class DebugInterface {
 				}
 			}
 			})
+				,new DebugButton("NPC telepathy", new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				world.model.player.inTelepathyMode = !world.model.player.inTelepathyMode;
+				boolean change = world.model.player.inTelepathyMode;
+				if(change){
+					showToast(mainActivity, "DEBUG: NPC telepathy ON", Toast.LENGTH_SHORT);
+				}else{
+					showToast(mainActivity, "DEBUG: NPC telepathy OFF", Toast.LENGTH_SHORT);
+				}
+			}
+		})
 				/*
 				,new DebugButton("gold", new OnClickListener() {
 			@Override

@@ -113,7 +113,14 @@ public final class MapController {
 				controllers.combatController.enterCombat(CombatController.BeginTurnAs.player);
 			}
 		} else {
-			worldEventListeners.onPlayerStartedConversation(m, m.getPhraseID());
+			if(world.model.player.inAimMode){
+				// cancel aiming when player tries
+				// to ranged-attack non-aggressive monster
+				world.model.player.cancelAimMode();
+				}
+			else {
+				worldEventListeners.onPlayerStartedConversation(m, m.getPhraseID());
+			}
 		}
 	}
 

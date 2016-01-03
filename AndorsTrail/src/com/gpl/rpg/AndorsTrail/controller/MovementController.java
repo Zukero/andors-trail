@@ -128,11 +128,11 @@ public final class MovementController implements TimedMessageTask.Callback {
 		moveToNextIfPossible();
 	}
 
-	private void movePlayerRanged(int dx, int dy, Coord dest){
+	private void usePlayerRangedAction(int dx, int dy, Coord dest){
 		world.model.player.nextPosition.set(dest);
 
 		Monster m = world.model.currentMap.getMonsterAt(dest);
-		if (m != null && world.model.player.inAimMode) { // inAimMode
+		if (m != null && (world.model.player.inAimMode || world.model.player.inTelepathyMode)) { // inAimMode
 			controllers.mapController.steppedOnMonster(m, dest);
 			//controllers.combatController.setCombatSelection(nextPos);
 			//controllers.combatController.executeMoveAttack(dx, dy);
@@ -347,10 +347,10 @@ public final class MovementController implements TimedMessageTask.Callback {
 		if (!world.model.uiSelections.isMainActivityVisible) return false;
 		if (world.model.uiSelections.isInCombat) return false;
 
-		if(!(world.model.player.inAimMode || world.model.player.inTeleportMode))
+		if(!(world.model.player.inAimMode || world.model.player.inTeleportMode || world.model.player.inTelepathyMode))
 			movePlayer(movementDx, movementDy);
 		else
-			movePlayerRanged(movementDx, movementDy, movementDest);
+			usePlayerRangedAction(movementDx, movementDy, movementDest);
 
 		return true;
 	}
@@ -378,7 +378,17 @@ public final class MovementController implements TimedMessageTask.Callback {
 		return null;
 	}
 
-	public static Monster getNearbyEngagedMonster(PredefinedMap map, Player player) {
+	public static Monster getInRangeAggressiveMonster(PredefinedMap map, Player player) {
+		for (MonsterSpawnArea a : map.spawnAreas) {
+			for (Monster m : a.monsters) {
+				if (!m.isAgressive()) continue;
+				if (m.isInRangeOf(player)) return m;
+			}
+		}
+		return null;
+	}
+
+	public static Monster getNearbyEnragedMonster(PredefinedMap map, Player player) {
 		for (MonsterSpawnArea a : map.spawnAreas) {
 			for (Monster m : a.monsters) {
 				if (m.getIsEnraged()) return m;
