@@ -31,7 +31,7 @@ public final class DebugInterface {
 
 	public void addDebugButtons() {
 		if (!AndorsTrailApplication.DEVELOPMENT_DEBUGBUTTONS) return;
-		//world.model.player.moveCost = 5; //move to suitable location
+		world.model.player.moveCost = 5; //move to suitable location
 		addDebugButtons(new DebugButton[] {
 				new DebugButton("teleport", new OnClickListener() {
 			@Override
