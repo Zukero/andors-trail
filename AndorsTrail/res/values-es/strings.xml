@@ -156,7 +156,7 @@
 	<string name="about_button2">Autores</string>
 	<string name="about_button3">Licencia</string>
 	<string name="about_contents1">
-		Bienvenido a "El sendero de Andor" (Andor's Trail), un RPG "roguelike" de código abierto para Android.
+		Bienvenido a "El sendero de Andor" (Andor\'s Trail), un RPG "roguelike" de código abierto para Android.
 		&lt;br /&gt;&lt;br /&gt;
 		&lt;a href=http://andorstrail.com/&gt;Foros de juego en andorstrail.com para preguntas y discusiones de juego.&lt;/a&gt;&lt;br /&gt;
 		&lt;br /&gt;
@@ -169,7 +169,7 @@
 
 	<string name="dialog_newversion_title">Bienvenido</string>
 	<string name="dialog_newversion_message">
-		Gracias por descargar El sendero de Andor (Andor's Trail)!
+		Gracias por descargar El sendero de Andor (Andor\'s Trail)!
 		\n\n
 		Tenga en cuenta que esta versión del Camino de Andor es un trabajo en progreso, lo que significa que todos los mapas aún no se han completado.
 		\n

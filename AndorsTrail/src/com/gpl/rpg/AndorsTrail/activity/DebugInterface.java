@@ -9,8 +9,11 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
+import com.gpl.rpg.AndorsTrail.activity.fragment.HeroinfoActivity_Inventory;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.model.item.Inventory;
+import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 
 public final class DebugInterface {
@@ -28,9 +31,30 @@ public final class DebugInterface {
 
 	public void addDebugButtons() {
 		if (!AndorsTrailApplication.DEVELOPMENT_DEBUGBUTTONS) return;
-
+		world.model.player.baseTraits.moveCost = 5; //move to suitable location
 		addDebugButtons(new DebugButton[] {
-			new DebugButton("dmg", new OnClickListener() {
+				new DebugButton("teleport", new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				boolean change = world.model.player.toggleTeleportMode();
+				if(change){
+					showToast(mainActivity, "DEBUG: teleport ON. \nLiterally unplayable.", Toast.LENGTH_SHORT);
+				}else{
+					showToast(mainActivity, "DEBUG: teleport OFF.", Toast.LENGTH_SHORT);
+				}
+			}
+				})
+				/*,new DebugButton("hp", new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				world.model.player.baseTraits.maxHP = 500;
+				world.model.player.health.max = world.model.player.baseTraits.maxHP;
+				controllerContext.actorStatsController.setActorMaxHealth(world.model.player);
+				world.model.player.conditions.clear();
+				showToast(mainActivity, "DEBUG: hp set to max", Toast.LENGTH_SHORT);
+			}
+		})*/
+			/*,new DebugButton("dmg", new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
 					world.model.player.damagePotential.set(500, 500);
@@ -38,7 +62,7 @@ public final class DebugInterface {
 					world.model.player.attackCost = 1;
 					showToast(mainActivity, "DEBUG: damagePotential=500, chance=500%, cost=1", Toast.LENGTH_SHORT);
 				}
-			})
+			})*/
 			/*,new DebugButton("dmg=1", new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
@@ -78,7 +102,7 @@ public final class DebugInterface {
 					showToast(mainActivity, "DEBUG: given 10000 exp", Toast.LENGTH_SHORT);
 				}
 			})*/
-			,new DebugButton("reset", new OnClickListener() {
+			/*,new DebugButton("reset", new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
 					for(PredefinedMap map : world.maps.getAllMaps()) {
@@ -86,18 +110,92 @@ public final class DebugInterface {
 					}
 					showToast(mainActivity, "DEBUG: maps respawned", Toast.LENGTH_SHORT);
 				}
+			})*/
+			,new DebugButton("+3 bows", new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				String[] bows = {"wooden_longbow", "wooden_crossbow", "stronger_wooden_longbow"};
+				for(String id :bows)
+				if(!world.model.player.inventory.hasItem(id))
+				world.model.player.inventory.addItem(
+						world.itemTypes.getItemType(id));
+				//controllerContext.itemController.equipItem(itemType, Inventory.WearSlot.weapon);
+				showToast(mainActivity, "DEBUG: Added 3 new bows to inventory.", Toast.LENGTH_SHORT);
+					/*boolean change = world.model.player.toggleEquipOfRangedWeapon();
+					if(change){
+						showToast(mainActivity, "DEBUG: ranged weapon ON", Toast.LENGTH_SHORT);
+					}else{
+						showToast(mainActivity, "DEBUG: ranged weapon OFF", Toast.LENGTH_SHORT);
+					}*/
+			}
 			})
-			,new DebugButton("hp", new OnClickListener() {
-				@Override
-				public void onClick(View arg0) {
-					world.model.player.baseTraits.maxHP = 500;
-					world.model.player.health.max = world.model.player.baseTraits.maxHP;
-					controllerContext.actorStatsController.setActorMaxHealth(world.model.player);
-					world.model.player.conditions.clear();
-					showToast(mainActivity, "DEBUG: hp set to max", Toast.LENGTH_SHORT);
+				/*,new DebugButton("+range", new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				world.model.player.increaseMaxRange +=1;
+				showToast(mainActivity, "DEBUG: Range +1 \n" +
+						"New range: "+ world.model.player.increaseMaxRange, Toast.LENGTH_SHORT);
+			}
+		})*/
+			,new DebugButton("start aim", new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				boolean change = world.model.player.toggleAimMode();
+				if(change){
+					showToast(mainActivity, "DEBUG: aim-mode is ON. \nYou stand immobile as you pick a target.", Toast.LENGTH_SHORT);
+				}else{
+					showToast(mainActivity, "DEBUG: aim-mode is OFF. ", Toast.LENGTH_SHORT);
 				}
+			}
 			})
-			/*
+				,new DebugButton("need safe aim", new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				boolean aimNotNeeded = world.model.player.toggleNeedAiming();
+				if(!aimNotNeeded){
+					showToast(mainActivity, "DEBUG: aim-mode is NEEDED. \n" +
+							"You need to stand immobile to aim before shooting.", Toast.LENGTH_SHORT);
+				}else{
+					showToast(mainActivity, "DEBUG: aim-mode is NOT needed. \n" +
+							"You can directly shoot monsters within attack range.", Toast.LENGTH_SHORT);
+				}
+			}
+		})
+				,new DebugButton("real following", new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				controllerContext.monsterMovementController.existAngryFollowingRealtime =
+						!controllerContext.monsterMovementController.existAngryFollowingRealtime;
+				boolean change = controllerContext.monsterMovementController.existAngryFollowingRealtime;
+				if(change){
+					showToast(mainActivity, "DEBUG: realtime following ON. \nPissed-off monsters try to follow when you flee.", Toast.LENGTH_SHORT);
+				}else{
+					showToast(mainActivity, "DEBUG: realtime following OFF. \nMonsters do not follow when you flee.", Toast.LENGTH_SHORT);
+				}
+			}
+		})
+			/*,new DebugButton("NPC telepathy", new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+			//Can interact with any NPC or monster without moving.
+				world.model.player.inTelepathyMode = !world.model.player.inTelepathyMode;
+				boolean change = world.model.player.inTelepathyMode;
+				if(change){
+					showToast(mainActivity, "DEBUG: NPC telepathy ON", Toast.LENGTH_SHORT);
+				}else{
+					showToast(mainActivity, "DEBUG: NPC telepathy OFF", Toast.LENGTH_SHORT);
+				}
+			}
+		})*/
+				/*
+				,new DebugButton("gold", new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				world.model.player.inventory.gold += 9999;
+				showToast(mainActivity, "DEBUG: gold increased", Toast.LENGTH_SHORT);
+			}
+		})
+
 			,new DebugButton("cg", new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {

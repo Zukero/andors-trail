@@ -74,6 +74,13 @@ public final class ItemType {
 	public boolean isShield() { return category.isShield(); }
 	public boolean isTwohandWeapon() { return category.isTwohandWeapon(); }
 	public boolean isOffhandCapableWeapon() { return category.isOffhandCapableWeapon(); }
+	public boolean isRangedWeapon() {
+		if(this.effects_equip.stats.increaseMaxRange >0)
+			return true;
+		return false;
+		//return category.isRangedWeapon();
+	}
+
 	public boolean isSellable() {
 		if (isQuestItem()) return false;
 		if (baseMarketCost == 0) return false;

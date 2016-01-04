@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">قصة آندور</string>
+    <string name="about_button1">مساعدة</string>
+    <string name="about_button2">الكاتبون</string>
+    <string name="about_button4">معلومات اضافية</string>
+    <string name="actorcondition_categories_spiritual">روحاني</string>
+    <string name="actorcondition_categories_physical">قدرة جسدية</string>
+    <string name="actorcondition_categories_mental">عقلي</string>
+    <string name="actorcondition_categories_blood">مرض بالدم</string>
+    <string name="actorconditioninfo_constant_effect">تأثير دائم</string>
+    <string name="actorconditioninfo_effect_every_full_round">كل دور كامل</string>
+    <string name="actorconditioninfo_effect_every_round">كل دور</string>
+    <string name="actorinfo_attack">هجوم</string>
+    <string name="actorinfo_defense">دفاع </string>
+    <string name="actorinfo_difficulty">صعوبة</string>
+    <string name="actorinfo_health">حياة</string>
+    <string name="bulkselection_select_all">الجميع</string>
+    <string name="bulkselection_sell_confirmation_title">هل انت متأكد؟</string>
+    <string name="bulkselection_sell_confirmation">حقا تريد البيع؟</string>
+    <string name="actorinfo_movecost">ضريبة الحركة</string>
+    <string name="combat_endturn">نهاية الدور</string>
+    <string name="combat_flee">اهرب</string>
+    <string name="combat_monsterhealth">ن.ح </string>
+    <string name="conversation_leave">اخرج</string>
+    <string name="conversation_next">التالي</string>
+    <string name="dialog_groundloot_title">اغراض</string>
+    <string name="dialog_monsterloot_title">انتصار</string>
+    <string name="dialog_newversion_title">اهلا</string>
+    <string name="dialog_rest_confirm_message">هل تريد الراحة هنا؟</string>
+    <string name="dialog_rest_title">استرح</string>
+    <string name="display_worldmap_title">الخريطة</string>
+    <string name="exit_to_menu">اخرج الى الصفحة الرئيسية</string>
+    <string name="about_button3">الرخصة</string>
+    <string name="about_contents1">اهلا ال قصة آندور، لعبة تقمص أدوار مفتوحة-التطوير</string>
+    <string name="actorinfo_immune_criticals">منيع ضد الضربات القاضية</string>
+    <string name="app_description">لعبة مبنية من مراحل</string>
+    <string name="bulkselection_totalcost_buy">السعر الاجمالي: %1$d </string>
+    <string name="bulkselection_totalcost_sell">السعر الاجمالي: %1$d</string>
+    <string name="change_locale_requires_restart">تغير الاعدادات يحتاج لاعادة التشغيل</string>
+    <string name="combat_attack">هجوم (%1$d نقاط حركة)</string>
+    <string name="combat_flee_failed">لم تستطع الهرب!</string>
+</resources>

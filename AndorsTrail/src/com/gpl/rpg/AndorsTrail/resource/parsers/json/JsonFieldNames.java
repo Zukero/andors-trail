@@ -32,6 +32,7 @@ public final class JsonFieldNames {
 		public static final String increaseAttackDamage = "increaseAttackDamage";
 		public static final String increaseBlockChance = "increaseBlockChance";
 		public static final String increaseDamageResistance = "increaseDamageResistance";
+		public static final String increaseMaxRange = "increaseMaxRange";
 	}
 
 	public static final class ItemCategory {
@@ -123,6 +124,9 @@ public final class JsonFieldNames {
 		public static final String droplistID = "droplistID";
 		public static final String phraseID = "phraseID";
 		public static final String hitEffect = "hitEffect";
+		public static final String rageMultiplier = "rageMultiplier";
+		public static final String hpFleeThreshold = "hpFleeThreshold";
+		public static final String lineOfSight = "lineOfSight";
 	}
 
 	public static final class ItemTraits_OnUse {

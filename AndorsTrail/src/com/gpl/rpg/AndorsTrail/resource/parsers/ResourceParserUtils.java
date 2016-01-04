@@ -113,6 +113,7 @@ public final class ResourceParserUtils {
 				,o.optInt(JsonFieldNames.AbilityModifierTraits.increaseCriticalSkill, 0)
 				,(float)o.optDouble(JsonFieldNames.AbilityModifierTraits.setCriticalMultiplier, 0)
 				,o.optInt(JsonFieldNames.AbilityModifierTraits.increaseDamageResistance, 0)
+				,o.optInt(JsonFieldNames.AbilityModifierTraits.increaseMaxRange, 0)
 		);
 	}
 

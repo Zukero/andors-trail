@@ -9,6 +9,8 @@ import android.widget.TextView;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.model.ability.traits.AbilityModifierTraits;
 
+import org.w3c.dom.Text;
+
 public final class AbilityModifierInfoView extends LinearLayout {
 	private final TextView abilitymodifierinfo_change_maxap;
 	private final TextView abilitymodifierinfo_change_maxhp;
@@ -22,6 +24,7 @@ public final class AbilityModifierInfoView extends LinearLayout {
 	private final TextView abilitymodifierinfo_change_critical_multiplier;
 	private final TextView abilitymodifierinfo_change_block_chance;
 	private final TextView abilitymodifierinfo_change_damage_resistance;
+	private final TextView abilitymodifierinfo_change_attack_range;
 
 	public AbilityModifierInfoView(Context context, AttributeSet attr) {
 		super(context, attr);
@@ -41,6 +44,7 @@ public final class AbilityModifierInfoView extends LinearLayout {
 		abilitymodifierinfo_change_critical_multiplier = (TextView) findViewById(R.id.abilitymodifierinfo_change_critical_multiplier);
 		abilitymodifierinfo_change_block_chance = (TextView) findViewById(R.id.abilitymodifierinfo_change_block_chance);
 		abilitymodifierinfo_change_damage_resistance = (TextView) findViewById(R.id.abilitymodifierinfo_change_damage_resistance);
+		abilitymodifierinfo_change_attack_range = (TextView) findViewById(R.id.abilitymodifierinfo_change_attack_range);
 	}
 
 	public void update(AbilityModifierTraits traits, boolean isWeapon) {
@@ -51,6 +55,7 @@ public final class AbilityModifierInfoView extends LinearLayout {
 
 		final Resources res = getResources();
 
+		displayIfNonZero(traits.increaseMaxRange, abilitymodifierinfo_change_attack_range, R.string.iteminfo_effect_increase_max_range, R.string.iteminfo_effect_decrease_max_range);
 		displayIfNonZero(traits.increaseMaxHP, abilitymodifierinfo_change_maxhp, R.string.iteminfo_effect_increase_max_hp, R.string.iteminfo_effect_decrease_max_hp);
 		displayIfNonZero(traits.increaseMaxAP, abilitymodifierinfo_change_maxap, R.string.iteminfo_effect_increase_max_ap, R.string.iteminfo_effect_decrease_max_ap);
 		displayIfNonZero(traits.increaseMoveCost, abilitymodifierinfo_change_movecost, R.string.iteminfo_effect_increase_movecost, R.string.iteminfo_effect_decrease_movecost);

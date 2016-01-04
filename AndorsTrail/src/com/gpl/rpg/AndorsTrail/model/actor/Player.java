@@ -42,10 +42,67 @@ public final class Player extends Actor {
 	public int reequipCost;
 	public int totalExperience;
 
+	public int maxTelepathyRange = 20;
+	//public int increaseMaxRange;
+
+	public boolean inTeleportMode = false;
+	public boolean inTelepathyMode = false;
+	//public boolean hasRangedWeaponEquippedInInventory = false; //enabled through debug button menu
+	//allows player to attack from afar
+	public boolean inAimMode = false; //needs to be enabled in order to initiate ranged-attack outside combat
+	public boolean justEquippedIsEnough = true; //toggled through debug menu, allows attacking without aim-mode
+
+
 	private final HashMap<String, HashSet<Integer> > questProgress = new HashMap<String, HashSet<Integer> >();
 	private String spawnMap;
 	private String spawnPlace;
 	private final HashMap<String, Integer> alignments = new HashMap<String, Integer>();
+	public int maxTeleportRange = 20;
+
+	/*public boolean toggleEquipOfRangedWeapon() {
+		if(!this.hasRangedWeaponEquippedInInventory) this.hasRangedWeaponEquippedInInventory = true;
+		else this.hasRangedWeaponEquippedInInventory = false;
+		return this.hasRangedWeaponEquippedInInventory;
+	}*/
+
+	public boolean toggleTeleportMode() {
+		if(!this.inTeleportMode) this.inTeleportMode = true;
+		else this.inTeleportMode = false;
+		return this.inTeleportMode;
+	}
+
+	public boolean toggleAimMode() {
+		if(!this.inAimMode
+				&& this.isWieldingRangedWeapon())
+			this.inAimMode = true;
+		else
+			this.inAimMode = false;
+		return this.inAimMode;
+	}
+	public boolean toggleNeedAiming() {
+		if(!this.justEquippedIsEnough)
+			this.justEquippedIsEnough = true;
+		else
+			this.justEquippedIsEnough = false;
+		return this.justEquippedIsEnough;
+	}
+
+	public boolean isInAimMode() {
+		if(!this.isWieldingRangedWeapon())
+			inAimMode = false;
+		return inAimMode;
+	}
+
+	public int maxRangeOfWeapon() {
+		return increaseMaxRange;
+	}
+
+	public boolean justEquippedIsEnough() {
+		if(!isWieldingRangedWeapon())
+			return false;
+		else
+			return this.justEquippedIsEnough;
+	}
 
 	// Unequipped stats
 	public static final class PlayerBaseTraits {
@@ -62,6 +119,7 @@ public final class Player extends Actor {
 		public int damageResistance;
 		public int useItemCost;
 		public int reequipCost;
+		public int increaseMaxRange =1;
 	}
 
 	public void resetStatsToBaseTraits() {
@@ -78,6 +136,7 @@ public final class Player extends Actor {
 		this.damageResistance = this.baseTraits.damageResistance;
 		this.useItemCost = this.baseTraits.useItemCost;
 		this.reequipCost = this.baseTraits.reequipCost;
+		this.increaseMaxRange = this.baseTraits.increaseMaxRange; //is not a base trait because share with actor class
 	}
 
 	public Player() {
@@ -105,6 +164,7 @@ public final class Player extends Actor {
 		baseTraits.damageResistance = 0;
 		baseTraits.useItemCost = 5;
 		baseTraits.reequipCost = 5;
+		baseTraits.increaseMaxRange=1;
 		this.name = playerName;
 		this.level = 1;
 		this.totalExperience = 1;
@@ -412,5 +472,30 @@ public final class Player extends Actor {
 			dest.writeInt(e.getValue());
 		}
 	}
+
+	public void cancelAimMode(){
+		// this makes player flee instead of moving in combat
+		// allows player to flee from from combat mode
+		this.inAimMode = false;
+	}
+
+	//public boolean isJokeWieldingRangedWeapon() {return this.hasRangedWeaponEquippedInInventory;}
+
+	public boolean isWieldingRangedWeapon(){
+
+		if( this.inventory.getItemTypeInWearSlot(
+				Inventory.WearSlot.weapon) == null)
+			return false;
+		else if (this.inventory.getItemTypeInWearSlot(
+				Inventory.WearSlot.weapon).isRangedWeapon())
+			return true;
+		return false;
+	}
+	/*public boolean isKindaWieldingRangedWeapon(){
+		if(this.inventory.isWearing("wooden_longbow")){
+			return true;
+		}
+		return false;
+	}*/
 }
 

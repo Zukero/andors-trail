@@ -42,6 +42,10 @@ public final class CombatActionListeners extends ListOfListeners<CombatActionLis
 		@Override public void call(CombatActionListener listener) { listener.onPlayerDoesNotHaveEnoughAP(); }
 	};
 
+	private final Function<CombatActionListener> onTargetOutsideRange = new Function<CombatActionListener>() {
+		@Override public void call(CombatActionListener listener) { listener.onTargetOutsideRange(); }
+	};
+
 	@Override
 	public void onPlayerAttackMissed(Monster target, AttackResult attackResult) {
 		callAllListeners(this.onPlayerAttackMissed, target, attackResult);
@@ -85,5 +89,10 @@ public final class CombatActionListeners extends ListOfListeners<CombatActionLis
 	@Override
 	public void onPlayerDoesNotHaveEnoughAP() {
 		callAllListeners(this.onPlayerDoesNotHaveEnoughAP);
+	}
+
+	@Override
+	public void onTargetOutsideRange() {
+		callAllListeners(this.onTargetOutsideRange);
 	}
 }

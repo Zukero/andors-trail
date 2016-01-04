@@ -183,6 +183,7 @@ public final class ActorStatsController {
 		actor.damagePotential.addToMax(effects.increaseMaxDamage * multiplier);
 		actor.blockChance += effects.increaseBlockChance * multiplier;
 		actor.damageResistance += effects.increaseDamageResistance * multiplier;
+		actor.increaseMaxRange += effects.increaseMaxRange;
 
 		if (actor.attackChance < 0) actor.attackChance = 0;
 		if (actor.damagePotential.max < 0) actor.damagePotential.set(0, 0);

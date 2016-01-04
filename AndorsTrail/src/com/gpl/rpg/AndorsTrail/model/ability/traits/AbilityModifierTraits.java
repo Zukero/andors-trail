@@ -16,6 +16,8 @@ public final class AbilityModifierTraits {
 	public final float setCriticalMultiplier;
 	public final int increaseDamageResistance;
 
+	public final int increaseMaxRange;
+
 	public AbilityModifierTraits(
 			int increaseMaxHP
 			, int increaseMaxAP
@@ -30,6 +32,7 @@ public final class AbilityModifierTraits {
 			, int increaseCriticalSkill
 			, float setCriticalMultiplier
 			, int increaseDamageResistance
+			, int increaseMaxRange
 			) {
 		this.increaseMaxHP = increaseMaxHP;
 		this.increaseMaxAP = increaseMaxAP;
@@ -44,6 +47,7 @@ public final class AbilityModifierTraits {
 		this.increaseCriticalSkill = increaseCriticalSkill;
 		this.setCriticalMultiplier = setCriticalMultiplier;
 		this.increaseDamageResistance = increaseDamageResistance;
+		this.increaseMaxRange = increaseMaxRange;
 	}
 
 	public int calculateCost(boolean isWeapon) {

@@ -105,7 +105,10 @@ public final class MapController {
 	}
 
 	public void steppedOnMonster(Monster m, Coord p) {
-		if (m.isAgressive()) {
+		if(m == null)
+			return;
+
+		if (m.isAgressive() || (m.getIsEnraged())) {
 			controllers.combatController.setCombatSelection(m, p);
 			if (controllers.preferences.confirmAttack) {
 				worldEventListeners.onPlayerSteppedOnMonster(m);
@@ -113,7 +116,14 @@ public final class MapController {
 				controllers.combatController.enterCombat(CombatController.BeginTurnAs.player);
 			}
 		} else {
-			worldEventListeners.onPlayerStartedConversation(m, m.getPhraseID());
+			if(world.model.player.isInAimMode()){
+				// cancel aiming when player tries
+				// to ranged-attack non-aggressive monster
+				//world.model.player.cancelAimMode();
+				}
+			else {
+				worldEventListeners.onPlayerStartedConversation(m, m.getPhraseID());
+			}
 		}
 	}
 
