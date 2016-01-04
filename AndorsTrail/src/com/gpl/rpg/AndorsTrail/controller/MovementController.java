@@ -142,6 +142,13 @@ public final class MovementController implements TimedMessageTask.Callback {
 					return;
 				}
 				else if (!world.model.player.isInAimMode()) {
+					int talkRange = 1;
+					if(world.model.player.inTelepathyMode) talkRange = world.model.player.maxTelepathyRange;
+					if(isWithinRange(world.model.player.position, dest, talkRange)){
+						controllers.mapController.steppedOnMonster(m, dest);
+						return;
+					}
+
 					if (dx == 0 && dy == 0) return;
 					if (!mayMovePlayer()) return;
 
@@ -151,27 +158,25 @@ public final class MovementController implements TimedMessageTask.Callback {
 					return;
 				}
 			}
-			else if ( world.model.player.inTelepathyMode){
-				if(isWithinRange(world.model.player.position, dest, world.model.player.maxTelepathyRange)) {
-					controllers.mapController.steppedOnMonster(m, dest);
+		}
+		else {
+			if(world.model.player.isInAimMode()) return;
+			int walkRange;
+			if (world.model.player.inTeleportMode) {
+				walkRange = world.model.player.maxTeleportRange;
+				if(isWithinRange(world.model.player.position, dest, walkRange)){
+					moveToNextIfPossible();
 					return;
 				}
-			}
-		}
-		else if (world.model.player.inTeleportMode){
-			//	Currently teleports even if tile unwalkable.
-			if(isWithinRange(world.model.player.position, dest, world.model.player.maxTeleportRange)){
+			}else{
+				if (dx == 0 && dy == 0) return;
+				if (!mayMovePlayer()) return;
+
+				if (!findWalkablePosition(dx, dy)) return;
+
 				moveToNextIfPossible();
 				return;
 			}
-		}else{
-			if (dx == 0 && dy == 0) return;
-			if (!mayMovePlayer()) return;
-
-			if (!findWalkablePosition(dx, dy)) return;
-
-			moveToNextIfPossible();
-			return;
 		}
 
 	}
