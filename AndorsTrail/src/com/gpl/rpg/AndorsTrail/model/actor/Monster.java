@@ -21,13 +21,17 @@ public final class Monster extends Actor {
 	public long nextActionTime = 0;
 	public final CoordRect nextPosition;
 
+
+	public double hpFleeThreshold;
+	public double rageMultiplier;
+	public int lineOfSight;
+
+	public int rageDistance = 0;
 	public boolean isEnraged = false; //for pathfinding purposes
-	public double THRESHOLD_HP_FLEE_PERCENT = 0.2;
-	public boolean hasFleePath = false;
 
 	//	This value is for whether the monster will flee from ranged opponents
-	boolean fearsRangedWeapons = true;
 	public boolean isDesperate = false;
+	public boolean hasFleePath = false;
 
 	private boolean forceAggressive = false;
 	private ItemContainer shopItems = null;
@@ -58,6 +62,10 @@ public final class Monster extends Actor {
 		this.blockChance = monsterType.blockChance;
 		this.damageResistance = monsterType.damageResistance;
 		this.onHitEffects = monsterType.onHitEffects;
+
+		this.rageMultiplier = monsterType.rageMultiplier;
+		this.hpFleeThreshold = monsterType.hpFleeThreshold;
+		this.lineOfSight = monsterType.lineOfSight;
 	}
 
 	public DropList getDropList() { return monsterType.dropList; }
@@ -67,7 +75,7 @@ public final class Monster extends Actor {
 	public String getFaction() { return monsterType.faction; }
 	public MonsterType.MonsterClass getMonsterClass() { return monsterType.monsterClass; }
 	public MonsterType.AggressionType getMovementAggressionType() { return monsterType.aggressionType; }
-	public MonsterType.BraveryType getMovementBraveryType() {return monsterType.braveryType;}
+	//public MonsterType.BraveryType getMovementBraveryType() {return monsterType.braveryType;}
 
 	public void createLoot(Loot container, Player player) {
 		int exp = this.getExp();
@@ -198,42 +206,43 @@ public final class Monster extends Actor {
 		}
 	}
 
-	public boolean doesEngageWithRanged(){
-		return (this.monsterType.braveryType == MonsterType.BraveryType.brave)
-				|| (this.monsterType.braveryType  == MonsterType.BraveryType.kamikaze);
-	}
-
-	public boolean doesFleeFromLowHP(){
-		return !((this.monsterType.braveryType == MonsterType.BraveryType.none)
-				|| (this.monsterType.braveryType  == MonsterType.BraveryType.kamikaze));
-	}
-
 	public boolean isFleeing() {
 		// todo,twirl add a status condition for it to check if attacked
-		if(this.monsterType.braveryType == MonsterType.BraveryType.coward)
-			return true;
-
-		// Fear of ranged weapons
-		if(!fearsRangedWeapons && this.monsterType.braveryType == MonsterType.BraveryType.confused)
-			return true;
-
-		if(doesFleeFromLowHP()
-				&& (this.health.current <= this.health.max * this.THRESHOLD_HP_FLEE_PERCENT))
+		if(this.health.current <= this.health.max * this.hpFleeThreshold)
 			return true;
 
 		return false;
 	}
 
-	public void setIsEnraged(boolean weaponType)
+	public void setIsEnraged(boolean isWieldingRanged, Coord root, Coord here)
 	{
-		// Confusion caused by ranged weapons
-		if(weaponType)
-			fearsRangedWeapons = doesEngageWithRanged();
+		int distX = Math.abs(root.x - here.x) -1;
+		int distY = Math.abs(root.y- here.y) - 1;
+		int old_rageDistance = this.rageDistance;
 
-		this.isEnraged = fearsRangedWeapons && !isFleeing();
+		if(distX > this.lineOfSight && distY > this.lineOfSight)
+			this.isEnraged = false;
+
+		if(distX == 0 && distY ==0)
+			this.rageDistance = (int)rageMultiplier;
+		else {
+			if (distX >= distY) //&& distX>rageDistance)
+				this.rageDistance = (int) (distX * this.rageMultiplier);
+			else
+				//if (distY>rageDistance)
+				this.rageDistance = (int) (distY * this.rageMultiplier);
+		}
+		if(old_rageDistance >this.rageDistance)
+			this.rageDistance = old_rageDistance;
+
+		this.isEnraged = !isFleeing();
 	}
 
 	public boolean getIsEnraged(){
+		if(!this.isEnraged)
+			this.rageDistance = 0;
+		if(this.rageDistance == 0)
+			this.isEnraged = false;
 		if(isFleeing())
 			this.isEnraged = false;
 		return this.isEnraged;

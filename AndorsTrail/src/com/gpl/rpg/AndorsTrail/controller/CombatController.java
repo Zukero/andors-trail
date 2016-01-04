@@ -56,7 +56,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	public void exitCombat(boolean pickupLootBags) {
 		setCombatSelection(null, null);
 		world.model.uiSelections.isInCombat = false;
-		world.model.player.inAimMode = false;
+		world.model.player.cancelAimMode();
 		combatTurnListeners.onCombatEnded();
 		world.model.uiSelections.selectedPosition = null;
 		world.model.uiSelections.selectedMonster = null;
@@ -125,6 +125,10 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	public boolean canExitCombat() {
 		return getInRangeAggressiveMonster() == null;
 				//&& getNearbyEnragedMonster() == null;
+	}
+
+	public boolean canFleeCombat(){
+		return getAdjacentAggressiveMonster() == null;
 	}
 
 	private Monster getInRangeAggressiveMonster(){
@@ -199,8 +203,10 @@ public final class CombatController implements VisualEffectCompletedCallback {
 
 		final AttackResult attack = playerAttacks(target);
 		this.lastAttackResult = attack;
+		//&& currentActiveMonster.rageDistance == 0)
 
-		target.setIsEnraged(world.model.player.isWieldingRangedWeapon()); //monster is now focused on player
+		target.setIsEnraged(world.model.player.isWieldingRangedWeapon(),
+					world.model.player.position, target.position); //monster is now focused on player
 		if (attack.isHit) {
 			combatActionListeners.onPlayerAttackSuccess(target, attack);
 
@@ -292,6 +298,16 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		}
 		if (!playerHasApLeft()) endPlayerTurn();
 	}
+
+	private void playerFleeCompleted(){
+		if (!world.model.uiSelections.isInCombat) return;
+
+		if (canFleeCombat()) {
+			exitCombat(true);
+			return;
+		}
+		if (!playerHasApLeft()) endPlayerTurn();
+	}
 	private void continueTurn() {
 		if (world.model.uiSelections.isPlayersCombatTurn) return;
 		if (playerHasApLeft()) {
@@ -315,7 +331,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		world.model.player.nextPosition.set(dest);
 		controllers.movementController.moveToNextIfPossible();
 
-		playerActionCompleted();
+		playerFleeCompleted();
 	}
 
 	private void fleeingFailed() {
@@ -492,6 +508,8 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	private void moveCurrentMonster() {
 		controllers.actorStatsController.useAPs(currentActiveMonster, currentActiveMonster.getMoveCost());
 		currentActiveMonster.isEnraged = true;
+		currentActiveMonster.setIsEnraged(world.model.player.isWieldingRangedWeapon(),
+				world.model.player.position, currentActiveMonster.position);
 		//move towards player
 		if (!controllers.monsterMovementController.findPathFor(currentActiveMonster, world.model.player.position)) {
 			// If couldn't find a path to move on, give up & lose focus.

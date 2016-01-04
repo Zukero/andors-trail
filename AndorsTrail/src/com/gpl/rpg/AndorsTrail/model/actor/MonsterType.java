@@ -34,9 +34,6 @@ public final class MonsterType {
 	public final MonsterClass monsterClass;
 	public final AggressionType aggressionType;
 
-	public BraveryType braveryType; // Will become final when monster data gets new property
-	public BraveryType DEFAULT_BRAVERY = BraveryType.brave;
-
 	public final Size tileSize;
 	public final int iconID;
 	public final int maxAP;
@@ -50,6 +47,10 @@ public final class MonsterType {
 	public final int blockChance;
 	public final int damageResistance;
 	public final ItemTraits_OnUse[] onHitEffects;
+
+	public final double rageMultiplier;
+	public final double hpFleeThreshold;
+	public final int lineOfSight;
 
 	public MonsterType(
 			String id
@@ -75,6 +76,10 @@ public final class MonsterType {
 			, int blockChance
 			, int damageResistance
 			, ItemTraits_OnUse[] onHitEffects
+			, double rageMultiplier
+			, double hpFleeThreshold
+			, int lineOfSight
+
 	) {
 		this.id = id;
 		this.name = name;
@@ -86,7 +91,6 @@ public final class MonsterType {
 		this.isUnique = isUnique;
 		this.monsterClass = monsterClass;
 		this.aggressionType = aggressionType;
-		this.braveryType = this.DEFAULT_BRAVERY;
 		this.tileSize = tileSize;
 		this.iconID = iconID;
 		this.maxAP = maxAP;
@@ -100,6 +104,10 @@ public final class MonsterType {
 		this.blockChance = blockChance;
 		this.damageResistance = damageResistance;
 		this.onHitEffects = onHitEffects;
+
+		this.rageMultiplier = rageMultiplier;
+		this.hpFleeThreshold = hpFleeThreshold;
+		this.lineOfSight = lineOfSight;
 	}
 
 	public static enum AggressionType {

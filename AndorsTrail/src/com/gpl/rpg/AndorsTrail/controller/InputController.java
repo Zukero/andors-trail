@@ -113,7 +113,8 @@ public final class InputController implements OnClickListener, OnLongClickListen
 
 		if (world.model.uiSelections.isInCombat) return false;
 
-		controllers.movementController.startMovement(lastTouchPosition_dx, lastTouchPosition_dy, lastTouchPosition_tileCoords);
+		controllers.movementController.startMovement(
+				lastTouchPosition_dx, lastTouchPosition_dy, lastTouchPosition_tileCoords);
 		return true;
 	}
 }

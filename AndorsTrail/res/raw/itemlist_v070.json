@@ -1,16 +1,42 @@
 [
     {
         "id":"wooden_longbow",
-        "category":"rangedweapon_big",
-        "baseMarketCost":1000,
+        "category":"longbow",
+        "baseMarketCost":2000,
         "description":"A most basic ranged weapon.",
         "name":"Wooden Longbow",
         "equipEffect":{
-            "increaseAttackCost":10,
+            "increaseAttackCost":9,
             "increaseAttackChance":-10,
-            "increaseMaxRange":2
+            "increaseMaxRange":4
         },
         "iconID":"items_misc_2:56"
+    },
+    {
+        "id":"stronger_wooden_longbow",
+        "category":"longbow",
+        "baseMarketCost":3000,
+        "description":"A most basic ranged weapon.",
+        "name":"Stronger Wooden Longbow",
+        "equipEffect":{
+            "increaseAttackCost":9,
+            "increaseAttackChance":-20,
+            "increaseMaxRange":6
+        },
+        "iconID":"items_misc_2:57"
+    },
+    {
+        "id":"wooden_crossbow",
+        "category":"crossbow",
+        "baseMarketCost":1000,
+        "description":"A most basic ranged weapon.",
+        "name":"Wooden Crossbow",
+        "equipEffect":{
+            "increaseAttackCost":9,
+            "increaseAttackChance":-5,
+            "increaseMaxRange":2
+        },
+        "iconID":"items_misc_2:29"
     },
     {
         "id": "ltbdy_lthr",

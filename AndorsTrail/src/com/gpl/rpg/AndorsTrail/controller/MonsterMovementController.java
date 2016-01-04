@@ -20,7 +20,7 @@ public final class MonsterMovementController implements EvaluateWalkable {
     private final WorldContext world;
     public final MonsterMovementListeners monsterMovementListeners = new MonsterMovementListeners();
 
-    public boolean existAngryFollowingRealtime = false;
+    public boolean existAngryFollowingRealtime = true;
 
     public MonsterMovementController(ControllerContext controllers, WorldContext world) {
         this.controllers = controllers;
@@ -79,7 +79,8 @@ public final class MonsterMovementController implements EvaluateWalkable {
         PredefinedMap map = world.model.currentMap;
         LayeredTileMap tileMap = world.model.currentTileMap;
         m.nextActionTime = System.currentTimeMillis() + getMillisecondsPerMove(m);
-        if (m.movementDestination == null) {
+        if (m.movementDestination == null //&& !( m.getIsEnraged() || m.isFleeing())
+                ) {
             // Monster has waited and should start to move again.
             m.movementDestination = new Coord(m.position);
             if (Constants.rnd.nextBoolean()) {
@@ -127,8 +128,10 @@ public final class MonsterMovementController implements EvaluateWalkable {
 
         if ( searchForPath || ( m.getIsEnraged() && existAngryFollowingRealtime )
                 ) {
-            if (findPathFor(m, playerPosition))
+            if (findPathFor(m, playerPosition)){
+                m.rageDistance--;
                 return;
+            }
             else m.isEnraged = false;
         }
 

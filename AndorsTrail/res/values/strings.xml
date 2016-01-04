@@ -308,6 +308,8 @@
 	<string name="iteminfo_effect_decrease_current_ap">Drains %1$s AP</string>
 	<string name="iteminfo_effect_increase_current_ap">Restores %1$s AP</string>
 
+	<string name="iteminfo_effect_increase_max_range">Raises max range by +%1$d</string>
+	<string name="iteminfo_effect_decrease_max_range">Lowers max range by %1$d</string>
 	<string name="iteminfo_effect_increase_max_hp">Raises max HP +%1$d</string>
 	<string name="iteminfo_effect_decrease_max_hp">Lowers max HP by %1$d</string>
 	<string name="iteminfo_effect_increase_max_ap">Raises max AP +%1$d</string>
@@ -609,6 +611,10 @@ Every skill level increases the attack chance of weapons with %1$d %% of their o
 	<string name="preferences_ui_show_quickslots_when_toolbox_is_visible_title">Show quickslots when toolbox is opened</string>
 	<string name="preferences_ui_show_quickslots_when_toolbox_is_visible">Makes the quickslot buttons be displayed as soon as the toolbox is opened</string>
 	<string name="startscreen_incompatible_savegames">This is a development version of Andor\'s Trail. Savegames produced by this version are incompatible with the release version.</string>
+	<string name="startscreen_ranged_info">Info about Ranged Weapons:
+		\n1- Press \"+3 bows\" to try the new weapons. Just press on a monster to move and attack when in range.
+		\n2- Press \"safe aim\" before combat to safely select a target without moving.
+		\n3- Press \"need safe aim\" to make safe aim necessary for starting ranged combat."</string>
 	<string name="startscreen_non_release_version">This is a prerelease version of Andor\'s Trail. Savegames produced by this version might not be compatible with the release version.</string>
 	<string name="heroinfo_gamestats">Game statistics</string>
 	<string name="heroinfo_gamestats_quests">Completed quests</string>

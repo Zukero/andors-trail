@@ -31,7 +31,7 @@ public final class DebugInterface {
 
 	public void addDebugButtons() {
 		if (!AndorsTrailApplication.DEVELOPMENT_DEBUGBUTTONS) return;
-		world.model.player.moveCost = 5; //move to suitable location
+		world.model.player.baseTraits.moveCost = 5; //move to suitable location
 		addDebugButtons(new DebugButton[] {
 				new DebugButton("teleport", new OnClickListener() {
 			@Override
@@ -111,14 +111,16 @@ public final class DebugInterface {
 					showToast(mainActivity, "DEBUG: maps respawned", Toast.LENGTH_SHORT);
 				}
 			})*/
-			,new DebugButton("+1 bow", new OnClickListener() {
+			,new DebugButton("+3 bows", new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				ItemType itemType = world.itemTypes.getItemType("wooden_longbow");
-				world.model.player.inventory.addItem(itemType);
-				controllerContext.itemController.equipItem(itemType, Inventory.WearSlot.weapon);
-				showToast(mainActivity, "DEBUG: equipped a new bow. \n" +
-						"Range atm: " + +world.model.player.increaseMaxRange, Toast.LENGTH_SHORT);
+				String[] bows = {"wooden_longbow", "wooden_crossbow", "stronger_wooden_longbow"};
+				for(String id :bows)
+				if(!world.model.player.inventory.hasItem(id))
+				world.model.player.inventory.addItem(
+						world.itemTypes.getItemType(id));
+				//controllerContext.itemController.equipItem(itemType, Inventory.WearSlot.weapon);
+				showToast(mainActivity, "DEBUG: Added 3 new bows to inventory.", Toast.LENGTH_SHORT);
 					/*boolean change = world.model.player.toggleEquipOfRangedWeapon();
 					if(change){
 						showToast(mainActivity, "DEBUG: ranged weapon ON", Toast.LENGTH_SHORT);
@@ -127,14 +129,14 @@ public final class DebugInterface {
 					}*/
 			}
 			})
-				,new DebugButton("+range", new OnClickListener() {
+				/*,new DebugButton("+range", new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 				world.model.player.increaseMaxRange +=1;
 				showToast(mainActivity, "DEBUG: Range +1 \n" +
 						"New range: "+ world.model.player.increaseMaxRange, Toast.LENGTH_SHORT);
 			}
-		})
+		})*/
 			,new DebugButton("start aim", new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
@@ -146,7 +148,7 @@ public final class DebugInterface {
 				}
 			}
 			})
-				,new DebugButton("need 2 aim", new OnClickListener() {
+				,new DebugButton("need safe aim", new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 				boolean aimNotNeeded = world.model.player.toggleNeedAiming();
@@ -166,9 +168,9 @@ public final class DebugInterface {
 						!controllerContext.monsterMovementController.existAngryFollowingRealtime;
 				boolean change = controllerContext.monsterMovementController.existAngryFollowingRealtime;
 				if(change){
-					showToast(mainActivity, "DEBUG: realtime following ON. \nPissed-off monsters stalk you when you flee.", Toast.LENGTH_SHORT);
+					showToast(mainActivity, "DEBUG: realtime following ON. \nPissed-off monsters try to follow when you flee.", Toast.LENGTH_SHORT);
 				}else{
-					showToast(mainActivity, "DEBUG: realtime following OFF.", Toast.LENGTH_SHORT);
+					showToast(mainActivity, "DEBUG: realtime following OFF. \nMonsters do not follow when you flee.", Toast.LENGTH_SHORT);
 				}
 			}
 		})

@@ -1,10 +1,17 @@
 [
     {
-        "id":"rangedweapon_big",
-        "name":"Bow 2H",
+        "id":"longbow",
+        "name":"Longbow",
         "inventorySlot":"weapon",
         "actionType":"equip",
         "size":"large"
+    },
+    {
+        "id": "crossbow",
+        "name": "Crossbow",
+        "actionType": "equip",
+        "inventorySlot": "weapon",
+        "size": "std"
     },
     {
         "id": "dagger",

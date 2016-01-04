@@ -119,7 +119,7 @@ public final class MapController {
 			if(world.model.player.isInAimMode()){
 				// cancel aiming when player tries
 				// to ranged-attack non-aggressive monster
-				world.model.player.cancelAimMode();
+				//world.model.player.cancelAimMode();
 				}
 			else {
 				worldEventListeners.onPlayerStartedConversation(m, m.getPhraseID());

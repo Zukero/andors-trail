@@ -134,30 +134,36 @@ public final class MovementController implements TimedMessageTask.Callback {
 		Monster m = world.model.currentMap.getMonsterAt(dest);
 		if (m != null){
 			if (world.model.player.isInAimMode() || world.model.player.justEquippedIsEnough()) {
-				if(isWithinRange(world.model.player.position, dest, world.model.player.maxRangeOfWeapon())){
+				if(m.isAgressive()&&
+						isWithinRange(world.model.player.position, dest, world.model.player.maxRangeOfWeapon())){
 					controllers.mapController.steppedOnMonster(m, dest);
 					//controllers.combatController.setCombatSelection(nextPos);
 					// controllers.combatController.executeMoveAttack(dx, dy);
 					return;
 				}
-				else {
+				else if (!world.model.player.isInAimMode()) {
 					if (dx == 0 && dy == 0) return;
 					if (!mayMovePlayer()) return;
 
 					if (!findWalkablePosition(dx, dy)) return;
 
 					moveToNextIfPossible();
+					return;
 				}
 			}
 			else if ( world.model.player.inTelepathyMode){
-				if(isWithinRange(world.model.player.position, dest, world.model.player.maxTelepathyRange))
+				if(isWithinRange(world.model.player.position, dest, world.model.player.maxTelepathyRange)) {
 					controllers.mapController.steppedOnMonster(m, dest);
+					return;
+				}
 			}
 		}
 		else if (world.model.player.inTeleportMode){
 			//	Currently teleports even if tile unwalkable.
-			if(isWithinRange(world.model.player.position, dest, world.model.player.maxTeleportRange))
+			if(isWithinRange(world.model.player.position, dest, world.model.player.maxTeleportRange)){
 				moveToNextIfPossible();
+				return;
+			}
 		}else{
 			if (dx == 0 && dy == 0) return;
 			if (!mayMovePlayer()) return;
@@ -165,6 +171,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 			if (!findWalkablePosition(dx, dy)) return;
 
 			moveToNextIfPossible();
+			return;
 		}
 
 	}
@@ -379,8 +386,9 @@ public final class MovementController implements TimedMessageTask.Callback {
 		if (!world.model.uiSelections.isMainActivityVisible) return false;
 		if (world.model.uiSelections.isInCombat) return false;
 
-		if(!(world.model.player.isInAimMode() || world.model.player.inTeleportMode || world.model.player.inTelepathyMode)
-				&& !world.model.player.justEquippedIsEnough())
+		if(!(world.model.player.isInAimMode() || world.model.player.inTeleportMode
+				|| world.model.player.inTelepathyMode
+				||world.model.player.justEquippedIsEnough()))
 			movePlayer(movementDx, movementDy);
 		else
 			usePlayerRangedAction(movementDx, movementDy, movementDest);
