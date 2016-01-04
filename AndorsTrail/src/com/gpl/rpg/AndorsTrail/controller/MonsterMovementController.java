@@ -42,7 +42,7 @@ public final class MonsterMovementController implements EvaluateWalkable {
     public void attackWithAgressiveMonsters() {
         for (MonsterSpawnArea a : world.model.currentMap.spawnAreas) {
             for (Monster m : a.monsters) {
-                if (!m.isAgressive() || !m.getIsEnraged()
+                if (!m.isAgressive() //|| !m.getIsEnraged()
                         || m.isFleeing()) continue;
                 if (!m.isAdjacentTo(world.model.player)) continue;
                 // ^ this leaves out monster ranged-attacks
@@ -126,8 +126,11 @@ public final class MonsterMovementController implements EvaluateWalkable {
         }
 
         if ( searchForPath || ( m.getIsEnraged() && existAngryFollowingRealtime )
-                )
-            if (findPathFor(m, playerPosition)) return;
+                ) {
+            if (findPathFor(m, playerPosition))
+                return;
+            else m.isEnraged = false;
+        }
 
         // Monster is moving in a straight line.
         m.nextPosition.topLeft.set(

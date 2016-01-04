@@ -47,9 +47,10 @@ public final class Player extends Actor {
 
 	public boolean inTeleportMode = false;
 	public boolean inTelepathyMode = false;
-	public boolean hasRangedWeaponEquippedInInventory = false; //enabled through debug button menu
+	//public boolean hasRangedWeaponEquippedInInventory = false; //enabled through debug button menu
 	//allows player to attack from afar
 	public boolean inAimMode = false; //needs to be enabled in order to initiate ranged-attack outside combat
+	public boolean justEquippedIsEnough = true; //toggled through debug menu, allows attacking without aim-mode
 
 
 	private final HashMap<String, HashSet<Integer> > questProgress = new HashMap<String, HashSet<Integer> >();
@@ -58,11 +59,11 @@ public final class Player extends Actor {
 	private final HashMap<String, Integer> alignments = new HashMap<String, Integer>();
 	public int maxTeleportRange = 20;
 
-	public boolean toggleEquipOfRangedWeapon() {
+	/*public boolean toggleEquipOfRangedWeapon() {
 		if(!this.hasRangedWeaponEquippedInInventory) this.hasRangedWeaponEquippedInInventory = true;
 		else this.hasRangedWeaponEquippedInInventory = false;
 		return this.hasRangedWeaponEquippedInInventory;
-	}
+	}*/
 
 	public boolean toggleTeleportMode() {
 		if(!this.inTeleportMode) this.inTeleportMode = true;
@@ -78,6 +79,13 @@ public final class Player extends Actor {
 			this.inAimMode = false;
 		return this.inAimMode;
 	}
+	public boolean toggleNeedAiming() {
+		if(!this.justEquippedIsEnough)
+			this.justEquippedIsEnough = true;
+		else
+			this.justEquippedIsEnough = false;
+		return this.justEquippedIsEnough;
+	}
 
 	public boolean isInAimMode() {
 		if(!this.isWieldingRangedWeapon())
@@ -87,6 +95,13 @@ public final class Player extends Actor {
 
 	public int maxRangeOfWeapon() {
 		return increaseMaxRange;
+	}
+
+	public boolean justEquippedIsEnough() {
+		if(!isWieldingRangedWeapon())
+			return false;
+		else
+			return this.justEquippedIsEnough;
 	}
 
 	// Unequipped stats
@@ -464,9 +479,7 @@ public final class Player extends Actor {
 		this.inAimMode = false;
 	}
 
-	public boolean isJokeWieldingRangedWeapon(){
-		return this.hasRangedWeaponEquippedInInventory;
-	}
+	//public boolean isJokeWieldingRangedWeapon() {return this.hasRangedWeaponEquippedInInventory;}
 
 	public boolean isWieldingRangedWeapon(){
 
@@ -478,11 +491,11 @@ public final class Player extends Actor {
 			return true;
 		return false;
 	}
-	public boolean isKindaWieldingRangedWeapon(){
+	/*public boolean isKindaWieldingRangedWeapon(){
 		if(this.inventory.isWearing("wooden_longbow")){
 			return true;
 		}
 		return false;
-	}
+	}*/
 }
 

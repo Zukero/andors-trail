@@ -31,18 +31,29 @@ public final class DebugInterface {
 
 	public void addDebugButtons() {
 		if (!AndorsTrailApplication.DEVELOPMENT_DEBUGBUTTONS) return;
-
+		//world.model.player.moveCost = 5; //move to suitable location
 		addDebugButtons(new DebugButton[] {
-				new DebugButton("hp", new OnClickListener() {
-				@Override
-				public void onClick(View arg0) {
-					world.model.player.baseTraits.maxHP = 500;
-					world.model.player.health.max = world.model.player.baseTraits.maxHP;
-					controllerContext.actorStatsController.setActorMaxHealth(world.model.player);
-					world.model.player.conditions.clear();
-					showToast(mainActivity, "DEBUG: hp set to max", Toast.LENGTH_SHORT);
+				new DebugButton("teleport", new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				boolean change = world.model.player.toggleTeleportMode();
+				if(change){
+					showToast(mainActivity, "DEBUG: teleport ON. \nLiterally unplayable.", Toast.LENGTH_SHORT);
+				}else{
+					showToast(mainActivity, "DEBUG: teleport OFF.", Toast.LENGTH_SHORT);
+				}
 			}
-		})
+				})
+				/*,new DebugButton("hp", new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				world.model.player.baseTraits.maxHP = 500;
+				world.model.player.health.max = world.model.player.baseTraits.maxHP;
+				controllerContext.actorStatsController.setActorMaxHealth(world.model.player);
+				world.model.player.conditions.clear();
+				showToast(mainActivity, "DEBUG: hp set to max", Toast.LENGTH_SHORT);
+			}
+		})*/
 			/*,new DebugButton("dmg", new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
@@ -100,13 +111,14 @@ public final class DebugInterface {
 					showToast(mainActivity, "DEBUG: maps respawned", Toast.LENGTH_SHORT);
 				}
 			})*/
-			,new DebugButton("+1 longbow", new OnClickListener() {
+			,new DebugButton("+1 bow", new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 				ItemType itemType = world.itemTypes.getItemType("wooden_longbow");
 				world.model.player.inventory.addItem(itemType);
 				controllerContext.itemController.equipItem(itemType, Inventory.WearSlot.weapon);
-				showToast(mainActivity, "DEBUG: equipped a new bow. \nRange atm: " + +world.model.player.increaseMaxRange, Toast.LENGTH_SHORT);
+				showToast(mainActivity, "DEBUG: equipped a new bow. \n" +
+						"Range atm: " + +world.model.player.increaseMaxRange, Toast.LENGTH_SHORT);
 					/*boolean change = world.model.player.toggleEquipOfRangedWeapon();
 					if(change){
 						showToast(mainActivity, "DEBUG: ranged weapon ON", Toast.LENGTH_SHORT);
@@ -115,14 +127,15 @@ public final class DebugInterface {
 					}*/
 			}
 			})
-				,new DebugButton("+maxRange", new OnClickListener() {
+				,new DebugButton("+range", new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 				world.model.player.increaseMaxRange +=1;
-				showToast(mainActivity, "DEBUG: new range = "+ world.model.player.increaseMaxRange, Toast.LENGTH_SHORT);
+				showToast(mainActivity, "DEBUG: Range +1 \n" +
+						"New range: "+ world.model.player.increaseMaxRange, Toast.LENGTH_SHORT);
 			}
 		})
-			,new DebugButton("aim-mode", new OnClickListener() {
+			,new DebugButton("start aim", new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 				boolean change = world.model.player.toggleAimMode();
@@ -133,18 +146,20 @@ public final class DebugInterface {
 				}
 			}
 			})
-			,new DebugButton("teleport", new OnClickListener() {
+				,new DebugButton("need 2 aim", new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				boolean change = world.model.player.toggleTeleportMode();
-				if(change){
-					showToast(mainActivity, "DEBUG: teleport ON. \nLiterally unplayable.", Toast.LENGTH_SHORT);
+				boolean aimNotNeeded = world.model.player.toggleNeedAiming();
+				if(!aimNotNeeded){
+					showToast(mainActivity, "DEBUG: aim-mode is NEEDED. \n" +
+							"You need to stand immobile to aim before shooting.", Toast.LENGTH_SHORT);
 				}else{
-					showToast(mainActivity, "DEBUG: teleport OFF.", Toast.LENGTH_SHORT);
+					showToast(mainActivity, "DEBUG: aim-mode is NOT needed. \n" +
+							"You can directly shoot monsters within attack range.", Toast.LENGTH_SHORT);
 				}
 			}
-			})
-				,new DebugButton("realtime following", new OnClickListener() {
+		})
+				,new DebugButton("real following", new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 				controllerContext.monsterMovementController.existAngryFollowingRealtime =
@@ -157,8 +172,6 @@ public final class DebugInterface {
 				}
 			}
 		})
-
-
 			/*,new DebugButton("NPC telepathy", new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
