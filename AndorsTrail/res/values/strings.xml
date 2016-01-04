@@ -614,7 +614,8 @@ Every skill level increases the attack chance of weapons with %1$d %% of their o
 	<string name="startscreen_ranged_info">Info about Ranged Weapons:
 		\n1- Press \"+3 bows\" to try the new weapons. Just press on a monster to move and attack when in range.
 		\n2- Press \"safe aim\" before combat to safely select a target without moving.
-		\n3- Press \"need safe aim\" to make safe aim necessary for starting ranged combat."</string>
+		\n3- Press \"need safe aim\" to make safe aim necessary for starting ranged combat.
+		(Unnecessary because if you accidentally start ranged combat, you can flee on first turn and they won\'t follow.)"</string>
 	<string name="startscreen_non_release_version">This is a prerelease version of Andor\'s Trail. Savegames produced by this version might not be compatible with the release version.</string>
 	<string name="heroinfo_gamestats">Game statistics</string>
 	<string name="heroinfo_gamestats_quests">Completed quests</string>
