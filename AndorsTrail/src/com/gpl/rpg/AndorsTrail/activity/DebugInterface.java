@@ -161,7 +161,7 @@ public final class DebugInterface {
 				}
 			}
 		})
-				,new DebugButton("real following", new OnClickListener() {
+				/*,new DebugButton("real following", new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 				controllerContext.monsterMovementController.existAngryFollowingRealtime =
@@ -173,7 +173,7 @@ public final class DebugInterface {
 					showToast(mainActivity, "DEBUG: realtime following OFF. \nMonsters do not follow when you flee.", Toast.LENGTH_SHORT);
 				}
 			}
-		})
+		})*/
 			/*,new DebugButton("NPC telepathy", new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {

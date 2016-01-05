@@ -134,12 +134,15 @@ public final class MovementController implements TimedMessageTask.Callback {
 		Monster m = world.model.currentMap.getMonsterAt(dest);
 		if (m != null){
 			if (world.model.player.isInAimMode() || world.model.player.justEquippedIsEnough()) {
-				if(m.isAgressive()&&
-						isWithinRange(world.model.player.position, dest, world.model.player.maxRangeOfWeapon())){
-					controllers.mapController.steppedOnMonster(m, dest);
-					//controllers.combatController.setCombatSelection(nextPos);
-					// controllers.combatController.executeMoveAttack(dx, dy);
-					return;
+				if(m.isAgressive()){
+					if(isWithinRange(world.model.player.position, dest, world.model.player.maxRangeOfWeapon())){
+						controllers.mapController.steppedOnMonster(m, dest);
+						//controllers.combatController.setCombatSelection(nextPos);
+						// controllers.combatController.executeMoveAttack(dx, dy);
+						return;
+					}
+					else if(world.model.player.isInAimMode())
+						playerMovementListeners.onPlayerAimToofar();
 				}
 				else if (!world.model.player.isInAimMode()) {
 					int talkRange = 1;
@@ -160,7 +163,10 @@ public final class MovementController implements TimedMessageTask.Callback {
 			}
 		}
 		else {
-			if(world.model.player.isInAimMode()) return;
+			if(world.model.player.isInAimMode()) {
+				playerMovementListeners.onPlayerAimInvalid();
+				return;
+			}
 			int walkRange;
 			if (world.model.player.inTeleportMode) {
 				walkRange = world.model.player.maxTeleportRange;

@@ -278,6 +278,14 @@ public final class MainActivity
 	public void onPlayerEnteredNewMap(PredefinedMap map, Coord p) { }
 
 	@Override
+	public void onPlayerAimInvalid() {
+		message(getString(R.string.player_aim_invalid));}
+
+	@Override
+	public void onPlayerAimToofar() {
+		message(getString(R.string.player_aim_toofar));}
+
+	@Override
 	public void onCombatStarted() {
 		clearMessages();
 	}

@@ -603,6 +603,15 @@ public final class MainView extends SurfaceView
 		redrawAll(RedrawAllDebugReason.MapChanged);
 	}
 
+	@Override
+	public void onPlayerAimInvalid() {
+
+	}
+
+	@Override
+	public void onPlayerAimToofar() {
+
+	}
 	private void recalculateMapTopLeft(Coord playerPosition, boolean allowScrolling) {
 		synchronized (holder) {
 			int oldX = mapTopLeft.x;

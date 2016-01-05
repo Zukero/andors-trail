@@ -223,7 +223,7 @@ public final class Monster extends Actor {
 		if(distX > this.lineOfSight && distY > this.lineOfSight)
 			this.isEnraged = false;
 
-		if(distX == 0 && distY ==0)
+		if(distX <= 0 && distY <=0)
 			this.rageDistance = (int)rageMultiplier;
 		else {
 			if (distX >= distY) //&& distX>rageDistance)
@@ -241,7 +241,7 @@ public final class Monster extends Actor {
 	public boolean getIsEnraged(){
 		if(!this.isEnraged)
 			this.rageDistance = 0;
-		if(this.rageDistance == 0)
+		if(this.rageDistance <= 0)
 			this.isEnraged = false;
 		if(isFleeing())
 			this.isEnraged = false;

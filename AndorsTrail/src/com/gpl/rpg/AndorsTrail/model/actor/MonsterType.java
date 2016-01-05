@@ -123,7 +123,7 @@ public final class MonsterType {
 		}
 	}
 
-	public static enum BraveryType {
+	/*public static enum BraveryType {
 		none	// No fleeing, no ranged engage i.e. default behavior
 		,coward	// Flee when attacked by anything
 
@@ -140,7 +140,7 @@ public final class MonsterType {
 			if (s == null) return default_;
 			return valueOf(s);
 		}
-	}
+	}*/
 
 	public boolean isImmuneToCriticalHits() {
 		if (monsterClass == MonsterClass.ghost) return true;
