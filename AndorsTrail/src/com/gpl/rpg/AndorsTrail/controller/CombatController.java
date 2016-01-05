@@ -153,8 +153,8 @@ public final class CombatController implements VisualEffectCompletedCallback {
 				executePlayerAttack();
 			}
 			else{
-				combatActionListeners.onTargetOutsideRange();
-				//combatActionListeners.onTargetOutsideRange(world.model.uiSelections.selectedMonster);
+				combatActionListeners.onCombatTargetOutsideRange();
+				//combatActionListeners.onCombatTargetOutsideRange(world.model.uiSelections.selectedMonster);
 			}
 		} else if (world.model.uiSelections.selectedPosition != null) {
 			int range = 1;
@@ -167,7 +167,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 				executeCombatMove(world.model.uiSelections.selectedPosition);
 			}
 			else{
-				combatActionListeners.onTargetOutsideRange();
+				combatActionListeners.onCombatTargetOutsideRange();
 			}
 		} else if (controllers.effectController.isRunningVisualEffect()) {
 			return;
@@ -223,7 +223,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 
 	private void playerAttackCompleted() {
 		if(! world.model.player.isWieldingRangedWeapon())
-			world.model.player.toggleAimMode();
+			world.model.player.cancelAimMode();
 		if (world.model.uiSelections.selectedMonster == null) {
 			selectNextAggressiveMonster();
 		}
@@ -427,6 +427,8 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		//	Only moves towards player
 
 		if (!m.hasAPs(m.getMoveCost())) return false;
+
+		if(m.isFleeing()) return false;
 
 		//	Move towards player if enraged or angry
 		if(!m.position.isAdjacentTo(playerPosition)){

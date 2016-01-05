@@ -319,7 +319,7 @@ public final class MainActivity
 	}
 
 	@Override
-	public void onTargetOutsideRange() {
+	public void onCombatTargetOutsideRange() {
 		message("Target is out of range!");
 	}
 

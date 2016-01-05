@@ -39,7 +39,7 @@ public class Actor {
 	public int vfxDuration = 0;
 	public final Coord lastPosition = new Coord();
 
-	public int increaseMaxRange=1;
+	public int increaseMaxRange=0;
 
 	public Actor(
 			Size tileSize

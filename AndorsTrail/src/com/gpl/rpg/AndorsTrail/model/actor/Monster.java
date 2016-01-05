@@ -98,10 +98,9 @@ public final class Monster extends Actor {
 	public boolean isAdjacentTo(Player p) {
 		return this.rectPosition.isAdjacentTo(p.position);
 	}
-	public boolean isInRangeOf(Player p) {
+	//public boolean isInRangeOf(Player p){
 		//return this.rectPosition.isAdjacentTo(p.position);
-		return true;
-	}
+		//return true;}
 
 	public boolean isAgressive() {
 		return getPhraseID() == null || forceAggressive;
