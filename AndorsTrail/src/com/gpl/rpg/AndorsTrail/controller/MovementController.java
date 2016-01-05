@@ -143,6 +143,16 @@ public final class MovementController implements TimedMessageTask.Callback {
 					}
 					else if(world.model.player.isInAimMode())
 						playerMovementListeners.onPlayerAimToofar();
+					else{
+						if (dx == 0 && dy == 0) return;
+						if (!mayMovePlayer()) return;
+
+						if (!findWalkablePosition(dx, dy)) return;
+
+						moveToNextIfPossible();
+						return;
+					}
+
 				}
 				else if (!world.model.player.isInAimMode()) {
 					int talkRange = 1;
