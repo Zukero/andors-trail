@@ -7,7 +7,7 @@
         "name":"Wooden Longbow",
         "equipEffect":{
             "increaseAttackCost":9,
-            "increaseAttackChance":-10,
+            "increaseAttackChance":-20,
             "increaseMaxRange":4
         },
         "iconID":"items_misc_2:56"
@@ -20,7 +20,7 @@
         "name":"Stronger Wooden Longbow",
         "equipEffect":{
             "increaseAttackCost":9,
-            "increaseAttackChance":-20,
+            "increaseAttackChance":-30,
             "increaseMaxRange":6
         },
         "iconID":"items_misc_2:57"
@@ -33,7 +33,7 @@
         "name":"Wooden Crossbow",
         "equipEffect":{
             "increaseAttackCost":9,
-            "increaseAttackChance":-5,
+            "increaseAttackChance":-10,
             "increaseMaxRange":2
         },
         "iconID":"items_misc_2:29"
