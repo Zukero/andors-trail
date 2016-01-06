@@ -47,6 +47,8 @@ public final class MainActivity
 	public static final int INTENTREQUEST_CONVERSATION = 4;
 	public static final int INTENTREQUEST_SAVEGAME = 8;
 
+	public static final String repeatFiller =  "%1$s";
+
 	private ControllerContext controllers;
 	private WorldContext world;
 
@@ -249,6 +251,11 @@ public final class MainActivity
 		statusText.setText(world.model.combatLog.getLastMessages());
 		statusText.setVisibility(View.VISIBLE);
 	}
+	private void message(String msg, String repeatable) {
+		world.model.combatLog.append(msg, repeatable);
+		statusText.setText(world.model.combatLog.getLastMessages());
+		statusText.setVisibility(View.VISIBLE);
+	}
 
 	private void clearMessages() {
 		world.model.combatLog.appendCombatEnded();
@@ -279,11 +286,14 @@ public final class MainActivity
 
 	@Override
 	public void onPlayerAimInvalid() {
-		message(getString(R.string.player_aim_invalid));}
+		message(getString(R.string.player_aim_invalid),
+				getString(R.string.player_aim_invalid_repeat, repeatFiller));
+	}
 
 	@Override
 	public void onPlayerAimToofar() {
-		message(getString(R.string.player_aim_toofar));}
+		message(getString(R.string.player_aim_toofar),
+				getString(R.string.player_aim_toofar_repeat, repeatFiller));}
 
 	@Override
 	public void onCombatStarted() {
@@ -297,46 +307,55 @@ public final class MainActivity
 
 	@Override
 	public void onPlayerAttackMissed(Monster target, AttackResult attackResult) {
-		message(getString(R.string.combat_result_heromiss));
+		message(getString(R.string.combat_result_heromiss),
+				getString(R.string.combat_result_heromiss_repeat, repeatFiller));
 	}
 
 	@Override
 	public void onPlayerAttackSuccess(Monster target, AttackResult attackResult) {
 		final String monsterName = target.getName();
 		if (attackResult.isCriticalHit) {
-			message(getString(R.string.combat_result_herohitcritical, monsterName, attackResult.damage));
+			message(getString(R.string.combat_result_herohitcritical, monsterName, attackResult.damage),
+					getString(R.string.combat_result_herohitcritical_repeat, monsterName, attackResult.damage,repeatFiller));
 		} else {
-			message(getString(R.string.combat_result_herohit, monsterName, attackResult.damage));
+			message(getString(R.string.combat_result_herohit, monsterName, attackResult.damage),
+					getString(R.string.combat_result_herohit_repeat, monsterName, attackResult.damage, repeatFiller));
 		}
 		if (attackResult.targetDied) {
-			message(getString(R.string.combat_result_herokillsmonster, monsterName, attackResult.damage));
+			message(getString(R.string.combat_result_herokillsmonster, monsterName, attackResult.damage),
+					getString(R.string.combat_result_herokillsmonster_repeat, monsterName, attackResult.damage, repeatFiller));
 		}
 	}
 
 	@Override
 	public void onMonsterAttackMissed(Monster attacker, AttackResult attackResult) {
-		message(getString(R.string.combat_result_monstermiss, attacker.getName()));
+		message(getString(R.string.combat_result_monstermiss, attacker.getName()),
+				getString(R.string.combat_result_monstermiss_repeat, attacker.getName(),repeatFiller));
 	}
 
 	@Override
 	public void onCombatTargetOutsideRange() {
-		message("Target is out of range!");
+		message(getString(R.string.player_aim_toofar),
+				getString(R.string.player_aim_toofar_repeat, repeatFiller));
 	}
 
 	@Override
 	public void onMonsterAttackSuccess(Monster attacker, AttackResult attackResult) {
 		final String monsterName = attacker.getName();
 		if (attackResult.isCriticalHit) {
-			message(getString(R.string.combat_result_monsterhitcritical, monsterName, attackResult.damage));
+			message(getString(R.string.combat_result_monsterhitcritical, monsterName, attackResult.damage),
+					getString(R.string.combat_result_monsterhitcritical, monsterName, attackResult.damage,repeatFiller));
 		} else {
-			message(getString(R.string.combat_result_monsterhit, monsterName, attackResult.damage));
+			message(getString(R.string.combat_result_monsterhit, monsterName, attackResult.damage),
+					getString(R.string.combat_result_monsterhit_repeat, monsterName, attackResult.damage, repeatFiller));
 		}
 	}
 
 	@Override
 	public void onMonsterMovedDuringCombat(Monster m) {
 		String monsterName = m.getName();
-		message(getString(R.string.combat_result_monstermoved, monsterName));
+		message(getString(R.string.combat_result_monstermoved, monsterName),
+				getString(R.string.combat_result_monstermoved, monsterName, repeatFiller));
 	}
 
 	@Override
@@ -439,11 +458,13 @@ public final class MainActivity
 
 	@Override
 	public void onPlayerFailedFleeing() {
-		message(getString(R.string.combat_flee_failed));
+		message(getString(R.string.combat_flee_failed),
+				getString(R.string.combat_flee_failed_repeat, repeatFiller));
 	}
 
 	@Override
 	public void onPlayerDoesNotHaveEnoughAP() {
-		message(getString(R.string.combat_not_enough_ap));
+		message(getString(R.string.combat_not_enough_ap),
+				getString(R.string.combat_not_enough_ap_repeat, repeatFiller));
 	}
 }

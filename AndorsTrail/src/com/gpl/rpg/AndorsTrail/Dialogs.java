@@ -35,6 +35,8 @@ import java.util.Collections;
 
 public final class Dialogs {
 
+	public static final String repeatFiller =  "%1$s";
+
 	private static void showDialogAndPause(Dialog d, final ControllerContext context) {
 		showDialogAndPause(d, context, null);
 	}
