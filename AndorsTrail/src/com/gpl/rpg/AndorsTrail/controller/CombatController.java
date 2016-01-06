@@ -36,6 +36,8 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	private final ArrayList<Loot> killedMonsterBags = new ArrayList<Loot>();
 	private int totalExpThisFight = 0;
 
+	private boolean noActionYet = true;
+
 	public CombatController(ControllerContext controllers, WorldContext world) {
 		this.controllers = controllers;
 		this.world = world;
@@ -47,6 +49,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 
 	public void enterCombat(BeginTurnAs whoseTurn) {
 		world.model.uiSelections.isInCombat = true;
+		noActionYet = true;
 		resetCombatState();
 		combatTurnListeners.onCombatStarted();
 		if (whoseTurn == BeginTurnAs.player) newPlayerTurn(true);
@@ -123,7 +126,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	}
 
 	public boolean canExitCombat() {
-		return getInRangeAggressiveMonster() == null;
+		return getNearbyEnragedMonster() == null && !noActionYet;
 				//&& getNearbyEnragedMonster() == null;
 	}
 
@@ -150,6 +153,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 					world.model.uiSelections.selectedMonster.position,
 					world.model.player.position,
 					world.model.player.increaseMaxRange)){
+				this.noActionYet = false;
 				executePlayerAttack();
 			}
 			else{
@@ -322,10 +326,12 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		if (dest == null) return;
 		if (!useAPs(world.model.player.getMoveCost())) return;
 
-		int fleeChanceBias = world.model.player.getSkillLevel(SkillCollection.SkillID.evasion) * SkillCollection.PER_SKILLPOINT_INCREASE_EVASION_FLEE_CHANCE_PERCENTAGE;
-		if (Constants.roll100(Constants.FLEE_FAIL_CHANCE_PERCENT - fleeChanceBias)) {
-			fleeingFailed();
-			return;
+		if(!noActionYet) {
+			int fleeChanceBias = world.model.player.getSkillLevel(SkillCollection.SkillID.evasion) * SkillCollection.PER_SKILLPOINT_INCREASE_EVASION_FLEE_CHANCE_PERCENTAGE;
+			if (Constants.roll100(Constants.FLEE_FAIL_CHANCE_PERCENT - fleeChanceBias)) {
+				fleeingFailed();
+				return;
+			}
 		}
 
 		world.model.player.nextPosition.set(dest);
