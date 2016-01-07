@@ -11,8 +11,9 @@
                 "max": 15
             },
             "increaseAttackCost": 7,
-            "increaseAttackChance": -33,
-            "increaseMaxRange": 5
+            "increaseAttackChance": -30,
+            "increaseMaxRange": 5,
+            "increaseBlockChance": -35
         },
         "hitEffect": {
             "conditionsTarget": [
@@ -20,7 +21,7 @@
                     "magnitude": 1,
                     "condition": "minor_stun",
                     "duration": 3,
-                    "chance": 35
+                    "chance": 37
                 }
             ]
         },
@@ -40,7 +41,8 @@
             },
             "increaseAttackCost":7,
             "increaseAttackChance":-20,
-            "increaseMaxRange":3
+            "increaseMaxRange":3,
+            "increaseBlockChance": -35
         },
         "hitEffect": {
             "conditionsTarget": [
@@ -48,7 +50,7 @@
                     "magnitude": 1,
                     "condition": "minor_stun",
                     "duration": 3,
-                    "chance": 35
+                    "chance": 37
                 }
             ]
         },
@@ -68,7 +70,8 @@
             },
             "increaseAttackCost":4,
             "increaseAttackChance":-10,
-            "increaseMaxRange":2
+            "increaseMaxRange":2,
+            "increaseBlockChance": -20
         },
         "hitEffect": {
             "conditionsTarget": [
@@ -76,7 +79,7 @@
                     "magnitude": 1,
                     "condition": "minor_stun",
                     "duration": 2,
-                    "chance": 25
+                    "chance": 37
                 }
             ]
         },
