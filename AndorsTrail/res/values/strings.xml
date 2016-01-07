@@ -510,6 +510,7 @@
 
 	<string name="iteminfo_effect_weapon_attack_cost">Attack cost: %1$d AP</string>
 	<string name="iteminfo_effect_increase_attack_cost">Increases attack cost by %1$d AP</string>
+	<string name="iteminfo_effect_increase_attack_range">Increases attack range by %1$d AP</string>
 	<string name="iteminfo_effect_decrease_attack_cost">Lowers attack cost by %1$d AP</string>
 	<string name="iteminfo_effect_weapon_attack_chance">Attack chance: %1$d</string>
 	<string name="iteminfo_effect_increase_attack_chance">Increases attack chance by %1$d</string>
