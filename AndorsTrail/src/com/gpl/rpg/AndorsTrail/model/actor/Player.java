@@ -483,12 +483,18 @@ public final class Player extends Actor {
 
 	public boolean isWieldingRangedWeapon(){
 
-		if( this.inventory.getItemTypeInWearSlot(
-				Inventory.WearSlot.weapon) == null)
-			return false;
+		if(this.inventory.getItemTypeInWearSlot(
+				Inventory.WearSlot.weapon) != null){
+			if(this.inventory.getItemTypeInWearSlot(
+					Inventory.WearSlot.weapon).isRangedWeapon())
+				return true; //wielding nothing
+		}
 		else if (this.inventory.getItemTypeInWearSlot(
-				Inventory.WearSlot.weapon).isRangedWeapon())
-			return true;
+				Inventory.WearSlot.shield) != null) {
+			if(this.inventory.getItemTypeInWearSlot(
+				Inventory.WearSlot.shield).isRangedWeapon())
+				return true;
+		}
 		return false;
 	}
 	/*public boolean isKindaWieldingRangedWeapon(){

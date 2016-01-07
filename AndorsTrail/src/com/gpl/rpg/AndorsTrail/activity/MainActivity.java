@@ -17,10 +17,13 @@ import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.AttackResult;
 import com.gpl.rpg.AndorsTrail.controller.CombatController;
+import com.gpl.rpg.AndorsTrail.controller.listeners.ActorConditionListener;
 import com.gpl.rpg.AndorsTrail.controller.listeners.CombatActionListener;
 import com.gpl.rpg.AndorsTrail.controller.listeners.CombatTurnListener;
 import com.gpl.rpg.AndorsTrail.controller.listeners.PlayerMovementListener;
 import com.gpl.rpg.AndorsTrail.controller.listeners.WorldEventListener;
+import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
+import com.gpl.rpg.AndorsTrail.model.actor.Actor;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer.ItemEntry;
@@ -41,7 +44,8 @@ public final class MainActivity
 		PlayerMovementListener
 		, CombatActionListener
 		, CombatTurnListener
-		, WorldEventListener {
+		, WorldEventListener
+		, ActorConditionListener{
 
 	public static final int INTENTREQUEST_MONSTERENCOUNTER = 2;
 	public static final int INTENTREQUEST_CONVERSATION = 4;
@@ -183,6 +187,7 @@ public final class MainActivity
 		controllers.combatController.combatActionListeners.remove(this);
 		controllers.combatController.combatTurnListeners.remove(this);
 		controllers.mapController.worldEventListeners.remove(this);
+		controllers.actorStatsController.actorConditionListeners.remove(this);
 	}
 
 	private void subscribeToModelChanges() {
@@ -190,6 +195,7 @@ public final class MainActivity
 		controllers.combatController.combatTurnListeners.add(this);
 		controllers.combatController.combatActionListeners.add(this);
 		controllers.movementController.playerMovementListeners.add(this);
+		controllers.actorStatsController.actorConditionListeners.add(this);
 		statusview.subscribe();
 		quickitemview.subscribe();
 		mainview.subscribe();
@@ -466,5 +472,34 @@ public final class MainActivity
 	public void onPlayerDoesNotHaveEnoughAP() {
 		message(getString(R.string.combat_not_enough_ap),
 				getString(R.string.combat_not_enough_ap_repeat, repeatFiller));
+	}
+
+	@Override
+	public void onActorConditionAdded(Actor actor, ActorCondition condition){
+		message(getString(R.string.combat_actorcondition_added, actor.getName(), condition.conditionType.name),
+				getString(R.string.combat_actorcondition_added_repeat, actor.getName(), condition.conditionType.name, repeatFiller));
+	}
+	@Override
+	public void onActorConditionRemoved(Actor actor, ActorCondition condition){
+		message(getString(R.string.combat_actorcondition_removed, actor.getName(), condition.conditionType.name),
+				getString(R.string.combat_actorcondition_removed_repeat, actor.getName(), condition.conditionType.name, repeatFiller));
+	}
+
+	@Override
+	public void onActorConditionDurationChanged(Actor actor, ActorCondition condition){
+		message(getString(R.string.combat_actorcondition_duration, condition.conditionType.name, actor.getName()),
+				getString(R.string.combat_actorcondition_duration_repeat, condition.conditionType.name, actor.getName(), repeatFiller));
+	}
+
+	@Override
+	public void onActorConditionMagnitudeChanged(Actor actor, ActorCondition condition){
+		message(getString(R.string.combat_actorcondition_magnitude, condition.conditionType.name, actor.getName()),
+				getString(R.string.combat_actorcondition_magnitude_repeat, condition.conditionType.name, actor.getName(), repeatFiller));
+	}
+
+	@Override
+	public void onActorConditionRoundEffectApplied(Actor actor, ActorCondition condition){
+		message(getString(R.string.combat_actorcondition_applied, condition.conditionType.name,actor.getName()),
+				getString(R.string.combat_actorcondition_applied_repeat, condition.conditionType.name, actor.getName(),  repeatFiller));
 	}
 }

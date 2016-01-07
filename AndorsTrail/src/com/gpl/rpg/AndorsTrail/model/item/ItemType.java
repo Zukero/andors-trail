@@ -75,7 +75,7 @@ public final class ItemType {
 	public boolean isTwohandWeapon() { return category.isTwohandWeapon(); }
 	public boolean isOffhandCapableWeapon() { return category.isOffhandCapableWeapon(); }
 	public boolean isRangedWeapon() {
-		if(this.effects_equip.stats.increaseMaxRange >0)
+		if(this.effects_equip.stats.increaseMaxRange >1)
 			return true;
 		return false;
 		//return category.isRangedWeapon();

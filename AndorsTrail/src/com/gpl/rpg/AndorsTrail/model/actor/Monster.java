@@ -27,7 +27,7 @@ public final class Monster extends Actor {
 	public int lineOfSight;
 
 	public int rageDistance = 0;
-	public boolean isEnraged = false; //for pathfinding purposes
+	public boolean hasRage = false; //for pathfinding purposes
 
 	//	This value is for whether the monster will flee from ranged opponents
 	public boolean isDesperate = false;
@@ -213,14 +213,14 @@ public final class Monster extends Actor {
 		return false;
 	}
 
-	public void setIsEnraged(boolean isWieldingRanged, Coord root, Coord here)
+	public void setIsEnraged(Coord root, Coord here)
 	{
 		int distX = Math.abs(root.x - here.x) -1;
 		int distY = Math.abs(root.y- here.y) - 1;
 		int old_rageDistance = this.rageDistance;
 
 		if(distX > this.lineOfSight && distY > this.lineOfSight)
-			this.isEnraged = false;
+			this.hasRage = false;
 
 		if(distX <= 0 && distY <=0)
 			this.rageDistance = (int)rageMultiplier;
@@ -234,16 +234,21 @@ public final class Monster extends Actor {
 		if(old_rageDistance >this.rageDistance)
 			this.rageDistance = old_rageDistance;
 
-		this.isEnraged = !isFleeing();
+		this.hasRage = !isFleeing();
 	}
 
-	public boolean getIsEnraged(){
-		if(!this.isEnraged)
+	public boolean IsEnraged(){
+		if(!this.hasRage)
 			this.rageDistance = 0;
 		if(this.rageDistance <= 0)
-			this.isEnraged = false;
+			this.hasRage = false;
 		if(isFleeing())
-			this.isEnraged = false;
-		return this.isEnraged;
+			this.hasRage = false;
+		return this.hasRage;
+	}
+
+	public boolean isDesperate(){
+		return false; // Don't need this right now, other problems afoot
+		//return Boolean.TRUE.equals(this.isDesperate);
 	}
 }

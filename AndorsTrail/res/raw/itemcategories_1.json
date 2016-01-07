@@ -1,19 +1,5 @@
 [
     {
-        "id":"longbow",
-        "name":"Longbow",
-        "inventorySlot":"weapon",
-        "actionType":"equip",
-        "size":"large"
-    },
-    {
-        "id": "crossbow",
-        "name": "Crossbow",
-        "actionType": "equip",
-        "inventorySlot": "weapon",
-        "size": "std"
-    },
-    {
         "id": "dagger",
         "name": "Dagger",
         "actionType": "equip",

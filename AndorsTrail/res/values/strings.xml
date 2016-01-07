@@ -651,4 +651,14 @@ Every skill level increases the attack chance of weapons with %1$d %% of their o
 	<string name="preferences_ui_use_localized_resources">Use translation of interface and content, where available. (requires restart)</string>
 	<string name="change_locale_requires_restart">Changing locale requires restart. Andor\'s Trail has been closed.</string>
 
+	<string name="combat_actorcondition_added">%1$s is now affected with %2$s.</string>
+	<string name="combat_actorcondition_added_repeat">%1$s is now affected with %2$s. (x%3$s)</string>
+	<string name="combat_actorcondition_removed">%1$s is no longer affected with %2$s.</string>
+	<string name="combat_actorcondition_removed_repeat">%1$s is no longer affected with %2$s. (x%3$s)</string>
+	<string name="combat_actorcondition_applied">%1$s has been applied to %2$s.</string>
+	<string name="combat_actorcondition_applied_repeat">%1$s has been applied to %2$s. (x%3$s)</string>
+	<string name="combat_actorcondition_duration">Decreased duration of %1$s on %2$s.</string>
+	<string name="combat_actorcondition_duration_repeat">Decreased duration of %1$s on %2$s. (x%3$s)</string>
+	<string name="combat_actorcondition_magnitude">Decreased magnitude of %1$s on %2$s.</string>
+	<string name="combat_actorcondition_magnitude_repeat">Decreased magnitude of %1$s on %2$s. (x%3$s)</string>
 </resources>

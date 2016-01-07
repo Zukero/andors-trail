@@ -126,7 +126,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	}
 
 	public boolean canExitCombat() {
-		return getNearbyEnragedMonster() == null && !noActionYet;
+		return getAdjacentAggressiveMonster() == null && getNearbyEnragedMonster() == null && !noActionYet;
 				//&& getNearbyEnragedMonster() == null;
 	}
 
@@ -180,7 +180,8 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		} else if (dx != 0 || dy != 0) {
 			executeFlee(dx, dy);
 		} else {
-			Monster m = getInRangeAggressiveMonster();
+			Monster m = getNearbyEnragedMonster();
+			//if (m == null) m = getInRangeAggressiveMonster();
 			if (m == null) return;
 			setCombatSelection(m);
 			executePlayerAttack();
@@ -209,8 +210,8 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		this.lastAttackResult = attack;
 		//&& currentActiveMonster.rageDistance == 0)
 
-		target.setIsEnraged(world.model.player.isWieldingRangedWeapon(),
-					world.model.player.position, target.position); //monster is now focused on player
+		target.setIsEnraged(world.model.player.position,
+				target.position); //monster is now focused on player
 		if (attack.isHit) {
 			combatActionListeners.onPlayerAttackSuccess(target, attack);
 
@@ -229,8 +230,9 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		if(! world.model.player.isWieldingRangedWeapon())
 			world.model.player.cancelAimMode();
 		if (world.model.uiSelections.selectedMonster == null) {
-			selectNextAggressiveMonster();
+			selectNextInRangeEnragedMonster();
 		}
+		//if (world.model.uiSelections.selectedMonster == null) selectNextInRangeAggressiveMonster();
 
 		playerActionCompleted();
 	}
@@ -264,7 +266,9 @@ public final class CombatController implements VisualEffectCompletedCallback {
 
 		if (world.model.uiSelections.selectedMonster == killedMonster) {
 			//selectNextAggressiveMonster();
-			selectNextInRangeAggressiveMonster();
+			selectNextInRangeEnragedMonster();
+			//if (world.model.uiSelections.selectedMonster == null) selectNextInRangeAggressiveMonster();
+
 		}
 	}
 
@@ -279,6 +283,16 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	}
 	private boolean selectNextInRangeAggressiveMonster() {
 		Monster nextMonster = getInRangeAggressiveMonster();
+		if (nextMonster == null) {
+			setCombatSelection(null, null);
+			return false;
+		}
+		setCombatSelection(nextMonster);
+		return true;
+	}
+
+	private boolean selectNextInRangeEnragedMonster() {
+		Monster nextMonster = getNearbyEnragedMonster();
 		if (nextMonster == null) {
 			setCombatSelection(null, null);
 			return false;
@@ -361,6 +375,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	}
 
 	public void endPlayerTurn() {
+		noActionYet = false;
 		beginMonsterTurn(false);
 	}
 	private void beginMonsterTurn(boolean isFirstRound) {
@@ -382,7 +397,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	}
 
 	private void resetMonsterDesperation() {
-        if(currentActiveMonster.isDesperate){
+        if(currentActiveMonster!= null && currentActiveMonster.isDesperate()){
             // this makes fleeing monsters re-attempt to flee when they have the chance
 
             // if this code is removed, monsters will only try to flee once in their life
@@ -398,7 +413,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		for (MonsterSpawnArea a : world.model.currentMap.spawnAreas) {
 			for (Monster m : a.monsters) {
 				if (!(m.isAgressive()
-						//|| m.getIsEnraged() || m.isFleeing()
+						//|| m.IsEnraged() || m.isFleeing()
 						)) continue;
 
 				if (shouldAttackWithMonsterInCombat(m, playerPosition)) {
@@ -419,7 +434,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 
 	private static boolean shouldAttackWithMonsterInCombat(Monster m, Coord playerPosition) {
 		if (!m.hasAPs(m.getAttackCost())) return false;
-		if(m.isFleeing()) return false;
+		if(m.isFleeing() && !m.isDesperate()) return false;
         //if (m.isFleeing() && !m.isDesperate) return false;
 		if (!m.rectPosition.isAdjacentTo(playerPosition)) return false;
 		// TO TEST If above line is changed, will they use ranged attacks?
@@ -434,12 +449,12 @@ public final class CombatController implements VisualEffectCompletedCallback {
 
 		if (!m.hasAPs(m.getMoveCost())) return false;
 
-		if(m.isFleeing()) return false;
+		if(m.isFleeing()&& !m.isDesperate()) return false;
 
 		//	Move towards player if enraged or angry
 		if(!m.position.isAdjacentTo(playerPosition)){
 			//m.isDesperate = false;
-			if(m.getIsEnraged())
+			if(m.IsEnraged())
 				// Anger handlers
 				return true;
 			else{
@@ -479,10 +494,13 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		MonsterAction nextMonsterAction = determineNextMonsterAction(world.model.player.position);
 		if (nextMonsterAction == MonsterAction.none) {
 			endMonsterTurn();
+			resetMonsterDesperation();
 		} else if (nextMonsterAction == MonsterAction.attack) {
 			attackWithCurrentMonster();
+			resetMonsterDesperation();
 		} else if (nextMonsterAction == MonsterAction.move) {
 			moveCurrentMonster();
+			resetMonsterDesperation();
 		} else if(nextMonsterAction == MonsterAction.flee) {
 			fleeCurrentMonster();
 		}
@@ -492,15 +510,17 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	private void fleeCurrentMonster() {
 		controllers.actorStatsController.useAPs(currentActiveMonster, currentActiveMonster.getMoveCost());
 
+		currentActiveMonster.isDesperate = false;
 		//flee away from player. If can't, keep attacking.
-		if (//!currentActiveMonster.hasFleePath &&
-		!controllers.monsterMovementController.findFleePathFor(currentActiveMonster, world.model.player.position)) {
-			// Couldn't find a path to flee to; keep attacking.
 
-			// todo,twirl might not keep attacking, just freeze, or even crash
-			// currentActiveMonster.isDesperate = true; //also change in "should attack" et al
-			handleNextMonsterAction();
-			return;
+		//!currentActiveMonster.hasFleePath &&
+		if (!controllers.monsterMovementController.findFleePathFor(currentActiveMonster, world.model.player.position)) {
+		// Couldn't find a path to flee to; keep attacking.
+		//currentActiveMonster.isDesperate = true;
+		// todo,twirl might not keep attacking, just freeze, or even crash
+		// currentActiveMonster.isDesperate = true; //also change in "should attack" et al
+		handleNextMonsterAction();
+		return;
 		}
 
 		final Monster movingMonster = currentActiveMonster;
@@ -515,15 +535,16 @@ public final class CombatController implements VisualEffectCompletedCallback {
 
 	private void moveCurrentMonster() {
 		controllers.actorStatsController.useAPs(currentActiveMonster, currentActiveMonster.getMoveCost());
-		currentActiveMonster.isEnraged = true;
-		currentActiveMonster.setIsEnraged(world.model.player.isWieldingRangedWeapon(),
-				world.model.player.position, currentActiveMonster.position);
-		//move towards player
+		//currentActiveMonster.hasRage = true;
+		//currentActiveMonster.setIsEnraged(world.model.player.position, currentActiveMonster.position);
+		// ^ makes them enraged if they're moving towards the player i.e. when protecting spawn
 		if (!controllers.monsterMovementController.findPathFor(currentActiveMonster, world.model.player.position)) {
 			// If couldn't find a path to move on, give up & lose focus.
-			currentActiveMonster.isEnraged = false;
-			handleNextMonsterAction();
-			return;
+			currentActiveMonster.hasRage = false;
+			if (!controllers.monsterMovementController.findFleePathFor(currentActiveMonster, world.model.player.position)) {
+				handleNextMonsterAction();
+				return;
+			}
 		}
 
 		final Monster movingMonster = currentActiveMonster;
@@ -551,6 +572,8 @@ public final class CombatController implements VisualEffectCompletedCallback {
 			combatActionListeners.onMonsterAttackMissed(currentActiveMonster, attack);
 			startMissedEffect(attack, world.model.player.position, this, CALLBACK_MONSTERATTACK);
 		}
+		//currentActiveMonster.setIsEnraged(world.model.player.position, currentActiveMonster.position);
+		// ^ makes then angry if within attack distance
 	}
 
 	private static final int CALLBACK_MONSTERATTACK = 0;
@@ -607,8 +630,12 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	}
 
 	private void newPlayerTurn(boolean isFirstRound) {
-		if(world.model.uiSelections.selectedMonster !=null)
-			setCombatSelection(world.model.uiSelections.selectedMonster); //stutters but it's okay I guess
+		Monster m = world.model.uiSelections.selectedMonster;
+		if(m !=null)
+			setCombatSelection(m); //stutters but it's okay I guess
+		else if(!selectNextInRangeEnragedMonster())
+				selectNextInRangeAggressiveMonster();
+
 		if (canExitCombat()) {
 			exitCombat(true);
 			return;

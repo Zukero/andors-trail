@@ -42,8 +42,8 @@ public final class MonsterMovementController implements EvaluateWalkable {
 	public void attackWithAgressiveMonsters() {
 		for (MonsterSpawnArea a : world.model.currentMap.spawnAreas) {
 			for (Monster m : a.monsters) {
-				if (!m.isAgressive() //|| !m.getIsEnraged()
-						|| m.isFleeing()) continue;
+				if (!m.isAgressive() //|| !m.IsEnraged()
+						|| (m.isFleeing())) continue;
 				if (!m.isAdjacentTo(world.model.player)) continue;
 				// ^ this leaves out monster ranged-attacks
 				int aggressionChanceBias = world.model.player.getSkillLevel(SkillCollection.SkillID.evasion) * SkillCollection.PER_SKILLPOINT_INCREASE_EVASION_MONSTER_ATTACK_CHANCE_PERCENTAGE;
@@ -82,11 +82,30 @@ public final class MonsterMovementController implements EvaluateWalkable {
 		if (m.movementDestination == null //&& !( m.getIsEnraged() || m.isFleeing())
 				) {
 			// Monster has waited and should start to move again.
+			int xLength = Constants.rnd.nextInt(area.area.size.width);
+			int yLength = Constants.rnd.nextInt(area.area.size.height);
+			int xDirection = sgn(xLength);
+			int yDirection = sgn(yLength);
+
+			if(m.isFleeing()){ // pick a random destination away
+				xDirection= sgn(m.position.x- world.model.player.position.x);
+				yDirection= sgn(m.position.y - world.model.player.position.y);
+			}
 			m.movementDestination = new Coord(m.position);
-			if (Constants.rnd.nextBoolean()) {
-				m.movementDestination.x = area.area.topLeft.x + Constants.rnd.nextInt(area.area.size.width);
-			} else {
-				m.movementDestination.y = area.area.topLeft.y + Constants.rnd.nextInt(area.area.size.height);
+			if(m.isFleeing()){ // move diagonally to flee
+				m.movementDestination.x = xDirection *(area.area.topLeft.x +
+						Math.abs(xLength));
+				m.movementDestination.y = yDirection *(area.area.topLeft.y +
+						Math.abs(yLength));
+			}
+			else{ // straight line
+				if (Constants.rnd.nextBoolean()) {
+					m.movementDestination.x = xDirection *(area.area.topLeft.x +
+							Math.abs(xLength));
+				} else {
+					m.movementDestination.y = yDirection *(area.area.topLeft.y +
+							Math.abs(yLength));
+				}
 			}
 		} else if (m.position.equals(m.movementDestination)) {
 			// Monster has been moving and arrived at the destination.
@@ -99,8 +118,8 @@ public final class MonsterMovementController implements EvaluateWalkable {
 				return;
 			}
 			if (m.nextPosition.contains(world.model.player.position)) {
-				if (! //do not step on player unless agressive or enraged
-						(m.isAgressive() && (m.getIsEnraged()))//||m.isDesperate))
+				//do not step on player unless agressive or enraged
+				if (!m.isAgressive() && !(m.IsEnraged())//||m.isDesperate))
 						) {
 					cancelCurrentMonsterMovement(m);
 					return;
@@ -114,38 +133,50 @@ public final class MonsterMovementController implements EvaluateWalkable {
 	}
 
 	private void determineMonsterNextPosition(Monster m, MonsterSpawnArea area, Coord playerPosition) {
-		if (m.isFleeing()){ //if (m.isFleeing() && ! m.isDesperate)
-			if (findFleePathFor(m, playerPosition))
-				return;
-		}
+		if (!m.isFleeing()) {
 
-		boolean searchForPath = false;
-		if (m.isAgressive()) {
-			if (m.getMovementAggressionType() == MonsterType.AggressionType.protectSpawn) {
-				if (area.area.contains(playerPosition)) searchForPath = true;
-			} else if (m.getMovementAggressionType() == MonsterType.AggressionType.wholeMap) {
-				searchForPath = true;
+			boolean searchForPath = false;
+			if (m.isAgressive()) {
+				if (m.getMovementAggressionType() == MonsterType.AggressionType.protectSpawn) {
+					if (area.area.contains(playerPosition)) searchForPath = true;
+				} else if (m.getMovementAggressionType() == MonsterType.AggressionType.wholeMap) {
+					searchForPath = true;
+				}
+			}
+
+			if (searchForPath || (m.IsEnraged() && existAngryFollowingRealtime)) {
+				if (findPathFor(m, playerPosition)) {
+					m.rageDistance--;
+					return;
+				} else m.hasRage = false;
 			}
 		}
 
-		if (searchForPath || (m.getIsEnraged() && existAngryFollowingRealtime)
-				) {
-			if (findPathFor(m, playerPosition)) {
-				m.rageDistance--;
-				return;
-			} else m.isEnraged = false;
-		}
-
-		// Monster is moving in a straight line.
+		// Monster is moving in a straight line. (but only if not fleeing)
 		m.nextPosition.topLeft.set(
-				m.position.x + sgn(m.movementDestination.x - m.position.x)
-				, m.position.y + sgn(m.movementDestination.y - m.position.y)
-		);
-	}
+				m.position.x + sgn(m.movementDestination.x - m.position.x),
+				m.position.y + sgn(m.movementDestination.y - m.position.y));
+
+		if(!m.isAgressive())
+			return;
+		if (!m.isFleeing())
+			return;
+
+		if(canFleeThere(m))
+			return;
+
+		findFleePathFor(m, world.model.player.position);
+		}
 
 	private static void cancelCurrentMonsterMovement(final Monster m) {
 		m.movementDestination = null;
-		m.nextActionTime = System.currentTimeMillis() + (getMillisecondsPerMove(m) * Constants.rollValue(Constants.monsterWaitTurns));
+		int urgentFleeing = Constants.rollValue(Constants.monsterWaitTurns);
+
+		// This hopefully makes monster fleeing fast enough
+		//if(m.isFleeing())
+		//	urgentFleeing = 1;
+
+		m.nextActionTime = System.currentTimeMillis() + (getMillisecondsPerMove(m) * urgentFleeing);
 	}
 
 	private static int getMillisecondsPerMove(Monster m) {
@@ -158,7 +189,7 @@ public final class MonsterMovementController implements EvaluateWalkable {
 		return controllers.preferences.attackspeed_milliseconds;
 	}
 
-	private static int sgn(int i) {
+	public static final int sgn(int i) {
 		if (i <= -1) return -1;
 		if (i >= 1) return 1;
 		return 0;
@@ -171,37 +202,45 @@ public final class MonsterMovementController implements EvaluateWalkable {
 	}
 
 	public boolean findFleePathFor(Monster m, Coord to) {
-		int relativeX = Math.abs(m.position.x - to.x);
-		int relativeY = Math.abs(m.position.y - to.y);
-		Coord target = m.position;
-		Coord temp;
+		int xDirection = sgn(m.position.x - to.x);
+		int yDirection = sgn(m.position.y - to.y);
 
-		boolean done = false;
-		//Move to any adjacent tile away from player
-		for (int i = -1; i < 2; i++) {
-			int targetX = Math.abs(m.position.x - to.x + i);
-			for (int j = -1; j < 2; j++) {
-				int targetY = Math.abs(m.position.y - to.y + j);
-				if ((targetX >= relativeX && !(targetY < relativeY))
-						|| (!(targetX < relativeX) && (targetY >= relativeY))
-						&& !(i == 0 && j == 0)) {
-					temp = new Coord(m.position.x + i, m.position.y + j);
-					if (isWalkable(new CoordRect(
-							temp, new Size(
-							WorldMapController.WORLDMAP_DISPLAY_TILESIZE,
-							WorldMapController.WORLDMAP_DISPLAY_TILESIZE)))) {
-						target = temp;
-						done = true;
-					}
-				}
-				if (done)
-					break;
-			}
-			if (done)
-				break;
-		}
+		m.nextPosition.topLeft.x = m.position.x + xDirection; // away x, null y
+		m.nextPosition.topLeft.y = m.position.y;
+		if (canFleeThere(m)) return true;
 
-		return pathfinder.findPathBetween(m.rectPosition, target, m.nextPosition);
+		m.nextPosition.topLeft.x -= xDirection; // away y, null x
+		m.nextPosition.topLeft.y += yDirection;
+		if (canFleeThere(m)) return true;
+
+		m.nextPosition.topLeft.x += xDirection; //away x and y
+		if (canFleeThere(m)) return true;
+
+		m.nextPosition.topLeft.x -= 2 * xDirection; // same x away y
+		if (canFleeThere(m)) return true;
+
+		m.nextPosition.topLeft.y -= 2 * yDirection;
+		m.nextPosition.topLeft.x += 2 * xDirection; // same y away x
+		if (canFleeThere(m)) return true;
+
+		// same y, null x
+		m.nextPosition.topLeft.x -= xDirection;
+		if (canFleeThere(m)) return true;
+
+		// same x, null y
+		m.nextPosition.topLeft.x -= xDirection;
+		m.nextPosition.topLeft.y += yDirection;
+		if (canFleeThere(m)) return true;
+
+
+		return false;
+	}
+
+	public boolean canFleeThere(Monster m){
+		if(isWalkable(m.nextPosition) && !m.nextPosition.contains(world.model.player.position))
+			return true;
+		return false;
+
 	}
 
 	@Override

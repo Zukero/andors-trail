@@ -70,7 +70,7 @@ public final class ItemController {
 	private void unequipSlot(Player player, Inventory.WearSlot slot) {
 		ItemType removedItemType = player.inventory.getItemTypeInWearSlot(slot);
 		if (removedItemType == null) return;
-		player.inventory.addItem(removedItemType);
+		player.inventory.addItem(removedItemType,1,true);
 		player.inventory.setItemTypeInWearSlot(slot, null);
 		controllers.actorStatsController.removeConditionsFromUnequippedItem(player, removedItemType);
 	}

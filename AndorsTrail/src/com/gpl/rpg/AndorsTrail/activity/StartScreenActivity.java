@@ -99,8 +99,8 @@ public final class StartScreenActivity extends Activity {
 
 		TextView development_version = (TextView) findViewById(R.id.startscreen_dev_version);
 		if (AndorsTrailApplication.DEVELOPMENT_INCOMPATIBLE_SAVEGAMES) {
-			//development_version.setText(R.string.startscreen_incompatible_savegames);
-			development_version.setText(R.string.startscreen_ranged_info);
+			development_version.setText(R.string.startscreen_incompatible_savegames);
+			//development_version.setText(R.string.startscreen_ranged_info);
 			development_version.setVisibility(View.VISIBLE);
 		} else if (!AndorsTrailApplication.IS_RELEASE_VERSION) {
 			development_version.setText(R.string.startscreen_non_release_version);

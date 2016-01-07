@@ -51,6 +51,19 @@ public class ItemContainer {
 			items.add(new ItemEntry(itemType, quantity));
 		}
 	}
+	public void addItem(ItemType itemType, int quantity, boolean last) {
+		if (quantity == 0) return;
+
+		ItemEntry e = findItem(itemType.id);
+		if (e != null) {
+			e.quantity += quantity;
+		} else {
+			if(last)
+				items.add(0,new ItemEntry(itemType, quantity));
+			else
+				items.add(new ItemEntry(itemType, quantity));
+		}
+	}
 	public void addItem(ItemType itemType) { addItem(itemType, 1); }
 	public void add(final ItemContainer items) {
 		for (ItemEntry e : items.items) {
