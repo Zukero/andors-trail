@@ -95,6 +95,7 @@ public final class GameRoundController implements TimedMessageTask.Callback {
 	}
 
 	private void onNewTick() {
+		world.model.player.isFollowed = false;
 		controllers.monsterMovementController.moveMonsters();
 		controllers.monsterSpawnController.maybeSpawn(world.model.currentMap, world.model.currentTileMap);
 		controllers.monsterMovementController.attackWithAgressiveMonsters();

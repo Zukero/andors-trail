@@ -604,14 +604,14 @@ public final class MainView extends SurfaceView
 	}
 
 	@Override
-	public void onPlayerAimInvalid() {
-
-	}
+	public void onPlayerAimInvalid() {}
 
 	@Override
-	public void onPlayerAimToofar() {
+	public void onPlayerAimToofar() {}
 
-	}
+	@Override
+	public void onToggledAimMode(Boolean change) {}
+
 	private void recalculateMapTopLeft(Coord playerPosition, boolean allowScrolling) {
 		synchronized (holder) {
 			int oldX = mapTopLeft.x;

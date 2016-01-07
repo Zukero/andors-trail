@@ -134,7 +134,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 
 		Monster m = world.model.currentMap.getMonsterAt(dest);
 		if (m != null){
-			if (world.model.player.isInAimMode() || world.model.player.justEquippedIsEnough()) {
+			if (world.model.player.isInAimMode() || controllers.preferences.rangedAutoaim) {
 				if(m.isAgressive()){
 					if(m.isWithinAttackRangeOf(world.model.player)){
 						controllers.mapController.steppedOnMonster(m, dest);
@@ -142,8 +142,10 @@ public final class MovementController implements TimedMessageTask.Callback {
 						// controllers.combatController.executeMoveAttack(dx, dy);
 						return;
 					}
-					else if(world.model.player.isInAimMode())
+					else if(world.model.player.isInAimMode()){
 						playerMovementListeners.onPlayerAimToofar();
+						return;
+					}
 					else{
 						world.model.player.nextPosition.set(dx,dy);
 						movePlayer(dx,dy);
@@ -153,7 +155,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 				}
 				else if (!world.model.player.isInAimMode()) {
 					int talkRange = 1;
-					if(world.model.player.inTelepathyMode) talkRange = world.model.player.maxTelepathyRange;
+					if(world.model.player.isTalkingByShouting) talkRange = world.model.player.maxShoutingRange;
 					if(areWithinRange(world.model.player.position, dest, talkRange)){
 						controllers.mapController.steppedOnMonster(m, dest);
 						return;
@@ -389,7 +391,13 @@ public final class MovementController implements TimedMessageTask.Callback {
 	private Coord movementDest;
 	public void startMovement(int dx, int dy, Coord destination) {
 		if (!mayMovePlayer()) return;
-		if (dx == 0 && dy == 0) return;
+		if (dx == 0 && dy == 0) {
+			if(controllers.preferences.rangedSafeaimSelf) {
+				playerMovementListeners.onToggledAimMode(
+						world.model.player.toggleAimMode());
+			}
+			else return;
+		}
 
 		movementDest = destination;
 		movementDx = dx;
@@ -407,8 +415,8 @@ public final class MovementController implements TimedMessageTask.Callback {
 		if (world.model.uiSelections.isInCombat) return false;
 
 		if(!(world.model.player.isInAimMode() || world.model.player.inTeleportMode
-				|| world.model.player.inTelepathyMode
-				||world.model.player.justEquippedIsEnough()))
+				|| world.model.player.isTalkingByShouting
+				|| controllers.preferences.rangedAutoaim))
 			movePlayer(movementDx, movementDy);
 		else
 			usePlayerRangedAction(movementDx, movementDy, movementDest);

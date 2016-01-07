@@ -402,6 +402,7 @@ public final class ActorStatsController {
 		}
 	}
 
+
 	public static enum LevelUpSelection {
 		health
 		,attackChance

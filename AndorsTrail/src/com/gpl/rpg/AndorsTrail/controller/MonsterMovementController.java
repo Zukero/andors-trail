@@ -11,17 +11,15 @@ import com.gpl.rpg.AndorsTrail.model.map.LayeredTileMap;
 import com.gpl.rpg.AndorsTrail.model.map.MapObject;
 import com.gpl.rpg.AndorsTrail.model.map.MonsterSpawnArea;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
-import com.gpl.rpg.AndorsTrail.util.ConstRange;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.CoordRect;
-import com.gpl.rpg.AndorsTrail.util.Size;
 
 public final class MonsterMovementController implements EvaluateWalkable {
 	private final ControllerContext controllers;
 	private final WorldContext world;
 	public final MonsterMovementListeners monsterMovementListeners = new MonsterMovementListeners();
 
-	public boolean existAngryFollowingRealtime = true;
+	public boolean isRealMonsterMovementEmotional = true;
 
 	public MonsterMovementController(ControllerContext controllers, WorldContext world) {
 		this.controllers = controllers;
@@ -144,8 +142,9 @@ public final class MonsterMovementController implements EvaluateWalkable {
 				}
 			}
 
-			if (searchForPath || (m.IsEnraged() && existAngryFollowingRealtime)) {
+			if (searchForPath || (m.IsEnraged() && isRealMonsterMovementEmotional)) {
 				if (findPathFor(m, playerPosition)) {
+					world.model.player.isFollowed = true;
 					m.rageDistance--;
 					return;
 				} else m.hasRage = false;
@@ -233,7 +232,7 @@ public final class MonsterMovementController implements EvaluateWalkable {
 		m.nextPosition.topLeft.y += yDirection;
 		if (canFleeThere(m)) return true;
 
-		m.nextPosition.topLeft.y -= yDirection;
+		m.nextPosition.topLeft.y -= yDirection; // down left
 		if (canFleeThere(m)) return true;
 
 		return false;

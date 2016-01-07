@@ -207,7 +207,6 @@ public final class Monster extends Actor {
 	}
 
 	public boolean isFleeing() {
-		// todo,twirl add a status condition for it to check if attacked
 		if(this.health.current <= this.health.max * this.hpFleeThreshold)
 			return true;
 
@@ -254,6 +253,6 @@ public final class Monster extends Actor {
 	}
 
 	public boolean isWithinAttackRangeOf(Player p){
-		return MovementController.areWithinRange(this.position, p.position, p.increaseMaxRange);
+		return MovementController.areWithinRange(this.position, p.position, p.getMaxRange());
 	}
 }

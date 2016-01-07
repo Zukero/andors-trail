@@ -503,13 +503,13 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		MonsterAction nextMonsterAction = determineNextMonsterAction(world.model.player.position);
 		if (nextMonsterAction == MonsterAction.none) {
 			endMonsterTurn();
-			resetMonsterDesperation();
+			//resetMonsterDesperation();
 		} else if (nextMonsterAction == MonsterAction.attack) {
 			attackWithCurrentMonster();
-			resetMonsterDesperation();
+			//resetMonsterDesperation();
 		} else if (nextMonsterAction == MonsterAction.move) {
 			moveCurrentMonster();
-			resetMonsterDesperation();
+			//resetMonsterDesperation();
 		} else if(nextMonsterAction == MonsterAction.flee) {
 			fleeCurrentMonster();
 		}
@@ -525,8 +525,6 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		//!currentActiveMonster.hasFleePath &&
 		if (!controllers.monsterMovementController.findFleePathFor(currentActiveMonster, world.model.player.position)) {
 		// Couldn't find a path to flee to; keep attacking.
-		//currentActiveMonster.isDesperate = true;
-		// todo,twirl might not keep attacking, just freeze, or even crash
 		// currentActiveMonster.isDesperate = true; //also change in "should attack" et al
 			currentActiveMonster.nextPosition.topLeft.set(world.model.player.position);
 		handleNextMonsterAction();

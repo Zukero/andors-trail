@@ -42,15 +42,15 @@ public final class Player extends Actor {
 	public int reequipCost;
 	public int totalExperience;
 
-	public int maxTelepathyRange = 20;
-	//public int increaseMaxRange;
+	public boolean inAimMode = false; //needs to be enabled in order to initiate ranged-attack outside combat
+	public boolean isFollowed = false;
 
+
+	public boolean isTalkingByShouting = false;
+	public int maxShoutingRange = 20;
 	public boolean inTeleportMode = false;
-	public boolean inTelepathyMode = false;
 	//public boolean hasRangedWeaponEquippedInInventory = false; //enabled through debug button menu
 	//allows player to attack from afar
-	public boolean inAimMode = false; //needs to be enabled in order to initiate ranged-attack outside combat
-	public boolean justEquippedIsEnough = true; //toggled through debug menu, allows attacking without aim-mode
 
 
 	private final HashMap<String, HashSet<Integer> > questProgress = new HashMap<String, HashSet<Integer> >();
@@ -72,19 +72,11 @@ public final class Player extends Actor {
 	}
 
 	public boolean toggleAimMode() {
-		if(!this.inAimMode
-				&& this.isWieldingRangedWeapon())
-			this.inAimMode = true;
+		if(!this.inAimMode && this.isWieldingRangedWeapon())
+				this.inAimMode = true;
 		else
 			this.inAimMode = false;
 		return this.inAimMode;
-	}
-	public boolean toggleNeedAiming() {
-		if(!this.justEquippedIsEnough)
-			this.justEquippedIsEnough = true;
-		else
-			this.justEquippedIsEnough = false;
-		return this.justEquippedIsEnough;
 	}
 
 	public boolean isInAimMode() {
@@ -93,16 +85,14 @@ public final class Player extends Actor {
 		return inAimMode;
 	}
 
-	public int maxRangeOfWeapon() {
+	public int getMaxRange() {
 		return increaseMaxRange;
 	}
 
-	public boolean justEquippedIsEnough() {
-		if(!isWieldingRangedWeapon())
-			return false;
-		else
-			return this.justEquippedIsEnough;
+	public boolean isFollowed() {
+		return this.isFollowed;
 	}
+
 
 	// Unequipped stats
 	public static final class PlayerBaseTraits {

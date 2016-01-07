@@ -303,6 +303,15 @@ public final class MainActivity
 				getString(R.string.player_aim_toofar_repeat, repeatFiller));}
 
 	@Override
+	public void onToggledAimMode(Boolean change) {
+		if(change.booleanValue())
+			message(getString(R.string.player_toggled_aim_on));
+		else
+			message(getString(R.string.player_toggled_aim_off),
+					getString(R.string.player_toggled_aim_off_repeat, repeatFiller));
+	}
+
+	@Override
 	public void onCombatStarted() {
 		clearMessages();
 	}
@@ -367,9 +376,11 @@ public final class MainActivity
 
 	@Override
 	public void onMonsterFleedDuringCombat(Monster m) {
-		if(MovementController.isAtRange(
+		if(MovementController.isAtRange( //Check if he is now at
 				world.model.player.position, m.position,
-				world.model.player.increaseMaxRange+1)){
+				world.model.player.getMaxRange()+1)
+				&& MovementController.areWithinRange(m.lastPosition,  //Then check if monster was in range before
+				world.model.player.position,world.model.player.getMaxRange())){
 			String monsterName = m.getName();
 			message(getString(R.string.combat_result_monsterfleed, monsterName),
 					getString(R.string.combat_result_monsterfleed_repeat, monsterName, repeatFiller));}
@@ -400,6 +411,7 @@ public final class MainActivity
 
 	@Override
 	public void onPlayerSteppedOnMapSignArea(MapObject area) {
+		Dialogs.showMapSign(this, controllers, area.id);
 		Dialogs.showMapSign(this, controllers, area.id);
 	}
 

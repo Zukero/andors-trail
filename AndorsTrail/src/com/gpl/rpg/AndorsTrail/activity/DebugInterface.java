@@ -9,11 +9,8 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
-import com.gpl.rpg.AndorsTrail.activity.fragment.HeroinfoActivity_Inventory;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.model.item.Inventory;
-import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 
 public final class DebugInterface {
@@ -111,7 +108,7 @@ public final class DebugInterface {
 					showToast(mainActivity, "DEBUG: given 10000 exp", Toast.LENGTH_SHORT);
 				}
 			})*/
-			/*,new DebugButton("reset", new OnClickListener() {
+			,new DebugButton("reset", new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
 					for(PredefinedMap map : world.maps.getAllMaps()) {
@@ -119,45 +116,19 @@ public final class DebugInterface {
 					}
 					showToast(mainActivity, "DEBUG: maps respawned", Toast.LENGTH_SHORT);
 				}
-			})*/
-				/*,new DebugButton("+range", new OnClickListener() {
-			@Override
-			public void onClick(View arg0) {
-				world.model.player.increaseMaxRange +=1;
-				showToast(mainActivity, "DEBUG: Range +1 \n" +
-						"New range: "+ world.model.player.increaseMaxRange, Toast.LENGTH_SHORT);
-			}
-		})*/
-			,new DebugButton("Safe Aim", new OnClickListener() {
-			@Override
-			public void onClick(View arg0) {
-				boolean change = world.model.player.toggleAimMode();
-				if(change){
-					showToast(mainActivity, "DEBUG: aim-mode is ON. \nYou stand immobile as you pick a target.", Toast.LENGTH_SHORT);
-				}else{
-					showToast(mainActivity, "DEBUG: aim-mode is OFF. ", Toast.LENGTH_SHORT);
-				}
-			}
 			})
-				,new DebugButton("Need 2 Aim", new OnClickListener() {
+			/*,new DebugButton("Safe Aim", new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				boolean aimNotNeeded = world.model.player.toggleNeedAiming();
-				if(!aimNotNeeded){
-					showToast(mainActivity, "DEBUG: aim-mode is NEEDED. \n" +
-							"You need to stand immobile to aim before shooting.", Toast.LENGTH_SHORT);
-				}else{
-					showToast(mainActivity, "DEBUG: aim-mode is NOT needed. \n" +
-							"You can directly shoot monsters within attack range.", Toast.LENGTH_SHORT);
-				}
+				world.model.player.toggleAimMode();
 			}
-		})
+			})*/
 				/*,new DebugButton("real following", new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				controllerContext.monsterMovementController.existAngryFollowingRealtime =
-						!controllerContext.monsterMovementController.existAngryFollowingRealtime;
-				boolean change = controllerContext.monsterMovementController.existAngryFollowingRealtime;
+				controllerContext.monsterMovementController.isRealMonsterMovementEmotional =
+						!controllerContext.monsterMovementController.isRealMonsterMovementEmotional;
+				boolean change = controllerContext.monsterMovementController.isRealMonsterMovementEmotional;
 				if(change){
 					showToast(mainActivity, "DEBUG: realtime following ON. \nPissed-off monsters try to follow when you flee.", Toast.LENGTH_SHORT);
 				}else{
@@ -169,8 +140,8 @@ public final class DebugInterface {
 			@Override
 			public void onClick(View arg0) {
 			//Can interact with any NPC or monster without moving.
-				world.model.player.inTelepathyMode = !world.model.player.inTelepathyMode;
-				boolean change = world.model.player.inTelepathyMode;
+				world.model.player.isTalkingByShouting = !world.model.player.isTalkingByShouting;
+				boolean change = world.model.player.isTalkingByShouting;
 				if(change){
 					showToast(mainActivity, "DEBUG: NPC telepathy ON", Toast.LENGTH_SHORT);
 				}else{

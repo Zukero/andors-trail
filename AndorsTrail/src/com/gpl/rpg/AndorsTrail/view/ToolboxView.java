@@ -29,6 +29,7 @@ public final class ToolboxView extends LinearLayout implements OnClickListener {
 	private final AndorsTrailPreferences preferences;
 	private final Animation showAnimation;
 	private final Animation hideAnimation;
+	private final ImageButton toolbox_aim;
 	private final ImageButton toolbox_quickitems;
 	private final ImageButton toolbox_map;
 	private final ImageButton toolbox_save;
@@ -59,6 +60,8 @@ public final class ToolboxView extends LinearLayout implements OnClickListener {
 			}
 		});
 
+		toolbox_aim = (ImageButton) findViewById(R.id.toolbox_safeAim);
+		toolbox_aim.setOnClickListener(this);
 		toolbox_quickitems = (ImageButton)findViewById(R.id.toolbox_quickitems);
 		toolbox_quickitems.setOnClickListener(this);
 		toolbox_map = (ImageButton)findViewById(R.id.toolbox_map);
@@ -88,6 +91,9 @@ public final class ToolboxView extends LinearLayout implements OnClickListener {
 		Context context = getContext();
 		if (btn == toggleToolboxVisibility) {
 			toggleVisibility();
+		} else if (btn == toolbox_aim){
+			controllers.movementController.playerMovementListeners.onToggledAimMode(
+					world.model.player.toggleAimMode());
 		} else if (btn == toolbox_quickitems) {
 			toggleQuickslotItemView();
 		} else if (btn == toolbox_map) {
@@ -152,6 +158,11 @@ public final class ToolboxView extends LinearLayout implements OnClickListener {
 
 	public void updateIcons() {
 		setToolboxIcon(getVisibility() == View.VISIBLE);
+		if(!world.model.player.isWieldingRangedWeapon() && preferences.rangedHideUnusedAim){
+			toolbox_aim.setVisibility(GONE);
+		}
+		else
+			toolbox_aim.setVisibility(VISIBLE);
 	}
 
 	private void setToolboxIcon(boolean opened) {

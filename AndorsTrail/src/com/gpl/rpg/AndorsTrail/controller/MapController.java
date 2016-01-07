@@ -116,7 +116,7 @@ public final class MapController {
 				controllers.combatController.enterCombat(CombatController.BeginTurnAs.player);
 			}
 		} else {
-			if(world.model.player.isInAimMode()){
+			if(world.model.player.isInAimMode() && !world.model.player.isTalkingByShouting){
 				// cancel aiming when player tries
 				// to ranged-attack non-aggressive monster
 				//world.model.player.cancelAimMode();

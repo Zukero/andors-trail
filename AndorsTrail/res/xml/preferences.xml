@@ -56,6 +56,21 @@
 			android:defaultValue="1000"
 			android:entries="@array/preferences_attackspeed"
 			android:entryValues="@array/preferences_attackspeed_values" />
+		<CheckBoxPreference
+			android:title="@string/preferences_combat_ranged_autoaim_title"
+			android:defaultValue="false"
+			android:summary="@string/preferences_combat_ranged_autoaim"
+			android:key="ranged_autoaim" />
+		<CheckBoxPreference
+			android:title="@string/preferences_combat_ranged_safeaim_self_title"
+			android:defaultValue="false"
+			android:summary="@string/preferences_combat_ranged_safeaim_self"
+			android:key="ranged_safeaim_self" />
+		<!-- <CheckBoxPreference
+			android:title="@string/preferences_combat_button_safeaim_title"
+			android:defaultValue="false"
+			android:summary="@string/preferences_combat_button_safeaim"
+			android:key="ranged_safeaim" /> -->
 	</PreferenceCategory>
 	<PreferenceCategory
 		android:title="@string/preferences_movement_category">

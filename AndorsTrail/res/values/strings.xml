@@ -76,6 +76,9 @@
 	<string name="player_aim_invalid_repeat">Target not valid. (x%1$s)</string>
 	<string name="player_aim_toofar">Target out of range.</string>
 	<string name="player_aim_toofar_repeat">Target out of range. (x%1$s)</string>
+	<string name="player_toggled_aim_on">You started aiming.</string>
+	<string name="player_toggled_aim_off">You are not aiming.</string>
+	<string name="player_toggled_aim_off_repeat">You are not aiming.</string>
 	<string name="combat_miss_animation_message">MISS</string>
 	
 	<string name="inventory_info">Info</string>
@@ -282,6 +285,12 @@
 	<string name="preferences_combat_category">Combat</string>
 	<string name="preferences_combat_speed_title">Combat speed</string>
 	<string name="preferences_combat_speed">Determines how fast monsters attack.</string>
+	<string name="preferences_combat_ranged_autoaim_title">Enable Auto-Aim</string>
+	<string name="preferences_combat_ranged_autoaim">Player enters ranged combat when clicking a monster in attack range.</string>
+	<string name="preferences_combat_ranged_safeaim_self_title">Press on hero to aim</string>
+	<string name="preferences_combat_ranged_safeaim_self">Warning: Extremely annoying.</string>
+	<!--<string name="preferences_combat_button_safeaim_title">Move Safe-Aim button to status bar</string>
+	<string name="preferences_combat_button_safeaim">Can be annoying for small screens.</string> -->
 
 	<string name="preferences_display_loot_dialog">Always show loot dialog box</string>
 	<string name="preferences_display_loot_dialog_on_items">Show loot dialog box when finding items</string>

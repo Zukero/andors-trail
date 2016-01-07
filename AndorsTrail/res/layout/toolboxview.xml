@@ -27,4 +27,9 @@
 		style="@style/toolboxButtonTile"
 		android:src="@drawable/ui_icon_equipment"
 		/>
+	<ImageButton
+		android:id="@+id/toolbox_safeAim"
+		style="@style/toolboxButtonTile"
+		android:src="@drawable/ui_icon_crosshair"
+		/>
 </LinearLayout>

@@ -3,9 +3,6 @@ package com.gpl.rpg.AndorsTrail.view;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.LayerDrawable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageButton;
@@ -54,6 +51,7 @@ public final class StatusView extends RelativeLayout implements PlayerStatsListe
 				context.startActivity(new Intent(context, HeroinfoActivity.class));
 			}
 		});
+
 		healthBar = (RangeBar) findViewById(R.id.statusview_health);
 		healthBar.init(R.drawable.ui_progress_health, R.string.status_hp);
 
@@ -67,7 +65,8 @@ public final class StatusView extends RelativeLayout implements PlayerStatsListe
 //		});
 
 		updateStatus();
-		updateIcon(player.canLevelup());
+		updateHeroIcon(player.canLevelup());
+		//updateAimIcon(player.isInAimMode());
 	}
 
 	public void registerToolboxViews(ToolboxView toolbox, QuickitemView quickitemView) {
@@ -95,18 +94,32 @@ public final class StatusView extends RelativeLayout implements PlayerStatsListe
 		expBar.update(player.getMaxLevelExperience(), player.getCurrentLevelExperience());
 		boolean canLevelUp = player.canLevelup();
 		if (showingLevelup != canLevelUp) {
-			updateIcon(canLevelUp);
+			updateHeroIcon(canLevelUp);
 		}
 	}
 
-	private void updateIcon(boolean canLevelUp) {
+	private void updateHeroIcon(boolean canLevelUp) {
 		showingLevelup = canLevelUp;
+		/*if(player.isFollowed()){
+			world.tileManager.setImageViewTileWithOverlay(res, heroImage, TileManager.iconID_attackselect, world.tileManager.preloadedTiles.getBitmap(player.iconID), true);
+			return;
+		}*/
 		if (canLevelUp) {
 			world.tileManager.setImageViewTileWithOverlay(res, heroImage, TileManager.iconID_moveselect, world.tileManager.preloadedTiles.getBitmap(player.iconID), true);
 		} else {
 			world.tileManager.setImageViewTile(res, heroImage, player);
 		}
 	}
+
+	/*private void updateAimIcon(boolean aimMode) {
+		if (aimMode) {
+			world.tileManager.setImageViewTile(res, aimImage,
+					world.tileManager.preloadedTiles.getBitmap(TileManager.iconID_selection_red));
+		} else {
+			world.tileManager.setImageViewTile(res, aimImage,
+					world.tileManager.preloadedTiles.getBitmap(TileManager.iconID_selection_yellow));
+		}
+	}*/
 
 	@Override
 	public void onActorHealthChanged(Actor actor) {
