@@ -24,6 +24,7 @@ public final class TraitsInfoView {
 			,actor.getCriticalMultiplier()
 			,actor.getBlockChance()
 			,actor.getDamageResistance()
+			,actor.increaseMaxRange
 			,actor.isImmuneToCriticalHits());
 
 		TextView actorinfo_currentconditions_title = (TextView) group.findViewById(R.id.actorinfo_currentconditions_title);
@@ -48,7 +49,9 @@ public final class TraitsInfoView {
 			,float criticalMultiplier
 			,int blockChance
 			,int damageResistance
+			,int increasedMaxRange
 			,boolean isImmuneToCriticalHits
+
 		) {
 		TableRow row;
 		TextView tv;
@@ -112,6 +115,15 @@ public final class TraitsInfoView {
 			tv = (TextView) group.findViewById(R.id.traitsinfo_block_chance);
 			tv.setText(Integer.toString(blockChance));
 		}
+
+		row = (TableRow) group.findViewById(R.id.traitsinfo_max_range_row);
+		/*if (increasedMaxRange == 1) {
+			row.setVisibility(View.GONE);
+		} else {*/
+			row.setVisibility(View.VISIBLE);
+			tv = (TextView) group.findViewById(R.id.traitsinfo_max_range);
+			tv.setText(Integer.toString(increasedMaxRange));
+		//}
 
 		row = (TableRow) group.findViewById(R.id.traitsinfo_damageresist_row);
 		if (damageResistance == 0) {

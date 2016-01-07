@@ -120,6 +120,7 @@
 	<string name="traitsinfo_criticalhit_multiplier">Critical multiplier:</string>
 	<string name="traitsinfo_defense_chance">Block chance:</string>
 	<string name="traitsinfo_defense_damageresist">Damage resistance:</string>
+	<string name="traitsinfo_max_range">Attack range:</string>
 
 	<!-- <string name="key_required">A specific key is required to pass.</string> -->
 

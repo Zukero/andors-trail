@@ -150,6 +150,7 @@ public final class HeroinfoActivity_Stats extends Fragment {
 			, player.baseTraits.criticalMultiplier
 			, player.baseTraits.blockChance
 			, player.baseTraits.damageResistance
+			, player.baseTraits.increaseMaxRange
 			, false
 		);
 
