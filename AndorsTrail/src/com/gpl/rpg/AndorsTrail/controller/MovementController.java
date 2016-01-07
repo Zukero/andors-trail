@@ -136,7 +136,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 		if (m != null){
 			if (world.model.player.isInAimMode() || world.model.player.justEquippedIsEnough()) {
 				if(m.isAgressive()){
-					if(isWithinRange(world.model.player.position, dest, world.model.player.maxRangeOfWeapon())){
+					if(m.isWithinAttackRangeOf(world.model.player)){
 						controllers.mapController.steppedOnMonster(m, dest);
 						//controllers.combatController.setCombatSelection(nextPos);
 						// controllers.combatController.executeMoveAttack(dx, dy);
@@ -154,7 +154,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 				else if (!world.model.player.isInAimMode()) {
 					int talkRange = 1;
 					if(world.model.player.inTelepathyMode) talkRange = world.model.player.maxTelepathyRange;
-					if(isWithinRange(world.model.player.position, dest, talkRange)){
+					if(areWithinRange(world.model.player.position, dest, talkRange)){
 						controllers.mapController.steppedOnMonster(m, dest);
 						return;
 					}
@@ -173,7 +173,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 			int walkRange;
 			if (world.model.player.inTeleportMode) {
 				walkRange = world.model.player.maxTeleportRange;
-				if(isWithinRange(world.model.player.position, dest, walkRange)){
+				if(areWithinRange(world.model.player.position, dest, walkRange)){
 					moveToNextIfPossible();
 					return;
 				}
@@ -185,10 +185,21 @@ public final class MovementController implements TimedMessageTask.Callback {
 	}
 
 
-	public static boolean isWithinRange(Coord root, Coord target, int maxRange){
+	public static boolean areWithinRange(Coord root, Coord target, int maxRange){
 		int distance_x = Math.abs((target.x - root.x));
 		int distance_y = Math.abs((target.y - root.y));
 		if(distance_x <= maxRange && distance_y <= maxRange)
+			return true;
+		return false;
+	}
+
+	public static boolean isAtRange(Coord root, Coord target, int maxRange){
+		int distance_x = Math.abs((target.x - root.x));
+		int distance_y = Math.abs((target.y - root.y));
+		// Used for fleeing notifications
+		if(distance_x == maxRange && distance_y <= maxRange)
+			return true;
+		if(distance_y == maxRange && distance_x <= maxRange)
 			return true;
 		return false;
 	}
@@ -433,7 +444,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 			for (Monster m : a.monsters) {
 				if (!m.isAgressive()// || !m.IsEnraged()
 						) continue;
-				if (isWithinRange(m.position, player.position, player.increaseMaxRange))
+				if (m.isWithinAttackRangeOf(player))
 					return m;
 			}
 		}
@@ -443,10 +454,8 @@ public final class MovementController implements TimedMessageTask.Callback {
 	public static Monster getNearbyEnragedMonster(PredefinedMap map, Player player) {
 		for (MonsterSpawnArea a : map.spawnAreas) {
 			for (Monster m : a.monsters) {
-				if (!m.isAgressive()// || !m.IsEnraged()
-						) continue;
-				if (m.IsEnraged()
-						&& isWithinRange(m.position, player.position, player.increaseMaxRange))
+				if (!m.isAgressive() || !m.IsEnraged()) continue;
+				if (m.isWithinAttackRangeOf(player))
 					return m;
 			}
 		}

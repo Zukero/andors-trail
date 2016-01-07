@@ -549,6 +549,8 @@
 	<string name="heroinfo_useitem_cost">Use item cost (AP):</string>
 	<string name="combat_result_monstermoved">%1$s moves.</string>
 	<string name="combat_result_monstermoved_repeat">%1$s moves. (x%2$s)</string>
+	<string name="combat_result_monsterfleed">%1$s flees.</string>
+	<string name="combat_result_monsterfleed_repeat">%1$s flees. (x%2$s)</string>
 	<string name="combat_log_title">Combat log</string>
 	<string name="localize_resources_from_mo_filename"></string>
 	<string name="conversation_reward_quest_finished">[Quest completed: \"%1$s\"]</string>

@@ -4,7 +4,7 @@
         "abilityEffect":{
             "increaseAttackCost":10,
             "increaseMoveCost":10,
-            "increaseBlockChance":-50
+            "increaseBlockChance":-33
         },
         "category":"mental",
         "name":"Minor Stun",

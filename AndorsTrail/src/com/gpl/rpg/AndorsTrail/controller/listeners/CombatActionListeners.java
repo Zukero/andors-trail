@@ -25,6 +25,9 @@ public final class CombatActionListeners extends ListOfListeners<CombatActionLis
 	private final Function1<CombatActionListener, Monster> onMonsterMovedDuringCombat = new Function1<CombatActionListener, Monster>() {
 		@Override public void call(CombatActionListener listener, Monster m) { listener.onMonsterMovedDuringCombat(m); }
 	};
+	private final Function1<CombatActionListener, Monster> onMonsterFleedDuringCombat = new Function1<CombatActionListener, Monster>() {
+		@Override public void call(CombatActionListener listener, Monster m) { listener.onMonsterFleedDuringCombat(m); }
+	};
 
 	private final Function1<CombatActionListener, Monster> onPlayerKilledMonster = new Function1<CombatActionListener, Monster>() {
 		@Override public void call(CombatActionListener listener, Monster target) { listener.onPlayerKilledMonster(target); }
@@ -69,6 +72,11 @@ public final class CombatActionListeners extends ListOfListeners<CombatActionLis
 	@Override
 	public void onMonsterMovedDuringCombat(Monster m) {
 		callAllListeners(this.onMonsterMovedDuringCombat, m);
+	}
+
+	@Override
+	public void onMonsterFleedDuringCombat(Monster m) {
+		callAllListeners(this.onMonsterFleedDuringCombat, m);
 	}
 
 	@Override

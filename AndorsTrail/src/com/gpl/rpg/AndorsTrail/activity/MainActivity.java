@@ -17,6 +17,7 @@ import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.AttackResult;
 import com.gpl.rpg.AndorsTrail.controller.CombatController;
+import com.gpl.rpg.AndorsTrail.controller.MovementController;
 import com.gpl.rpg.AndorsTrail.controller.listeners.ActorConditionListener;
 import com.gpl.rpg.AndorsTrail.controller.listeners.CombatActionListener;
 import com.gpl.rpg.AndorsTrail.controller.listeners.CombatTurnListener;
@@ -361,9 +362,18 @@ public final class MainActivity
 	public void onMonsterMovedDuringCombat(Monster m) {
 		String monsterName = m.getName();
 		message(getString(R.string.combat_result_monstermoved, monsterName),
-				getString(R.string.combat_result_monstermoved, monsterName, repeatFiller));
+				getString(R.string.combat_result_monstermoved_repeat, monsterName, repeatFiller));
 	}
 
+	@Override
+	public void onMonsterFleedDuringCombat(Monster m) {
+		if(MovementController.isAtRange(
+				world.model.player.position, m.position,
+				world.model.player.increaseMaxRange+1)){
+			String monsterName = m.getName();
+			message(getString(R.string.combat_result_monsterfleed, monsterName),
+					getString(R.string.combat_result_monsterfleed_repeat, monsterName, repeatFiller));}
+	}
 	@Override
 	public void onPlayerKilledMonster(Monster target) { }
 

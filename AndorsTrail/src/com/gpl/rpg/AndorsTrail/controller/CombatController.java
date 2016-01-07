@@ -148,11 +148,8 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	public void executeMoveAttack(int dx, int dy) {
 		if (!world.model.uiSelections.isPlayersCombatTurn) return;
 
-		if (world.model.uiSelections.selectedMonster != null) {
-			if(MovementController.isWithinRange(
-					world.model.uiSelections.selectedMonster.position,
-					world.model.player.position,
-					world.model.player.increaseMaxRange)){
+		if (world.model.uiSelections.selectedMonster != null) { //Atack if within range
+			if(world.model.uiSelections.selectedMonster.isWithinAttackRangeOf(world.model.player)){
 				this.noActionYet = false;
 				executePlayerAttack();
 			}
@@ -160,18 +157,30 @@ public final class CombatController implements VisualEffectCompletedCallback {
 				combatActionListeners.onCombatTargetOutsideRange();
 				//combatActionListeners.onCombatTargetOutsideRange(world.model.uiSelections.selectedMonster);
 			}
-		} else if (world.model.uiSelections.selectedPosition != null) {
+		} else if (world.model.uiSelections.selectedPosition != null) { // Flee if nothing in between
 			int range = 1;
 			if(world.model.player.inTeleportMode)
 				range = world.model.player.maxTeleportRange;
-			if(MovementController.isWithinRange(
+			if(MovementController.areWithinRange(
 					world.model.uiSelections.selectedPosition,
 					world.model.player.position, range)){
 				world.model.player.cancelAimMode();
+
 				executeCombatMove(world.model.uiSelections.selectedPosition);
 			}
 			else{
-				combatActionListeners.onCombatTargetOutsideRange();
+				//Flee nearby
+				Coord dest = new Coord();
+				dest.x = world.model.player.position.x +
+						MonsterMovementController.sgn(
+								world.model.uiSelections.selectedPosition.x - world.model.player.position.x);
+				dest.y = world.model.player.position.y +
+						MonsterMovementController.sgn(
+								world.model.uiSelections.selectedPosition.y - world.model.player.position.y);
+				if(world.model.currentMap.getMonsterAt(dest) == null)
+					executeCombatMove(dest);
+				else
+					combatActionListeners.onCombatTargetOutsideRange();
 			}
 		} else if (controllers.effectController.isRunningVisualEffect()) {
 			return;
@@ -519,6 +528,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		//currentActiveMonster.isDesperate = true;
 		// todo,twirl might not keep attacking, just freeze, or even crash
 		// currentActiveMonster.isDesperate = true; //also change in "should attack" et al
+			currentActiveMonster.nextPosition.topLeft.set(world.model.player.position);
 		handleNextMonsterAction();
 		return;
 		}
@@ -527,7 +537,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		controllers.monsterMovementController.moveMonsterToNextPositionDuringCombat(currentActiveMonster, world.model.currentMap, new VisualEffectController.VisualEffectCompletedCallback(){
 			@Override
 			public void onVisualEffectCompleted(int callbackValue) {
-				combatActionListeners.onMonsterMovedDuringCombat(movingMonster);
+				combatActionListeners.onMonsterFleedDuringCombat(movingMonster);
 				handleNextMonsterAction();
 			}
 		});
@@ -631,7 +641,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 
 	private void newPlayerTurn(boolean isFirstRound) {
 		Monster m = world.model.uiSelections.selectedMonster;
-		if(m !=null)
+		if(m !=null && m.isWithinAttackRangeOf(world.model.player))
 			setCombatSelection(m); //stutters but it's okay I guess
 		else if(!selectNextInRangeEnragedMonster())
 				selectNextInRangeAggressiveMonster();

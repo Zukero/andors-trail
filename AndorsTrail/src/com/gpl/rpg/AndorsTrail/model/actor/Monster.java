@@ -1,6 +1,7 @@
 package com.gpl.rpg.AndorsTrail.model.actor;
 
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.controller.MovementController;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.item.DropList;
@@ -250,5 +251,9 @@ public final class Monster extends Actor {
 	public boolean isDesperate(){
 		return false; // Don't need this right now, other problems afoot
 		//return Boolean.TRUE.equals(this.isDesperate);
+	}
+
+	public boolean isWithinAttackRangeOf(Player p){
+		return MovementController.areWithinRange(this.position, p.position, p.increaseMaxRange);
 	}
 }

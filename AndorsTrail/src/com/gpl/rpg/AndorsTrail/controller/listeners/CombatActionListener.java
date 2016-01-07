@@ -10,6 +10,7 @@ public interface CombatActionListener {
 	void onMonsterAttackMissed(Monster attacker, AttackResult attackResult);
 	void onMonsterAttackSuccess(Monster attacker, AttackResult attackResult);
 	void onMonsterMovedDuringCombat(Monster m);
+	void onMonsterFleedDuringCombat(Monster m);
 	void onPlayerKilledMonster(Monster target);
 	void onCombatTargetOutsideRange();
 	void onPlayerStartedFleeing();

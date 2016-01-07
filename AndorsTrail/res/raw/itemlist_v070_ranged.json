@@ -7,11 +7,11 @@
         "description": "A basic ranged weapon.",
         "equipEffect": {
             "increaseAttackDamage": {
-                "min": 1,
+                "min": 0,
                 "max": 15
             },
             "increaseAttackCost": 7,
-            "increaseAttackChance": -45,
+            "increaseAttackChance": -33,
             "increaseMaxRange": 5
         },
         "hitEffect": {
@@ -19,8 +19,8 @@
                 {
                     "magnitude": 1,
                     "condition": "minor_stun",
-                    "duration": 5,
-                    "chance": 45
+                    "duration": 3,
+                    "chance": 35
                 }
             ]
         },
@@ -35,11 +35,11 @@
         "description":"A more basic ranged weapon.",
         "equipEffect":{
             "increaseAttackDamage": {
-                "min": 1,
+                "min": 0,
                 "max": 10
             },
             "increaseAttackCost":7,
-            "increaseAttackChance":-30,
+            "increaseAttackChance":-20,
             "increaseMaxRange":3
         },
         "hitEffect": {
@@ -63,11 +63,11 @@
         "description":"A most basic ranged weapon.",
         "equipEffect":{
             "increaseAttackDamage": {
-                "min": 1,
+                "min": 0,
                 "max": 5
             },
             "increaseAttackCost":4,
-            "increaseAttackChance":-20,
+            "increaseAttackChance":-10,
             "increaseMaxRange":2
         },
         "hitEffect": {

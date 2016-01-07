@@ -11,6 +11,7 @@ import com.gpl.rpg.AndorsTrail.model.map.LayeredTileMap;
 import com.gpl.rpg.AndorsTrail.model.map.MapObject;
 import com.gpl.rpg.AndorsTrail.model.map.MonsterSpawnArea;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
+import com.gpl.rpg.AndorsTrail.util.ConstRange;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.CoordRect;
 import com.gpl.rpg.AndorsTrail.util.Size;
@@ -134,7 +135,6 @@ public final class MonsterMovementController implements EvaluateWalkable {
 
 	private void determineMonsterNextPosition(Monster m, MonsterSpawnArea area, Coord playerPosition) {
 		if (!m.isFleeing()) {
-
 			boolean searchForPath = false;
 			if (m.isAgressive()) {
 				if (m.getMovementAggressionType() == MonsterType.AggressionType.protectSpawn) {
@@ -165,18 +165,19 @@ public final class MonsterMovementController implements EvaluateWalkable {
 		if(canFleeThere(m))
 			return;
 
-		findFleePathFor(m, world.model.player.position);
+		findRandomFleePathFor(m, world.model.player.position);
 		}
 
 	private static void cancelCurrentMonsterMovement(final Monster m) {
 		m.movementDestination = null;
-		int urgentFleeing = Constants.rollValue(Constants.monsterWaitTurns);
+		//int urgentFleeing = Constants.rollValue(Constants.monsterWaitTurns);
 
 		// This hopefully makes monster fleeing fast enough
 		//if(m.isFleeing())
 		//	urgentFleeing = 1;
 
-		m.nextActionTime = System.currentTimeMillis() + (getMillisecondsPerMove(m) * urgentFleeing);
+		m.nextActionTime = System.currentTimeMillis() +
+				(getMillisecondsPerMove(m) * Constants.rollValue(Constants.monsterWaitTurns));
 	}
 
 	private static int getMillisecondsPerMove(Monster m) {
@@ -205,34 +206,98 @@ public final class MonsterMovementController implements EvaluateWalkable {
 		int xDirection = sgn(m.position.x - to.x);
 		int yDirection = sgn(m.position.y - to.y);
 
-		m.nextPosition.topLeft.x = m.position.x + xDirection; // away x, null y
+		m.nextPosition.topLeft.x = m.position.x + xDirection; // right
 		m.nextPosition.topLeft.y = m.position.y;
 		if (canFleeThere(m)) return true;
 
-		m.nextPosition.topLeft.x -= xDirection; // away y, null x
+		m.nextPosition.topLeft.x -= xDirection; // up
 		m.nextPosition.topLeft.y += yDirection;
 		if (canFleeThere(m)) return true;
 
-		m.nextPosition.topLeft.x += xDirection; //away x and y
+		m.nextPosition.topLeft.x += xDirection; // up right
 		if (canFleeThere(m)) return true;
 
-		m.nextPosition.topLeft.x -= 2 * xDirection; // same x away y
+		m.nextPosition.topLeft.x -= 2 * xDirection; // up left
 		if (canFleeThere(m)) return true;
 
 		m.nextPosition.topLeft.y -= 2 * yDirection;
-		m.nextPosition.topLeft.x += 2 * xDirection; // same y away x
+		m.nextPosition.topLeft.x += 2 * xDirection; // down right
 		if (canFleeThere(m)) return true;
 
 		// same y, null x
-		m.nextPosition.topLeft.x -= xDirection;
+		m.nextPosition.topLeft.x -= xDirection; // down
 		if (canFleeThere(m)) return true;
 
 		// same x, null y
-		m.nextPosition.topLeft.x -= xDirection;
+		m.nextPosition.topLeft.x -= xDirection; //left
 		m.nextPosition.topLeft.y += yDirection;
 		if (canFleeThere(m)) return true;
 
+		m.nextPosition.topLeft.y -= yDirection;
+		if (canFleeThere(m)) return true;
 
+		return false;
+	}
+	public boolean findRandomFleePathFor(Monster m, Coord to) {
+		int xDirection = sgn(m.position.x - to.x);
+		int yDirection = sgn(m.position.y - to.y);
+
+		int preference = Constants.rnd.nextInt(3);
+		switch(preference) { // First tries to move away from player
+			case 0:
+			m.nextPosition.topLeft.x = m.position.x + xDirection; // away x, null y
+			m.nextPosition.topLeft.y = m.position.y;
+			if (canFleeThere(m)) return true;
+				break;
+
+			case 1:
+			m.nextPosition.topLeft.x = m.position.x; // away y, null x
+			m.nextPosition.topLeft.y = m.position.y+ yDirection;
+			if (canFleeThere(m)) return true;
+				break;
+
+			case 2:
+			m.nextPosition.topLeft.x = m.position.x +xDirection; //away x and y
+				m.nextPosition.topLeft.y = m.position.y+ yDirection;
+			if (canFleeThere(m)) return true;
+				break;
+		}
+
+		preference = Constants.rnd.nextInt(2);
+		switch(preference) { // Then tries to move away from a path nearby the player
+			case 0:
+			m.nextPosition.topLeft.x =  m.position.x -xDirection; // same x away y
+			m.nextPosition.topLeft.y = m.position.y + yDirection;
+			if (canFleeThere(m)) return true;
+				break;
+			case 1:
+			m.nextPosition.topLeft.y = m.position.y - yDirection;
+			m.nextPosition.topLeft.x = m.position.x + xDirection;; // same y away x
+			if (canFleeThere(m)) return true;
+			break;
+		}
+
+		preference = Constants.rnd.nextInt(3);
+		switch(preference) { //Then gives up and moves towards him but not TO the player
+			case 0:
+				// same y, null x
+				m.nextPosition.topLeft.y = m.position.y - yDirection;
+				m.nextPosition.topLeft.x = m.position.x;
+				if (canFleeThere(m)) return true;
+				break;
+
+			case 1:
+				// same x, null y
+				m.nextPosition.topLeft.y = m.position.y;
+				m.nextPosition.topLeft.x = m.position.x - xDirection;
+				if (canFleeThere(m)) return true;
+				break;
+			case 2:
+				m.nextPosition.topLeft.y =  m.position.y -yDirection;
+				m.nextPosition.topLeft.x = m.position.x - xDirection;
+				if (canFleeThere(m)) return true;
+				break;
+		}
 		return false;
 	}
 

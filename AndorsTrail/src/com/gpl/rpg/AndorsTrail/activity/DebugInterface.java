@@ -31,7 +31,7 @@ public final class DebugInterface {
 
 	public void addDebugButtons() {
 		if (!AndorsTrailApplication.DEVELOPMENT_DEBUGBUTTONS) return;
-		world.model.player.baseTraits.moveCost = 5; //move to suitable location
+		//world.model.player.baseTraits.moveCost = 5; //move to suitable location
 		addDebugButtons(new DebugButton[] {
 				new DebugButton("Teleport", new OnClickListener() {
 			@Override
@@ -57,7 +57,7 @@ public final class DebugInterface {
 				,new DebugButton("Bows", new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				world.model.player.inventory.addItem(world.itemTypes.getItemType("wooden_crossbow"));
+				world.model.player.inventory.addItem(world.itemTypes.getItemType("wooden_crossbow"), 2);
 				world.model.player.inventory.addItem(world.itemTypes.getItemType("wooden_longbow"));
 				world.model.player.inventory.addItem(world.itemTypes.getItemType("stronger_wooden_longbow"));
 				showToast(mainActivity, "DEBUG: Added bows to inventory.", Toast.LENGTH_SHORT);
