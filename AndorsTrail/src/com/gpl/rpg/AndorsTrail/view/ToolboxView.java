@@ -93,6 +93,9 @@ public final class ToolboxView extends LinearLayout implements OnClickListener {
 			toggleVisibility();
 		} else if (btn == toolbox_aim){
 			//if(!preferences.rangedLegacySafeAim)
+			if(world.model.uiSelections.isInCombat)
+				controllers.combatController.exitRangedCombat(true);
+			else
 				controllers.combatController.enterRangedCombatAsPlayer();
 			//else controllers.movementController.playerMovementListeners.onToggledAimMode(world.model.player.toggleAimMode());
 		} else if (btn == toolbox_quickitems) {

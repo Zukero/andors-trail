@@ -288,9 +288,9 @@
 	<string name="preferences_combat_speed_title">Combat speed</string>
 	<string name="preferences_combat_speed">Determines how fast monsters attack.</string>
 	<string name="preferences_combat_ranged_autoaim_title">Enable Auto-Aim</string>
-	<string name="preferences_combat_ranged_autoaim">Player enters ranged combat when clicking a monster in attack range.</string>
+	<string name="preferences_combat_ranged_autoaim">Player enters ranged combat without needing to aim.</string>
 	<string name="preferences_combat_ranged_safeaim_self_title">Press on hero to aim</string>
-	<string name="preferences_combat_ranged_safeaim_self">Warning: Extremely annoying.</string>
+	<string name="preferences_combat_ranged_safeaim_self">Press on hero to enter aiming screen. Warning: Can get annoying.</string>
 	<!--<string name="preferences_combat_ranged_legacy_safeaim_title">Enable Legacy Safe-Aiming</string>
 	<string name="preferences_combat_ranged_legacy_safeaim_self">Warning: Extremely annoying.</string> -->
 	<!--<string name="preferences_combat_button_safeaim_title">Move Safe-Aim button to status bar</string>

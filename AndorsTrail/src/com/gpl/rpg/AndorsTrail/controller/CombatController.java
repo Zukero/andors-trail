@@ -72,6 +72,12 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		else if (whoseTurn == BeginTurnAs.monsters) beginMonsterTurn(true);
 		else continueTurn();
 	}
+
+	public void exitRangedCombat(boolean pickupLootBags) {
+		if(canFleeCombat())
+			exitCombat(pickupLootBags);
+	}
+
 	public void exitCombat(boolean pickupLootBags) {
 		setCombatSelection(null, null);
 		world.model.uiSelections.isInCombat = false;
