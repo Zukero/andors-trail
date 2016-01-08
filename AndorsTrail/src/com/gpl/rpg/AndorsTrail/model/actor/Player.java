@@ -48,7 +48,7 @@ public final class Player extends Actor {
 
 	public boolean isTalkingByShouting = false;
 	public int maxShoutingRange = 20;
-	public boolean inTeleportMode = false;
+	public boolean inJumpingMode = false;
 	//public boolean hasRangedWeaponEquippedInInventory = false; //enabled through debug button menu
 	//allows player to attack from afar
 
@@ -57,7 +57,7 @@ public final class Player extends Actor {
 	private String spawnMap;
 	private String spawnPlace;
 	private final HashMap<String, Integer> alignments = new HashMap<String, Integer>();
-	public int maxTeleportRange = 20;
+	public int maxJumpRange = 20;
 
 	/*public boolean toggleEquipOfRangedWeapon() {
 		if(!this.hasRangedWeaponEquippedInInventory) this.hasRangedWeaponEquippedInInventory = true;
@@ -65,10 +65,10 @@ public final class Player extends Actor {
 		return this.hasRangedWeaponEquippedInInventory;
 	}*/
 
-	public boolean toggleTeleportMode() {
-		if(!this.inTeleportMode) this.inTeleportMode = true;
-		else this.inTeleportMode = false;
-		return this.inTeleportMode;
+	public boolean toggleJumpingMode() {
+		if(!this.inJumpingMode) this.inJumpingMode = true;
+		else this.inJumpingMode = false;
+		return this.inJumpingMode;
 	}
 
 	/*public boolean toggleAimMode() {

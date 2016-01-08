@@ -1,7 +1,6 @@
 package com.gpl.rpg.AndorsTrail.model.actor;
 
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.controller.MovementController;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.item.DropList;
@@ -25,9 +24,11 @@ public final class Monster extends Actor {
 
 	public double hpFleeThreshold;
 	public double rageMultiplier;
+	public double fearMultiplier =1;
 	public int lineOfSight;
 
 	public int rageDistance = 0;
+	public int fearDistance = 0;
 	public boolean hasRage = false; //for pathfinding purposes
 
 	//	This value is for whether the monster will flee from ranged opponents
@@ -210,34 +211,64 @@ public final class Monster extends Actor {
 		if(this.health.current <= this.health.max * this.hpFleeThreshold)
 			return true;
 
+		if(fearDistance >0)
+			return true;
+		if(fearDistance<0)
+			fearDistance =0;
+		if(fearDistance ==0)
+			return false;
 		return false;
 	}
 
-	public void setIsEnraged(Coord root, Coord here)
+	public void setRageAndFear(Coord root, Coord here)
 	{
-		int distX = Math.abs(root.x - here.x) -1;
-		int distY = Math.abs(root.y- here.y) - 1;
-		int old_rageDistance = this.rageDistance;
+		// Add -1 so monster comes next to you instead of trying to walk ON you
+		int distanceX = Math.abs(root.x - here.x);
+		int distanceY = Math.abs(root.y- here.y);
 
-		if(distX > this.lineOfSight && distY > this.lineOfSight)
-			this.hasRage = false;
+		if(distanceX > this.lineOfSight && distanceY > this.lineOfSight) { //Flee if outside line of sight
+			int old_fearDistance = this.fearDistance;
+			if(distanceX <= 0 && distanceY <=0)
+				this.fearDistance = (int)fearMultiplier;
+			else {
+				if (distanceX >= distanceY) //&& distanceX>rageDistance)
+					this.fearDistance = (int) ((distanceX) * this.fearMultiplier);
+				else
+				if (distanceY>rageDistance)
+					this.fearDistance = (int) ((distanceY) * this.fearMultiplier);
+			}
+			if(old_fearDistance >this.rageDistance)
+				this.fearDistance = old_fearDistance;
 
-		if(distX <= 0 && distY <=0)
-			this.rageDistance = (int)rageMultiplier;
-		else {
-			if (distX >= distY) //&& distX>rageDistance)
-				this.rageDistance = (int) (distX * this.rageMultiplier);
-			else
-				//if (distY>rageDistance)
-				this.rageDistance = (int) (distY * this.rageMultiplier);
 		}
-		if(old_rageDistance >this.rageDistance)
-			this.rageDistance = old_rageDistance;
+		else{ //If within line of sight, attack.
+			int old_rageDistance = this.rageDistance;
+			if(distanceX <= 0 && distanceY <=0)
+				this.rageDistance = (int)rageMultiplier;
+			else {
+				if (distanceX >= distanceY) //&& distanceX>rageDistance)
+				this.rageDistance = (int) (distanceX * this.rageMultiplier);
+				else
+				if (distanceY>rageDistance)
+				this.rageDistance = (int) (distanceY * this.rageMultiplier);
+			}
+			if(old_rageDistance >this.rageDistance)
+				this.rageDistance = old_rageDistance;
 
-		this.hasRage = !isFleeing();
+			this.hasRage = !isFleeing();
+		}
 	}
 
-	public boolean IsEnraged(){
+	//These two can be used later to force Rage or Fleeing on non-aggressive monsters
+	public void forceRageDistance(int distance){
+		this.hasRage = true;
+		this.rageDistance = distance;
+	}
+	public  void forceFleeDistance(int distance){
+		fearDistance = distance;
+	}
+
+	public boolean isEnraged(){
 		if(!this.hasRage)
 			this.rageDistance = 0;
 		if(this.rageDistance <= 0)
@@ -247,12 +278,11 @@ public final class Monster extends Actor {
 		return this.hasRage;
 	}
 
+	public boolean isCombatant(){
+		return isEnraged() || isAgressive();
+	}
 	public boolean isDesperate(){
 		return false; // Don't need this right now, other problems afoot
 		//return Boolean.TRUE.equals(this.isDesperate);
-	}
-
-	public boolean isWithinAttackRangeOf(Player p){
-		return MovementController.areWithinRange(this.position, p.position, p.getMaxRange());
 	}
 }

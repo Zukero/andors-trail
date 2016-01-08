@@ -33,7 +33,7 @@ public final class DebugInterface {
 				new DebugButton("Teleport", new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				boolean change = world.model.player.toggleTeleportMode();
+				boolean change = world.model.player.toggleJumpingMode();
 				if(change){
 					showToast(mainActivity, "DEBUG: teleport ON. \nLiterally unplayable.", Toast.LENGTH_SHORT);
 				}else{

@@ -41,7 +41,7 @@ public final class MonsterMovementController implements EvaluateWalkable {
 	public void attackWithAgressiveMonsters() {
 		for (MonsterSpawnArea a : world.model.currentMap.spawnAreas) {
 			for (Monster m : a.monsters) {
-				if (!m.isAgressive() //|| !m.IsEnraged()
+				if (!m.isCombatant() //|| !m.isEnraged()
 						|| (m.isFleeing())) continue;
 				if (!m.isAdjacentTo(world.model.player)) continue;
 				// ^ this leaves out monster ranged-attacks
@@ -78,35 +78,22 @@ public final class MonsterMovementController implements EvaluateWalkable {
 		PredefinedMap map = world.model.currentMap;
 		LayeredTileMap tileMap = world.model.currentTileMap;
 		m.nextActionTime = System.currentTimeMillis() + getMillisecondsPerMove(m);
-		if (m.movementDestination == null //&& !( m.getIsEnraged() || m.isFleeing())
-				) {
+		if (m.movementDestination == null && !(m.isFleeing()|| m.isEnraged())){
 			// Monster has waited and should start to move again.
 			int xLength = Constants.rnd.nextInt(area.area.size.width);
 			int yLength = Constants.rnd.nextInt(area.area.size.height);
 			int xDirection = sgn(xLength);
 			int yDirection = sgn(yLength);
 
-			if(m.isFleeing()){ // pick a random destination away
-				xDirection= sgn(m.position.x- world.model.player.position.x);
-				yDirection= sgn(m.position.y - world.model.player.position.y);
-			}
 			m.movementDestination = new Coord(m.position);
-			if(m.isFleeing()){ // move diagonally to flee
-				m.movementDestination.x = xDirection *(area.area.topLeft.x +
+			if (Constants.rnd.nextBoolean()) {
+				m.movementDestination.x = xDirection * (area.area.topLeft.x +
 						Math.abs(xLength));
-				m.movementDestination.y = yDirection *(area.area.topLeft.y +
+			} else {
+				m.movementDestination.y = yDirection * (area.area.topLeft.y +
 						Math.abs(yLength));
 			}
-			else{ // straight line
-				if (Constants.rnd.nextBoolean()) {
-					m.movementDestination.x = xDirection *(area.area.topLeft.x +
-							Math.abs(xLength));
-				} else {
-					m.movementDestination.y = yDirection *(area.area.topLeft.y +
-							Math.abs(yLength));
-				}
-			}
-		} else if (m.position.equals(m.movementDestination)) {
+		} else if (m.movementDestination!= null && m.position.equals(m.movementDestination)) {
 			// Monster has been moving and arrived at the destination.
 			cancelCurrentMonsterMovement(m);
 		} else {
@@ -118,8 +105,7 @@ public final class MonsterMovementController implements EvaluateWalkable {
 			}
 			if (m.nextPosition.contains(world.model.player.position)) {
 				//do not step on player unless agressive or enraged
-				if (!m.isAgressive() && !(m.IsEnraged())//||m.isDesperate))
-						) {
+				if (!m.isCombatant() && !m.isDesperate()) {
 					cancelCurrentMonsterMovement(m);
 					return;
 				}
@@ -142,7 +128,7 @@ public final class MonsterMovementController implements EvaluateWalkable {
 				}
 			}
 
-			if (searchForPath || (m.IsEnraged() && isRealMonsterMovementEmotional)) {
+			if (searchForPath || (m.isEnraged() && isRealMonsterMovementEmotional)) {
 				if (findPathFor(m, playerPosition)) {
 					world.model.player.isFollowed = true;
 					m.rageDistance--;
@@ -151,22 +137,20 @@ public final class MonsterMovementController implements EvaluateWalkable {
 			}
 		}
 
-		// Monster is moving in a straight line. (but only if not fleeing)
+
+		if(m.movementDestination!=null)
+		// Monster is fleeing in zig-zags.
 		m.nextPosition.topLeft.set(
 				m.position.x + sgn(m.movementDestination.x - m.position.x),
 				m.position.y + sgn(m.movementDestination.y - m.position.y));
 
-		if(!m.isAgressive())
-			return;
-		if (!m.isFleeing())
-			return;
-
-		if(canFleeThere(m))
-			return;
-
-		findRandomFleePathFor(m, world.model.player.position);
+		if (m.isFleeing()) {
+			if (!canFleeThere(m))
+				if (findRandomFleePathFor(m, world.model.player.position))
+					m.fearDistance--;
 		}
 
+	}
 	private static void cancelCurrentMonsterMovement(final Monster m) {
 		m.movementDestination = null;
 		//int urgentFleeing = Constants.rollValue(Constants.monsterWaitTurns);
@@ -201,7 +185,7 @@ public final class MonsterMovementController implements EvaluateWalkable {
 		return pathfinder.findPathBetween(m.rectPosition, to, m.nextPosition);
 	}
 
-	public boolean findFleePathFor(Monster m, Coord to) {
+	/*public boolean findFleePathFor(Monster m, Coord to) {
 		int xDirection = sgn(m.position.x - to.x);
 		int yDirection = sgn(m.position.y - to.y);
 
@@ -236,76 +220,63 @@ public final class MonsterMovementController implements EvaluateWalkable {
 		if (canFleeThere(m)) return true;
 
 		return false;
-	}
+	}*/
 	public boolean findRandomFleePathFor(Monster m, Coord to) {
 		int xDirection = sgn(m.position.x - to.x);
+		if(xDirection==0){
+			xDirection =1;
+		}
 		int yDirection = sgn(m.position.y - to.y);
-
-		int preference = Constants.rnd.nextInt(3);
-		switch(preference) { // First tries to move away from player
-			case 0:
-			m.nextPosition.topLeft.x = m.position.x + xDirection; // away x, null y
-			m.nextPosition.topLeft.y = m.position.y;
-			if (canFleeThere(m)) return true;
-				break;
-
-			case 1:
-			m.nextPosition.topLeft.x = m.position.x; // away y, null x
-			m.nextPosition.topLeft.y = m.position.y+ yDirection;
-			if (canFleeThere(m)) return true;
-				break;
-
-			case 2:
-			m.nextPosition.topLeft.x = m.position.x +xDirection; //away x and y
-				m.nextPosition.topLeft.y = m.position.y+ yDirection;
-			if (canFleeThere(m)) return true;
-				break;
+		if(yDirection==0){
+			yDirection =1;
 		}
 
-		preference = Constants.rnd.nextInt(2);
-		switch(preference) { // Then tries to move away from a path nearby the player
-			case 0:
-			m.nextPosition.topLeft.x =  m.position.x -xDirection; // same x away y
-			m.nextPosition.topLeft.y = m.position.y + yDirection;
-			if (canFleeThere(m)) return true;
-				break;
-			case 1:
-			m.nextPosition.topLeft.y = m.position.y - yDirection;
-			m.nextPosition.topLeft.x = m.position.x + xDirection;; // same y away x
-			if (canFleeThere(m)) return true;
-			break;
-		}
+		int[][] firstChoice = {{m.position.x + xDirection, m.position.y },
+				{m.position.x, m.position.y+ yDirection},
+				{m.position.x + xDirection, m.position.y+ yDirection}};
+		int[][] secondChoice = {{m.position.x -xDirection, m.position.y + yDirection},
+				{m.position.x + xDirection,m.position.y - yDirection}};
+		int[][] thirdChoice = {{m.position.x, m.position.y - yDirection},
+				{m.position.x - xDirection, m.position.y},
+				{m.position.x - xDirection, m.position.y -yDirection}};
 
-		preference = Constants.rnd.nextInt(3);
-		switch(preference) { //Then gives up and moves towards him but not TO the player
-			case 0:
-				// same y, null x
-				m.nextPosition.topLeft.y = m.position.y - yDirection;
-				m.nextPosition.topLeft.x = m.position.x;
-				if (canFleeThere(m)) return true;
-				break;
+		if(iterateRandomFlee(m, firstChoice))
+			return  true;
+		if(iterateRandomFlee(m, secondChoice))
+			return true;
+		if(iterateRandomFlee(m, thirdChoice))
+			return  true;
 
-			case 1:
-				// same x, null y
-				m.nextPosition.topLeft.y = m.position.y;
-				m.nextPosition.topLeft.x = m.position.x - xDirection;
-				if (canFleeThere(m)) return true;
-				break;
-			case 2:
-				m.nextPosition.topLeft.y =  m.position.y -yDirection;
-				m.nextPosition.topLeft.x = m.position.x - xDirection;
-				if (canFleeThere(m)) return true;
-				break;
+		m.nextPosition.topLeft.set(m.position);
+		return false;
+	}
+
+	public boolean iterateRandomFlee(Monster m, int[][] possibilities){
+
+		int preference;
+		int[] nextCoord;
+
+		int iterations = possibilities.length;
+		while(iterations>0) {
+			preference = Constants.rnd.nextInt(possibilities.length);
+			nextCoord = possibilities[preference];
+			if(nextCoord == null) continue;
+			iterations--;
+			m.nextPosition.topLeft.x = nextCoord[0];
+			m.nextPosition.topLeft.y = nextCoord[1];
+			if(canFleeThere(m)) return  true;
+			possibilities[preference] = null;
 		}
 		return false;
+
 	}
 
 	public boolean canFleeThere(Monster m){
 		if(isWalkable(m.nextPosition) && !m.nextPosition.contains(world.model.player.position))
 			return true;
 		return false;
-
 	}
+
 
 	@Override
 	public boolean isWalkable(CoordRect r) {

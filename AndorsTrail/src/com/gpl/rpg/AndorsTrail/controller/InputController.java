@@ -81,8 +81,8 @@ public final class InputController implements OnClickListener, OnLongClickListen
 			/*int touchRange = 1;
 			if(world.model.player.isInAimMode())
 				touchRange = world.model.player.maxRangeOfWeapon();
-			else if(world.model.player.inTeleportMode)
-				touchRange = world.model.player.maxTeleportRange; // Finally some hard-coding!
+			else if(world.model.player.inJumpingMode)
+				touchRange = world.model.player.maxJumpRange; // Finally some hard-coding!
 
 			if (Math.abs(lastTouchPosition_dx) > touchRange) return false;
 			if (Math.abs(lastTouchPosition_dy) > touchRange) return false;

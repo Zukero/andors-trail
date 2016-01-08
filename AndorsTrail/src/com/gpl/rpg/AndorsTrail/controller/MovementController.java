@@ -136,8 +136,8 @@ public final class MovementController implements TimedMessageTask.Callback {
 		if (m != null){
 			if (controllers.preferences.rangedAutoaim // || world.model.player.isInAimMode()
 					) {
-				if(m.isAgressive()){
-					if(m.isWithinAttackRangeOf(world.model.player)){
+				if(m.isCombatant()){
+					if(isWithinAttackRangeOfPlayer(world.model.player, m)){
 						controllers.mapController.steppedOnMonster(m, dest);
 						//controllers.combatController.setCombatSelection(nextPos);
 						// controllers.combatController.executeMoveAttack(dx, dy);
@@ -156,7 +156,8 @@ public final class MovementController implements TimedMessageTask.Callback {
 				}
 				else{ //if (!world.model.player.isInAimMode()) {
 					int talkRange = 1;
-					if(world.model.player.isTalkingByShouting) talkRange = world.model.player.maxShoutingRange;
+					if(world.model.player.isTalkingByShouting)
+						talkRange = world.model.player.maxShoutingRange;
 					if(areWithinRange(world.model.player.position, dest, talkRange)){
 						controllers.mapController.steppedOnMonster(m, dest);
 						return;
@@ -171,8 +172,8 @@ public final class MovementController implements TimedMessageTask.Callback {
 		else {
 			//if(world.model.player.isInAimMode()) {playerMovementListeners.onPlayerAimInvalid(); return;}
 			int walkRange;
-			if (world.model.player.inTeleportMode) {
-				walkRange = world.model.player.maxTeleportRange;
+			if (world.model.player.inJumpingMode) {
+				walkRange = world.model.player.maxJumpRange;
 				if(areWithinRange(world.model.player.position, dest, walkRange)){
 					moveToNextIfPossible();
 					return;
@@ -268,7 +269,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 		if (aggressiveness == AndorsTrailPreferences.MOVEMENTAGGRESSIVENESS_NORMAL) return true;
 
 		Monster m = world.model.currentMap.getMonsterAt(player.nextPosition);
-		if (m != null && !m.isAgressive()) return true; // avoid MOVEMENTAGGRESSIVENESS settings for NPCs
+		if (m != null && !m.isCombatant()) return true; // avoid MOVEMENTAGGRESSIVENESS settings for NPCs
 
 		if (aggressiveness == AndorsTrailPreferences.MOVEMENTAGGRESSIVENESS_AGGRESSIVE && m == null) return false;
 		if (aggressiveness == AndorsTrailPreferences.MOVEMENTAGGRESSIVENESS_DEFENSIVE && m != null) return false;
@@ -413,7 +414,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 		if (!world.model.uiSelections.isMainActivityVisible) return false;
 		if (world.model.uiSelections.isInCombat) return false;
 
-		if(!(world.model.player.inTeleportMode
+		if(!(world.model.player.inJumpingMode
 				|| world.model.player.isTalkingByShouting
 				|| controllers.preferences.rangedAutoaim //(world.model.player.isInAimMode()
 		))
@@ -450,23 +451,37 @@ public final class MovementController implements TimedMessageTask.Callback {
 	public static Monster getInRangeAggressiveMonster(PredefinedMap map, Player player) {
 		for (MonsterSpawnArea a : map.spawnAreas) {
 			for (Monster m : a.monsters) {
-				if (!m.isAgressive()// || !m.IsEnraged()
-						) continue;
-				if (m.isWithinAttackRangeOf(player))
+				if (!m.isAgressive()) continue;
+				if (isWithinAttackRangeOfPlayer(player, m))
 					return m;
 			}
 		}
 		return null;
 	}
 
-	public static Monster getNearbyEnragedMonster(PredefinedMap map, Player player) {
+	public static Monster getInRangeEnragedMonster(PredefinedMap map, Player player) {
 		for (MonsterSpawnArea a : map.spawnAreas) {
 			for (Monster m : a.monsters) {
-				if (!m.isAgressive() || !m.IsEnraged()) continue;
-				if (m.isWithinAttackRangeOf(player))
+				if (!m.isAgressive() || !m.isEnraged()) continue;
+				if (isWithinAttackRangeOfPlayer(player, m))
 					return m;
 			}
 		}
 		return null;
+	}
+
+	public static Monster getAdjacentEnragedMonster(PredefinedMap map, Player player) {
+		for (MonsterSpawnArea a : map.spawnAreas) {
+			for (Monster m : a.monsters) {
+				if (!m.isAgressive() || !m.isEnraged()) continue;
+				if (m.isAdjacentTo(player))
+					return m;
+			}
+		}
+		return null;
+	}
+
+	public static boolean isWithinAttackRangeOfPlayer(Player p, Monster m){
+		return MovementController.areWithinRange(m.position, p.position, p.getMaxRange());
 	}
 }
