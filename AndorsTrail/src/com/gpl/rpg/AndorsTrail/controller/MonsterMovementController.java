@@ -164,7 +164,11 @@ public final class MonsterMovementController implements EvaluateWalkable {
 	}
 
 	private static int getMillisecondsPerMove(Monster m) {
-		return Constants.MONSTER_MOVEMENT_TURN_DURATION_MS * m.getMoveCost() / m.getMaxAP();
+		int maxAP = m.getMaxAP();
+		if(maxAP == 0)
+			maxAP = 1;
+		// Both increasing moveCost and decreasing maxAP will make them slower outside combat
+		return Constants.MONSTER_MOVEMENT_TURN_DURATION_MS * m.getMoveCost() / maxAP;
 	}
 
 
@@ -223,13 +227,13 @@ public final class MonsterMovementController implements EvaluateWalkable {
 	}*/
 	public boolean findRandomFleePathFor(Monster m, Coord to) {
 		int xDirection = sgn(m.position.x - to.x);
-		if(xDirection==0){
-			xDirection =1;
-		}
+		if(xDirection==0)
+			xDirection = sgn(Constants.rnd.nextInt(21) - 10);
+
 		int yDirection = sgn(m.position.y - to.y);
-		if(yDirection==0){
-			yDirection =1;
-		}
+		if(yDirection==0)
+			yDirection = sgn(Constants.rnd.nextInt(21) - 10);
+
 
 		int[][] firstChoice = {{m.position.x + xDirection, m.position.y },
 				{m.position.x, m.position.y+ yDirection},
