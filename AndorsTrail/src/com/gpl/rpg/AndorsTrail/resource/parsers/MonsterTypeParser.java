@@ -50,9 +50,9 @@ public final class MonsterTypeParser extends JsonCollectionParserFor<MonsterType
 		int damageResistance = o.optInt(JsonFieldNames.Monster.damageResistance, 0);
 		final ItemTraits_OnUse hitEffect = itemTraitsParser.parseItemTraits_OnUse(o.optJSONObject(JsonFieldNames.Monster.hitEffect));
 
-		final double rageMultiplier = o.optDouble(JsonFieldNames.Monster.rageMultiplier, 1);
+		final double rageMultiplier = o.optDouble(JsonFieldNames.Monster.rageMultiplier, 1.1);
 		final double hpFleeThreshold= o.optDouble(JsonFieldNames.Monster.hpFleeThreshold, 0.2);
-		final int lineOfSight= o.optInt(JsonFieldNames.Monster.lineOfSight, 200);
+		final int lineOfSight= o.optInt(JsonFieldNames.Monster.lineOfSight, 4);
 		// e.g rage multiplier of 1 makes them only go to where they were attacked
 		// rage multiplier of 2 makes them follow you by double the distance between you when first attacked/enraged
 
