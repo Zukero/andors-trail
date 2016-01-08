@@ -79,6 +79,8 @@
 	<string name="player_toggled_aim_on">You started aiming.</string>
 	<string name="player_toggled_aim_off">You are not aiming.</string>
 	<string name="player_toggled_aim_off_repeat">You are not aiming.</string>
+	<string name="player_cannot_find_targets">No combat targets in range.</string>
+	<string name="player_cannot_find_targets_repeat">No combat targets in range. (x%1$s)</string>
 	<string name="combat_miss_animation_message">MISS</string>
 	
 	<string name="inventory_info">Info</string>
@@ -289,6 +291,8 @@
 	<string name="preferences_combat_ranged_autoaim">Player enters ranged combat when clicking a monster in attack range.</string>
 	<string name="preferences_combat_ranged_safeaim_self_title">Press on hero to aim</string>
 	<string name="preferences_combat_ranged_safeaim_self">Warning: Extremely annoying.</string>
+	<!--<string name="preferences_combat_ranged_legacy_safeaim_title">Enable Legacy Safe-Aiming</string>
+	<string name="preferences_combat_ranged_legacy_safeaim_self">Warning: Extremely annoying.</string> -->
 	<!--<string name="preferences_combat_button_safeaim_title">Move Safe-Aim button to status bar</string>
 	<string name="preferences_combat_button_safeaim">Can be annoying for small screens.</string> -->
 

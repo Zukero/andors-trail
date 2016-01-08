@@ -8,5 +8,6 @@ public interface PlayerMovementListener {
 	void onPlayerEnteredNewMap(PredefinedMap map, Coord p);
 	void onPlayerAimToofar();
 	void onPlayerAimInvalid();
-	void onToggledAimMode(Boolean change);
+	void onPlayerCannotFindTargets();
+	//void onToggledAimMode(Boolean change);
 }

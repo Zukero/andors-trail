@@ -43,6 +43,7 @@ public final class AndorsTrailPreferences {
 	public boolean fullscreen = true;
 	public int attackspeed_milliseconds = 1000;
 	public boolean rangedAutoaim = false;
+	//public boolean rangedLegacySafeAim = false;
 	public boolean rangedSafeaimSelf = false;
 	public  boolean rangedHideUnusedAim = true;
 	public int movementMethod = MOVEMENTMETHOD_STRAIGHT;
@@ -67,6 +68,7 @@ public final class AndorsTrailPreferences {
 			dest.fullscreen = prefs.getBoolean("fullscreen", true);
 			dest.attackspeed_milliseconds = Integer.parseInt(prefs.getString("attackspeed", "1000"));
 			dest.rangedAutoaim = prefs.getBoolean("ranged_autoaim", false);
+			//dest.rangedLegacySafeAim = prefs.getBoolean("ranged_legacy_safeaim", false);;
 			dest.rangedSafeaimSelf = prefs.getBoolean("ranged_safeaim_self", false);
 			dest.rangedHideUnusedAim = prefs.getBoolean("ranged_hide_aim", true);
 			dest.movementMethod = Integer.parseInt(prefs.getString("movementmethod", Integer.toString(MOVEMENTMETHOD_STRAIGHT)));
@@ -89,6 +91,7 @@ public final class AndorsTrailPreferences {
 			dest.fullscreen = true;
 			dest.attackspeed_milliseconds = 1000;
 			dest.rangedAutoaim = false;
+			//dest.rangedLegacySafeAim = false;
 			dest.rangedSafeaimSelf = false;
 			dest.rangedHideUnusedAim = true;
 			dest.movementMethod = MOVEMENTMETHOD_STRAIGHT;

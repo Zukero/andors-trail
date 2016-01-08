@@ -134,7 +134,8 @@ public final class MovementController implements TimedMessageTask.Callback {
 
 		Monster m = world.model.currentMap.getMonsterAt(dest);
 		if (m != null){
-			if (world.model.player.isInAimMode() || controllers.preferences.rangedAutoaim) {
+			if (controllers.preferences.rangedAutoaim // || world.model.player.isInAimMode()
+					) {
 				if(m.isAgressive()){
 					if(m.isWithinAttackRangeOf(world.model.player)){
 						controllers.mapController.steppedOnMonster(m, dest);
@@ -142,10 +143,10 @@ public final class MovementController implements TimedMessageTask.Callback {
 						// controllers.combatController.executeMoveAttack(dx, dy);
 						return;
 					}
-					else if(world.model.player.isInAimMode()){
+					/*else if(world.model.player.isInAimMode()){
 						playerMovementListeners.onPlayerAimToofar();
 						return;
-					}
+					}*/
 					else{
 						world.model.player.nextPosition.set(dx,dy);
 						movePlayer(dx,dy);
@@ -153,7 +154,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 					}
 
 				}
-				else if (!world.model.player.isInAimMode()) {
+				else{ //if (!world.model.player.isInAimMode()) {
 					int talkRange = 1;
 					if(world.model.player.isTalkingByShouting) talkRange = world.model.player.maxShoutingRange;
 					if(areWithinRange(world.model.player.position, dest, talkRange)){
@@ -168,10 +169,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 			}
 		}
 		else {
-			if(world.model.player.isInAimMode()) {
-				playerMovementListeners.onPlayerAimInvalid();
-				return;
-			}
+			//if(world.model.player.isInAimMode()) {playerMovementListeners.onPlayerAimInvalid(); return;}
 			int walkRange;
 			if (world.model.player.inTeleportMode) {
 				walkRange = world.model.player.maxTeleportRange;
@@ -393,8 +391,9 @@ public final class MovementController implements TimedMessageTask.Callback {
 		if (!mayMovePlayer()) return;
 		if (dx == 0 && dy == 0) {
 			if(controllers.preferences.rangedSafeaimSelf) {
-				playerMovementListeners.onToggledAimMode(
-						world.model.player.toggleAimMode());
+				//if(!controllers.preferences.rangedLegacySafeAim)
+					controllers.combatController.enterRangedCombatAsPlayer();
+				//else playerMovementListeners.onToggledAimMode(world.model.player.toggleAimMode());
 			}
 			else return;
 		}
@@ -414,9 +413,10 @@ public final class MovementController implements TimedMessageTask.Callback {
 		if (!world.model.uiSelections.isMainActivityVisible) return false;
 		if (world.model.uiSelections.isInCombat) return false;
 
-		if(!(world.model.player.isInAimMode() || world.model.player.inTeleportMode
+		if(!(world.model.player.inTeleportMode
 				|| world.model.player.isTalkingByShouting
-				|| controllers.preferences.rangedAutoaim))
+				|| controllers.preferences.rangedAutoaim //(world.model.player.isInAimMode()
+		))
 			movePlayer(movementDx, movementDy);
 		else
 			usePlayerRangedAction(movementDx, movementDy, movementDest);

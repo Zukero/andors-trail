@@ -86,6 +86,36 @@ public final class Inventory extends ItemContainer {
 		}
 	}
 
+	public Inventory buildQuestItems(){
+		Inventory questItems = new Inventory();
+		for(ItemEntry i: this.items){
+			if(i.itemType.displayType.equals("quest")){
+				questItems.items.add(i);
+			}
+		}
+		return questItems;
+	}
+
+	public Inventory buildEquipableItems(){
+		Inventory equipableItems = new Inventory();
+		for(ItemEntry i: this.items){
+			if(i.itemType.effects_equip == null)
+				continue;
+			equipableItems.items.add(i);
+		}
+		return equipableItems;
+	}
+
+	public Inventory buildUsableItems(){
+		Inventory usableItems = new Inventory();
+		for(ItemEntry i: this.items){
+			if(i.itemType.effects_use == null)
+				continue;
+			usableItems.items.add(i);
+		}
+		return usableItems;
+	}
+
 
 	// ====== PARCELABLE ===================================================================
 

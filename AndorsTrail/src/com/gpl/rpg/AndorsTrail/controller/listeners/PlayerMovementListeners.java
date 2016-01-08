@@ -14,12 +14,16 @@ public final class PlayerMovementListeners extends ListOfListeners<PlayerMovemen
 		@Override public void call(PlayerMovementListener listener) { listener.onPlayerAimInvalid(); }
 	};
 
+	private final Function<PlayerMovementListener> onPlayerCannotFindTargets = new Function<PlayerMovementListener>() {
+		@Override public void call(PlayerMovementListener listener) { listener.onPlayerCannotFindTargets(); }
+	};
 	private final Function<PlayerMovementListener> onPlayerAimToofar = new Function<PlayerMovementListener>() {
 		@Override public void call(PlayerMovementListener listener) { listener.onPlayerAimToofar(); }
 	};
-	private final Function1<PlayerMovementListener, Boolean> onToggledAimMode = new Function1<PlayerMovementListener, Boolean>() {
+
+	/*private final Function1<PlayerMovementListener, Boolean> onToggledAimMode = new Function1<PlayerMovementListener, Boolean>() {
 		@Override public void call(PlayerMovementListener listener, Boolean change) { listener.onToggledAimMode(change); }
-	};
+	};*/
 
 	private final Function2<PlayerMovementListener, PredefinedMap, Coord> onPlayerEnteredNewMap = new Function2<PlayerMovementListener, PredefinedMap, Coord>() {
 		@Override public void call(PlayerMovementListener listener, PredefinedMap map, Coord p) { listener.onPlayerEnteredNewMap(map, p); }
@@ -45,8 +49,13 @@ public final class PlayerMovementListeners extends ListOfListeners<PlayerMovemen
 		callAllListeners(this.onPlayerAimToofar);
 	}
 
-	@Override
+	/*@Override
 	public void onToggledAimMode(Boolean change) {
 		callAllListeners(this.onToggledAimMode, change);
+	}*/
+
+	@Override
+	public void onPlayerCannotFindTargets() {
+		callAllListeners(this.onPlayerCannotFindTargets);
 	}
 }

@@ -37,6 +37,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	private int totalExpThisFight = 0;
 
 	private boolean noActionYet = true;
+	private  boolean letPlayerSelect = false;
 
 	public CombatController(ControllerContext controllers, WorldContext world) {
 		this.controllers = controllers;
@@ -45,6 +46,21 @@ public final class CombatController implements VisualEffectCompletedCallback {
 
 	public static enum BeginTurnAs {
 		player, monsters, continueLastTurn
+	}
+
+	public void enterRangedCombatAsPlayer(){
+
+		Monster m = getNearbyEnragedMonster();
+		if (m == null) m = getInRangeAggressiveMonster();
+		if (m == null) {
+			controllers.movementController.playerMovementListeners.onPlayerCannotFindTargets();
+			noActionYet = false;
+			return;
+		}
+		//setCombatSelection(m);
+		setCombatSelection(null,null);
+		letPlayerSelect = true;
+		enterCombat(BeginTurnAs.player);
 	}
 
 	public void enterCombat(BeginTurnAs whoseTurn) {
@@ -59,7 +75,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	public void exitCombat(boolean pickupLootBags) {
 		setCombatSelection(null, null);
 		world.model.uiSelections.isInCombat = false;
-		world.model.player.cancelAimMode();
+		//world.model.player.cancelAimMode();
 		combatTurnListeners.onCombatEnded();
 		world.model.uiSelections.selectedPosition = null;
 		world.model.uiSelections.selectedMonster = null;
@@ -134,14 +150,14 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		return getAdjacentAggressiveMonster() == null;
 	}
 
-	private Monster getInRangeAggressiveMonster(){
+	public Monster getInRangeAggressiveMonster(){
 		return MovementController.getInRangeAggressiveMonster(world.model.currentMap, world.model.player);
 	}
 
-	private Monster getAdjacentAggressiveMonster() {
+	public Monster getAdjacentAggressiveMonster() {
 		return MovementController.getAdjacentAggressiveMonster(world.model.currentMap, world.model.player);
 	}
-	private Monster getNearbyEnragedMonster() {
+	public Monster getNearbyEnragedMonster() {
 		return MovementController.getNearbyEnragedMonster(world.model.currentMap, world.model.player);
 	}
 
@@ -164,7 +180,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 			if(MovementController.areWithinRange(
 					world.model.uiSelections.selectedPosition,
 					world.model.player.position, range)){
-				world.model.player.cancelAimMode();
+				//world.model.player.cancelAimMode();
 
 				executeCombatMove(world.model.uiSelections.selectedPosition);
 			}
@@ -190,7 +206,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 			executeFlee(dx, dy);
 		} else {
 			Monster m = getNearbyEnragedMonster();
-			//if (m == null) m = getInRangeAggressiveMonster();
+			if (m == null) m = getAdjacentAggressiveMonster();
 			if (m == null) return;
 			setCombatSelection(m);
 			executePlayerAttack();
@@ -198,7 +214,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	}
 
 	private void executeFlee(int dx, int dy) {
-		world.model.player.cancelAimMode();
+		//world.model.player.cancelAimMode();
 
 		// avoid monster fields when fleeing
 		if (!controllers.movementController.findWalkablePosition(dx, dy, AndorsTrailPreferences.MOVEMENTAGGRESSIVENESS_DEFENSIVE)) return;
@@ -236,12 +252,11 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	}
 
 	private void playerAttackCompleted() {
-		if(! world.model.player.isWieldingRangedWeapon())
-			world.model.player.cancelAimMode();
+		//if(! world.model.player.isWieldingRangedWeapon()) world.model.player.cancelAimMode();
 		if (world.model.uiSelections.selectedMonster == null) {
 			selectNextInRangeEnragedMonster();
 		}
-		//if (world.model.uiSelections.selectedMonster == null) selectNextInRangeAggressiveMonster();
+		if (world.model.uiSelections.selectedMonster == null) selectNextAggressiveMonster();
 
 		playerActionCompleted();
 	}
@@ -639,10 +654,13 @@ public final class CombatController implements VisualEffectCompletedCallback {
 
 	private void newPlayerTurn(boolean isFirstRound) {
 		Monster m = world.model.uiSelections.selectedMonster;
-		if(m !=null && m.isWithinAttackRangeOf(world.model.player))
-			setCombatSelection(m); //stutters but it's okay I guess
-		else if(!selectNextInRangeEnragedMonster())
+		if(!letPlayerSelect){
+			if(m !=null && m.isWithinAttackRangeOf(world.model.player))
+				setCombatSelection(m); //stutters but it's okay I guess
+			else if(!selectNextInRangeEnragedMonster())
 				selectNextInRangeAggressiveMonster();
+		}
+		letPlayerSelect = false;
 
 		if (canExitCombat()) {
 			exitCombat(true);

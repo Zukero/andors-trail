@@ -42,7 +42,7 @@ public final class Player extends Actor {
 	public int reequipCost;
 	public int totalExperience;
 
-	public boolean inAimMode = false; //needs to be enabled in order to initiate ranged-attack outside combat
+	//public boolean inAimMode = false; //needs to be enabled in order to initiate ranged-attack outside combat
 	public boolean isFollowed = false;
 
 
@@ -71,19 +71,19 @@ public final class Player extends Actor {
 		return this.inTeleportMode;
 	}
 
-	public boolean toggleAimMode() {
+	/*public boolean toggleAimMode() {
 		if(!this.inAimMode && this.isWieldingRangedWeapon())
 				this.inAimMode = true;
 		else
 			this.inAimMode = false;
 		return this.inAimMode;
-	}
+	}*/
 
-	public boolean isInAimMode() {
+	/*public boolean isInAimMode() {
 		if(!this.isWieldingRangedWeapon())
 			inAimMode = false;
 		return inAimMode;
-	}
+	}*/
 
 	public int getMaxRange() {
 		return increaseMaxRange;
@@ -463,11 +463,11 @@ public final class Player extends Actor {
 		}
 	}
 
-	public void cancelAimMode(){
+	/*public void cancelAimMode(){
 		// this makes player flee instead of moving in combat
 		// allows player to flee from from combat mode
 		this.inAimMode = false;
-	}
+	}*/
 
 	//public boolean isJokeWieldingRangedWeapon() {return this.hasRangedWeaponEquippedInInventory;}
 

@@ -92,8 +92,9 @@ public final class ToolboxView extends LinearLayout implements OnClickListener {
 		if (btn == toggleToolboxVisibility) {
 			toggleVisibility();
 		} else if (btn == toolbox_aim){
-			controllers.movementController.playerMovementListeners.onToggledAimMode(
-					world.model.player.toggleAimMode());
+			//if(!preferences.rangedLegacySafeAim)
+				controllers.combatController.enterRangedCombatAsPlayer();
+			//else controllers.movementController.playerMovementListeners.onToggledAimMode(world.model.player.toggleAimMode());
 		} else if (btn == toolbox_quickitems) {
 			toggleQuickslotItemView();
 		} else if (btn == toolbox_map) {

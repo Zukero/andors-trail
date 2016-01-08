@@ -302,13 +302,19 @@ public final class MainActivity
 		message(getString(R.string.player_aim_toofar),
 				getString(R.string.player_aim_toofar_repeat, repeatFiller));}
 
-	@Override
+	/*@Override
 	public void onToggledAimMode(Boolean change) {
 		if(change.booleanValue())
 			message(getString(R.string.player_toggled_aim_on));
 		else
 			message(getString(R.string.player_toggled_aim_off),
 					getString(R.string.player_toggled_aim_off_repeat, repeatFiller));
+	}*/
+
+	@Override
+	public void onPlayerCannotFindTargets(){
+		message(getString(R.string.player_cannot_find_targets),
+				getString(R.string.player_cannot_find_targets_repeat, repeatFiller));
 	}
 
 	@Override
