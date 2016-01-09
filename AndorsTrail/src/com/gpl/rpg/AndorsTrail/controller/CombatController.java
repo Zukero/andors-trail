@@ -677,13 +677,12 @@ public final class CombatController implements VisualEffectCompletedCallback {
 
 	private void newPlayerTurn(boolean isFirstRound) {
 		Monster m = world.model.uiSelections.selectedMonster;
-		if(!letPlayerSelect){
+		//if(!letPlayerSelect){
 			if(m !=null && MovementController.isWithinAttackRangeOfPlayer(world.model.player, m))
 				setCombatSelection(m); //stutters but it's okay I guess
-			else
-				selectNextMonsterByPriorty();
-		}
-		letPlayerSelect = false;
+			//else selectNextMonsterByPriorty();
+		//}
+		//letPlayerSelect = false;
 
 		if (canExitCombat()) {
 			exitCombat(true);
