@@ -5,6 +5,12 @@
 	android:layout_height="match_parent"
 	android:orientation="horizontal"
 	>
+	<Spinner
+		android:id="@+id/inventorylist_categories"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:prompt="@string/heroinfo_inventory_categories"
+		/>
 
 	<LinearLayout
 		android:layout_width="wrap_content"

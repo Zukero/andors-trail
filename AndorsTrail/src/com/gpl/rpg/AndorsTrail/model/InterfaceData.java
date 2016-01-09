@@ -15,6 +15,7 @@ public final class InterfaceData {
 	public Coord selectedPosition;
 	public String selectedTabHeroInfo = "";
 	public int selectedQuestFilter = 0; // Should not be parceled
+	public int selectedInventoryFilter = 0; // Should not be parceled
 
 	public InterfaceData() { }
 

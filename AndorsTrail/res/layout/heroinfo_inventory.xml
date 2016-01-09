@@ -6,6 +6,12 @@
 	android:orientation="vertical"
 	android:gravity="left"
 	>
+	<Spinner
+		android:id="@+id/inventorylist_categories"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:prompt="@string/heroinfo_inventory_categories"
+		/>
 
 	<TextView
 		android:layout_width="match_parent"

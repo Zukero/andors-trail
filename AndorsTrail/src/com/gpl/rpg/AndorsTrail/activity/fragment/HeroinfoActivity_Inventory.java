@@ -10,8 +10,10 @@ import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.Dialogs;
@@ -37,7 +39,13 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 	private TileCollection wornTiles;
 
 	private Player player;
+	private ListView inventoryList;
 	private ItemContainerAdapter inventoryListAdapter;
+	private ItemContainerAdapter inventoryEquipableListAdapter;
+	private ItemContainerAdapter inventoryUsableListAdapter;
+	private ItemContainerAdapter inventoryQuestListAdapter;
+	private Spinner inventorylist_categories;
+
 
 	private TextView heroinfo_stats_gold;
 	private TextView heroinfo_stats_attack;
@@ -62,7 +70,26 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.heroinfo_inventory, container, false);
 
-		ListView inventoryList = (ListView) v.findViewById(R.id.inventorylist_root);
+		//Initiating drop-down list for category filters
+		inventorylist_categories = (Spinner) v.findViewById(R.id.inventorylist_categories);
+		ArrayAdapter<CharSequence> categoryFilterAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.inventorylist_categories, android.R.layout.simple_spinner_item);
+		categoryFilterAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		inventorylist_categories.setAdapter(categoryFilterAdapter);
+		inventorylist_categories.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+			@Override
+			public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+				world.model.uiSelections.selectedInventoryFilter = inventorylist_categories.getSelectedItemPosition();
+				reloadShownCategory();
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> arg0) {
+			}
+		});
+		inventorylist_categories.setSelection(world.model.uiSelections.selectedInventoryFilter);
+
+
+		inventoryList = (ListView) v.findViewById(R.id.inventorylist_root);
 		registerForContextMenu(inventoryList);
 		inventoryList.setOnItemClickListener(new OnItemClickListener() {
 			@Override
@@ -71,10 +98,19 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 				showInventoryItemInfo(itemType.id);
 			}
 		});
+
 		ItemContainer inv = player.inventory;
 		wornTiles = world.tileManager.loadTilesFor(player.inventory, getResources());
 		inventoryListAdapter = new ItemContainerAdapter(getActivity(), world.tileManager, inv, player, wornTiles);
 		inventoryList.setAdapter(inventoryListAdapter);
+
+
+		/*inventoryEquipableListAdapter =new ItemContainerAdapter(getActivity(), world.tileManager,
+				player.inventory.buildEquipableItems(), player, wornTiles);
+		inventoryUsableListAdapter =new ItemContainerAdapter(getActivity(), world.tileManager,
+				player.inventory.buildUsableItems(), player, wornTiles);
+		inventoryQuestListAdapter =new ItemContainerAdapter(getActivity(), world.tileManager,
+				player.inventory.buildQuestItems(), player, wornTiles);*/
 
 		heroinfo_stats_gold = (TextView) v.findViewById(R.id.heroinfo_stats_gold);
 		heroinfo_stats_attack = (TextView) v.findViewById(R.id.heroinfo_stats_attack);
@@ -340,4 +376,23 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 		Intent intent = Dialogs.getIntentForItemInfo(getActivity(), itemType.id, action, text, enabled, null);
 		startActivityForResult(intent, INTENTREQUEST_ITEMINFO);
 	}
+
+	private void reloadShownCategory() {
+		int v = inventorylist_categories.getSelectedItemPosition();
+
+		// Decide which category to show
+		if (v == 0) { //All items
+			inventoryList.setAdapter(inventoryListAdapter);
+		} else if (v == 1) { //Equipable items
+			inventoryEquipableListAdapter =new ItemContainerAdapter(getActivity(), world.tileManager, player.inventory.buildEquipableItems(), player, wornTiles);
+			inventoryList.setAdapter(inventoryEquipableListAdapter);
+		} else if (v == 2) { //Usable items
+			inventoryUsableListAdapter =new ItemContainerAdapter(getActivity(), world.tileManager, player.inventory.buildUsableItems(), player, wornTiles);
+			inventoryList.setAdapter(inventoryUsableListAdapter);
+		} else if (v == 3) { //Quest items
+			inventoryQuestListAdapter =new ItemContainerAdapter(getActivity(), world.tileManager, player.inventory.buildQuestItems(), player, wornTiles);
+			inventoryList.setAdapter(inventoryQuestListAdapter);
+		}
+	}
+
 }

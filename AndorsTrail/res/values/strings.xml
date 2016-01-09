@@ -38,6 +38,7 @@
 	<string name="heroinfo_totalexperience">Total experience</string>
 	<string name="heroinfo_wornequipment">Worn equipment</string>
 	<string name="heroinfo_inventory">Inventory</string>
+	<string name="heroinfo_inventory_categories">Category Filters</string>
 	<string name="heroinfo_gold">Gold: %1$d</string>
 	<string name="heroinfo_actionpoints">Action points (AP):</string>
 	<string name="heroinfo_quests">Quests</string>
@@ -355,6 +356,11 @@
 	<string name="inventory_assign_slot2">Slot 2</string>
 	<string name="inventory_assign_slot3">Slot 3</string>
 	<string name="inventory_unassign">Un-assign quick slot</string>
+
+	<string name="inventory_category_all">All</string>
+	<string name="inventory_category_equipment">Equipment</string>
+	<string name="inventory_category_usable">Usable Items</string>
+	<string name="inventory_category_quest">Quest Items</string>
 
 	<!-- =========================================== -->
 	<!-- Added in v0.6.10 -->
