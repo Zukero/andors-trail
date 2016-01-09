@@ -51,6 +51,7 @@ public final class MonsterType {
 	public final double rageMultiplier;
 	public final double hpFleeThreshold;
 	public final int lineOfSight;
+	public final double fearMultiplier;
 
 	public MonsterType(
 			String id
@@ -79,6 +80,7 @@ public final class MonsterType {
 			, double rageMultiplier
 			, double hpFleeThreshold
 			, int lineOfSight
+			, double fearMultiplier
 
 	) {
 		this.id = id;
@@ -108,6 +110,7 @@ public final class MonsterType {
 		this.rageMultiplier = rageMultiplier;
 		this.hpFleeThreshold = hpFleeThreshold;
 		this.lineOfSight = lineOfSight;
+		this.fearMultiplier = fearMultiplier;
 	}
 
 	public static enum AggressionType {

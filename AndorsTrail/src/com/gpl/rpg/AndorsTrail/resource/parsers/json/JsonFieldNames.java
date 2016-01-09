@@ -127,6 +127,7 @@ public final class JsonFieldNames {
 		public static final String rageMultiplier = "rageMultiplier";
 		public static final String hpFleeThreshold = "hpFleeThreshold";
 		public static final String lineOfSight = "lineOfSight";
+		public static final String fearMultiplier = "fearMultiplier";
 	}
 
 	public static final class ItemTraits_OnUse {

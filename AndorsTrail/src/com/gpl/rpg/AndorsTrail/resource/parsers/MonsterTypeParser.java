@@ -53,6 +53,7 @@ public final class MonsterTypeParser extends JsonCollectionParserFor<MonsterType
 		final double rageMultiplier = o.optDouble(JsonFieldNames.Monster.rageMultiplier, 1.1);
 		final double hpFleeThreshold= o.optDouble(JsonFieldNames.Monster.hpFleeThreshold, 0.2);
 		final int lineOfSight= o.optInt(JsonFieldNames.Monster.lineOfSight, 4);
+		final double fleeMultiplier = o.optDouble(JsonFieldNames.Monster.fearMultiplier, 1.1);
 		// e.g rage multiplier of 1 makes them only go to where they were attacked
 		// rage multiplier of 2 makes them follow you by double the distance between you when first attacked/enraged
 
@@ -86,6 +87,7 @@ public final class MonsterTypeParser extends JsonCollectionParserFor<MonsterType
 				, rageMultiplier
 				, hpFleeThreshold
 				, lineOfSight
+				, fleeMultiplier
 		));
 	}
 
