@@ -24,7 +24,7 @@ public final class Monster extends Actor {
 
 	public double hpFleeThreshold;
 	public double rageMultiplier;
-	public double fearMultiplier =1;
+	public double fearMultiplier;
 	public int lineOfSight;
 
 	public int rageDistance = 0;
@@ -68,6 +68,7 @@ public final class Monster extends Actor {
 		this.rageMultiplier = monsterType.rageMultiplier;
 		this.hpFleeThreshold = monsterType.hpFleeThreshold;
 		this.lineOfSight = monsterType.lineOfSight;
+		this.fearMultiplier = monsterType.fearMultiplier;
 	}
 
 	public DropList getDropList() { return monsterType.dropList; }
@@ -226,7 +227,7 @@ public final class Monster extends Actor {
 		int distanceX = Math.abs(root.x - here.x);
 		int distanceY = Math.abs(root.y- here.y);
 
-		if(distanceX > this.lineOfSight && distanceY > this.lineOfSight) { //Flee if outside line of sight
+		if(distanceX > this.lineOfSight || distanceY > this.lineOfSight) { //Flee if outside line of sight
 			int old_fearDistance = this.fearDistance;
 			if(distanceX <= 0 && distanceY <=0)
 				this.fearDistance = (int)fearMultiplier;
@@ -240,8 +241,7 @@ public final class Monster extends Actor {
 			if(old_fearDistance >this.rageDistance)
 				this.fearDistance = old_fearDistance;
 
-		}
-		else{ //If within line of sight, attack.
+		} else{ //if (distanceX <= this.lineOfSight && distanceY <= this.lineOfSight){ //If within line of sight, attack.
 			int old_rageDistance = this.rageDistance;
 			if(distanceX <= 0 && distanceY <=0)
 				this.rageDistance = (int)rageMultiplier;
