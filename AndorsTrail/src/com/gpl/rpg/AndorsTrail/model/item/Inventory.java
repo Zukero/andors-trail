@@ -89,31 +89,57 @@ public final class Inventory extends ItemContainer {
 	public Inventory buildQuestItems(){
 		Inventory questItems = new Inventory();
 		for(ItemEntry i: this.items){
-			if(i.itemType.displayType.equals("quest")){
+			if(i.itemType.isQuestItem()){
 				questItems.items.add(i);
 			}
 		}
 		return questItems;
 	}
 
-	public Inventory buildEquipableItems(){
+	/*public Inventory buildEquipableItems(){
 		Inventory equipableItems = new Inventory();
 		for(ItemEntry i: this.items){
-			if(i.itemType.effects_equip == null)
-				continue;
-			equipableItems.items.add(i);
+			if(i.itemType.isEquippable())
+				equipableItems.items.add(i);
 		}
 		return equipableItems;
-	}
+	}*/
 
 	public Inventory buildUsableItems(){
 		Inventory usableItems = new Inventory();
 		for(ItemEntry i: this.items){
-			if(i.itemType.effects_use == null)
-				continue;
-			usableItems.items.add(i);
+			if(i.itemType.isUsable())
+				usableItems.items.add(i);
 		}
 		return usableItems;
+	}
+
+	public Inventory buildWeaponItems(){
+		Inventory weaponItems = new Inventory();
+		for(ItemEntry i: this.items){
+			if(i.itemType.isWeapon())
+				weaponItems.items.add(i);
+		}
+		return weaponItems;
+	}
+
+	public Inventory buildArmorItems(){
+		Inventory armorItems = new Inventory();
+		for(ItemEntry i: this.items){
+			if(i.itemType.isEquippable() && ! i.itemType.isWeapon())
+				armorItems.items.add(i);
+		}
+		return armorItems;
+	}
+
+	public Inventory buildOtherItems(){
+		Inventory otherItems = new Inventory();
+		for(ItemEntry i: this.items){
+			if(i.itemType.isEquippable() || i.itemType.isUsable() || i.itemType.isQuestItem())
+				continue;;
+			otherItems.items.add(i);
+		}
+		return otherItems;
 	}
 
 

@@ -36,7 +36,7 @@
 	<string name="heroinfo_levelup">Level up</string>
 	<string name="heroinfo_level">Level</string>
 	<string name="heroinfo_totalexperience">Total experience</string>
-	<string name="heroinfo_wornequipment">Worn equipment</string>
+	<string name="heroinfo_wornequipment">Worn Equipment</string>
 	<string name="heroinfo_inventory">Inventory</string>
 	<string name="heroinfo_inventory_categories">Category Filters</string>
 	<string name="heroinfo_gold">Gold: %1$d</string>
@@ -358,9 +358,11 @@
 	<string name="inventory_unassign">Un-assign quick slot</string>
 
 	<string name="inventory_category_all">All</string>
-	<string name="inventory_category_equipment">Equipment</string>
-	<string name="inventory_category_usable">Usable Items</string>
+	<string name="inventory_category_weapons">Weapons</string>
+	<string name="inventory_category_armor">Armor</string>
+	<string name="inventory_category_usable">Consumables</string>
 	<string name="inventory_category_quest">Quest Items</string>
+	<string name="inventory_category_other">Other</string>
 
 	<!-- =========================================== -->
 	<!-- Added in v0.6.10 -->

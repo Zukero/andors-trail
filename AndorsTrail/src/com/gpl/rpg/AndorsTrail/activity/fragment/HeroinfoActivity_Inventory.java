@@ -41,9 +41,11 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 	private Player player;
 	private ListView inventoryList;
 	private ItemContainerAdapter inventoryListAdapter;
-	private ItemContainerAdapter inventoryEquipableListAdapter;
+	private ItemContainerAdapter inventoryWeaponsListAdapter;
+	private ItemContainerAdapter inventoryArmorListAdapter;
 	private ItemContainerAdapter inventoryUsableListAdapter;
 	private ItemContainerAdapter inventoryQuestListAdapter;
+	private ItemContainerAdapter inventoryOtherListAdapter;
 	private Spinner inventorylist_categories;
 
 
@@ -237,7 +239,11 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 	}
 
 	private void updateItemList() {
-		inventoryListAdapter.notifyDataSetChanged();
+		int v = inventorylist_categories.getSelectedItemPosition();
+		if(v==0)
+			inventoryListAdapter.notifyDataSetChanged();
+		else
+			reloadShownCategory();
 	}
 
 	@Override
@@ -377,22 +383,30 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 		startActivityForResult(intent, INTENTREQUEST_ITEMINFO);
 	}
 
-	private void reloadShownCategory() {
+	private void reloadShownCategory() { //Inefficent filtering because just rebuilds a new list???
 		int v = inventorylist_categories.getSelectedItemPosition();
 
 		// Decide which category to show
 		if (v == 0) { //All items
 			inventoryList.setAdapter(inventoryListAdapter);
-		} else if (v == 1) { //Equipable items
-			inventoryEquipableListAdapter =new ItemContainerAdapter(getActivity(), world.tileManager, player.inventory.buildEquipableItems(), player, wornTiles);
-			inventoryList.setAdapter(inventoryEquipableListAdapter);
-		} else if (v == 2) { //Usable items
+		} else if (v == 1) { //Weapon items
+			inventoryWeaponsListAdapter =new ItemContainerAdapter(getActivity(), world.tileManager, player.inventory.buildWeaponItems(), player, wornTiles);
+			inventoryList.setAdapter(inventoryWeaponsListAdapter);
+		} else if (v == 2) { //Armor items
+			inventoryArmorListAdapter =new ItemContainerAdapter(getActivity(), world.tileManager, player.inventory.buildArmorItems(), player, wornTiles);
+			inventoryList.setAdapter(inventoryArmorListAdapter);
+		} else if (v == 3) { //Usable items
 			inventoryUsableListAdapter =new ItemContainerAdapter(getActivity(), world.tileManager, player.inventory.buildUsableItems(), player, wornTiles);
 			inventoryList.setAdapter(inventoryUsableListAdapter);
-		} else if (v == 3) { //Quest items
+		}else if (v == 4) { //Quest items
 			inventoryQuestListAdapter =new ItemContainerAdapter(getActivity(), world.tileManager, player.inventory.buildQuestItems(), player, wornTiles);
 			inventoryList.setAdapter(inventoryQuestListAdapter);
 		}
+		else if (v == 5) { //Quest items
+			inventoryOtherListAdapter =new ItemContainerAdapter(getActivity(), world.tileManager, player.inventory.buildOtherItems(), player, wornTiles);
+			inventoryList.setAdapter(inventoryOtherListAdapter);
+		}
+		//updateItemList();
 	}
 
 }

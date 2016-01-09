@@ -10,9 +10,11 @@
 
 	<string-array name="inventorylist_categories">
 		<item>@string/inventory_category_all</item>
-		<item>@string/inventory_category_equipment</item>
+		<item>@string/inventory_category_weapons</item>
+		<item>@string/inventory_category_armor</item>
 		<item>@string/inventory_category_usable</item>
 		<item>@string/inventory_category_quest</item>
+		<item>@string/inventory_category_other</item>
 	</string-array>
 
 	<string-array name="preferences_display_loot">

@@ -10,8 +10,9 @@
 		android:id="@+id/inventorylist_categories"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
+		android:orientation="vertical"
 		android:prompt="@string/heroinfo_inventory_categories"
-		/>
+		android:layout_margin="@dimen/dialog_margin" />
 
 	<TextView
 		android:layout_width="match_parent"

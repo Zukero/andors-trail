@@ -60,14 +60,13 @@ public final class ItemCategory {
 		else return false;
 	}
 
-	public boolean isRangedWeapon() {
+	/*public boolean isRangedWeapon() {
 		//if (!isWeapon()) return false;
 		if (id.equals("rangedweapon_small")
 				|| id.equals("rangedweapon_big")){
 			//todo,twirl I'm not sure how to integrate this with ATCS better
 			return true;
 		}
-
 		return false;
-	}
+	}*/
 }
