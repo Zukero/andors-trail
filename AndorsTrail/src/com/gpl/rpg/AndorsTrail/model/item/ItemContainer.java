@@ -1,11 +1,15 @@
 package com.gpl.rpg.AndorsTrail.model.item;
 
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.controller.ItemController;
+import com.gpl.rpg.AndorsTrail.model.actor.Player;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class ItemContainer {
 	public final ArrayList<ItemEntry> items = new ArrayList<ItemEntry>();
@@ -128,6 +132,139 @@ public class ItemContainer {
 		if (i < 0) return;
 		items.add(items.remove(i));
 	}
+
+	public void sortByName(Player p){
+		sortByName(p, false);
+	}
+	public void sortByName(Player p, boolean reverse) {
+		final Player q = p;
+		Comparator<ItemEntry> comparatorName = new Comparator<ItemEntry>() {
+			@Override
+			public int compare(ItemEntry item1, ItemEntry item2) {
+				return item1.itemType.getName(q).compareTo(item2.itemType.getName(q));
+			}
+		};
+		if(!reverse)
+			Collections.sort(this.items, comparatorName);
+		else
+			Collections.sort(this.items,Collections.reverseOrder(comparatorName));
+	}
+
+	public void sortByPrice(Player p){
+		sortByPrice(p, false);
+	}
+
+	public void sortByPrice(Player p, boolean reverse) {
+		final Player q = p;
+		Comparator<ItemEntry> comparatorPrice = new Comparator<ItemEntry>() {
+			@Override
+			public int compare(ItemEntry item1, ItemEntry item2) {
+				// More expensive items go to top
+				if (item1.itemType.baseMarketCost < item2.itemType.baseMarketCost) {
+					return 1;
+				} else if (item1.itemType.baseMarketCost > item2.itemType.baseMarketCost) {
+					return -1;
+				} else { // compares the names if rarity is the same
+					return item1.itemType.getName(q).compareTo(item2.itemType.getName(q));
+				}
+			}
+		};
+		if(!reverse)
+			Collections.sort(this.items, comparatorPrice);
+		else
+			Collections.sort(this.items,Collections.reverseOrder(comparatorPrice));
+	}
+
+	public void sortByQuantity(Player p){
+		sortByQuantity(p, false);
+	}
+	public void sortByQuantity(Player p, boolean reverse) {
+		final Player q = p;
+		Comparator<ItemEntry> comparatorQuantity = new Comparator<ItemEntry>() {
+			@Override
+			public int compare(ItemEntry item1, ItemEntry item2) {
+				// Bigger quantity is put first
+				if (item1.quantity > item2.quantity) {
+					return -1;
+				} else if (item1.quantity < item2.quantity) {
+					return 1;
+				} else { // compares the names if quantity is the same
+					return item1.itemType.getName(q).compareTo(item2.itemType.getName(q));
+				}
+			}
+		};
+		if(!reverse)
+			Collections.sort(this.items, comparatorQuantity);
+		else
+			Collections.sort(this.items,Collections.reverseOrder(comparatorQuantity));
+	}
+
+	public void sortByRarity(Player p){
+		sortByRarity(p, false);
+	}
+	public void sortByRarity(Player p, boolean reverse) {
+		final Player q = p;
+		Comparator<ItemEntry> comparatorRarity = new Comparator<ItemEntry>() {
+			@Override
+			public int compare(ItemEntry item1, ItemEntry item2) {
+				// More rare items go to top
+				if (item1.itemType.displayType.compareTo(item2.itemType.displayType) != 0 ) {
+					return (-1) * item1.itemType.displayType.compareTo(item2.itemType.displayType);
+					// ^ More rare goes on top
+				} else { // compares the names if rarity is the same
+					return item1.itemType.getName(q).compareTo(item2.itemType.getName(q));
+				}
+			}
+		};
+		if(!reverse)
+			Collections.sort(this.items, comparatorRarity);
+		else
+			Collections.sort(this.items,Collections.reverseOrder(comparatorRarity));
+	}
+
+	public void sortByType(Player p){
+		sortByType(p, false);
+	}
+	public void sortByType(Player p, boolean reverse) {
+		final Player q = p;
+		Comparator<ItemEntry> comparatorType = new Comparator<ItemEntry>() {
+			@Override
+			public int compare(ItemEntry item1, ItemEntry item2) {
+				if (determineType(item1) > determineType(item2)) {
+					return 1;
+				} else if (determineType(item1) < determineType(item2)) {
+					return -666;
+				} else { // compares the names if type is the same
+					return item1.itemType.getName(q).compareTo(item2.itemType.getName(q));
+				}
+			}
+		};
+		if(!reverse)
+			Collections.sort(this.items, comparatorType);
+		else
+			Collections.sort(this.items,Collections.reverseOrder(comparatorType));
+	}
+
+	public int determineType(ItemEntry item) {
+		if (item.itemType.isWeapon()) {
+			if(item.itemType.isTwohandWeapon())
+				return 1;
+			if(item.itemType.isRangedWeapon())
+				return 2;
+			return 3;
+		}            // Weapons
+		else if (item.itemType.isShield()) { return 4; }       // Shields
+		else if (item.itemType.isArmor()) { return 5; }        // Armor, gloves, hats, boots
+		else if (item.itemType.isEquippable()) { return 6; }   // Jewelry
+		else if (item.itemType.isUsable()) { return 7; }       // Items with use, for example food
+		else if (item.itemType.isQuestItem()) { return 8; }          // Quest items
+		else { return 9; }                                              // others
+	}
+
+	public void sortByReverse() {
+		Collections.reverse(this.items);
+	}
+
 
 
 	// ====== PARCELABLE ===================================================================

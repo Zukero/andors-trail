@@ -25,6 +25,7 @@
                 }
             ]
         },
+        "hasManualPrice": 1,
         "baseMarketCost": 8666,
         "displaytype": "rare"
     },
@@ -54,6 +55,7 @@
                 }
             ]
         },
+        "hasManualPrice": 1,
         "baseMarketCost":5666,
         "displaytype": "legendary"
     },
@@ -83,6 +85,7 @@
                 }
             ]
         },
+        "hasManualPrice": 1,
         "baseMarketCost":2666,
         "displaytype": "extraordinary"
     }

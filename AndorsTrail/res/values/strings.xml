@@ -38,7 +38,8 @@
 	<string name="heroinfo_totalexperience">Total experience</string>
 	<string name="heroinfo_wornequipment">Worn Equipment</string>
 	<string name="heroinfo_inventory">Inventory</string>
-	<string name="heroinfo_inventory_categories">Category Filters</string>
+	<string name="heroinfo_inventory_categories">Category</string>
+	<string name="heroinfo_inventory_sort">Sort By</string>
 	<string name="heroinfo_gold">Gold: %1$d</string>
 	<string name="heroinfo_actionpoints">Action points (AP):</string>
 	<string name="heroinfo_quests">Quests</string>
@@ -358,11 +359,18 @@
 	<string name="inventory_unassign">Un-assign quick slot</string>
 
 	<string name="inventory_category_all">All</string>
-	<string name="inventory_category_weapons">Weapons</string>
+	<string name="inventory_category_weapons">Weapon</string>
 	<string name="inventory_category_armor">Armor</string>
-	<string name="inventory_category_usable">Consumables</string>
-	<string name="inventory_category_quest">Quest Items</string>
+	<string name="inventory_category_usable">Consumable</string>
+	<string name="inventory_category_quest">Quest Item</string>
 	<string name="inventory_category_other">Other</string>
+
+	<string name="inventory_sort_name">Name</string>
+	<string name="inventory_sort_price">Market Price</string>
+	<string name="inventory_sort_quantity">Quantity</string>
+	<string name="inventory_sort_rarity">Rarity</string>
+	<string name="inventory_sort_type">Type</string>
+	<string name="inventory_sort_custom">Unsorted</string>
 
 	<!-- =========================================== -->
 	<!-- Added in v0.6.10 -->

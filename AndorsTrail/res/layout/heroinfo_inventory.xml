@@ -6,13 +6,30 @@
 	android:orientation="vertical"
 	android:gravity="left"
 	>
-	<Spinner
-		android:id="@+id/inventorylist_categories"
+
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:orientation="vertical"
+		android:orientation="horizontal"
+		>
+	<Spinner
+		android:id="@+id/inventorylist_category_filters"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:gravity="left"
 		android:prompt="@string/heroinfo_inventory_categories"
 		android:layout_margin="@dimen/dialog_margin" />
+
+	<Spinner
+		android:id="@+id/inventorylist_sort_filters"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:layout_toRightOf="@+id/inventorylist_category_filters"
+		android:prompt="@string/heroinfo_inventory_sort"
+		android:layout_margin="@dimen/dialog_margin" />
+	</LinearLayout>
 
 	<TextView
 		android:layout_width="match_parent"

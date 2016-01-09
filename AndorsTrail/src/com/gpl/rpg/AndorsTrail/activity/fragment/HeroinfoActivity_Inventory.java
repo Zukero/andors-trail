@@ -47,6 +47,7 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 	private ItemContainerAdapter inventoryQuestListAdapter;
 	private ItemContainerAdapter inventoryOtherListAdapter;
 	private Spinner inventorylist_categories;
+	private Spinner inventorylist_sort;
 
 
 	private TextView heroinfo_stats_gold;
@@ -73,22 +74,42 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 		View v = inflater.inflate(R.layout.heroinfo_inventory, container, false);
 
 		//Initiating drop-down list for category filters
-		inventorylist_categories = (Spinner) v.findViewById(R.id.inventorylist_categories);
-		ArrayAdapter<CharSequence> categoryFilterAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.inventorylist_categories, android.R.layout.simple_spinner_item);
+		inventorylist_categories = (Spinner) v.findViewById(R.id.inventorylist_category_filters);
+		ArrayAdapter<CharSequence> categoryFilterAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.inventorylist_category_filters, android.R.layout.simple_spinner_item);
 		categoryFilterAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		inventorylist_categories.setAdapter(categoryFilterAdapter);
 		inventorylist_categories.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 			@Override
 			public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-				world.model.uiSelections.selectedInventoryFilter = inventorylist_categories.getSelectedItemPosition();
+				world.model.uiSelections.selectedInventoryCategory = inventorylist_categories.getSelectedItemPosition();
 				reloadShownCategory();
 			}
 
 			@Override
 			public void onNothingSelected(AdapterView<?> arg0) {
+				world.model.uiSelections.selectedInventoryCategory = 0;
 			}
 		});
-		inventorylist_categories.setSelection(world.model.uiSelections.selectedInventoryFilter);
+		inventorylist_categories.setSelection(world.model.uiSelections.selectedInventoryCategory);
+
+
+		inventorylist_sort = (Spinner) v.findViewById(R.id.inventorylist_sort_filters);
+		ArrayAdapter<CharSequence> sortFilterAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.inventorylist_sort_filters, android.R.layout.simple_spinner_item);
+		sortFilterAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		inventorylist_sort.setAdapter(sortFilterAdapter);
+		inventorylist_sort.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+			@Override
+			public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+				world.model.uiSelections.selectedInventorySort = inventorylist_sort.getSelectedItemPosition();
+				reloadShownSort(player.inventory);
+			}
+			@Override
+			public void onNothingSelected(AdapterView<?> parent) {
+				// Reset to "Custom" position
+				world.model.uiSelections.selectedInventorySort = 0;
+			}
+		});
+		inventorylist_sort.setSelection(world.model.uiSelections.selectedInventorySort);
 
 
 		inventoryList = (ListView) v.findViewById(R.id.inventorylist_root);
@@ -96,7 +117,8 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 		inventoryList.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-				ItemType itemType = inventoryListAdapter.getItem(position).itemType;
+				// Move this code to separate function? -- Done
+				ItemType itemType = getSelectedItemType(position);
 				showInventoryItemInfo(itemType.id);
 			}
 		});
@@ -239,8 +261,8 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 	}
 
 	private void updateItemList() {
-		int v = inventorylist_categories.getSelectedItemPosition();
-		if(v==0)
+		int currentScreen = inventorylist_categories.getSelectedItemPosition();
+		if(currentScreen==0)
 			inventoryListAdapter.notifyDataSetChanged();
 		else
 			reloadShownCategory();
@@ -267,9 +289,31 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 		}
 		lastSelectedItem = null;
 	}
+	private ItemType getSelectedItemType(int position) {
+		int v = inventorylist_categories.getSelectedItemPosition();
+
+		if (v == 0) { //All items
+			return inventoryListAdapter.getItem(position).itemType;
+		} else if (v == 1) { //Weapon items
+			return inventoryWeaponsListAdapter.getItem(position).itemType;
+		} else if (v == 2) { //Armor items
+			return inventoryArmorListAdapter.getItem(position).itemType;
+		} else if (v == 3) { //Usable items
+			return inventoryUsableListAdapter.getItem(position).itemType;
+		}else if (v == 4) { //Quest items
+			return inventoryQuestListAdapter.getItem(position).itemType;
+		}
+		else if (v == 5) { //Other items
+			return inventoryOtherListAdapter.getItem(position).itemType;
+		}
+		return inventoryListAdapter.getItem(position).itemType;
+
+	}
+
 
 	private ItemType getSelectedItemType(AdapterContextMenuInfo info) {
-		return inventoryListAdapter.getItem(info.position).itemType;
+
+		return getSelectedItemType(info.position);
 	}
 	@Override
 	public boolean onContextItemSelected(MenuItem item) {
@@ -402,11 +446,34 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 			inventoryQuestListAdapter =new ItemContainerAdapter(getActivity(), world.tileManager, player.inventory.buildQuestItems(), player, wornTiles);
 			inventoryList.setAdapter(inventoryQuestListAdapter);
 		}
-		else if (v == 5) { //Quest items
+		else if (v == 5) { //Other items
 			inventoryOtherListAdapter =new ItemContainerAdapter(getActivity(), world.tileManager, player.inventory.buildOtherItems(), player, wornTiles);
 			inventoryList.setAdapter(inventoryOtherListAdapter);
 		}
 		//updateItemList();
+	}
+
+	private void reloadShownSort(Inventory inv){
+		String selected = inventorylist_sort.getItemAtPosition(
+				world.model.uiSelections.selectedInventorySort).toString();
+		if(selected.equals( world.model.uiSelections.oldSortSelection));
+			//inv.sortByReverse();
+		else if (selected.equals("Name")) {
+			inv.sortByName(player);
+		} else if (selected.equals("Market Price")) {
+			inv.sortByPrice(player);
+		} else if (selected.equals("Quantity")) {
+			inv.sortByQuantity(player);
+		} else if (selected.equals("Rarity")) {
+			inv.sortByRarity(player);
+		}
+		else if (selected.equals("Type")) {
+			player.inventory.sortByType(player);
+		}
+		else if (selected.equals("Unsorted")) {
+		}
+		world.model.uiSelections.oldSortSelection = selected;
+		updateItemList();
 	}
 
 }
