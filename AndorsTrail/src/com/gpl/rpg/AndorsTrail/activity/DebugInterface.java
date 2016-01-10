@@ -149,7 +149,7 @@ public final class DebugInterface {
 				}
 			}
 		})*/
-				/*
+
 				,new DebugButton("gold", new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
@@ -158,7 +158,7 @@ public final class DebugInterface {
 			}
 		})
 
-			,new DebugButton("cg", new OnClickListener() {
+			/*,new DebugButton("cg", new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
 					controllerContext.movementController.placePlayerAsyncAt(MapObject.MapObjectType.newmap, "crossglen", "hall", 0, 0);

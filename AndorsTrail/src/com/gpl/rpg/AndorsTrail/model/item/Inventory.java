@@ -89,6 +89,7 @@ public final class Inventory extends ItemContainer {
 	public Inventory buildQuestItems(){
 		Inventory questItems = new Inventory();
 		for(ItemEntry i: this.items){
+			if(i == null) break;
 			if(i.itemType.isQuestItem()){
 				questItems.items.add(i);
 			}
@@ -108,6 +109,7 @@ public final class Inventory extends ItemContainer {
 	public Inventory buildUsableItems(){
 		Inventory usableItems = new Inventory();
 		for(ItemEntry i: this.items){
+			if(i == null) break;
 			if(i.itemType.isUsable())
 				usableItems.items.add(i);
 		}
@@ -117,6 +119,7 @@ public final class Inventory extends ItemContainer {
 	public Inventory buildWeaponItems(){
 		Inventory weaponItems = new Inventory();
 		for(ItemEntry i: this.items){
+			if(i == null) break;
 			if(i.itemType.isWeapon())
 				weaponItems.items.add(i);
 		}
@@ -126,6 +129,7 @@ public final class Inventory extends ItemContainer {
 	public Inventory buildArmorItems(){
 		Inventory armorItems = new Inventory();
 		for(ItemEntry i: this.items){
+			if(i == null) break;
 			if(i.itemType.isEquippable() && ! i.itemType.isWeapon())
 				armorItems.items.add(i);
 		}
@@ -135,6 +139,7 @@ public final class Inventory extends ItemContainer {
 	public Inventory buildOtherItems(){
 		Inventory otherItems = new Inventory();
 		for(ItemEntry i: this.items){
+			if(i == null) break;
 			if(i.itemType.isEquippable() || i.itemType.isUsable() || i.itemType.isQuestItem())
 				continue;;
 			otherItems.items.add(i);
