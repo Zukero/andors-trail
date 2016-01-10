@@ -47,4 +47,45 @@ public final class ItemContainerAdapter extends ArrayAdapter<ItemEntry> {
 	public long getItemId(int position) {
 		return getItem(position).itemType.id.hashCode();
 	}
+
+	/*public void reloadShownCategory(int category){ // Overwrites player.inventory instead of cloning it
+		this.clear();
+		ArrayList<
+		for(ItemEntry i: (ItemEntry) this.player.inventory.items.clone()){
+			if(category == 0)
+				this.add(i);
+			else if(i.itemType.isWeapon())
+				if(category ==1)
+					this.add(i);
+			else if(i.itemType.isEquippable() && ! i.itemType.isWeapon())
+				if(category==2)
+					this.add(i);
+			else if(i.itemType.isUsable())
+					if(category ==3)
+						this.add(i);
+			else if(i.itemType.isQuestItem())
+						if(category ==4)
+							this.add(i);
+			else if(category == 5) //other items
+							this.add(i);
+		}
+	}*/
+
+	public void reloadShownSort(String selected, String oldSortSelection, ItemContainer inv) {
+		if(selected.equals( oldSortSelection));
+			//inv.sortByReverse();
+		else if (selected.equals("Name")) {
+			inv.sortByName(player);
+		} else if (selected.equals("Market Price")) {
+			inv.sortByPrice(player);
+		} else if (selected.equals("Quantity")) {
+			inv.sortByQuantity(player);
+		} else if (selected.equals("Rarity")) {
+			inv.sortByRarity(player);
+		}
+		else if (selected.equals("Type")) {
+			player.inventory.sortByType(player);
+		}
+		else if (selected.equals("Unsorted"));
+	}
 }

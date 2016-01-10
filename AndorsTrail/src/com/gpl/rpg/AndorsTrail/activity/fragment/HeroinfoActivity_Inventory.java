@@ -128,14 +128,6 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 		inventoryListAdapter = new ItemContainerAdapter(getActivity(), world.tileManager, inv, player, wornTiles);
 		inventoryList.setAdapter(inventoryListAdapter);
 
-
-		/*inventoryEquipableListAdapter =new ItemContainerAdapter(getActivity(), world.tileManager,
-				player.inventory.buildEquipableItems(), player, wornTiles);
-		inventoryUsableListAdapter =new ItemContainerAdapter(getActivity(), world.tileManager,
-				player.inventory.buildUsableItems(), player, wornTiles);
-		inventoryQuestListAdapter =new ItemContainerAdapter(getActivity(), world.tileManager,
-				player.inventory.buildQuestItems(), player, wornTiles);*/
-
 		heroinfo_stats_gold = (TextView) v.findViewById(R.id.heroinfo_stats_gold);
 		heroinfo_stats_attack = (TextView) v.findViewById(R.id.heroinfo_stats_attack);
 		heroinfo_stats_defense = (TextView) v.findViewById(R.id.heroinfo_stats_defense);
@@ -261,7 +253,7 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 	}
 
 	private void updateItemList() {
-		int currentScreen = inventorylist_categories.getSelectedItemPosition();
+		int currentScreen = world.model.uiSelections.selectedInventoryCategory;
 		if(currentScreen==0)
 			inventoryListAdapter.notifyDataSetChanged();
 		else
@@ -290,7 +282,7 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 		lastSelectedItem = null;
 	}
 	private ItemType getSelectedItemType(int position) {
-		int v = inventorylist_categories.getSelectedItemPosition();
+		int v = world.model.uiSelections.selectedInventoryCategory;
 
 		if (v == 0) { //All items
 			return inventoryListAdapter.getItem(position).itemType;
@@ -428,7 +420,7 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 	}
 
 	private void reloadShownCategory() { //Inefficent filtering because just rebuilds a new list???
-		int v = inventorylist_categories.getSelectedItemPosition();
+		int v = world.model.uiSelections.selectedInventoryCategory;
 
 		// Decide which category to show
 		if (v == 0) { //All items
@@ -456,7 +448,8 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 	private void reloadShownSort(Inventory inv){
 		String selected = inventorylist_sort.getItemAtPosition(
 				world.model.uiSelections.selectedInventorySort).toString();
-		if(selected.equals( world.model.uiSelections.oldSortSelection));
+
+		/*if(selected.equals( world.model.uiSelections.oldSortSelection));
 			//inv.sortByReverse();
 		else if (selected.equals("Name")) {
 			inv.sortByName(player);
@@ -471,7 +464,9 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 			player.inventory.sortByType(player);
 		}
 		else if (selected.equals("Unsorted")) {
-		}
+		}*/
+		inventoryListAdapter.reloadShownSort(selected, world.model.uiSelections.oldSortSelection, player.inventory);
+
 		world.model.uiSelections.oldSortSelection = selected;
 		updateItemList();
 	}

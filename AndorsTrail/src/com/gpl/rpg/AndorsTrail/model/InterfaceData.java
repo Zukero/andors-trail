@@ -18,6 +18,7 @@ public final class InterfaceData {
 	public int selectedInventoryCategory = 0; // Should not be parceled
 	public int selectedInventorySort = 0; // Should not be parceled
 	public String oldSortSelection = "-";
+	public int selectedSkillCategory = 0; // Should not be parceled
 
 	public InterfaceData() { }
 

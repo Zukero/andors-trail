@@ -24,8 +24,18 @@
 		<item>@string/inventory_sort_quantity</item>
 		<item>@string/inventory_sort_rarity</item>
 		<item>@string/inventory_sort_type</item>
+	</string-array>
 
-
+		<!--  the categories need to be in the same order as SkillList.SkillCategory-->
+	<string-array name="skill_category_filters">
+		<item>@string/skill_category_all</item>
+		<item>@string/skill_category_offense</item>
+		<item>@string/skill_category_defense</item>
+		<item>@string/skill_category_criticals</item>
+		<item>@string/skill_category_immunity</item>
+		<item>@string/skill_category_utility</item>
+		<item>@string/skill_category_speciality</item>
+		<item>@string/skill_category_proficiency</item>
 	</string-array>
 
 	<string-array name="preferences_display_loot">

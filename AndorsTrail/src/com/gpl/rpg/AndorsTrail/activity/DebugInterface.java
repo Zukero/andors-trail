@@ -101,13 +101,13 @@ public final class DebugInterface {
 					controllerContext.movementController.placePlayerAsyncAt(MapObject.MapObjectType.newmap, "blackwater_mountain29", "south", 0, 0);
 				}
 			})*/
-			/*,new DebugButton("exp+=10000", new OnClickListener() {
+			,new DebugButton("exp+=10000", new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
 					controllerContext.actorStatsController.addExperience(10000);
 					showToast(mainActivity, "DEBUG: given 10000 exp", Toast.LENGTH_SHORT);
 				}
-			})*/
+			})
 			,new DebugButton("reset", new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {

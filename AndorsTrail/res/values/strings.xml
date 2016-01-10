@@ -33,6 +33,7 @@
 	<string name="heroinfo_char">Overview</string>
 	<string name="heroinfo_inv">Items</string>
 	<string name="heroinfo_skill">Skills</string>
+	<string name="heroinfo_skill_categories">Category</string>
 	<string name="heroinfo_levelup">Level up</string>
 	<string name="heroinfo_level">Level</string>
 	<string name="heroinfo_totalexperience">Total experience</string>
@@ -371,6 +372,16 @@
 	<string name="inventory_sort_rarity">Rarity</string>
 	<string name="inventory_sort_type">Type</string>
 	<string name="inventory_sort_custom">Unsorted</string>
+
+	<string name="skill_category_all">All</string>
+	<string name="skill_category_offense"> Offense</string>
+	<string name="skill_category_defense">Defense</string>
+	<string name="skill_category_criticals">Criticals</string>
+	<string name="skill_category_immunity">Immunity</string>
+	<string name="skill_category_utility">Utility</string>
+	<string name="skill_category_speciality">Speciality</string>
+	<string name="skill_category_proficiency">Proficiency</string>
+
 
 	<!-- =========================================== -->
 	<!-- Added in v0.6.10 -->

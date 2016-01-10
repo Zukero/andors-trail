@@ -24,8 +24,9 @@
 			android:gravity="left"
 			android:orientation="horizontal"
 			android:prompt="@string/heroinfo_inventory_categories"
-			android:layout_margin="@dimen/dialog_margin"
-			/>
+			android:layout_marginLeft="10dp"
+			android:layout_marginTop="10dp"
+			android:layout_marginBottom="5dp" />
 
 		<Spinner
 			android:id="@+id/inventorylist_sort_filters"
@@ -34,7 +35,11 @@
 			android:orientation="horizontal"
 			android:layout_toRightOf="@+id/inventorylist_category_filters"
 			android:prompt="@string/heroinfo_inventory_sort"
-			android:layout_margin="@dimen/dialog_margin" />
+			android:layout_margin="@dimen/dialog_margin"
+			android:layout_marginTop="10dp"
+			android:layout_marginRight="5dp"
+			android:layout_marginBottom="5dp"
+			android:layout_marginLeft="5dp" />
 		</LinearLayout>
 
 		<TextView

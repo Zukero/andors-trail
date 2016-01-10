@@ -4,15 +4,42 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	>
-	<TextView
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:text="@string/skill_number_of_increases_several"
-		android:id="@+id/heroinfo_listskills_number_of_increases"
-		android:layout_marginBottom="@dimen/section_margin"
-		android:layout_marginTop="@dimen/section_margin"
-		android:layout_gravity="center_horizontal"
-		/>
+		android:orientation="horizontal"
+		android:layout_marginTop="10dp"
+		android:layout_marginBottom="5dp"
+		android:gravity="right">
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/skill_number_of_increases_several"
+			android:id="@+id/heroinfo_listskills_number_of_increases"
+			android:layout_marginBottom="@dimen/section_margin"
+			android:layout_marginTop="@dimen/section_margin"
+			android:layout_marginLeft="10dp"
+			android:layout_marginRight="5dp"
+			android:layout_gravity="left"
+			android:layout_weight="1"/>
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center"
+			android:id="@+id/filler_skill_top"
+			android:layout_toLeftOf="@+id/heroinfo_skill_categories"
+			android:layout_toRightOf="@+id/heroinfo_listskills_number_of_increases"
+			/>
+		<Spinner
+			android:id="@+id/skillList_category_filters"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			android:layout_marginLeft="5dp"
+			android:layout_marginRight="10dp"
+			android:prompt="@string/heroinfo_skill_categories"
+			android:layout_gravity="right" />
+	</LinearLayout>
 
 	<ListView
 		android:layout_width="match_parent"

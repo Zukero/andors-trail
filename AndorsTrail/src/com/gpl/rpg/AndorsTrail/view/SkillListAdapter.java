@@ -26,10 +26,35 @@ public final class SkillListAdapter extends ArrayAdapter<SkillInfo> {
 		this.player = player;
 	}
 
+	public SkillListAdapter(Context context, Collection<SkillInfo> skills, Player player, int category) {
+		super(context, 0, filterNondisplayedSkills(skills, player, category-1));
+		this.r = context.getResources();
+		this.player = player;
+	}
+
 	private static List<SkillInfo> filterNondisplayedSkills(Collection<SkillInfo> skills, Player player) {
 		final ArrayList<SkillInfo> result = new ArrayList<SkillInfo>();
 		for (SkillInfo skill : skills) {
 			if (shouldDisplaySkill(skill, player)) result.add(skill);
+		}
+		Collections.sort(result, new Comparator<SkillInfo>() {
+			@Override
+			public int compare(SkillInfo a, SkillInfo b) {
+				return a.id.ordinal() - b.id.ordinal();
+			}
+		});
+		return result;
+	}
+
+	private static List<SkillInfo> filterNondisplayedSkills(Collection<SkillInfo> skills, Player player, int category) {
+		final ArrayList<SkillInfo> result = new ArrayList<SkillInfo>();
+		for (SkillInfo skill : skills) {
+			if (shouldDisplaySkill(skill, player)){
+				if(category <0)
+					result.add(skill);
+				else if(skill.categoryType.equals(SkillCollection.SkillCategory.values()[category+1]))
+					result.add(skill);
+			}
 		}
 		Collections.sort(result, new Comparator<SkillInfo>() {
 			@Override
