@@ -18,7 +18,7 @@ public final class InterfaceData {
 
 	public int selectedInventoryCategory = 0; //All
 	public int selectedInventorySort = 0; //Unsorted
-	public String oldSortSelection = "-"; // Later will be used for reversing ascending/descending order
+	public int oldSortSelection = 0; // Later will be used for reversing ascending/descending order
 
 	public int selectedSkillCategory = 0; //All
 	public int selectedSkillSort = 0; //Unsorted

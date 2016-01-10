@@ -30,7 +30,7 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:orientation="horizontal"
-        android:layout_toRightOf="@+id/inventorylist_category_filters_filters"
+        android:layout_toRightOf="@+id/inventorylist_category_filters"
 		android:prompt="@string/heroinfo_inventory_sort"
 		android:layout_marginRight="10dp"
 		android:layout_marginLeft="5dp" />

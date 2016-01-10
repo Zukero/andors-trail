@@ -71,21 +71,22 @@ public final class ItemContainerAdapter extends ArrayAdapter<ItemEntry> {
 		}
 	}*/
 
-	public void reloadShownSort(String selected, String oldSortSelection, ItemContainer inv) {
-		if(selected.equals( oldSortSelection));
+	public void reloadShownSort(int selected, int oldSortSelection, ItemContainer inv) {
+		//Not sure which is worse, hardcoding the names or the position.
+		if(selected == oldSortSelection);
 			//inv.sortByReverse();
-		else if (selected.equals("Name")) {
+		else if (selected ==1) {
 			inv.sortByName(player);
-		} else if (selected.equals("Market Price")) {
+		} else if (selected == 2) {
 			inv.sortByPrice(player);
-		} else if (selected.equals("Quantity")) {
+		} else if (selected == 3) {
 			inv.sortByQuantity(player);
-		} else if (selected.equals("Rarity")) {
+		} else if (selected == 4) {
 			inv.sortByRarity(player);
 		}
-		else if (selected.equals("Type")) {
+		else if (selected == 5) {
 			player.inventory.sortByType(player);
 		}
-		else if (selected.equals("Unsorted"));
+		else if (selected == 0); //Unsorted
 	}
 }

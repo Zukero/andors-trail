@@ -93,6 +93,7 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 		inventorylist_categories.setSelection(world.model.uiSelections.selectedInventoryCategory);
 
 
+
 		inventorylist_sort = (Spinner) v.findViewById(R.id.inventorylist_sort_filters);
 		ArrayAdapter<CharSequence> sortFilterAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.inventorylist_sort_filters, android.R.layout.simple_spinner_item);
 		sortFilterAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -446,8 +447,7 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 	}
 
 	private void reloadShownSort(Inventory inv){
-		String selected = inventorylist_sort.getItemAtPosition(
-				world.model.uiSelections.selectedInventorySort).toString();
+		int selected =	world.model.uiSelections.selectedInventorySort;
 
 		/*if(selected.equals( world.model.uiSelections.oldSortSelection));
 			//inv.sortByReverse();
