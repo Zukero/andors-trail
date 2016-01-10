@@ -165,6 +165,7 @@
 	<string name="shop_yourgold">Your gold: %1$d</string>
 	<string name="shop_item_bought">%1$s bought.</string>
 	<string name="shop_item_sold">%1$s sold.</string>
+	<string name="shop_item_sort">Sort</string>
 
 	<string name="levelup_title">Level up</string>
 	<string name="levelup_description">Welcome to level %1$d!</string>
@@ -381,6 +382,13 @@
 	<string name="inventory_sort_rarity">Rarity</string>
 	<string name="inventory_sort_type">Type</string>
 
+	<string name="shoplist_sort_custom">Unsorted</string>
+	<string name="shoplist_sort_name">Name</string>
+	<string name="shoplist_sort_price">Price</string>
+	<string name="shoplist_sort_quantity">Quantity</string>
+	<string name="shoplist_sort_rarity">Rarity</string>
+	<string name="shoplist_sort_type">Type</string>
+
 	<string name="skill_category_all">All</string>
 	<string name="skill_category_offense"> Offense</string>
 	<string name="skill_category_defense">Defense</string>
@@ -390,7 +398,7 @@
 	<string name="skill_category_speciality">Speciality</string>
 	<string name="skill_category_proficiency">Proficiency</string>
 
-	<string name="skill_sort_unsorted">--Soon--</string>
+	<string name="skill_sort_unsorted">Unsorted</string>
 	<string name="skill_sort_name">Name</string>
 	<string name="skill_sort_points">Points</string>
 	<string name="skill_sort_unlocked">Unlocked</string>

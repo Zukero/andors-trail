@@ -133,10 +133,8 @@ public class ItemContainer {
 		items.add(items.remove(i));
 	}
 
-	public void sortByName(Player p){
-		sortByName(p, false);
-	}
-	public void sortByName(Player p, boolean reverse) {
+
+	public void sortByName(Player p) {
 		final Player q = p;
 		Comparator<ItemEntry> comparatorName = new Comparator<ItemEntry>() {
 			@Override
@@ -144,17 +142,12 @@ public class ItemContainer {
 				return item1.itemType.getName(q).compareTo(item2.itemType.getName(q));
 			}
 		};
-		if(!reverse)
-			Collections.sort(this.items, comparatorName);
-		else
-			Collections.sort(this.items,Collections.reverseOrder(comparatorName));
+		Collections.sort(this.items, comparatorName);
+
 	}
 
-	public void sortByPrice(Player p){
-		sortByPrice(p, false);
-	}
 
-	public void sortByPrice(Player p, boolean reverse) {
+	public void sortByPrice(Player p) {
 		final Player q = p;
 		Comparator<ItemEntry> comparatorPrice = new Comparator<ItemEntry>() {
 			@Override
@@ -169,16 +162,11 @@ public class ItemContainer {
 				}
 			}
 		};
-		if(!reverse)
-			Collections.sort(this.items, comparatorPrice);
-		else
-			Collections.sort(this.items,Collections.reverseOrder(comparatorPrice));
+		Collections.sort(this.items, comparatorPrice);
+
 	}
 
-	public void sortByQuantity(Player p){
-		sortByQuantity(p, false);
-	}
-	public void sortByQuantity(Player p, boolean reverse) {
+	public void sortByQuantity(Player p) {
 		final Player q = p;
 		Comparator<ItemEntry> comparatorQuantity = new Comparator<ItemEntry>() {
 			@Override
@@ -193,16 +181,12 @@ public class ItemContainer {
 				}
 			}
 		};
-		if(!reverse)
-			Collections.sort(this.items, comparatorQuantity);
-		else
-			Collections.sort(this.items,Collections.reverseOrder(comparatorQuantity));
+		Collections.sort(this.items, comparatorQuantity);
+
 	}
 
-	public void sortByRarity(Player p){
-		sortByRarity(p, false);
-	}
-	public void sortByRarity(Player p, boolean reverse) {
+
+	public void sortByRarity(Player p) {
 		final Player q = p;
 		Comparator<ItemEntry> comparatorRarity = new Comparator<ItemEntry>() {
 			@Override
@@ -216,16 +200,12 @@ public class ItemContainer {
 				}
 			}
 		};
-		if(!reverse)
-			Collections.sort(this.items, comparatorRarity);
-		else
-			Collections.sort(this.items,Collections.reverseOrder(comparatorRarity));
+		Collections.sort(this.items, comparatorRarity);
+
 	}
 
-	public void sortByType(Player p){
-		sortByType(p, false);
-	}
-	public void sortByType(Player p, boolean reverse) {
+
+	public void sortByType(Player p) {
 		final Player q = p;
 		Comparator<ItemEntry> comparatorType = new Comparator<ItemEntry>() {
 			@Override
@@ -239,10 +219,8 @@ public class ItemContainer {
 				}
 			}
 		};
-		if(!reverse)
-			Collections.sort(this.items, comparatorType);
-		else
-			Collections.sort(this.items,Collections.reverseOrder(comparatorType));
+		Collections.sort(this.items, comparatorType);
+
 	}
 
 	public int determineType(ItemEntry item) {

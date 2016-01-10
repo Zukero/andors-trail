@@ -23,6 +23,8 @@ public final class InterfaceData {
 	public int selectedSkillCategory = 0; //All
 	public int selectedSkillSort = 0; //Unsorted
 
+	public int selectedShopSort = 0; //Unsorted
+
 	public InterfaceData() { }
 
 

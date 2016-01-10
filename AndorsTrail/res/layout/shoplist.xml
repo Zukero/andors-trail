@@ -1,26 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	android:orientation="vertical"
-	android:gravity="left"
-	>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="left"
+    android:orientation="vertical">
 
-	<TextView
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:id="@+id/shop_gc"
-		android:drawableLeft="@drawable/ui_icon_coins"
-		android:drawablePadding="@dimen/boxshape_margin"
-		android:layout_gravity="right"
-		android:gravity="center_vertical"
-		/>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="10dp"
+        android:gravity="right"
+        android:orientation="horizontal"
+        android:layout_alignParentRight="true">
 
-	<ListView
-		android:id="@+id/shop_list"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		/>
+        <TextView
+            android:id="@+id/shop_gc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ui_icon_coins"
+            android:drawablePadding="@dimen/boxshape_margin"
+            android:gravity="center_vertical"
+            />
+        <Spinner
+            android:id="@+id/shoplist_sort_filters"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal"
+            android:layout_alignParentRight="true"
+            android:prompt="@string/shop_item_sort" />
+    </LinearLayout>
+
+
+    <ListView
+        android:id="@+id/shop_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

@@ -243,4 +243,6 @@ public final class SkillCollection {
 		for(int i = 0; i < skills.size(); ++i) result.add(skills.valueAt(i));
 		return result;
 	}
+
+
 }

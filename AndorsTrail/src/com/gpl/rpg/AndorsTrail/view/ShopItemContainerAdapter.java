@@ -82,4 +82,8 @@ public final class ShopItemContainerAdapter extends ArrayAdapter<ItemEntry> {
 		void onItemActionClicked(int position, ItemType itemType);
 		void onItemInfoClicked(int position, ItemType itemType);
 	}
+
+	public void reloadShownSort(int selection, ItemContainer container, Player p){
+		ItemContainerAdapter.reloadShownSort(selection, container, player);
+	}
 }

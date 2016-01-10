@@ -92,7 +92,7 @@ public final class HeroinfoActivity_Skills extends Fragment {
 			@Override
 			public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 				world.model.uiSelections.selectedSkillSort = skillList_sort.getSelectedItemPosition();
-				//reloadShownSort(); //Yet to be implemented
+				reloadShownSort(); //Yet to be implemented
 			}
 
 			@Override
@@ -104,12 +104,12 @@ public final class HeroinfoActivity_Skills extends Fragment {
 
 
 		skillList = (ListView) v.findViewById(R.id.heroinfo_listskills_list);
-		skillList.setAdapter(skillListCategoryViewsAdapters.get(world.model.uiSelections.selectedSkillCategory));
+		skillList.setAdapter(getCurrentCategoryAdapter());
 		skillList.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
 				Intent intent = Dialogs.getIntentForSkillInfo(ctx,
-						skillListCategoryViewsAdapters.get(world.model.uiSelections.selectedSkillCategory).getItem(position).id);
+						getCurrentCategoryAdapter().getItem(position).id);
 				startActivityForResult(intent, INTENTREQUEST_SKILLINFO);
 			}
 		});
@@ -117,10 +117,23 @@ public final class HeroinfoActivity_Skills extends Fragment {
 		return v;
 	}
 
-	private void reloadShownCategory() {
-		skillList.setAdapter(skillListCategoryViewsAdapters.get(
-				world.model.uiSelections.selectedSkillCategory));
+	private void reloadShownSort() {
+		int v = world.model.uiSelections.selectedSkillSort;
+		if(v ==0);
+		if(v==1) getCurrentCategoryAdapter().sortByName();
+		if(v==2) getCurrentCategoryAdapter().sortByPoints();
+		if(v==3) getCurrentCategoryAdapter().sortByUnlocked();
+
 		updateSkillList();
+	}
+
+	private void reloadShownCategory() {
+		skillList.setAdapter(getCurrentCategoryAdapter());
+		updateSkillList();
+	}
+	private SkillListAdapter getCurrentCategoryAdapter(){
+		return skillListCategoryViewsAdapters.get(
+				world.model.uiSelections.selectedSkillCategory);
 	}
 
 	@Override
@@ -159,6 +172,6 @@ public final class HeroinfoActivity_Skills extends Fragment {
 		} else {
 			listskills_number_of_increases.setVisibility(View.GONE);
 		}
-		skillListCategoryViewsAdapters.get(world.model.uiSelections.selectedSkillCategory).notifyDataSetInvalidated();
+		getCurrentCategoryAdapter().notifyDataSetInvalidated();
 	}
 }

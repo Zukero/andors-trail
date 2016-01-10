@@ -449,23 +449,7 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 	private void reloadShownSort(Inventory inv){
 		int selected =	world.model.uiSelections.selectedInventorySort;
 
-		/*if(selected.equals( world.model.uiSelections.oldSortSelection));
-			//inv.sortByReverse();
-		else if (selected.equals("Name")) {
-			inv.sortByName(player);
-		} else if (selected.equals("Market Price")) {
-			inv.sortByPrice(player);
-		} else if (selected.equals("Quantity")) {
-			inv.sortByQuantity(player);
-		} else if (selected.equals("Rarity")) {
-			inv.sortByRarity(player);
-		}
-		else if (selected.equals("Type")) {
-			player.inventory.sortByType(player);
-		}
-		else if (selected.equals("Unsorted")) {
-		}*/
-		inventoryListAdapter.reloadShownSort(selected, world.model.uiSelections.oldSortSelection, player.inventory);
+		inventoryListAdapter.reloadShownSort(selected, world.model.uiSelections.oldSortSelection, player.inventory, player);
 
 		world.model.uiSelections.oldSortSelection = selected;
 		updateItemList();

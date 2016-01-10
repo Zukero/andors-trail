@@ -20,6 +20,7 @@ public final class SkillListAdapter extends ArrayAdapter<SkillInfo> {
 	private final Resources r;
 	private final Player player;
 
+
 	public SkillListAdapter(Context context, Collection<SkillInfo> skills, Player player) {
 		super(context, 0, filterNondisplayedSkills(skills, player));
 		this.r = context.getResources();
@@ -158,5 +159,50 @@ public final class SkillListAdapter extends ArrayAdapter<SkillInfo> {
 		default:
 			return -1;
 		}
+	}
+
+	public void sortByName(){
+		Comparator<SkillInfo> comparatorName = new Comparator<SkillInfo>() {
+			@Override
+			public int compare(SkillInfo item1, SkillInfo item2) {
+				return  r.getString( SkillInfoActivity.getSkillTitleResourceID(item1.id)).compareTo(
+						r.getString( SkillInfoActivity.getSkillTitleResourceID(item2.id)));
+			}
+		};
+		this.sort(comparatorName);
+	}
+
+	public void sortByPoints(){
+		Comparator<SkillInfo> comparatorPoints = new Comparator<SkillInfo>() {
+			@Override
+			public int compare(SkillInfo item1, SkillInfo item2) {
+				if(player.getSkillLevel(item1.id) > player.getSkillLevel(item2.id))
+					return -1;
+				else if(player.getSkillLevel(item1.id) < player.getSkillLevel(item2.id))
+					return 1;
+				else
+					return  r.getString( SkillInfoActivity.getSkillTitleResourceID(item1.id)).compareTo(
+							r.getString( SkillInfoActivity.getSkillTitleResourceID(item2.id)));
+			}
+		};
+		this.sort(comparatorPoints);
+	}
+
+	public void sortByUnlocked(){
+		Comparator<SkillInfo> comparatorUnlocked = new Comparator<SkillInfo>() {
+			@Override
+			public int compare(SkillInfo item1, SkillInfo item2) {
+				if(item1.canLevelUpSkillTo(player, player.getSkillLevel(item1.id) + 1)
+				&& !(item2.canLevelUpSkillTo(player, player.getSkillLevel(item2.id) +1)))
+					return -1;
+				else if(!(item1.canLevelUpSkillTo(player, player.getSkillLevel(item1.id) +1))
+					&& item2.canLevelUpSkillTo(player, player.getSkillLevel(item2.id) +1))
+					return 1;
+				else
+					return  r.getString(SkillInfoActivity.getSkillTitleResourceID(item1.id)).compareTo(
+							r.getString(SkillInfoActivity.getSkillTitleResourceID(item2.id)));
+			}
+		};
+		this.sort(comparatorUnlocked);
 	}
 }

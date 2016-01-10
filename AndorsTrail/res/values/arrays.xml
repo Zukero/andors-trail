@@ -8,7 +8,7 @@
 		<item>@string/questlog_includecompleted_onlycompleted</item>
 	</string-array>
 
-	// Order is hardcoded within HeroInfoActivity_inventory
+	<!-- Order is hardcoded within HeroInfoActivity_inventory-->
 	<string-array name="inventorylist_category_filters">
 		<item>@string/inventory_category_all</item>
 		<item>@string/inventory_category_weapons</item>
@@ -18,7 +18,7 @@
 		<item>@string/inventory_category_other</item>
 	</string-array>
 
-	// Order is hardcoded within ItemContainerAdapter
+	<!-- Order is hardcoded within ItemContainerAdapter method-->
 	<string-array name="inventorylist_sort_filters">
 		<item>@string/inventory_sort_custom</item>
 		<item>@string/inventory_sort_name</item>
@@ -40,11 +40,22 @@
 		<item>@string/skill_category_proficiency</item>
 	</string-array>
 
+	<!-- order is hardcoded in HeroInfoActivity_skills method -->
 	<string-array name="skill_sort_filters">
 		<item>@string/skill_sort_unsorted</item>
 		<item>@string/skill_sort_name</item>
 		<item>@string/skill_sort_points</item>
 		<item>@string/skill_sort_unlocked</item>
+	</string-array>
+
+	<!-- order hardcoded similar to skills adapter -->
+	<string-array name="shoplist_sort_filters">
+		<item>@string/shoplist_sort_custom</item>
+		<item>@string/shoplist_sort_name</item>
+		<item>@string/shoplist_sort_price</item>
+		<item>@string/shoplist_sort_quantity</item>
+		<item>@string/shoplist_sort_rarity</item>
+		<item>@string/shoplist_sort_type</item>
 	</string-array>
 
 	<string-array name="preferences_display_loot">
