@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
+import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.activity.HeroinfoActivity;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
@@ -24,10 +25,13 @@ public final class StatusView extends RelativeLayout implements PlayerStatsListe
 	private final WorldContext world;
 	private final Player player;
 	private final Resources res;
+	private final AndorsTrailPreferences preferences;
 
 	private final RangeBar healthBar;
 	private final RangeBar expBar;
 	private final ImageButton heroImage;
+	private final ImageButton quickAimImageLeft;
+	private final ImageButton quickAimImageRight;
 	private boolean showingLevelup;
 //	private final Drawable levelupDrawable;
 
@@ -37,6 +41,7 @@ public final class StatusView extends RelativeLayout implements PlayerStatsListe
 		this.controllers = app.getControllerContext();
 		this.world = app.getWorld();
 		this.player = world.model.player;
+		this.preferences = app.getPreferences();
 
 		setFocusable(false);
 		inflate(context, R.layout.statusview, this);
@@ -49,6 +54,28 @@ public final class StatusView extends RelativeLayout implements PlayerStatsListe
 			@Override
 			public void onClick(View arg0) {
 				context.startActivity(new Intent(context, HeroinfoActivity.class));
+			}
+		});
+
+		quickAimImageLeft = (ImageButton) findViewById(R.id.statusview_quickaim_left);
+		quickAimImageLeft.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				if (world.model.uiSelections.isInCombat)
+					controllers.combatController.exitRangedCombat(true);
+				else
+					controllers.combatController.enterRangedCombatAsPlayer();
+			}
+		});
+
+		quickAimImageRight = (ImageButton) findViewById(R.id.statusview_quickaim_right);
+		quickAimImageRight.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				if (world.model.uiSelections.isInCombat)
+					controllers.combatController.exitRangedCombat(true);
+				else
+					controllers.combatController.enterRangedCombatAsPlayer();
 			}
 		});
 
@@ -66,7 +93,7 @@ public final class StatusView extends RelativeLayout implements PlayerStatsListe
 
 		updateStatus();
 		updateHeroIcon(player.canLevelup());
-		//updateAimIcon(player.isInAimMode());
+		updateAimIcon();
 	}
 
 	public void registerToolboxViews(ToolboxView toolbox, QuickitemView quickitemView) {
@@ -111,15 +138,17 @@ public final class StatusView extends RelativeLayout implements PlayerStatsListe
 		}
 	}
 
-	/*private void updateAimIcon(boolean aimMode) {
-		if (aimMode) {
-			world.tileManager.setImageViewTile(res, aimImage,
-					world.tileManager.preloadedTiles.getBitmap(TileManager.iconID_selection_red));
-		} else {
-			world.tileManager.setImageViewTile(res, aimImage,
-					world.tileManager.preloadedTiles.getBitmap(TileManager.iconID_selection_yellow));
-		}
-	}*/
+	private void updateAimIcon() {
+		//Hides buttons when disabled or not wielding ranged weapon.
+		if (preferences.aimButtonPosition !=1 ||(!world.model.player.isWieldingRangedWeapon() && preferences.rangedHideUnusedAim))
+			quickAimImageLeft.setVisibility(GONE);
+		else quickAimImageLeft.setVisibility(VISIBLE);
+
+		if (preferences.aimButtonPosition !=2
+				||(!world.model.player.isWieldingRangedWeapon() && preferences.rangedHideUnusedAim))
+			quickAimImageRight.setVisibility(GONE);
+		else quickAimImageRight.setVisibility(VISIBLE);
+	}
 
 	@Override
 	public void onActorHealthChanged(Actor actor) {

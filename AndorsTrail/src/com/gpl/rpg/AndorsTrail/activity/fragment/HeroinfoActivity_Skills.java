@@ -36,6 +36,7 @@ public final class HeroinfoActivity_Skills extends Fragment {
 	ListView skillList;
 	private ArrayList<SkillListAdapter> skillListCategoryViewsAdapters = new ArrayList<SkillListAdapter>();
 	private Spinner skillList_categories;
+	private Spinner skillList_sort;
 	private TextView listskills_number_of_increases;
 
 	@Override
@@ -80,6 +81,26 @@ public final class HeroinfoActivity_Skills extends Fragment {
 			skillListCategoryViewsAdapters.add(
 					new SkillListAdapter(ctx, world.skills.getAllSkills(), player, i));
 		}
+
+
+		//Initiating drop-down list for sort filters
+		skillList_sort = (Spinner) v.findViewById(R.id.skillList_sort_filters);
+		ArrayAdapter<CharSequence> skillSortFilterAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.skill_sort_filters, android.R.layout.simple_spinner_item);
+		skillSortFilterAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		skillList_sort.setAdapter(skillSortFilterAdapter);
+		skillList_sort.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+			@Override
+			public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+				world.model.uiSelections.selectedSkillSort = skillList_sort.getSelectedItemPosition();
+				//reloadShownSort(); //Yet to be implemented
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> arg0) {
+				world.model.uiSelections.selectedSkillSort = 0;
+			}
+		});
+		skillList_sort.setSelection(world.model.uiSelections.selectedSkillSort);
 
 
 		skillList = (ListView) v.findViewById(R.id.heroinfo_listskills_list);

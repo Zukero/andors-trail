@@ -162,11 +162,11 @@ public final class ToolboxView extends LinearLayout implements OnClickListener {
 
 	public void updateIcons() {
 		setToolboxIcon(getVisibility() == View.VISIBLE);
-		if(!world.model.player.isWieldingRangedWeapon() && preferences.rangedHideUnusedAim){
+
+		if(preferences.aimButtonPosition != 0 // Hides button if shown elsewhere
+		||(!world.model.player.isWieldingRangedWeapon() && preferences.rangedHideUnusedAim)) //And when not wielding ranged wpn
 			toolbox_aim.setVisibility(GONE);
-		}
-		else
-			toolbox_aim.setVisibility(VISIBLE);
+		else toolbox_aim.setVisibility(VISIBLE);
 	}
 
 	private void setToolboxIcon(boolean opened) {

@@ -15,10 +15,13 @@ public final class InterfaceData {
 	public Coord selectedPosition;
 	public String selectedTabHeroInfo = "";
 	public int selectedQuestFilter = 0; // Should not be parceled
-	public int selectedInventoryCategory = 0; // Should not be parceled
-	public int selectedInventorySort = 0; // Should not be parceled
-	public String oldSortSelection = "-";
-	public int selectedSkillCategory = 0; // Should not be parceled
+
+	public int selectedInventoryCategory = 0; //All
+	public int selectedInventorySort = 0; //Unsorted
+	public String oldSortSelection = "-"; // Later will be used for reversing ascending/descending order
+
+	public int selectedSkillCategory = 0; //All
+	public int selectedSkillSort = 0; //Unsorted
 
 	public InterfaceData() { }
 

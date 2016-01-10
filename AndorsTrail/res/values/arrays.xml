@@ -38,6 +38,13 @@
 		<item>@string/skill_category_proficiency</item>
 	</string-array>
 
+	<string-array name="skill_sort_filters">
+		<item>@string/skill_sort_unsorted</item>
+		<item>@string/skill_sort_name</item>
+		<item>@string/skill_sort_points</item>
+		<item>@string/skill_sort_unlocked</item>
+	</string-array>
+
 	<string-array name="preferences_display_loot">
 		<item>@string/preferences_display_loot_dialog</item>
 		<item>@string/preferences_display_loot_dialog_on_items</item>
@@ -66,6 +73,16 @@
 		<item>400</item>
 		<item>1000</item>
 		<item>1500</item>
+	</string-array>
+	<string-array name="preferences_aim_button_position">
+		<item>@string/preferences_aim_button_position_toolbox</item>
+		<item>@string/preferences_aim_button_position_right</item>
+		<item>@string/preferences_aim_button_position_left</item>
+	</string-array>
+	<string-array name="preferences_aim_button_position_values">
+		<item>0</item>
+		<item>2</item>
+		<item>1</item>
 	</string-array>
 
 	<string-array name="preferences_movementmethods">
