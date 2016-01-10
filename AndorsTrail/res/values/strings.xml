@@ -374,12 +374,12 @@
 	<string name="inventory_category_quest">Quest Item</string>
 	<string name="inventory_category_other">Other</string>
 
+	<string name="inventory_sort_custom">Unsorted</string>
 	<string name="inventory_sort_name">Name</string>
 	<string name="inventory_sort_price">Price</string>
 	<string name="inventory_sort_quantity">Quantity</string>
 	<string name="inventory_sort_rarity">Rarity</string>
 	<string name="inventory_sort_type">Type</string>
-	<string name="inventory_sort_custom">Unsorted</string>
 
 	<string name="skill_category_all">All</string>
 	<string name="skill_category_offense"> Offense</string>
@@ -390,7 +390,7 @@
 	<string name="skill_category_speciality">Speciality</string>
 	<string name="skill_category_proficiency">Proficiency</string>
 
-	<string name="skill_sort_unsorted">Unsorted</string>
+	<string name="skill_sort_unsorted">--Soon--</string>
 	<string name="skill_sort_name">Name</string>
 	<string name="skill_sort_points">Points</string>
 	<string name="skill_sort_unlocked">Unlocked</string>

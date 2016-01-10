@@ -8,6 +8,7 @@
 		<item>@string/questlog_includecompleted_onlycompleted</item>
 	</string-array>
 
+	// Order is hardcoded within HeroInfoActivity_inventory
 	<string-array name="inventorylist_category_filters">
 		<item>@string/inventory_category_all</item>
 		<item>@string/inventory_category_weapons</item>
@@ -17,6 +18,7 @@
 		<item>@string/inventory_category_other</item>
 	</string-array>
 
+	// Order is hardcoded within ItemContainerAdapter
 	<string-array name="inventorylist_sort_filters">
 		<item>@string/inventory_sort_custom</item>
 		<item>@string/inventory_sort_name</item>
