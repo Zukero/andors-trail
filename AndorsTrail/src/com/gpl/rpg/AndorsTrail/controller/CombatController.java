@@ -149,11 +149,14 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	public boolean canExitCombat() {
 		if(noActionYet) return false; // In order to go into and stay in "aim selection" screen.
 
+		// So players can still snipe the fleeing monster
 		if(world.model.uiSelections.selectedMonster !=null)
-			if(world.model.uiSelections.selectedMonster.isFleeing()) // So players can still snipe the fleeing monster
+			if(world.model.uiSelections.selectedMonster.isFleeing()
+					&& MovementController.isWithinAttackRangeOfPlayer( world.model.player, world.model.uiSelections.selectedMonster))
 				return false;
 
-		//If the following two conditions are true then player needs to flee and can't just exit automatically
+		//If the following two conditions are true (adjacent aggressive and enraged within-range monsters)
+		// then player needs to flee and can't just exit automatically
 		return canFleeCombat() && getInRangeEnragedMonster() == null;
 	}
 
