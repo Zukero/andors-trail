@@ -31,7 +31,6 @@
             android:layout_toRightOf="@id/status_image"
             android:padding="8dp"
             android:scaleType="fitCenter"
-            android:gravity="center_vertical"
             android:src="@drawable/ui_icon_crosshair"
             style="@style/toolboxButtonTile"/>
     </LinearLayout>
@@ -52,7 +51,6 @@
             android:layout_margin="0sp"
             android:padding="8dp"
             android:scaleType="fitCenter"
-            android:gravity="center_vertical"
             android:src="@drawable/ui_icon_crosshair"
             style="@style/toolboxButtonTile"/>
 

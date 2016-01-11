@@ -12,8 +12,7 @@
             },
             "increaseAttackCost": 7,
             "increaseAttackChance": -30,
-            "increaseMaxRange": 5,
-            "increaseBlockChance": -35
+            "increaseMaxRange": 5
         },
         "hitEffect": {
             "conditionsTarget": [
@@ -22,6 +21,14 @@
                     "condition": "minor_stun",
                     "duration": 3,
                     "chance": 37
+                }
+            ],
+            "conditionsSource":[
+                {
+                    "magnitude":2,
+                    "condition":"minor_exposed",
+                    "duration":5,
+                    "chance": 100
                 }
             ]
         },
@@ -42,8 +49,7 @@
             },
             "increaseAttackCost":7,
             "increaseAttackChance":-20,
-            "increaseMaxRange":3,
-            "increaseBlockChance": -35
+            "increaseMaxRange":3
         },
         "hitEffect": {
             "conditionsTarget": [
@@ -53,11 +59,19 @@
                     "duration": 3,
                     "chance": 37
                 }
+            ],
+            "conditionsSource":[
+                {
+                    "magnitude":2,
+                    "condition":"minor_exposed",
+                    "duration":4,
+                    "chance": 100
+                }
             ]
         },
         "hasManualPrice": 1,
         "baseMarketCost":5666,
-        "displaytype": "legendary"
+        "displaytype": "extraordinary"
     },
     {
         "id":"wooden_crossbow",
@@ -72,8 +86,7 @@
             },
             "increaseAttackCost":4,
             "increaseAttackChance":-10,
-            "increaseMaxRange":2,
-            "increaseBlockChance": -20
+            "increaseMaxRange":2
         },
         "hitEffect": {
             "conditionsTarget": [
@@ -83,10 +96,18 @@
                     "duration": 2,
                     "chance": 37
                 }
+            ],
+            "conditionsSource":[
+                {
+                    "magnitude":1,
+                    "condition":"minor_exposed",
+                    "duration":5,
+                    "chance": 100
+                }
             ]
         },
         "hasManualPrice": 1,
         "baseMarketCost":2666,
-        "displaytype": "extraordinary"
+        "displaytype": "legendary"
     }
 ]

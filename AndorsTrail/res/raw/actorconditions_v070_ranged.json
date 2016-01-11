@@ -2,13 +2,24 @@
     {
         "id":"minor_stun",
         "abilityEffect":{
-            "increaseMaxAP":-10
+            "increaseMoveCost": 10,
+            "increaseAttackCost": 10,
+            "increaseBlockChance":-10
         },
-        "roundEffect":{
-            "increaseBlockChance":-20
-        },
-        "category":"mental",
+        "isStacking":1,
+        "category":"physical",
         "name":"Minor Stun",
         "iconID":"actorconditions_1:80"
+    },
+    {
+        "id":"minor_exposed",
+        "abilityEffect":{
+            "increaseMoveCost": 1,
+            "increaseBlockChance":-5
+        },
+        "category":"mental",
+        "isStacking":1,
+        "name":"Minor Exposed",
+        "iconID":"actorconditions_1:64"
     }
 ]

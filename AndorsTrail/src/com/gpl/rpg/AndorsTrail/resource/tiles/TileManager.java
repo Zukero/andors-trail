@@ -61,7 +61,7 @@ public final class TileManager {
 
 
 	public final TileCache tileCache = new TileCache();
-	public final TileCollection preloadedTiles = new TileCollection(113);
+	public final TileCollection preloadedTiles = new TileCollection(114); //Oh for the love of goodness, why is this number hardcoded?
 	public TileCollection currentMapTiles;
 	public TileCollection adjacentMapTiles;
 	private final HashSet<Integer> preloadedTileIDs = new HashSet<Integer>();

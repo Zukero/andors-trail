@@ -35,6 +35,7 @@ public final class ActorStatsController {
 	}
 
 	public void addConditionsFromEquippedItem(Player player, ItemType itemType) {
+		if(itemType.isRangedWeapon()) playerStatsListeners.onPlayerChangedRangedWeapon();
 		ItemTraits_OnEquip equipEffects = itemType.effects_equip;
 		if (equipEffects == null) return;
 		if (equipEffects.addedConditions == null) return;
@@ -43,6 +44,7 @@ public final class ActorStatsController {
 		}
 	}
 	public void removeConditionsFromUnequippedItem(Player player, ItemType itemType) {
+		if(itemType.isRangedWeapon()) playerStatsListeners.onPlayerChangedRangedWeapon();
 		ItemTraits_OnEquip equipEffects = itemType.effects_equip;
 		if (equipEffects == null) return;
 		if (equipEffects.addedConditions == null) return;

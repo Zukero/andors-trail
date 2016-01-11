@@ -103,6 +103,7 @@ public final class StatusView extends RelativeLayout implements PlayerStatsListe
 	public void updateStatus() {
 		updateHealth();
 		updateExperience();
+		updateAimIcon();
 	}
 
 	public void subscribe() {
@@ -140,12 +141,12 @@ public final class StatusView extends RelativeLayout implements PlayerStatsListe
 
 	private void updateAimIcon() {
 		//Hides buttons when disabled or not wielding ranged weapon.
-		if (preferences.aimButtonPosition !=1 ||(!world.model.player.isWieldingRangedWeapon() && preferences.rangedHideUnusedAim))
+		if (preferences.aimButtonPosition !=1 ||(!player.isWieldingRangedWeapon() && preferences.rangedHideUnusedAim))
 			quickAimImageLeft.setVisibility(GONE);
 		else quickAimImageLeft.setVisibility(VISIBLE);
 
 		if (preferences.aimButtonPosition !=2
-				||(!world.model.player.isWieldingRangedWeapon() && preferences.rangedHideUnusedAim))
+				||(!player.isWieldingRangedWeapon() && preferences.rangedHideUnusedAim))
 			quickAimImageRight.setVisibility(GONE);
 		else quickAimImageRight.setVisibility(VISIBLE);
 	}
@@ -167,5 +168,10 @@ public final class StatusView extends RelativeLayout implements PlayerStatsListe
 	@Override
 	public void onPlayerExperienceChanged(Player p) {
 		updateExperience();
+	}
+
+	@Override
+	public void onPlayerChangedRangedWeapon() {
+		this.updateAimIcon();
 	}
 }
