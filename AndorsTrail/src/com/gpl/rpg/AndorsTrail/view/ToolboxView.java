@@ -20,7 +20,9 @@ import com.gpl.rpg.AndorsTrail.Dialogs;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.controller.ItemController;
 import com.gpl.rpg.AndorsTrail.controller.WorldMapController;
+import com.gpl.rpg.AndorsTrail.model.item.Inventory;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
 
 public final class ToolboxView extends LinearLayout implements OnClickListener {
@@ -34,10 +36,13 @@ public final class ToolboxView extends LinearLayout implements OnClickListener {
 	private final ImageButton toolbox_map;
 	private final ImageButton toolbox_save;
 	private final ImageButton toolbox_combatlog;
+	private final ImageButton toolbox_preset;
 	private ImageButton toggleToolboxVisibility;
 	private QuickitemView quickitemView;
 	private boolean hideQuickslotsWhenToolboxIsClosed = false;
 	private static final int quickSlotIcon = R.drawable.ui_icon_equipment;
+	public static final int aimIcon = R.drawable.ui_icon_crosshair;
+	public static final int presetIcon = R.drawable.ui_icon_preset;
 	private final Drawable quickSlotIconsLockedDrawable;
 	private final Resources res;
 
@@ -70,6 +75,8 @@ public final class ToolboxView extends LinearLayout implements OnClickListener {
 		toolbox_save.setOnClickListener(this);
 		toolbox_combatlog = (ImageButton)findViewById(R.id.toolbox_combatlog);
 		toolbox_combatlog.setOnClickListener(this);
+		toolbox_preset = (ImageButton) findViewById(R.id.toolbox_preset);
+		toolbox_preset.setOnClickListener(this);
 
 		res = getResources();
 		quickSlotIconsLockedDrawable = new LayerDrawable(new Drawable[] {
@@ -110,6 +117,11 @@ public final class ToolboxView extends LinearLayout implements OnClickListener {
 		} else if (btn == toolbox_combatlog) {
 			Dialogs.showCombatLog(getContext(), controllers, world);
 			hide(false);
+		} else if (btn == toolbox_preset){
+			world.model.uiSelections.currentWornPreset++;
+			if(world.model.uiSelections.currentWornPreset > Inventory.NUM_PRESETS)
+				world.model.uiSelections.currentWornPreset = 1;
+			controllers.itemController.equipPreset(world.model.uiSelections.currentWornPreset);
 		}
 	}
 

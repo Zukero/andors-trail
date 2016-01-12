@@ -8,6 +8,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
+        android:gravity="center_vertical"
         android:layout_centerVertical="true"
         android:orientation="horizontal">
 
@@ -26,10 +27,10 @@
             android:id="@+id/statusview_quickaim_left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
             android:layout_margin="0sp"
             android:layout_toRightOf="@id/status_image"
             android:padding="8dp"
+            android:gravity="center_horizontal|center_vertical"
             android:scaleType="fitCenter"
             android:src="@drawable/ui_icon_crosshair"
             style="@style/toolboxButtonTile"/>
@@ -41,17 +42,18 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
+        android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <ImageButton
             android:id="@+id/statusview_quickaim_right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
             android:layout_margin="0sp"
             android:padding="8dp"
             android:scaleType="fitCenter"
             android:src="@drawable/ui_icon_crosshair"
+            android:gravity="center_horizontal|center_vertical"
             style="@style/toolboxButtonTile"/>
 
         <ImageButton

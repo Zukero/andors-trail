@@ -16,6 +16,9 @@
 		<item>@string/inventory_category_usable</item>
 		<item>@string/inventory_category_quest</item>
 		<item>@string/inventory_category_other</item>
+		<item>@string/inventory_category_preset1</item>
+		<item>@string/inventory_category_preset2</item>
+		<item>@string/inventory_category_preset3</item>
 	</string-array>
 
 	<!-- Order is hardcoded within ItemContainerAdapter method-->

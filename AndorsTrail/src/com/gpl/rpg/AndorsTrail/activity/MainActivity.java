@@ -22,6 +22,7 @@ import com.gpl.rpg.AndorsTrail.controller.listeners.ActorConditionListener;
 import com.gpl.rpg.AndorsTrail.controller.listeners.CombatActionListener;
 import com.gpl.rpg.AndorsTrail.controller.listeners.CombatTurnListener;
 import com.gpl.rpg.AndorsTrail.controller.listeners.PlayerMovementListener;
+import com.gpl.rpg.AndorsTrail.controller.listeners.QuickSlotListener;
 import com.gpl.rpg.AndorsTrail.controller.listeners.WorldEventListener;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.model.actor.Actor;
@@ -46,7 +47,8 @@ public final class MainActivity
 		, CombatActionListener
 		, CombatTurnListener
 		, WorldEventListener
-		, ActorConditionListener{
+		, ActorConditionListener
+		, QuickSlotListener{
 
 	public static final int INTENTREQUEST_MONSTERENCOUNTER = 2;
 	public static final int INTENTREQUEST_CONVERSATION = 4;
@@ -189,6 +191,7 @@ public final class MainActivity
 		controllers.combatController.combatTurnListeners.remove(this);
 		controllers.mapController.worldEventListeners.remove(this);
 		controllers.actorStatsController.actorConditionListeners.remove(this);
+		controllers.itemController.quickSlotListeners.remove(this);
 	}
 
 	private void subscribeToModelChanges() {
@@ -197,6 +200,7 @@ public final class MainActivity
 		controllers.combatController.combatActionListeners.add(this);
 		controllers.movementController.playerMovementListeners.add(this);
 		controllers.actorStatsController.actorConditionListeners.add(this);
+		controllers.itemController.quickSlotListeners.add(this);
 		statusview.subscribe();
 		quickitemview.subscribe();
 		mainview.subscribe();
@@ -529,5 +533,16 @@ public final class MainActivity
 	public void onActorConditionRoundEffectApplied(Actor actor, ActorCondition condition){
 		message(getString(R.string.combat_actorcondition_applied, condition.conditionType.name,actor.getName()),
 				getString(R.string.combat_actorcondition_applied_repeat, condition.conditionType.name, actor.getName(),  repeatFiller));
+	}
+
+	@Override
+	public void onQuickSlotChanged(int slotId) {}
+
+	@Override
+	public void onQuickSlotUsed(int slotId) {}
+
+	@Override
+	public void onPresetLoaded(Integer presetNumber) {
+		message(getString(R.string.inventory_preset_loaded, presetNumber));
 	}
 }

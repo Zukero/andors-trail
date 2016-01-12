@@ -192,15 +192,21 @@ public final class SkillListAdapter extends ArrayAdapter<SkillInfo> {
 		Comparator<SkillInfo> comparatorUnlocked = new Comparator<SkillInfo>() {
 			@Override
 			public int compare(SkillInfo item1, SkillInfo item2) {
+				// First compare by whether requirements are met
 				if(item1.canLevelUpSkillTo(player, player.getSkillLevel(item1.id) + 1)
 				&& !(item2.canLevelUpSkillTo(player, player.getSkillLevel(item2.id) +1)))
 					return -1;
 				else if(!(item1.canLevelUpSkillTo(player, player.getSkillLevel(item1.id) +1))
 					&& item2.canLevelUpSkillTo(player, player.getSkillLevel(item2.id) +1))
 					return 1;
-				else
-					return  r.getString(SkillInfoActivity.getSkillTitleResourceID(item1.id)).compareTo(
+				else { // Then compare by number of requirements (complexity)
+					if(item1.levelupRequirements.length< item2.levelupRequirements.length)
+						return -1;
+					else if(item1.levelupRequirements.length > item2.levelupRequirements.length)
+						return 1;
+					return r.getString(SkillInfoActivity.getSkillTitleResourceID(item1.id)).compareTo(
 							r.getString(SkillInfoActivity.getSkillTitleResourceID(item2.id)));
+				}
 			}
 		};
 		this.sort(comparatorUnlocked);

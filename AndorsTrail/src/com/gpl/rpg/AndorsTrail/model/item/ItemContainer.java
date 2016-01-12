@@ -1,7 +1,6 @@
 package com.gpl.rpg.AndorsTrail.model.item;
 
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.controller.ItemController;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 
 import java.io.DataInputStream;

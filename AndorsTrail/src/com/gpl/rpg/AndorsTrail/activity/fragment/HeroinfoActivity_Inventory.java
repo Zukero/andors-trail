@@ -46,6 +46,9 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 	private ItemContainerAdapter inventoryUsableListAdapter;
 	private ItemContainerAdapter inventoryQuestListAdapter;
 	private ItemContainerAdapter inventoryOtherListAdapter;
+	private ItemContainerAdapter inventoryPresetOneListAdapter;
+	private ItemContainerAdapter inventoryPresetTwoListAdapter;
+	private ItemContainerAdapter inventoryPresetThreeListAdapter;
 	private Spinner inventorylist_categories;
 	private Spinner inventorylist_sort;
 
@@ -299,6 +302,15 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 		else if (v == 5) { //Other items
 			return inventoryOtherListAdapter.getItem(position).itemType;
 		}
+		else if (v == 6) { // Preset1 items
+			return inventoryPresetOneListAdapter.getItem(position).itemType;
+		}else if (v == 7) { // p2 items
+			return inventoryPresetTwoListAdapter.getItem(position).itemType;
+		}else if (v == 8) { // p3 items
+			return inventoryPresetThreeListAdapter.getItem(position).itemType;
+		}
+
+		// Better than crashing...
 		return inventoryListAdapter.getItem(position).itemType;
 
 	}
@@ -363,6 +375,23 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 		case R.id.inv_menu_movebottom:
 			player.inventory.sortToBottom(getSelectedItemType(info).id);
 			break;
+		case R.id.inv_menu_assign_preset:
+			lastSelectedItem = getSelectedItemType(info);
+			break;
+		case R.id.inv_assign_preset1:
+			player.inventory.assignToPreset(lastSelectedItem, 1);
+			updateItemList();
+			break;
+		case R.id.inv_assign_preset2:
+			player.inventory.assignToPreset(lastSelectedItem, 2);
+			updateItemList();
+			break;
+		case R.id.inv_assign_preset3:
+			player.inventory.assignToPreset(lastSelectedItem, 3);
+			updateItemList();
+			break;
+		case R.id.inv_unassign_preset:
+			player.inventory.unassignFromPresets(lastSelectedItem);
 		default:
 			return super.onContextItemSelected(item);
 		}
@@ -420,28 +449,47 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 		startActivityForResult(intent, INTENTREQUEST_ITEMINFO);
 	}
 
-	private void reloadShownCategory() { //Inefficent filtering because just rebuilds a new list???
+	private void reloadShownCategory() { // Apologies about the code duplication,
+	// just didn't seem to make sense as an array, although I did create a nice array for skill category adapters.
 		int v = world.model.uiSelections.selectedInventoryCategory;
 
 		// Decide which category to show
 		if (v == 0) { //All items
 			inventoryList.setAdapter(inventoryListAdapter);
+			inventoryListAdapter.notifyDataSetChanged();
 		} else if (v == 1) { //Weapon items
 			inventoryWeaponsListAdapter =new ItemContainerAdapter(getActivity(), world.tileManager, player.inventory.buildWeaponItems(), player, wornTiles);
 			inventoryList.setAdapter(inventoryWeaponsListAdapter);
+			inventoryWeaponsListAdapter.notifyDataSetChanged();
 		} else if (v == 2) { //Armor items
 			inventoryArmorListAdapter =new ItemContainerAdapter(getActivity(), world.tileManager, player.inventory.buildArmorItems(), player, wornTiles);
 			inventoryList.setAdapter(inventoryArmorListAdapter);
+			inventoryArmorListAdapter.notifyDataSetChanged();
 		} else if (v == 3) { //Usable items
 			inventoryUsableListAdapter =new ItemContainerAdapter(getActivity(), world.tileManager, player.inventory.buildUsableItems(), player, wornTiles);
 			inventoryList.setAdapter(inventoryUsableListAdapter);
+			inventoryUsableListAdapter.notifyDataSetChanged();
 		}else if (v == 4) { //Quest items
 			inventoryQuestListAdapter =new ItemContainerAdapter(getActivity(), world.tileManager, player.inventory.buildQuestItems(), player, wornTiles);
 			inventoryList.setAdapter(inventoryQuestListAdapter);
+			inventoryQuestListAdapter.notifyDataSetChanged();
 		}
 		else if (v == 5) { //Other items
 			inventoryOtherListAdapter =new ItemContainerAdapter(getActivity(), world.tileManager, player.inventory.buildOtherItems(), player, wornTiles);
 			inventoryList.setAdapter(inventoryOtherListAdapter);
+			inventoryOtherListAdapter.notifyDataSetChanged();
+		}else if (v == 6) { // Preset 1
+			inventoryPresetOneListAdapter =new ItemContainerAdapter(getActivity(), world.tileManager, player.inventory.getPresetItems(1), player, wornTiles);
+			inventoryList.setAdapter(inventoryPresetOneListAdapter);
+			inventoryPresetOneListAdapter.notifyDataSetChanged();
+		}else if (v == 7) { // Preset 2
+			inventoryPresetTwoListAdapter =new ItemContainerAdapter(getActivity(), world.tileManager, player.inventory.getPresetItems(2), player, wornTiles);
+			inventoryList.setAdapter(inventoryPresetTwoListAdapter);
+			inventoryPresetTwoListAdapter.notifyDataSetChanged();
+		}else if (v == 8) { // Preset3
+			inventoryPresetThreeListAdapter =new ItemContainerAdapter(getActivity(), world.tileManager, player.inventory.getPresetItems(3), player, wornTiles);
+			inventoryList.setAdapter(inventoryPresetThreeListAdapter);
+			inventoryPresetThreeListAdapter.notifyDataSetChanged();
 		}
 		//updateItemList();
 	}
@@ -451,7 +499,10 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 
 		inventoryListAdapter.reloadShownSort(selected, world.model.uiSelections.oldSortSelection, player.inventory, player);
 
-		world.model.uiSelections.oldSortSelection = selected;
+		// Currently not functional, perhaps because selection only updates when changed.
+		if(world.model.uiSelections.oldSortSelection == selected)
+			world.model.uiSelections.oldSortSelection = 0;
+		else world.model.uiSelections.oldSortSelection = selected;
 		updateItemList();
 	}
 

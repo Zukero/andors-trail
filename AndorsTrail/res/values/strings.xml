@@ -368,12 +368,21 @@
 	<string name="inventory_assign_slot3">Slot 3</string>
 	<string name="inventory_unassign">Un-assign quick slot</string>
 
+	<string name="inventory_assign_preset">Assign to preset</string>
+	<string name="inventory_assign_preset1">Preset 1</string>
+	<string name="inventory_assign_preset2">Preset 2</string>
+	<string name="inventory_assign_preset3">Preset 3</string>
+	<string name="inventory_unassign_preset">Un-assign from preset</string>
+
 	<string name="inventory_category_all">All</string>
 	<string name="inventory_category_weapons">Weapon</string>
 	<string name="inventory_category_armor">Armor</string>
 	<string name="inventory_category_usable">Consumable</string>
 	<string name="inventory_category_quest">Quest Item</string>
 	<string name="inventory_category_other">Other</string>
+	<string name="inventory_category_preset1">Preset #1</string>
+	<string name="inventory_category_preset2">Preset #2</string>
+	<string name="inventory_category_preset3">Preset #3</string>
 
 	<string name="inventory_sort_custom">Unsorted</string>
 	<string name="inventory_sort_name">Name</string>
@@ -726,4 +735,6 @@ Every skill level increases the attack chance of weapons with %1$d %% of their o
 	<string name="combat_actorcondition_duration_repeat">Decreased duration of %1$s on %2$s. (x%3$s)</string>
 	<string name="combat_actorcondition_magnitude">Decreased magnitude of %1$s on %2$s.</string>
 	<string name="combat_actorcondition_magnitude_repeat">Decreased magnitude of %1$s on %2$s. (x%3$s)</string>
+
+	<string name="inventory_preset_loaded">Loaded preset %1$d</string>
 </resources>

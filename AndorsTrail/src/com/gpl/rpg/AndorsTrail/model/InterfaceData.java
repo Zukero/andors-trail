@@ -18,11 +18,10 @@ public final class InterfaceData {
 
 	public int selectedInventoryCategory = 0; //All
 	public int selectedInventorySort = 0; //Unsorted
+	public int currentWornPreset = 0;
 	public int oldSortSelection = 0; // Later will be used for reversing ascending/descending order
-
 	public int selectedSkillCategory = 0; //All
 	public int selectedSkillSort = 0; //Unsorted
-
 	public int selectedShopSort = 0; //Unsorted
 
 	public InterfaceData() { }

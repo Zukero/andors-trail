@@ -75,6 +75,7 @@ public final class ItemController {
 		controllers.actorStatsController.removeConditionsFromUnequippedItem(player, removedItemType);
 	}
 
+
 	public void useItem(ItemType type) {
 		if (!type.isUsable()) return;
 		final Player player = world.model.player;
@@ -90,6 +91,16 @@ public final class ItemController {
 
 		//TODO: provide feedback that the item has been used.
 		//context.mainActivity.message(androidContext.getResources().getString(R.string.inventory_item_used, type.name));
+	}
+
+	public void equipPreset(int presetNumber){
+		ItemContainer preset = world.model.player.inventory.getPresetItems(presetNumber);
+		for(ItemEntry i : preset.items){
+			equipItem(i.itemType, i.itemType.category.inventorySlot);
+		}
+		world.model.player.inventory.currentWornPreset = presetNumber;
+		quickSlotListeners.onPresetLoaded(presetNumber);
+
 	}
 
 	public void playerSteppedOnLootBag(Loot loot) {

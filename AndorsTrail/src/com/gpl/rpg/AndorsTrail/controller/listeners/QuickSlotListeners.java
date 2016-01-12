@@ -12,6 +12,10 @@ public final class QuickSlotListeners extends ListOfListeners<QuickSlotListener>
 		@Override public void call(QuickSlotListener listener, Integer slotId) { listener.onQuickSlotUsed(slotId); }
 	};
 
+	private final Function1<QuickSlotListener, Integer> onPresetLoaded = new Function1<QuickSlotListener, Integer>() {
+		@Override public void call(QuickSlotListener listener, Integer presetNumber) { listener.onPresetLoaded(presetNumber); }
+	};
+
 	@Override
 	public void onQuickSlotChanged(int slotId) {
 		callAllListeners(this.onQuickSlotChanged, slotId);
@@ -20,5 +24,10 @@ public final class QuickSlotListeners extends ListOfListeners<QuickSlotListener>
 	@Override
 	public void onQuickSlotUsed(int slotId) {
 		callAllListeners(this.onQuickSlotUsed, slotId);
+	}
+
+	@Override
+	public void onPresetLoaded(Integer presetNumber) {
+		callAllListeners(this.onPresetLoaded, presetNumber);
 	}
 }
