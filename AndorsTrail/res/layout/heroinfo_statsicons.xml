@@ -5,6 +5,14 @@
 	android:gravity="right"
 	android:orientation="vertical" >
 
+	<Button
+		android:id="@+id/inventory_preset_button"
+		style="@style/statsBoxStyle"
+		android:layout_width="@dimen/boxshape_width"
+		android:layout_height="wrap_content"
+		android:drawableLeft="@drawable/ui_icon_preset"
+		android:text="inventory_category_preset_none"/>
+
 	<TextView
 		android:id="@+id/heroinfo_stats_gold"
 		style="@style/statsBoxStyle"
@@ -31,5 +39,51 @@
 		android:drawableLeft="@drawable/equip_shield"
 		android:text="@string/actorinfo_defense"
 		/>
+
+	<EditText
+		android:id="@+id/preset_name_edit"
+		android:layout_width="@dimen/boxshape_width"
+		android:layout_height="wrap_content"
+		style="@style/statsBoxStyle"
+		android:visibility="gone"/>
+
+	<TextView
+		android:id="@+id/preset_name_cost"
+		android:layout_width="@dimen/boxshape_width"
+		android:layout_height="wrap_content"
+		style="@style/statsBoxStyle"
+		android:text="@string/heroinfo_reequip_cost"
+		android:visibility="gone"/>
+
+	<TextView
+		android:id="@+id/preset_name_delete"
+		android:layout_width="@dimen/boxshape_width"
+		android:layout_height="wrap_content"
+		style="@style/statsBoxStyle"
+		android:text="@string/inventory_preset_delete"
+		android:visibility="gone"/>
+	<TextView
+		android:id="@+id/preset_quickswitch_one"
+		style="@style/statsBoxStyle"
+		android:layout_width="@dimen/boxshape_width"
+		android:layout_height="wrap_content"
+		android:visibility="gone"
+		/>
+	<TextView
+		android:id="@+id/preset_quickswitch_two"
+		style="@style/statsBoxStyle"
+		android:layout_width="@dimen/boxshape_width"
+		android:layout_height="wrap_content"
+		android:visibility="gone"
+		/>
+	<TextView
+		android:id="@+id/preset_quickswitch_three"
+		style="@style/statsBoxStyle"
+		android:layout_width="@dimen/boxshape_width"
+		android:layout_height="wrap_content"
+		android:visibility="gone"
+		/>
+
+
 
 </LinearLayout>

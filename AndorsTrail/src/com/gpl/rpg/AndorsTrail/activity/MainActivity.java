@@ -542,7 +542,20 @@ public final class MainActivity
 	public void onQuickSlotUsed(int slotId) {}
 
 	@Override
-	public void onPresetLoaded(Integer presetNumber) {
-		message(getString(R.string.inventory_preset_loaded, presetNumber));
+	public void onPresetLoaded(Integer presetIndex) {
+		if(world.model.player.inventory.getCurrentPresetName().equals("")){
+			world.model.player.inventory.setCurrentPresetNameByIndex(
+					getString(R.string.inventory_category_preset_default_repeat, presetIndex +1));
+		}
+		message(getString(R.string.inventory_preset_loaded_custom_name, world.model.player.inventory.getCurrentPresetName()));
+	}
+
+	@Override
+	public void onPresetLoadFailed(Integer presetIndex){
+		if(world.model.player.inventory.getCurrentPresetName().equals("")){
+			world.model.player.inventory.setCurrentPresetNameByIndex(
+					getString(R.string.inventory_category_preset_default_repeat, presetIndex));
+		}
+		message(getString(R.string.inventory_preset_load_failed, world.model.player.inventory.getCurrentPresetName()));
 	}
 }

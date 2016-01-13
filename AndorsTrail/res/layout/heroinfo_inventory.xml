@@ -15,7 +15,11 @@
 		android:layout_marginTop="10dp"
 		android:layout_marginBottom="5dp"
 		>
-	<Spinner
+		<!--<ImageButton
+			android:id="@+id/inventory_preset_button"
+			style="@style/toolboxButtonTile"
+			android:src="@drawable/ui_icon_preset" />-->
+		<Spinner
 		android:id="@+id/inventorylist_category_filters"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"

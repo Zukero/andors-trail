@@ -2,6 +2,7 @@ package com.gpl.rpg.AndorsTrail.model.item;
 
 public final class ItemCategory {
 
+
 	public static enum ItemCategorySize {
 		none, light, std, large;
 
@@ -59,14 +60,11 @@ public final class ItemCategory {
 		else if (size == ItemCategorySize.std) return true;
 		else return false;
 	}
+	public boolean isRing(){
+		return inventorySlot.equals(Inventory.WearSlot.rightring) || inventorySlot.equals(Inventory.WearSlot.leftring);
+	}
+	public boolean needsWeaponSlot() {
+		return isWeapon() || Inventory.WearSlot.shield.equals(inventorySlot);
 
-	/*public boolean isRangedWeapon() {
-		//if (!isWeapon()) return false;
-		if (id.equals("rangedweapon_small")
-				|| id.equals("rangedweapon_big")){
-			//todo,twirl I'm not sure how to integrate this with ATCS better
-			return true;
-		}
-		return false;
-	}*/
+	}
 }

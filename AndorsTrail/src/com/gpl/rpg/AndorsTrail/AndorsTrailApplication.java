@@ -22,7 +22,7 @@ public final class AndorsTrailApplication extends Application {
 	public static final boolean DEVELOPMENT_VALIDATEDATA = true;
 	public static final boolean DEVELOPMENT_DEBUGMESSAGES = true;
 	public static final boolean DEVELOPMENT_INCOMPATIBLE_SAVEGAMES = DEVELOPMENT_DEBUGRESOURCES || DEVELOPMENT_DEBUGBUTTONS || DEVELOPMENT_FASTSPEED;
-	public static final int CURRENT_VERSION = DEVELOPMENT_INCOMPATIBLE_SAVEGAMES ? 999 : 42; // version 43 introduces presets
+	public static final int CURRENT_VERSION = DEVELOPMENT_INCOMPATIBLE_SAVEGAMES ? 999 : 44; // version 43 introduces presets, 44 preset names
 	public static final String CURRENT_VERSION_DISPLAY = "UI/Ranged-Combat/Monster-AI Test";
 	public static final boolean IS_RELEASE_VERSION = !CURRENT_VERSION_DISPLAY.matches(".*[a-d].*");
 

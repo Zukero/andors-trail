@@ -32,6 +32,7 @@ public final class ItemController {
 	}
 
 	public void equipItem(ItemType type, Inventory.WearSlot slot) {
+		world.model.player.inventory.currentWornPreset = -1; // Always reset to 0; equipPreset() will post-set it properly.
 		if (!type.isEquippable()) return;
 		final Player player = world.model.player;
 		if (world.model.uiSelections.isInCombat) {
@@ -70,7 +71,7 @@ public final class ItemController {
 	private void unequipSlot(Player player, Inventory.WearSlot slot) {
 		ItemType removedItemType = player.inventory.getItemTypeInWearSlot(slot);
 		if (removedItemType == null) return;
-		player.inventory.addItem(removedItemType,1,true);
+		player.inventory.addItem(removedItemType, 1, true);
 		player.inventory.setItemTypeInWearSlot(slot, null);
 		controllers.actorStatsController.removeConditionsFromUnequippedItem(player, removedItemType);
 	}
@@ -93,14 +94,20 @@ public final class ItemController {
 		//context.mainActivity.message(androidContext.getResources().getString(R.string.inventory_item_used, type.name));
 	}
 
-	public void equipPreset(int presetNumber){
-		ItemContainer preset = world.model.player.inventory.getPresetItems(presetNumber);
+	public boolean equipPreset(int presetIndex){
+		if(world.model.uiSelections.isInCombat)
+			if(world.model.player.getCurrentAP() < getPresetEquipCost(world.model.player, presetIndex)){
+				quickSlotListeners.onPresetLoadFailed(presetIndex);
+				return false;
+			}
+		ItemContainer preset = world.model.player.inventory.getPresetItems(presetIndex);
+		//if(preset.isEmpty()) return;
 		for(ItemEntry i : preset.items){
 			equipItem(i.itemType, i.itemType.category.inventorySlot);
 		}
-		world.model.player.inventory.currentWornPreset = presetNumber;
-		quickSlotListeners.onPresetLoaded(presetNumber);
-
+		world.model.player.inventory.currentWornPreset = presetIndex;
+		quickSlotListeners.onPresetLoaded(presetIndex);
+		return true;
 	}
 
 	public void playerSteppedOnLootBag(Loot loot) {
@@ -362,5 +369,19 @@ public final class ItemController {
 	public void setQuickItem(ItemType itemType, int quickSlotId) {
 		world.model.player.inventory.quickitem[quickSlotId] = itemType;
 		quickSlotListeners.onQuickSlotChanged(quickSlotId);
+	}
+
+	public int getPresetEquipCost(Player player, int currentWornPreset) {
+		int total = 0;
+		ItemType temp;
+		if(currentWornPreset <0 || currentWornPreset>= player.inventory.presetsAll.length)
+			return total;
+		if(player.inventory.presetsAll[currentWornPreset] == null) return total;
+		for(int i=0; i<player.inventory.presetsAll[currentWornPreset].size(); i++){
+			temp = player.inventory.presetsAll[currentWornPreset].get(i);
+			if(temp.isEquippable())
+				total+= player.getReequipCost();
+		}
+		return total;
 	}
 }

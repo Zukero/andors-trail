@@ -12,6 +12,7 @@
 	<dimen name="dialog_iconpadding_bottom">10sp</dimen>
 
 	<dimen name="boxshape_margin">5dp</dimen>
+	<dimen name="inventorystatbox_margin">4dp</dimen>
 	<dimen name="boxshape_width">100dp</dimen>
 
 	<dimen name="section_margin">10dp</dimen>

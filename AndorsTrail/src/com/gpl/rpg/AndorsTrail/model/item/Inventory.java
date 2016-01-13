@@ -14,6 +14,7 @@ import java.util.ArrayList;
 
 public final class Inventory extends ItemContainer {
 
+
     public static enum WearSlot {
         weapon, shield, head, body, hand, feet, neck, leftring, rightring;
 
@@ -31,7 +32,8 @@ public final class Inventory extends ItemContainer {
     private final ItemType[] wear = new ItemType[NUM_WORN_SLOTS];
     public final ItemType[] quickitem = new ItemType[NUM_QUICK_SLOTS];
     public final ArrayList<ItemType>[] presetsAll = (ArrayList<ItemType>[]) new ArrayList[NUM_PRESETS];
-    public int currentWornPreset = 0;
+    public String[] namePresets = new String[NUM_PRESETS];
+    public int currentWornPreset = 0; // -1 means no preset
 
 
     public Inventory() {
@@ -91,17 +93,12 @@ public final class Inventory extends ItemContainer {
         }
     }
 
-    public void assignToPreset(ItemType item, int presetNumber) {
-        assignToPreset(item, (byte) presetNumber);
-    }
-
-    public void assignToPreset(ItemType item, byte presetNumber) {
+    public void assignToPreset(ItemType item, int presetIndex) {
         if (item == null) return;
-        int presetIndex = presetNumber - 1;
 
-        if (presetsAll[presetIndex] == null){
+        if (presetsAll[presetIndex] == null) {
             presetsAll[presetIndex] = new ArrayList<ItemType>();
-            presetsAll[presetIndex].add(item);
+            addToPreset(presetIndex, item);
             return;
         }
 
@@ -109,36 +106,51 @@ public final class Inventory extends ItemContainer {
             addToPreset(presetIndex, item);
             return;
         }
-        boolean firstWeapon = true;
+        boolean anotherWeapon = true;
+        boolean anotherRing = true;
         WearSlot destSlot = item.category.inventorySlot;
+        int neededSlots = 1;
+        if (item.isTwohandWeapon())  neededSlots = 2;
         for (ItemType i : presetsAll[presetIndex]) {
-            if(item.category.inventorySlot.equals(i.category.inventorySlot)){
-                if (item.isWeapon()){
-                    if (item.isTwohandWeapon() || i.isTwohandWeapon()) { //Only one two-handed weapon
-                        presetsAll[presetIndex].remove(i);
-                        addToPreset(presetIndex, item);
-                        return;
-                    }
-                    else if(firstWeapon)
-                            firstWeapon = false;
-                    else {
-                        presetsAll[presetIndex].remove(i);
-                        addToPreset(presetIndex, item);
-                        return;
-                    }
-                }
-                else {
+            if(i == null) continue;
+            if(i.needsWeaponSlot() && item.needsWeaponSlot()){
+                if (getPresetWeaponSlotsUsed(presetIndex) >= neededSlots) {
                     presetsAll[presetIndex].remove(i);
-                    addToPreset(presetIndex, item);
-                    return;
+                    break;
                 }
+            }
+            else if((i.isRing()) && item.isRing()) {
+                if(anotherRing) anotherRing = false;
+                else{
+                    presetsAll[presetIndex].remove(i);
+                    break;
+                }
+            }
+            else if (destSlot.equals(i.category.inventorySlot)) {
+                    presetsAll[presetIndex].remove(i);
+                    break;
             }
         }
         addToPreset(presetIndex, item);
     }
-    public void addToPreset(int presetIndex, ItemType item){
+
+    public void addToPreset(int presetIndex, ItemType item) {
         if (presetsAll[presetIndex].indexOf(item) == -1)
             presetsAll[presetIndex].add(item);
+    }
+
+    public int getPresetWeaponSlotsUsed(int presetIndex){
+        int slotsUsed = 0;
+        for (ItemType i : presetsAll[presetIndex]) {
+            if(!i.isEquippable()) continue;
+            if(i.needsWeaponSlot()){
+                if(i.isTwohandWeapon())
+                    slotsUsed +=2;
+                else
+                    slotsUsed++;
+            }
+        }
+        return slotsUsed;
     }
 
     public Inventory buildQuestItems() {
@@ -202,37 +214,57 @@ public final class Inventory extends ItemContainer {
         return otherItems;
     }
 
-    public ItemContainer getPresetItems(int presetNumber) {
-        return getPresetItems((byte) presetNumber);
-    }
+    public ItemContainer getPresetItems(int presetIndex) {
+        ItemContainer generatedPreset = new ItemContainer();
+        if(presetIndex < 0 || presetIndex >= presetsAll.length) return generatedPreset;
 
-    public ItemContainer getPresetItems(byte presetNumber) {
-        if (presetsAll[presetNumber - 1] == null) presetsAll[presetNumber - 1] = new ArrayList<>();
+        if (presetsAll[presetIndex] == null) presetsAll[presetIndex] = new ArrayList<>();
         //rebuildPresetIndices(presetNumber); // redundant, method assignToPreset doesn't do this after assign
 
-        ItemContainer generatedPreset = new ItemContainer();
-        for (int i = 0; i < presetsAll[presetNumber - 1].size(); i++)
-            generatedPreset.addItem(presetsAll[presetNumber - 1].get(i),
-                    this.getItemQuantity(presetsAll[presetNumber - 1].get(i).id));
+
+        for (int i = 0; i < presetsAll[presetIndex].size(); i++)
+            generatedPreset.addItem(presetsAll[presetIndex].get(i),
+                    this.getItemQuantity(presetsAll[presetIndex].get(i).id));
 
         return generatedPreset;
     }
 
-    public void unassignFromPresets(ItemType lastSelectedItem) {
-        for (int j = 0; j < presetsAll.length; j++)
-            presetsAll[j].remove(lastSelectedItem);
+    public void unassignFromPresets(ItemType lastSelectedItem, int presetNumber) {
+        if(presetNumber ==0)
+            for (int j = 0; j < presetsAll.length; j++)
+                presetsAll[j].remove(lastSelectedItem);
+        else presetsAll[presetNumber].remove(lastSelectedItem);
+
     }
 
-    /*public int getIndexOfContainingPreset(ItemType item) {
-        if (item == null) return 0;
-        for (int i = 0; i < presetsAll.length; i++) {
-            for (int j = 0; j < presetsAll[i].size(); j++) {
-                if (item.equals(presetsAll[i].get(j)))
-                    return i + 1;
-            }
-        }
-        return 0;
-    }*/
+    public void deletePreset(int currentWornPreset) {
+        if (currentWornPreset<presetsAll.length && !(currentWornPreset <0))
+            presetsAll[currentWornPreset] =  new ArrayList<>();
+    }
+
+    public String getCurrentPresetName() {
+        getCurrentPresetIndex();
+        if(currentWornPreset == -1 ) return "";
+        return namePresets[getCurrentPresetIndex()];
+    }
+
+    public int getCurrentPresetIndex(){
+        if(currentWornPreset >= namePresets.length)
+            currentWornPreset = -1;
+        return currentWornPreset;
+    }
+
+    public void setPresetNameByIndex(int presetIndex, String newName){
+        if(presetIndex >= namePresets.length || presetIndex <0) return;
+        namePresets[presetIndex] = newName;
+    }
+    public void setCurrentPresetNameByIndex(String newName){
+        setPresetNameByIndex(currentWornPreset, newName);
+    }
+
+    public void resetCurrentPresetNameByIndex() {
+        setPresetNameByIndex(currentWornPreset, "");
+    }
 
 
     // ====== PARCELABLE ===================================================================
@@ -269,11 +301,25 @@ public final class Inventory extends ItemContainer {
             }
         }
 
-        for(int i =0; i< NUM_PRESETS; i++)
-            presetsAll[i] = new ArrayList<>();
-        final int presetItems = src.readInt();
-        for (int i = 0; i < presetItems; i++) {
-            assignToPreset(world.itemTypes.getItemType(src.readUTF()), src.readByte());
+        if (fileversion > 42) {
+            for (int i = 0; i < NUM_PRESETS; i++)
+                presetsAll[i] = new ArrayList<>();
+            final int presetItems = src.readInt();
+            for (int i = 0; i < presetItems; i++) {
+                assignToPreset(world.itemTypes.getItemType(src.readUTF()), src.readByte());
+            }
+        }
+
+        if(fileversion>43){
+            int presetNb = src.readInt();
+            namePresets = new String[presetNb];
+            for(int i=0; i<presetNb; i++){
+                int nameLength = src.readInt();
+                this.namePresets[i] = "";
+                for (int j=0; j<nameLength; j++){
+                    this.namePresets[i] += src.readChar();
+                }
+            }
         }
     }
 
@@ -301,18 +347,28 @@ public final class Inventory extends ItemContainer {
         }
 
         int total = 0;
-        for (int i = 0; i < presetsAll.length; i++){
-            if(presetsAll[i] != null)
+        for (int i = 0; i < presetsAll.length; i++) {
+            if (presetsAll[i] != null)
                 total += presetsAll[i].size();
         }
 
         dest.writeInt(total);
         for (int i = 0; i < presetsAll.length; ++i) {
-            if(presetsAll[i] != null){
+            if (presetsAll[i] != null) {
                 for (int j = 0; j < presetsAll[i].size(); j++) {
-                dest.writeUTF(presetsAll[i].get(j).id);
-                dest.writeByte(i + 1);
+                    dest.writeUTF(presetsAll[i].get(j).id);
+                    dest.writeByte(i);
                 }
+            }
+        }
+
+        dest.writeInt(namePresets.length);
+        for(int i=0; i<namePresets.length; i++){
+            if(namePresets[i] == null)
+                dest.writeInt(0);
+            else {
+                dest.writeInt(namePresets[i].length());
+                dest.writeChars(namePresets[i]);
             }
         }
     }

@@ -48,6 +48,7 @@
 			android:text="@string/heroinfo_wornequipment"
 			/>
 
+
 		<LinearLayout
 			android:layout_width="wrap_content"
 			android:layout_height="match_parent"
@@ -59,7 +60,14 @@
 
 			<include layout="@layout/heroinfo_statsicons" />
 
+			<!--<ImageButton
+				android:id="@+id/inventory_preset_button"
+				style="@style/toolboxButtonTile"
+				android:src="@drawable/ui_icon_preset"
+				android:layout_gravity="top"/>-->
+
 		</LinearLayout>
+
 
 	</LinearLayout>
 

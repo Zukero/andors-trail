@@ -170,6 +170,11 @@ public final class QuickitemView extends LinearLayout implements OnClickListener
 	@Override
 	public void onPresetLoaded(Integer presetNumber) {}
 
+	@Override
+	public void onPresetLoadFailed(Integer presetNumber) {
+
+	}
+
 	public void subscribe() {
 		controllers.itemController.quickSlotListeners.add(this);
 	}

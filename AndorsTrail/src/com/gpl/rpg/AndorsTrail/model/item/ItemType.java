@@ -66,10 +66,12 @@ public final class ItemType {
 	}
 
 	public boolean isEquippable() {if(category == null) return false; return category.isEquippable(); }
+	public boolean isRing() {if(category == null) return false; return category.isRing(); }
 	public boolean isUsable() { if(category == null) return false; return category.isUsable(); }
 	public boolean isQuestItem() {if(category == null) return false; return displayType == DisplayType.quest; }
 	public boolean isOrdinaryItem() {if(category == null) return false; return displayType == DisplayType.ordinary; }
 	public boolean isWeapon() {if(category == null) return false; return category.isWeapon(); }
+	public boolean needsWeaponSlot() {if(category == null) return false; return category.needsWeaponSlot(); }
 	public boolean isArmor() { if(category == null) return false;return category.isArmor(); }
 	public boolean isShield() {if(category == null) return false; return category.isShield(); }
 	public boolean isTwohandWeapon() {if(category == null) return false; return category.isTwohandWeapon(); }

@@ -20,9 +20,7 @@ import com.gpl.rpg.AndorsTrail.Dialogs;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.controller.ItemController;
 import com.gpl.rpg.AndorsTrail.controller.WorldMapController;
-import com.gpl.rpg.AndorsTrail.model.item.Inventory;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
 
 public final class ToolboxView extends LinearLayout implements OnClickListener {
@@ -118,10 +116,12 @@ public final class ToolboxView extends LinearLayout implements OnClickListener {
 			Dialogs.showCombatLog(getContext(), controllers, world);
 			hide(false);
 		} else if (btn == toolbox_preset){
-			world.model.uiSelections.currentWornPreset++;
-			if(world.model.uiSelections.currentWornPreset > Inventory.NUM_PRESETS)
-				world.model.uiSelections.currentWornPreset = 1;
-			controllers.itemController.equipPreset(world.model.uiSelections.currentWornPreset);
+			world.model.player.inventory.currentWornPreset++;
+			world.model.player.inventory.getCurrentPresetIndex(); //refreshes it if over max number
+
+			if(world.model.player.inventory.currentWornPreset <0) // Do not try to equip the None preset.
+				world.model.player.inventory.currentWornPreset =0;
+			controllers.itemController.equipPreset(world.model.player.inventory.getCurrentPresetIndex());
 		}
 	}
 

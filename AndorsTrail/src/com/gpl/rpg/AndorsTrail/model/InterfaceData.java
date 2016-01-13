@@ -1,6 +1,7 @@
 package com.gpl.rpg.AndorsTrail.model;
 
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
+import com.gpl.rpg.AndorsTrail.model.item.Inventory;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 
 import java.io.DataInputStream;
@@ -18,11 +19,14 @@ public final class InterfaceData {
 
 	public int selectedInventoryCategory = 0; //All
 	public int selectedInventorySort = 0; //Unsorted
-	public int currentWornPreset = 0;
 	public int oldSortSelection = 0; // Later will be used for reversing ascending/descending order
 	public int selectedSkillCategory = 0; //All
 	public int selectedSkillSort = 0; //Unsorted
 	public int selectedShopSort = 0; //Unsorted
+
+	public boolean presetEditorVisible = false;
+	public boolean presetListVisible = false;
+	public int currentPresetInfo = 0;
 
 	public InterfaceData() { }
 
@@ -39,6 +43,8 @@ public final class InterfaceData {
 			this.selectedPosition = null;
 		}
 		this.selectedTabHeroInfo = src.readUTF();
+
+
 	}
 
 	public void writeToParcel(DataOutputStream dest) throws IOException {
