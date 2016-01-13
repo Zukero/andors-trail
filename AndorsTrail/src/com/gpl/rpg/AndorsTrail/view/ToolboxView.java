@@ -23,7 +23,7 @@ import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.WorldMapController;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
 
-public final class ToolboxView extends LinearLayout implements OnClickListener {
+public final class ToolboxView extends LinearLayout implements OnClickListener, View.OnLongClickListener {
 	private final WorldContext world;
 	private final ControllerContext controllers;
 	private final AndorsTrailPreferences preferences;
@@ -75,6 +75,7 @@ public final class ToolboxView extends LinearLayout implements OnClickListener {
 		toolbox_combatlog.setOnClickListener(this);
 		toolbox_preset = (ImageButton) findViewById(R.id.toolbox_preset);
 		toolbox_preset.setOnClickListener(this);
+		toolbox_preset.setOnLongClickListener(this);
 
 		res = getResources();
 		quickSlotIconsLockedDrawable = new LayerDrawable(new Drawable[] {
@@ -116,13 +117,18 @@ public final class ToolboxView extends LinearLayout implements OnClickListener {
 			Dialogs.showCombatLog(getContext(), controllers, world);
 			hide(false);
 		} else if (btn == toolbox_preset){
-			world.model.player.inventory.currentWornPreset++;
-			world.model.player.inventory.getCurrentPresetIndex(); //refreshes it if over max number
-
-			if(world.model.player.inventory.currentWornPreset <0) // Do not try to equip the None preset.
-				world.model.player.inventory.currentWornPreset =0;
-			controllers.itemController.equipPreset(world.model.player.inventory.getCurrentPresetIndex());
+			controllers.itemController.selectNextRealPreset(world.model.player);
 		}
+	}
+
+	@Override
+	public boolean onLongClick(View btn) {
+		if(btn == toolbox_preset)
+			controllers.itemController.equipNextPreset(world.model.player);
+		//if(btn == toolbox_aim) preferences.rangedAutoaim = ! preferences.rangedAutoaim; //todo,twirlimp add combatlog message
+		// or maybe long-clicking makes in range monsters glow?
+		return true;
+
 	}
 
 	private void toggleQuickslotItemView() {

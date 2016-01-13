@@ -379,6 +379,7 @@
 	<string name="inventory_preset_loaded_default">Loaded preset -- %1$d</string>
 	<string name="inventory_preset_load_failed">Not enough AP to load %1$s</string>
 	<string name="inventory_preset_loaded_custom_name">Loaded preset -- %1$s</string>
+	<string name="inventory_preset_selected">Selected preset -- %1$s</string>
 
 
 	<string name="inventory_category_all">All</string>

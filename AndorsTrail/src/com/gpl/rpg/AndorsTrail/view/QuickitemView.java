@@ -168,10 +168,15 @@ public final class QuickitemView extends LinearLayout implements OnClickListener
 	}
 
 	@Override
-	public void onPresetLoaded(Integer presetNumber) {}
+	public void onPresetLoaded(Integer presetNumber, String name) {}
 
 	@Override
-	public void onPresetLoadFailed(Integer presetNumber) {
+	public void onPresetLoadFailed(Integer presetNumber, String name) {
+
+	}
+
+	@Override
+	public void onPresetSelected(Integer index, String namePreset) {
 
 	}
 

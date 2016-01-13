@@ -32,7 +32,7 @@ public final class ItemController {
 	}
 
 	public void equipItem(ItemType type, Inventory.WearSlot slot) {
-		world.model.player.inventory.currentWornPreset = -1; // Always reset to 0; equipPreset() will post-set it properly.
+		world.model.player.inventory.currentSelectedPreset = -1; // Always reset to 0; equipPreset() will post-set it properly.
 		if (!type.isEquippable()) return;
 		final Player player = world.model.player;
 		if (world.model.uiSelections.isInCombat) {
@@ -94,19 +94,19 @@ public final class ItemController {
 		//context.mainActivity.message(androidContext.getResources().getString(R.string.inventory_item_used, type.name));
 	}
 
-	public boolean equipPreset(int presetIndex){
+	public boolean equipPreset(int presetIndex, Player player){
 		if(world.model.uiSelections.isInCombat)
-			if(world.model.player.getCurrentAP() < getPresetEquipCost(world.model.player, presetIndex)){
-				quickSlotListeners.onPresetLoadFailed(presetIndex);
+			if(player.getCurrentAP() < getPresetEquipCost(player, presetIndex)){
+				quickSlotListeners.onPresetLoadFailed(presetIndex, player.inventory.namePresets[presetIndex]);
 				return false;
 			}
-		ItemContainer preset = world.model.player.inventory.getPresetItems(presetIndex);
+		ItemContainer preset = player.inventory.getPresetItems(presetIndex);
 		//if(preset.isEmpty()) return;
 		for(ItemEntry i : preset.items){
 			equipItem(i.itemType, i.itemType.category.inventorySlot);
 		}
-		world.model.player.inventory.currentWornPreset = presetIndex;
-		quickSlotListeners.onPresetLoaded(presetIndex);
+		player.inventory.currentSelectedPreset = presetIndex;
+		quickSlotListeners.onPresetLoaded(presetIndex, player.inventory.namePresets[presetIndex]);
 		return true;
 	}
 
@@ -383,5 +383,23 @@ public final class ItemController {
 				total+= player.getReequipCost();
 		}
 		return total;
+	}
+
+	public void selectNextRealPreset(Player player) {
+		player.inventory.currentSelectedPreset++;
+		player.inventory.getCurrentPresetIndex(); //refreshes it if over max number
+
+		if(player.inventory.currentSelectedPreset <0) // Do not try to equip the None preset.
+			player.inventory.currentSelectedPreset =0;
+		quickSlotListeners.onPresetSelected(player.inventory.currentSelectedPreset,
+				player.inventory.getCurrentPresetName());
+	}
+
+	public boolean equipNextPreset(Player player) {
+		if(!equipPreset(player.inventory.getCurrentPresetIndex(), player)) {
+			player.inventory.currentSelectedPreset--;// revert changes. 0 might go to none but it's ok.
+			return false;
+		}
+		return true;
 	}
 }

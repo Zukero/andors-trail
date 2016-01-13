@@ -180,8 +180,8 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 		inventory_preset_button.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                world.model.player.inventory.currentWornPreset++;
-                controllers.itemController.equipPreset(world.model.player.inventory.getCurrentPresetIndex());
+                player.inventory.currentSelectedPreset++;
+                controllers.itemController.equipNextPreset(player);
                 update();
             }
         });
@@ -604,7 +604,7 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 				updateItemList();
 				break;
 			case R.id.inv_unassign_preset:
-				int preset = 0;
+				int preset = -1;
 				if (inventorylist_categories.getSelectedItemPosition() == 6)
 					preset = 0;
 				else if (inventorylist_categories.getSelectedItemPosition() == 7)

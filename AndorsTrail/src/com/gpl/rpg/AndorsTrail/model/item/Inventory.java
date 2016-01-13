@@ -1,10 +1,6 @@
 package com.gpl.rpg.AndorsTrail.model.item;
 
-import android.content.ClipData;
-
-import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.controller.ItemController;
 import com.gpl.rpg.AndorsTrail.savegames.LegacySavegameFormatReaderForItemContainer;
 
 import java.io.DataInputStream;
@@ -33,8 +29,7 @@ public final class Inventory extends ItemContainer {
     public final ItemType[] quickitem = new ItemType[NUM_QUICK_SLOTS];
     public final ArrayList<ItemType>[] presetsAll = (ArrayList<ItemType>[]) new ArrayList[NUM_PRESETS];
     public String[] namePresets = new String[NUM_PRESETS];
-    public int currentWornPreset = 0; // -1 means no preset
-
+    public int currentSelectedPreset = 0; // -1 means no preset
 
     public Inventory() {
     }
@@ -153,6 +148,7 @@ public final class Inventory extends ItemContainer {
         return slotsUsed;
     }
 
+    // Move to item container?
     public Inventory buildQuestItems() {
         Inventory questItems = new Inventory();
         for (ItemEntry i : this.items) {
@@ -164,15 +160,7 @@ public final class Inventory extends ItemContainer {
         return questItems;
     }
 
-	/*public Inventory buildEquipableItems(){
-        Inventory equipableItems = new Inventory();
-		for(ItemEntry i: this.items){
-			if(i.itemType.isEquippable())
-				equipableItems.items.add(i);
-		}
-		return equipableItems;
-	}*/
-
+    // Move to item container?
     public Inventory buildUsableItems() {
         Inventory usableItems = new Inventory();
         for (ItemEntry i : this.items) {
@@ -183,6 +171,7 @@ public final class Inventory extends ItemContainer {
         return usableItems;
     }
 
+    // Move to item container?
     public Inventory buildWeaponItems() {
         Inventory weaponItems = new Inventory();
         for (ItemEntry i : this.items) {
@@ -193,6 +182,7 @@ public final class Inventory extends ItemContainer {
         return weaponItems;
     }
 
+    // Move to item container?
     public Inventory buildArmorItems() {
         Inventory armorItems = new Inventory();
         for (ItemEntry i : this.items) {
@@ -203,6 +193,7 @@ public final class Inventory extends ItemContainer {
         return armorItems;
     }
 
+    // Move to item container?
     public Inventory buildOtherItems() {
         Inventory otherItems = new Inventory();
         for (ItemEntry i : this.items) {
@@ -229,11 +220,11 @@ public final class Inventory extends ItemContainer {
         return generatedPreset;
     }
 
-    public void unassignFromPresets(ItemType lastSelectedItem, int presetNumber) {
-        if(presetNumber ==0)
+    public void unassignFromPresets(ItemType lastSelectedItem, int presetIndex) {
+        if(presetIndex <0)
             for (int j = 0; j < presetsAll.length; j++)
                 presetsAll[j].remove(lastSelectedItem);
-        else presetsAll[presetNumber].remove(lastSelectedItem);
+        else if (presetIndex< presetsAll.length) presetsAll[presetIndex].remove(lastSelectedItem);
 
     }
 
@@ -244,14 +235,16 @@ public final class Inventory extends ItemContainer {
 
     public String getCurrentPresetName() {
         getCurrentPresetIndex();
-        if(currentWornPreset == -1 ) return "";
+        if(currentSelectedPreset == -1 ) return "";
         return namePresets[getCurrentPresetIndex()];
     }
 
     public int getCurrentPresetIndex(){
-        if(currentWornPreset >= namePresets.length)
-            currentWornPreset = -1;
-        return currentWornPreset;
+        if(currentSelectedPreset <-1)
+            currentSelectedPreset = namePresets.length -1;
+        if(currentSelectedPreset >= namePresets.length)
+            currentSelectedPreset = -1;
+        return currentSelectedPreset;
     }
 
     public void setPresetNameByIndex(int presetIndex, String newName){
@@ -259,11 +252,11 @@ public final class Inventory extends ItemContainer {
         namePresets[presetIndex] = newName;
     }
     public void setCurrentPresetNameByIndex(String newName){
-        setPresetNameByIndex(currentWornPreset, newName);
+        setPresetNameByIndex(currentSelectedPreset, newName);
     }
 
     public void resetCurrentPresetNameByIndex() {
-        setPresetNameByIndex(currentWornPreset, "");
+        setPresetNameByIndex(currentSelectedPreset, "");
     }
 
 

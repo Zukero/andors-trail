@@ -542,20 +542,29 @@ public final class MainActivity
 	public void onQuickSlotUsed(int slotId) {}
 
 	@Override
-	public void onPresetLoaded(Integer presetIndex) {
-		if(world.model.player.inventory.getCurrentPresetName().equals("")){
+	public void onPresetLoaded(Integer presetIndex, String name) {
+		if(name.equals("")){
 			world.model.player.inventory.setCurrentPresetNameByIndex(
 					getString(R.string.inventory_category_preset_default_repeat, presetIndex +1));
 		}
-		message(getString(R.string.inventory_preset_loaded_custom_name, world.model.player.inventory.getCurrentPresetName()));
+		message(getString(R.string.inventory_preset_loaded_custom_name, name));
 	}
 
 	@Override
-	public void onPresetLoadFailed(Integer presetIndex){
-		if(world.model.player.inventory.getCurrentPresetName().equals("")){
+	public void onPresetLoadFailed(Integer presetIndex, String name){
+		if(name.equals("")){
 			world.model.player.inventory.setCurrentPresetNameByIndex(
 					getString(R.string.inventory_category_preset_default_repeat, presetIndex + 1));
 		}
-		message(getString(R.string.inventory_preset_load_failed, world.model.player.inventory.getCurrentPresetName()));
+		message(getString(R.string.inventory_preset_load_failed, name));
+	}
+
+	@Override
+	public void onPresetSelected(Integer presetIndex, String name){
+		if(name.equals("")){ // todo,twirl less hackish way of resetting.
+			world.model.player.inventory.setCurrentPresetNameByIndex(
+					getString(R.string.inventory_category_preset_default_repeat, presetIndex + 1));
+		}
+		message(getString(R.string.inventory_preset_selected, name));
 	}
 }

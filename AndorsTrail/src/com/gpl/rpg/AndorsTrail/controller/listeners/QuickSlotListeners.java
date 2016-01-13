@@ -11,12 +11,15 @@ public final class QuickSlotListeners extends ListOfListeners<QuickSlotListener>
 	private final Function1<QuickSlotListener, Integer> onQuickSlotUsed = new Function1<QuickSlotListener, Integer>() {
 		@Override public void call(QuickSlotListener listener, Integer slotId) { listener.onQuickSlotUsed(slotId); }
 	};
-
-	private final Function1<QuickSlotListener, Integer> onPresetLoaded = new Function1<QuickSlotListener, Integer>() {
-		@Override public void call(QuickSlotListener listener, Integer presetNumber) { listener.onPresetLoaded(presetNumber); }
+	private final Function2<QuickSlotListener, Integer, String> onPresetSelected = new Function2<QuickSlotListener, Integer,String>() {
+		@Override public void call(QuickSlotListener listener, Integer index, String name) { listener.onPresetSelected(index, name); }
 	};
-	private final Function1<QuickSlotListener, Integer> onPresetLoadFailed = new Function1<QuickSlotListener, Integer>() {
-		@Override public void call(QuickSlotListener listener, Integer presetNumber) { listener.onPresetLoaded(presetNumber); }
+
+	private final Function2<QuickSlotListener, Integer, String> onPresetLoaded = new Function2<QuickSlotListener, Integer, String>() {
+		@Override public void call(QuickSlotListener listener, Integer presetIndex, String name) { listener.onPresetLoaded(presetIndex, name); }
+	};
+	private final Function2<QuickSlotListener, Integer, String> onPresetLoadFailed = new Function2<QuickSlotListener, Integer, String>() {
+		@Override public void call(QuickSlotListener listener, Integer presetIndex, String name) { listener.onPresetLoaded(presetIndex, name); }
 	};
 
 
@@ -31,12 +34,17 @@ public final class QuickSlotListeners extends ListOfListeners<QuickSlotListener>
 	}
 
 	@Override
-	public void onPresetLoaded(Integer presetNumber) {
-		callAllListeners(this.onPresetLoaded, presetNumber);
+	public void onPresetLoaded(Integer presetNumber, String name) {
+		callAllListeners(this.onPresetLoaded, presetNumber, name);
 	}
 
 	@Override
-	public void onPresetLoadFailed(Integer presetNumber) {
-		callAllListeners(this.onPresetLoadFailed, presetNumber);
+	public void onPresetLoadFailed(Integer presetNumber, String name) {
+		callAllListeners(this.onPresetLoadFailed, presetNumber, name);
+	}
+
+	@Override
+	public void onPresetSelected(Integer index, String namePreset) {
+		callAllListeners(this.onPresetSelected, index, namePreset);
 	}
 }
