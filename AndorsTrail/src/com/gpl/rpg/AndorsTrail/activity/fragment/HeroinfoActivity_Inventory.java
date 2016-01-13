@@ -216,6 +216,10 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 				player.inventory.deletePreset(world.model.uiSelections.currentPresetInfo);
 				world.model.player.inventory.resetCurrentPresetNameByIndex();
 				updateCurrentPresetName();
+				preset_name_edit.setText(world.model.player.inventory.namePresets[world.model.uiSelections.currentPresetInfo]);
+				setPresetInfoVisiblity(View.GONE, world.model.uiSelections.currentPresetInfo);
+				setPresetListVisibility(View.VISIBLE);
+				updateItemList();
 				return true;
 			}
 		});
@@ -310,8 +314,10 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 
 	private void setPresetInfoVisiblity(int visibility, int presetIndex) {
 		preset_name_edit.setVisibility(visibility);
-		if(visibility == View.GONE)
+		if(visibility == View.GONE){
 			world.model.player.inventory.namePresets[presetIndex] = String.valueOf(preset_name_edit.getText());
+			updateCurrentPresetName();
+		}
 		else
 			preset_name_edit.setText(world.model.player.inventory.namePresets[presetIndex]);
 		preset_name_cost.setVisibility(visibility);
@@ -439,7 +445,7 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 			if (world.model.player.inventory.getCurrentPresetName()== null || world.model.player.inventory.getCurrentPresetName().equals(""))
 				world.model.player.inventory.setCurrentPresetNameByIndex(
 						getString(R.string.inventory_category_preset_default_repeat,
-								world.model.player.inventory.getCurrentPresetIndex()));
+								world.model.player.inventory.getCurrentPresetIndex()+1));
 			inventory_preset_button.setText(world.model.player.inventory.getCurrentPresetName());
 		} else {
 			inventory_preset_button.setText(getString(R.string.inventory_category_preset_none));

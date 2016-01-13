@@ -554,7 +554,7 @@ public final class MainActivity
 	public void onPresetLoadFailed(Integer presetIndex){
 		if(world.model.player.inventory.getCurrentPresetName().equals("")){
 			world.model.player.inventory.setCurrentPresetNameByIndex(
-					getString(R.string.inventory_category_preset_default_repeat, presetIndex));
+					getString(R.string.inventory_category_preset_default_repeat, presetIndex + 1));
 		}
 		message(getString(R.string.inventory_preset_load_failed, world.model.player.inventory.getCurrentPresetName()));
 	}

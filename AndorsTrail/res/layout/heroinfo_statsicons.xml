@@ -7,7 +7,7 @@
 
 	<Button
 		android:id="@+id/inventory_preset_button"
-		style="@style/statsBoxStyle"
+		style="@style/statsButtonStyle"
 		android:layout_width="@dimen/boxshape_width"
 		android:layout_height="wrap_content"
 		android:drawableLeft="@drawable/ui_icon_preset"
@@ -59,27 +59,30 @@
 		android:id="@+id/preset_name_delete"
 		android:layout_width="@dimen/boxshape_width"
 		android:layout_height="wrap_content"
-		style="@style/statsBoxStyle"
+		style="@style/statsButtonStyle"
 		android:text="@string/inventory_preset_delete"
 		android:visibility="gone"/>
 	<TextView
 		android:id="@+id/preset_quickswitch_one"
-		style="@style/statsBoxStyle"
+		style="@style/statsButtonStyle"
 		android:layout_width="@dimen/boxshape_width"
+		android:gravity="center_horizontal|center_vertical"
 		android:layout_height="wrap_content"
 		android:visibility="gone"
 		/>
 	<TextView
 		android:id="@+id/preset_quickswitch_two"
-		style="@style/statsBoxStyle"
+		style="@style/statsButtonStyle"
 		android:layout_width="@dimen/boxshape_width"
+		android:gravity="center_horizontal|center_vertical"
 		android:layout_height="wrap_content"
 		android:visibility="gone"
 		/>
 	<TextView
 		android:id="@+id/preset_quickswitch_three"
-		style="@style/statsBoxStyle"
+		style="@style/statsButtonStyle"
 		android:layout_width="@dimen/boxshape_width"
+		android:gravity="center_horizontal|center_vertical"
 		android:layout_height="wrap_content"
 		android:visibility="gone"
 		/>
