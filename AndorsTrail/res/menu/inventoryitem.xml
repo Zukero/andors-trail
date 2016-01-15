@@ -14,14 +14,8 @@
 			<item android:id="@+id/inv_assign_slot3" android:title="@string/inventory_assign_slot3"></item>
 		</menu>
 	</item>
+	<item android:id="@+id/inv_menu_add_favorites" android:title="@string/inventory_add_favorites" android:visible="false" />
+	<item android:id="@+id/inv_menu_remove_favorites" android:title="@string/inventory_remove_favorites" android:visible="false" />
 	<item android:title="@string/inventory_movetop" android:id="@+id/inv_menu_movetop" />
 	<item android:title="@string/inventory_movebottom" android:id="@+id/inv_menu_movebottom" />
-	<item android:id="@+id/inv_menu_assign_preset" android:title="@string/inventory_assign_preset" android:visible="true">
-		<menu>
-			<item android:id="@+id/inv_assign_preset1" android:title="@string/inventory_category_preset1_default"></item>
-			<item android:id="@+id/inv_assign_preset2" android:title="@string/inventory_category_preset2_default"></item>
-			<item android:id="@+id/inv_assign_preset3" android:title="@string/inventory_category_preset3_default"></item>
-			<item android:id="@+id/inv_unassign_preset" android:title="@string/inventory_unassign_preset"></item>
-		</menu>
-	</item>
 </menu>

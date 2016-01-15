@@ -11,14 +11,12 @@
 	<!-- Order is hardcoded within HeroInfoActivity_inventory-->
 	<string-array name="inventorylist_category_filters">
 		<item>@string/inventory_category_all</item>
+		<item>@string/inventory_category_favorites</item>
 		<item>@string/inventory_category_weapons</item>
 		<item>@string/inventory_category_armor</item>
 		<item>@string/inventory_category_usable</item>
 		<item>@string/inventory_category_quest</item>
 		<item>@string/inventory_category_other</item>
-		<item>@string/inventory_category_preset1_default</item>
-		<item>@string/inventory_category_preset2_default</item>
-		<item>@string/inventory_category_preset3_default</item>
 	</string-array>
 
 	<!-- Order is hardcoded within ItemContainerAdapter method-->

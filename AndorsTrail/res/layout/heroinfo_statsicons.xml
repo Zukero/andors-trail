@@ -40,51 +40,32 @@
 		android:text="@string/actorinfo_defense"
 		/>
 
-	<EditText
-		android:id="@+id/preset_name_edit"
-		android:layout_width="@dimen/boxshape_width"
-		android:layout_height="wrap_content"
-		style="@style/statsBoxStyle"
-		android:visibility="gone"/>
-
 	<TextView
-		android:id="@+id/preset_name_cost"
-		android:layout_width="@dimen/boxshape_width"
-		android:layout_height="wrap_content"
-		style="@style/statsBoxStyle"
-		android:text="@string/heroinfo_reequip_cost"
-		android:visibility="gone"/>
-
-	<TextView
-		android:id="@+id/preset_name_delete"
-		android:layout_width="@dimen/boxshape_width"
-		android:layout_height="wrap_content"
+		android:id="@+id/preset_quickswitch_save"
 		style="@style/statsButtonStyle"
+		android:layout_width="@dimen/boxshape_width"
+		android:gravity="center_horizontal|center_vertical"
+		android:layout_height="wrap_content"
+		android:visibility="gone"
+		android:text="@string/inventory_preset_save"
+		/>
+	<TextView
+		android:id="@+id/preset_quickswitch_load"
+		style="@style/statsButtonStyle"
+		android:layout_width="@dimen/boxshape_width"
+		android:gravity="center_horizontal|center_vertical"
+		android:layout_height="wrap_content"
+		android:visibility="gone"
+		android:text="@string/inventory_preset_load"
+		/>
+	<TextView
+		android:id="@+id/preset_quickswitch_delete"
+		style="@style/statsButtonStyle"
+		android:layout_width="@dimen/boxshape_width"
+		android:gravity="center_horizontal|center_vertical"
+		android:layout_height="wrap_content"
+		android:visibility="gone"
 		android:text="@string/inventory_preset_delete"
-		android:visibility="gone"/>
-	<TextView
-		android:id="@+id/preset_quickswitch_one"
-		style="@style/statsButtonStyle"
-		android:layout_width="@dimen/boxshape_width"
-		android:gravity="center_horizontal|center_vertical"
-		android:layout_height="wrap_content"
-		android:visibility="gone"
-		/>
-	<TextView
-		android:id="@+id/preset_quickswitch_two"
-		style="@style/statsButtonStyle"
-		android:layout_width="@dimen/boxshape_width"
-		android:gravity="center_horizontal|center_vertical"
-		android:layout_height="wrap_content"
-		android:visibility="gone"
-		/>
-	<TextView
-		android:id="@+id/preset_quickswitch_three"
-		style="@style/statsButtonStyle"
-		android:layout_width="@dimen/boxshape_width"
-		android:gravity="center_horizontal|center_vertical"
-		android:layout_height="wrap_content"
-		android:visibility="gone"
 		/>
 
 

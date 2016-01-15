@@ -94,22 +94,6 @@ public final class ItemController {
 		//context.mainActivity.message(androidContext.getResources().getString(R.string.inventory_item_used, type.name));
 	}
 
-	public boolean equipPreset(int presetIndex, Player player){
-		if(world.model.uiSelections.isInCombat)
-			if(player.getCurrentAP() < getPresetEquipCost(player, presetIndex)){
-				quickSlotListeners.onPresetLoadFailed(presetIndex, player.inventory.namePresets[presetIndex]);
-				return false;
-			}
-		ItemContainer preset = player.inventory.getPresetItems(presetIndex);
-		//if(preset.isEmpty()) return;
-		for(ItemEntry i : preset.items){
-			equipItem(i.itemType, i.itemType.category.inventorySlot);
-		}
-		player.inventory.currentSelectedPreset = presetIndex;
-		quickSlotListeners.onPresetLoaded(presetIndex, player.inventory.namePresets[presetIndex]);
-		return true;
-	}
-
 	public void playerSteppedOnLootBag(Loot loot) {
 		if (pickupLootBagWithoutConfirmation(loot)) {
 			controllers.mapController.worldEventListeners.onPlayerPickedUpGroundLoot(loot);
@@ -383,23 +367,5 @@ public final class ItemController {
 				total+= player.getReequipCost();
 		}
 		return total;
-	}
-
-	public void selectNextRealPreset(Player player) {
-		player.inventory.currentSelectedPreset++;
-		player.inventory.getCurrentPresetIndex(); //refreshes it if over max number
-
-		if(player.inventory.currentSelectedPreset <0) // Do not try to equip the None preset.
-			player.inventory.currentSelectedPreset =0;
-		quickSlotListeners.onPresetSelected(player.inventory.currentSelectedPreset,
-				player.inventory.getCurrentPresetName());
-	}
-
-	public boolean equipNextPreset(Player player) {
-		if(!equipPreset(player.inventory.getCurrentPresetIndex(), player)) {
-			player.inventory.currentSelectedPreset--;// revert changes. 0 might go to none but it's ok.
-			return false;
-		}
-		return true;
 	}
 }

@@ -117,14 +117,13 @@ public final class ToolboxView extends LinearLayout implements OnClickListener, 
 			Dialogs.showCombatLog(getContext(), controllers, world);
 			hide(false);
 		} else if (btn == toolbox_preset){
-			controllers.itemController.selectNextRealPreset(world.model.player);
+			//controllers.itemController.selectNextRealPreset(world.model.player);
 		}
 	}
 
 	@Override
 	public boolean onLongClick(View btn) {
-		if(btn == toolbox_preset)
-			controllers.itemController.equipNextPreset(world.model.player);
+//		if(btn == toolbox_preset) controllers.itemController.equipNextPreset(world.model.player);
 		//if(btn == toolbox_aim) preferences.rangedAutoaim = ! preferences.rangedAutoaim; //todo,twirlimp add combatlog message
 		// or maybe long-clicking makes in range monsters glow?
 		return true;

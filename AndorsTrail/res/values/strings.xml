@@ -368,21 +368,9 @@
 	<string name="inventory_assign_slot3">Slot 3</string>
 	<string name="inventory_unassign">Un-assign quick slot</string>
 
-	<string name="inventory_assign_preset">Assign to preset</string>
-	<string name="inventory_unassign_preset">Un-assign from preset</string>
-	<string name="inventory_category_preset1_default">Preset #1</string>
-	<string name="inventory_category_preset2_default">Preset #2</string>
-	<string name="inventory_category_preset3_default">Preset #3</string>
-	<string name="inventory_category_preset_default_repeat">Preset #%1$d</string>
-	<string name="inventory_category_preset_none">None</string>
-	<string name="inventory_preset_delete">Delete (Long Press)</string>
-	<string name="inventory_preset_loaded_default">Loaded preset -- %1$d</string>
-	<string name="inventory_preset_load_failed">Not enough AP to load %1$s</string>
-	<string name="inventory_preset_loaded_custom_name">Loaded preset -- %1$s</string>
-	<string name="inventory_preset_selected">Selected preset -- %1$s</string>
-
 
 	<string name="inventory_category_all">All</string>
+	<string name="inventory_category_favorites">Favorites</string>
 	<string name="inventory_category_weapons">Weapon</string>
 	<string name="inventory_category_armor">Armor</string>
 	<string name="inventory_category_usable">Consumable</string>
@@ -741,4 +729,18 @@ Every skill level increases the attack chance of weapons with %1$d %% of their o
 	<string name="combat_actorcondition_duration_repeat">Decreased duration of %1$s on %2$s. (x%3$s)</string>
 	<string name="combat_actorcondition_magnitude">Decreased magnitude of %1$s on %2$s.</string>
 	<string name="combat_actorcondition_magnitude_repeat">Decreased magnitude of %1$s on %2$s. (x%3$s)</string>
+
+	<!-- =========================================== -->
+	<!-- Added by twirlimp -->
+
+	<string name="inventory_add_favorites">Add to favorites</string>
+	<string name="inventory_remove_favorites">Remove from favorites</string>
+	<string name="inventory_category_preset_default_repeat">Preset #%1$d</string>
+	<string name="inventory_category_preset_none">None</string>
+	<string name="inventory_preset_loaded_default">Loaded preset -- %1$d</string>
+	<string name="inventory_preset_load_failed">Not enough AP to load %1$s</string>
+	<string name="inventory_preset_loaded_custom_name">Loaded preset -- %1$s</string>
+	<string name="inventory_preset_save">Save</string>
+	<string name="inventory_preset_load">Load</string>
+	<string name="inventory_preset_delete">Delete</string>
 </resources>

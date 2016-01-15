@@ -24,9 +24,7 @@ public final class InterfaceData {
 	public int selectedSkillSort = 0; //Unsorted
 	public int selectedShopSort = 0; //Unsorted
 
-	public boolean presetEditorVisible = false;
 	public boolean presetListVisible = false;
-	public int currentPresetInfo = 0;
 
 	public InterfaceData() { }
 
