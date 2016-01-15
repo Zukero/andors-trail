@@ -13,6 +13,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -30,6 +31,8 @@ import com.gpl.rpg.AndorsTrail.model.item.ItemContainer;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileCollection;
 import com.gpl.rpg.AndorsTrail.view.ItemContainerAdapter;
+
+import java.util.ArrayList;
 
 public final class HeroinfoActivity_Inventory extends Fragment {
 
@@ -58,6 +61,11 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 	private TextView preset_quickswitch_load;
 	private TextView preset_quickswitch_delete;
 
+	private  View preset_menu_view;
+	private LinearLayout presetMenu;
+	private ListView presetList;
+	private ArrayList<String> presetNames;
+	private ArrayAdapter<String> presetListAdapter;
 
 	private TextView heroinfo_stats_gold;
 	private TextView heroinfo_stats_attack;
@@ -115,7 +123,7 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 		setWearSlot(v, Inventory.WearSlot.rightring, R.id.heroinfo_worn_ringright, R.drawable.equip_ring);
 
 
-        initialisePresetControls(v);
+        initialisePresetControls(v, inflater, container);
 
 		return v;
 	}
@@ -160,50 +168,49 @@ public final class HeroinfoActivity_Inventory extends Fragment {
         inventorylist_sort.setSelection(world.model.uiSelections.selectedInventorySort);
     }
 
-    private void initialisePresetControls(View v) {
+    private void initialisePresetControls(View v, final LayoutInflater inflater, final ViewGroup container) {
         inventory_preset_button = (Button) v.findViewById(R.id.inventory_preset_button);
 
         preset_quickswitch_save = (TextView) v.findViewById(R.id.preset_quickswitch_save);
         preset_quickswitch_load = (TextView) v.findViewById(R.id.preset_quickswitch_load);
         preset_quickswitch_delete = (TextView) v.findViewById(R.id.preset_quickswitch_delete);
 
-		inventory_preset_button.setOnClickListener(new OnClickListener() {
+        inventory_preset_button.setOnClickListener(new OnClickListener() {
 			@Override
-			public void onClick(View arg0) {
-				player.inventory.currentSelectedPreset++;
-				controllers.itemController.equipNextPreset(player);
-				update();
-			}
-		});
-
-        inventory_preset_button.setOnLongClickListener(new View.OnLongClickListener() {
-			@Override
-			public boolean onLongClick(View v) {
+			public void onClick(View v) {
 				if (!world.model.uiSelections.presetListVisible) {
 					world.model.uiSelections.presetListVisible = true;
 					setHeroStatsVisiblity(View.GONE);
 					setPresetListVisibility(View.VISIBLE);
-					return true;
 				}
 				if (world.model.uiSelections.presetListVisible) {
 					world.model.uiSelections.presetListVisible = false;
 					setHeroStatsVisiblity(View.VISIBLE);
 					setPresetListVisibility(View.GONE);
 				}
-				return true;
 			}
 		});
 
-    }
+		preset_quickswitch_save.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				preset_menu_view = inflater.inflate(R.layout.preset_menu, container, false);
+				inflater.inflate(R.layout.preset_menu, container, false);
+			}
+		});
+
+		presetMenu = (LinearLayout)  preset_menu_view.findViewById(R.id.preset_menu);
+		presetList = (ListView) preset_menu_view.findViewById(R.id.presets_list);
+		presetNames = new ArrayList<>(player.inventory.presets.keySet());
+		presetListAdapter = new ArrayAdapter<String> (getActivity(), R.layout.preset_menu, presetNames);
+		presetList.setAdapter(presetListAdapter);
+
+	}
 
     private void setPresetListVisibility(int visibility) {
 		preset_quickswitch_save.setVisibility(visibility);
 		preset_quickswitch_load.setVisibility(visibility);
 		preset_quickswitch_delete.setVisibility(visibility);
-
-		preset_quickswitch_save.setText(world.model.player.inventory.namePresets[0]);
-		preset_quickswitch_load.setText(world.model.player.inventory.namePresets[1]);
-		preset_quickswitch_delete.setText(world.model.player.inventory.namePresets[2]);
 
 		// For boxes to seem equal & transitions smoother
 		if (preset_quickswitch_save.getHeight() < heroinfo_stats_gold.getHeight())
@@ -356,11 +363,13 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 					else if (type.category.inventorySlot == Inventory.WearSlot.leftring)
 						menu.findItem(R.id.inv_menu_equip_offhand).setVisible(true);
 				}
-				break;
-			case R.id.inv_menu_assign:
-				menu.findItem(R.id.inv_assign_slot1).setTitle(world.model.player.inventory.namePresets[0]);
-				menu.findItem(R.id.inv_assign_slot2).setTitle(world.model.player.inventory.namePresets[1]);
-				menu.findItem(R.id.inv_assign_slot3).setTitle(world.model.player.inventory.namePresets[2]);
+				if(player.inventory.hasFavorite(type)) {
+					menu.findItem(R.id.inv_menu_remove_favorites).setVisible(true);
+					menu.findItem(R.id.inv_menu_add_favorites).setVisible(false);
+				}else{
+					menu.findItem(R.id.inv_menu_remove_favorites).setVisible(false);
+					menu.findItem(R.id.inv_menu_add_favorites).setVisible(true);
+				}
 				break;
 
 		}
@@ -372,7 +381,9 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 
 		if (v == 0) { //All items
 			return inventoryListAdapter.getItem(position).itemType;
-		} else if (v == 2) { //Weapon items
+		} else if (v == 1) { // Favorite items
+			return inventoryFavoritesListAdapter.getItem(position).itemType;
+		}else if (v == 2) { //Weapon items
 			return inventoryWeaponsListAdapter.getItem(position).itemType;
 		} else if (v == 3) { //Armor items
 			return inventoryArmorListAdapter.getItem(position).itemType;

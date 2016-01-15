@@ -31,7 +31,7 @@ public final class Inventory extends ItemContainer {
     private final ItemType[] wear = new ItemType[NUM_WORN_SLOTS];
     public final ItemType[] quickitem = new ItemType[NUM_QUICK_SLOTS];
     public final ArrayList<ItemType> favorites = new ArrayList<>();
-    Map<String, ItemType[]> presets = new HashMap<>();
+    public Map<String, ItemType[]> presets = new HashMap<>();
     public int currentSelectedPreset = 0; // -1 means no preset
 
     public Inventory() {
@@ -92,6 +92,11 @@ public final class Inventory extends ItemContainer {
             default:
                 return false;
         }
+    }
+
+    // ====== Categories & Presets ===================================================================
+    public boolean hasFavorite(ItemType type) {
+        return favorites.contains(type);
     }
 
     public void addToFavorites(ItemType lastSelectedItem){

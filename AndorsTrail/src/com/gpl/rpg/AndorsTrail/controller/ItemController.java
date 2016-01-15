@@ -355,17 +355,4 @@ public final class ItemController {
 		quickSlotListeners.onQuickSlotChanged(quickSlotId);
 	}
 
-	public int getPresetEquipCost(Player player, int currentWornPreset) {
-		int total = 0;
-		ItemType temp;
-		if(currentWornPreset <0 || currentWornPreset>= player.inventory.presetsAll.length)
-			return total;
-		if(player.inventory.presetsAll[currentWornPreset] == null) return total;
-		for(int i=0; i<player.inventory.presetsAll[currentWornPreset].size(); i++){
-			temp = player.inventory.presetsAll[currentWornPreset].get(i);
-			if(temp.isEquippable())
-				total+= player.getReequipCost();
-		}
-		return total;
-	}
 }

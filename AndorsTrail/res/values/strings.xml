@@ -76,15 +76,6 @@
 	<string name="combat_not_enough_ap">Not enough AP left this round.</string>
 	<string name="combat_not_enough_ap_repeat">Not enough AP left this round. (x%1$s)</string>
 	<string name="combat_hero_dies">You fall unconscious, but fortunately wake up alive, dazed and fatigued. You lost %1$d experience.</string>
-	<string name="player_aim_invalid">Target not valid.</string>
-	<string name="player_aim_invalid_repeat">Target not valid. (x%1$s)</string>
-	<string name="player_aim_toofar">Target out of range.</string>
-	<string name="player_aim_toofar_repeat">Target out of range. (x%1$s)</string>
-	<string name="player_toggled_aim_on">You started aiming.</string>
-	<string name="player_toggled_aim_off">You are not aiming.</string>
-	<string name="player_toggled_aim_off_repeat">You are not aiming.</string>
-	<string name="player_cannot_find_targets">No combat targets in range.</string>
-	<string name="player_cannot_find_targets_repeat">No combat targets in range. (x%1$s)</string>
 	<string name="combat_miss_animation_message">MISS</string>
 	
 	<string name="inventory_info">Info</string>
@@ -292,16 +283,6 @@
 	<string name="preferences_combat_category">Combat</string>
 	<string name="preferences_combat_speed_title">Combat speed</string>
 	<string name="preferences_combat_speed">Determines how fast monsters attack.</string>
-	<string name="preferences_combat_ranged_autoaim_title">Enable Auto-Aim</string>
-	<string name="preferences_combat_ranged_autoaim">Player uses ranged attacks without needing to aim.</string>
-	<string name="preferences_combat_ranged_safeaim_self_title">Press on hero to aim</string>
-	<string name="preferences_combat_ranged_safeaim_self">Press on hero to enter aiming mode.</string>
-	<string name="preferences_aim_button_position_title">Aim button position</string>
-	<string name="preferences_aim_button_position">Determines position of aim button on the screen.</string>
-	<!--<string name="preferences_combat_ranged_legacy_safeaim_title">Enable Legacy Safe-Aiming</string>
-	<string name="preferences_combat_ranged_legacy_safeaim_self">Warning: Extremely annoying.</string> -->
-	<!--<string name="preferences_combat_button_safeaim_title">Move Safe-Aim button to status bar</string>
-	<string name="preferences_combat_button_safeaim">Can be annoying for small screens.</string> -->
 
 	<string name="preferences_display_loot_dialog">Always show loot dialog box</string>
 	<string name="preferences_display_loot_dialog_on_items">Show loot dialog box when finding items</string>
@@ -314,11 +295,6 @@
 	<string name="preferences_attackspeed_fast">Fast</string>
 	<string name="preferences_attackspeed_normal">Normal</string>
 	<string name="preferences_attackspeed_slow">Slow</string>
-
-	<string name="preferences_aim_button_position_toolbox">Inside the Toolbox</string>
-	<string name="preferences_aim_button_position_right">Beside the Toolbox</string>
-	<string name="preferences_aim_button_position_left">Beside the Player image button</string>
-
 
 	<string name="preferences_movement_category">Movement</string>
 	<string name="preferences_movementmethod_title">Movement method</string>
@@ -367,43 +343,6 @@
 	<string name="inventory_assign_slot2">Slot 2</string>
 	<string name="inventory_assign_slot3">Slot 3</string>
 	<string name="inventory_unassign">Un-assign quick slot</string>
-
-
-	<string name="inventory_category_all">All</string>
-	<string name="inventory_category_favorites">Favorites</string>
-	<string name="inventory_category_weapons">Weapon</string>
-	<string name="inventory_category_armor">Armor</string>
-	<string name="inventory_category_usable">Consumable</string>
-	<string name="inventory_category_quest">Quest Item</string>
-	<string name="inventory_category_other">Other</string>
-
-	<string name="inventory_sort_custom">Unsorted</string>
-	<string name="inventory_sort_name">Name</string>
-	<string name="inventory_sort_price">Price</string>
-	<string name="inventory_sort_quantity">Quantity</string>
-	<string name="inventory_sort_rarity">Rarity</string>
-	<string name="inventory_sort_type">Type</string>
-
-	<string name="shoplist_sort_custom">Unsorted</string>
-	<string name="shoplist_sort_name">Name</string>
-	<string name="shoplist_sort_price">Price</string>
-	<string name="shoplist_sort_quantity">Quantity</string>
-	<string name="shoplist_sort_rarity">Rarity</string>
-	<string name="shoplist_sort_type">Type</string>
-
-	<string name="skill_category_all">All</string>
-	<string name="skill_category_offense"> Offense</string>
-	<string name="skill_category_defense">Defense</string>
-	<string name="skill_category_criticals">Criticals</string>
-	<string name="skill_category_immunity">Immunity</string>
-	<string name="skill_category_utility">Utility</string>
-	<string name="skill_category_speciality">Speciality</string>
-	<string name="skill_category_proficiency">Proficiency</string>
-
-	<string name="skill_sort_unsorted">Unsorted</string>
-	<string name="skill_sort_name">Name</string>
-	<string name="skill_sort_points">Points</string>
-	<string name="skill_sort_unlocked">Unlocked</string>
 
 
 	<!-- =========================================== -->
@@ -693,11 +632,6 @@ Every skill level increases the attack chance of weapons with %1$d %% of their o
 	<string name="preferences_ui_show_quickslots_when_toolbox_is_visible_title">Show quickslots when toolbox is opened</string>
 	<string name="preferences_ui_show_quickslots_when_toolbox_is_visible">Makes the quickslot buttons be displayed as soon as the toolbox is opened</string>
 	<string name="startscreen_incompatible_savegames">This is a development version of Andor\'s Trail. Savegames produced by this version are incompatible with the release version.</string>
-	<string name="startscreen_ranged_info">Info about Ranged Weapons:
-		\n1- Press \"+3 bows\" to try the new weapons. Just press on a monster to move and attack when in range.
-		\n2- Press \"safe aim\" before combat to safely select a target without moving.
-		\n3- Press \"need safe aim\" to make safe aim necessary for starting ranged combat.
-		(Unnecessary because if you accidentally start ranged combat, you can flee on first turn and they won\'t follow.)"</string>
 	<string name="startscreen_non_release_version">This is a prerelease version of Andor\'s Trail. Savegames produced by this version might not be compatible with the release version.</string>
 	<string name="heroinfo_gamestats">Game statistics</string>
 	<string name="heroinfo_gamestats_quests">Completed quests</string>
@@ -733,6 +667,67 @@ Every skill level increases the attack chance of weapons with %1$d %% of their o
 	<!-- =========================================== -->
 	<!-- Added by twirlimp -->
 
+	<string name="preferences_combat_ranged_autoaim_title">Enable Auto-Aim</string>
+	<string name="preferences_combat_ranged_autoaim">Player uses ranged attacks without needing to aim.</string>
+	<string name="preferences_combat_ranged_safeaim_self_title">Press on hero to aim</string>
+	<string name="preferences_combat_ranged_safeaim_self">Press on hero to enter aiming mode.</string>
+	<string name="preferences_aim_button_position_title">Aim button position</string>
+	<string name="preferences_aim_button_position">Determines position of aim button on the screen.</string>
+	<!--<string name="preferences_combat_ranged_legacy_safeaim_title">Enable Legacy Safe-Aiming</string>
+	<string name="preferences_combat_ranged_legacy_safeaim_self">Warning: Extremely annoying.</string> -->
+	<!--<string name="preferences_combat_button_safeaim_title">Move Safe-Aim button to status bar</string>
+	<string name="preferences_combat_button_safeaim">Can be annoying for small screens.</string> -->
+
+	<string name="preferences_aim_button_position_toolbox">Inside the Toolbox</string>
+	<string name="preferences_aim_button_position_right">Beside the Toolbox</string>
+	<string name="preferences_aim_button_position_left">Beside the Player image button</string>
+
+	<string name="player_aim_invalid">Target not valid.</string>
+	<string name="player_aim_invalid_repeat">Target not valid. (x%1$s)</string>
+	<string name="player_aim_toofar">Target out of range.</string>
+	<string name="player_aim_toofar_repeat">Target out of range. (x%1$s)</string>
+	<string name="player_toggled_aim_on">You started aiming.</string>
+	<string name="player_toggled_aim_off">You are not aiming.</string>
+	<string name="player_toggled_aim_off_repeat">You are not aiming.</string>
+	<string name="player_cannot_find_targets">No combat targets in range.</string>
+	<string name="player_cannot_find_targets_repeat">No combat targets in range. (x%1$s)</string>
+
+	<string name="inventory_category_all">All</string>
+	<string name="inventory_category_favorites">Favorites</string>
+	<string name="inventory_category_weapons">Weapon</string>
+	<string name="inventory_category_armor">Armor</string>
+	<string name="inventory_category_usable">Consumable</string>
+	<string name="inventory_category_quest">Quest Item</string>
+	<string name="inventory_category_other">Other</string>
+
+	<string name="inventory_sort_custom">Unsorted</string>
+	<string name="inventory_sort_name">Name</string>
+	<string name="inventory_sort_price">Price</string>
+	<string name="inventory_sort_quantity">Quantity</string>
+	<string name="inventory_sort_rarity">Rarity</string>
+	<string name="inventory_sort_type">Type</string>
+
+	<string name="shoplist_sort_custom">Unsorted</string>
+	<string name="shoplist_sort_name">Name</string>
+	<string name="shoplist_sort_price">Price</string>
+	<string name="shoplist_sort_quantity">Quantity</string>
+	<string name="shoplist_sort_rarity">Rarity</string>
+	<string name="shoplist_sort_type">Type</string>
+
+	<string name="skill_category_all">All</string>
+	<string name="skill_category_offense"> Offense</string>
+	<string name="skill_category_defense">Defense</string>
+	<string name="skill_category_criticals">Criticals</string>
+	<string name="skill_category_immunity">Immunity</string>
+	<string name="skill_category_utility">Utility</string>
+	<string name="skill_category_speciality">Speciality</string>
+	<string name="skill_category_proficiency">Proficiency</string>
+
+	<string name="skill_sort_unsorted">Unsorted</string>
+	<string name="skill_sort_name">Name</string>
+	<string name="skill_sort_points">Points</string>
+	<string name="skill_sort_unlocked">Unlocked</string>
+
 	<string name="inventory_add_favorites">Add to favorites</string>
 	<string name="inventory_remove_favorites">Remove from favorites</string>
 	<string name="inventory_category_preset_default_repeat">Preset #%1$d</string>
@@ -743,4 +738,5 @@ Every skill level increases the attack chance of weapons with %1$d %% of their o
 	<string name="inventory_preset_save">Save</string>
 	<string name="inventory_preset_load">Load</string>
 	<string name="inventory_preset_delete">Delete</string>
+	<string name="inventory_preset_overwrite">Overwrite</string>
 </resources>
