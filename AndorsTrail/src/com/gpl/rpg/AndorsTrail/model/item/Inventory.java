@@ -31,13 +31,11 @@ public final class Inventory extends ItemContainer {
     public int gold = 0;
     private static final int NUM_WORN_SLOTS = WearSlot.values().length;
     public static final int NUM_QUICK_SLOTS = 3;
-    public static final int NUM_PRESETS = 3; // Not enough to just change this, must also add UI buttons and cross-links
-    public static final int NUM_PRESET_SLOTS = 99;
     private final ItemType[] wear = new ItemType[NUM_WORN_SLOTS];
     public final ItemType[] quickitem = new ItemType[NUM_QUICK_SLOTS];
     public final ArrayList<ItemType> favorites = new ArrayList<>();
     public Map<String, ItemType[]> presets = new LinkedHashMap<String, ItemType[]>();
-    public String currentSelectedPreset = ""; // -1 means no preset
+    public String currentSelectedPreset = ""; // "" means no preset
 
     public Inventory() {
     }
@@ -236,7 +234,7 @@ public final class Inventory extends ItemContainer {
             }
         }
 
-        if(fileversion>43) {
+        if(fileversion>42) { // Presets
             int total = src.readInt();
             int tempStringLength;
             for (int i = 0; i < total; i++) {
@@ -255,6 +253,14 @@ public final class Inventory extends ItemContainer {
                 presets.put(tempName, tempItems);
             }
         }
+        if(fileversion>42) { // Favorites
+            int total = src.readInt();
+            for(int i=0; i< total; i++){
+                if(src.readBoolean())
+                    favorites.add(world.itemTypes.getItemType(src.readUTF()));
+            }
+        }
+
     }
 
     @Override
@@ -294,6 +300,15 @@ public final class Inventory extends ItemContainer {
                 } else {
                     dest.writeBoolean(false);
                 }
+            }
+        }
+        dest.writeInt(favorites.size());
+        for(ItemType item : favorites){
+            if (item != null) {
+                dest.writeBoolean(true);
+                dest.writeUTF(item.id);
+            } else {
+                dest.writeBoolean(false);
             }
         }
     }

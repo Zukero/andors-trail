@@ -8,7 +8,7 @@
         },
         "isStacking":1,
         "category":"physical",
-        "name":"Minor Stun",
+        "name":"Stun",
         "iconID":"actorconditions_1:80"
     },
     {
@@ -19,7 +19,7 @@
         },
         "category":"mental",
         "isStacking":1,
-        "name":"Minor Exposed",
+        "name":"Exposed",
         "iconID":"actorconditions_1:64"
     }
 ]
