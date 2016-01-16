@@ -366,9 +366,11 @@ public final class ItemController {
 			quickSlotListeners.onPresetLoadFailed(0, presetKey.toString());
 			return false;
 		}
-		for(ItemType i: player.inventory.presets.get(presetKey)){
-			if(i != null)
-				equipItem(i, i.category.inventorySlot);
+		ItemType[] preset = player.inventory.presets.get(presetKey);
+		for(int i =0; i< preset.length; i++){
+			if(preset[i] != null) {
+				equipItem(preset[i], Inventory.WearSlot.values()[i]);
+			}
 		}
 		player.inventory.currentSelectedPreset = presetKey.toString();
 		quickSlotListeners.onPresetLoaded(0, presetKey.toString());
