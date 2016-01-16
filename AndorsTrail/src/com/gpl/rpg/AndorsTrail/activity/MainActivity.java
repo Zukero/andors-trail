@@ -543,28 +543,28 @@ public final class MainActivity
 
 	@Override
 	public void onPresetLoaded(Integer presetIndex, String name) {
-		if(name.equals("")){
+		/*if(name.equals("")){
 			world.model.player.inventory.setCurrentPresetNameByIndex(
 					getString(R.string.inventory_category_preset_default_repeat, presetIndex +1));
-		}
+		}*/
 		message(getString(R.string.inventory_preset_loaded_custom_name, name));
 	}
 
 	@Override
 	public void onPresetLoadFailed(Integer presetIndex, String name){
-		if(name.equals("")){
+		/*if(name.equals("")){
 			world.model.player.inventory.setCurrentPresetNameByIndex(
 					getString(R.string.inventory_category_preset_default_repeat, presetIndex + 1));
-		}
+		}*/
 		message(getString(R.string.inventory_preset_load_failed, name));
 	}
 
 	@Override
 	public void onPresetSelected(Integer presetIndex, String name){
-		if(name.equals("")){ // todo,twirl less hackish way of resetting.
+		/*if(name.equals("")){ // todo,twirl less hackish way of resetting.
 			world.model.player.inventory.setCurrentPresetNameByIndex(
 					getString(R.string.inventory_category_preset_default_repeat, presetIndex + 1));
 		}
-		message(getString(R.string.inventory_preset_selected, name));
+		message(getString(R.string.inventory_preset_selected, name));*/
 	}
 }

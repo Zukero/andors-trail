@@ -1,5 +1,7 @@
 package com.gpl.rpg.AndorsTrail.controller;
 
+import android.content.ClipData;
+
 import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
@@ -32,7 +34,7 @@ public final class ItemController {
 	}
 
 	public void equipItem(ItemType type, Inventory.WearSlot slot) {
-		world.model.player.inventory.currentSelectedPreset = -1; // Always reset to 0; equipPreset() will post-set it properly.
+		world.model.player.inventory.currentSelectedPreset = ""; // Always reset to 0; equipPreset() will post-set it properly.
 		if (!type.isEquippable()) return;
 		final Player player = world.model.player;
 		if (world.model.uiSelections.isInCombat) {
@@ -55,6 +57,9 @@ public final class ItemController {
 	}
 
 	public void unequipSlot(ItemType type, Inventory.WearSlot slot) {
+		world.model.player.inventory.currentSelectedPreset = "";
+		// ^ Always reset to null; equipPreset() will post-set it properly.
+
 		if (!type.isEquippable()) return;
 		final Player player = world.model.player;
 		if (player.inventory.isEmptySlot(slot)) return;
@@ -353,6 +358,22 @@ public final class ItemController {
 	public void setQuickItem(ItemType itemType, int quickSlotId) {
 		world.model.player.inventory.quickitem[quickSlotId] = itemType;
 		quickSlotListeners.onQuickSlotChanged(quickSlotId);
+	}
+
+	public boolean equipPreset(Object presetKey, Player player) {
+		if(world.model.uiSelections.isInCombat &&
+				player.getPresetEquipCost(presetKey.toString()) > player.getCurrentAP()){
+			quickSlotListeners.onPresetLoadFailed(0, presetKey.toString());
+			return false;
+		}
+		for(ItemType i: player.inventory.presets.get(presetKey)){
+			if(i != null)
+				equipItem(i, i.category.inventorySlot);
+		}
+		player.inventory.currentSelectedPreset = presetKey.toString();
+		quickSlotListeners.onPresetLoaded(0, presetKey.toString());
+
+		return true;
 	}
 
 }

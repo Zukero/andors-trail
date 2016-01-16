@@ -17,11 +17,13 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 import com.gpl.rpg.AndorsTrail.activity.*;
+import com.gpl.rpg.AndorsTrail.activity.fragment.HeroinfoActivity_Inventory;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionType;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
+import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.Inventory;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
@@ -291,6 +293,27 @@ public final class Dialogs {
 		Intent intent = new Intent(currentActivity, LoadSaveActivity.class);
 		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/load"));
 		currentActivity.startActivityForResult(intent, StartScreenActivity.INTENTREQUEST_LOADGAME);
+	}
+
+	public static Intent getIntentForPresetLoad(final Activity currentActivity) {
+		Intent intent = new Intent(currentActivity, LoadSavePresetActivity.class);
+		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/preset_load"));
+		return intent;
+	}
+	public static void showPresetLoad(final Activity mainActivity){
+		Intent intent = new Intent(mainActivity, LoadSavePresetActivity.class);
+		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/preset_load_combat"));
+		mainActivity.startActivityForResult(intent, HeroinfoActivity_Inventory.INTENTREQUEST_PRESETLOAD);
+	}
+	public static Intent getIntentForPresetSave(final Activity currentActivity) {
+		Intent intent = new Intent(currentActivity, LoadSavePresetActivity.class);
+		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/preset_save"));
+		return intent;
+	}
+	public static Intent getIntentForPresetDelete(final Activity currentActivity) {
+		Intent intent = new Intent(currentActivity, LoadSavePresetActivity.class);
+		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/preset_delete"));
+		return intent;
 	}
 
 	public static void showActorConditionInfo(final Context context, ActorConditionType conditionType) {

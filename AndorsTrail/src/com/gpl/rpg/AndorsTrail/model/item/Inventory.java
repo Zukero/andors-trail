@@ -1,7 +1,11 @@
 package com.gpl.rpg.AndorsTrail.model.item;
 
+import android.content.ClipData;
+
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.savegames.LegacySavegameFormatReaderForItemContainer;
+import com.gpl.rpg.AndorsTrail.savegames.Savegames;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -9,6 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public final class Inventory extends ItemContainer {
@@ -31,8 +36,8 @@ public final class Inventory extends ItemContainer {
     private final ItemType[] wear = new ItemType[NUM_WORN_SLOTS];
     public final ItemType[] quickitem = new ItemType[NUM_QUICK_SLOTS];
     public final ArrayList<ItemType> favorites = new ArrayList<>();
-    public Map<String, ItemType[]> presets = new HashMap<>();
-    public int currentSelectedPreset = 0; // -1 means no preset
+    public Map<String, ItemType[]> presets = new LinkedHashMap<String, ItemType[]>();
+    public String currentSelectedPreset = ""; // -1 means no preset
 
     public Inventory() {
     }
@@ -166,6 +171,35 @@ public final class Inventory extends ItemContainer {
         }
         return otherItems;
     }
+
+    /*public String quickloadPreset(String slot, Player player) {
+        String quickPreview = ""; //". ";
+
+        *//*for(ItemType item: (ItemType[]) presets.get(slot))
+            quickPreview +=  ". " + item.getName(player);*//*
+        return quickPreview;
+    }*/
+
+
+    public boolean savePreset(Object slot) {
+        if(slot == null) return false;
+        ItemType[] temp = new ItemType[NUM_WORN_SLOTS];
+
+        for(int i=0; i<NUM_WORN_SLOTS; i++)
+            temp[i] = wear[i];
+
+        presets.put(slot.toString(), temp);
+        return true;
+    }
+
+    /*public String getPresetName(int slot){
+        if(slot <0) return "";
+        try {
+            return presets.keySet().toArray()[slot].toString();
+        }catch (Exception e){
+            return "";
+        }
+    }*/
 
 
     // ====== PARCELABLE ===================================================================

@@ -17,10 +17,10 @@
 		style="@style/toolboxButtonTile"
 		android:src="@drawable/ui_icon_combat"
 		/>
-	<ImageButton
+<!--	<ImageButton
 		android:id="@+id/toolbox_preset"
 		style="@style/toolboxButtonTile"
-		android:src="@drawable/ui_icon_preset" />
+		android:src="@drawable/ui_icon_preset" /> -->
 	<ImageButton
 		android:id="@+id/toolbox_map"
 		style="@style/toolboxButtonTile"

@@ -11,7 +11,7 @@
 		android:layout_width="@dimen/boxshape_width"
 		android:layout_height="wrap_content"
 		android:drawableLeft="@drawable/ui_icon_preset"
-		android:text="inventory_category_preset_none"/>
+		android:text="@string/inventory_category_preset_none"/>
 
 	<TextView
 		android:id="@+id/heroinfo_stats_gold"
@@ -41,15 +41,6 @@
 		/>
 
 	<TextView
-		android:id="@+id/preset_quickswitch_save"
-		style="@style/statsButtonStyle"
-		android:layout_width="@dimen/boxshape_width"
-		android:gravity="center_horizontal|center_vertical"
-		android:layout_height="wrap_content"
-		android:visibility="gone"
-		android:text="@string/inventory_preset_save"
-		/>
-	<TextView
 		android:id="@+id/preset_quickswitch_load"
 		style="@style/statsButtonStyle"
 		android:layout_width="@dimen/boxshape_width"
@@ -57,6 +48,17 @@
 		android:layout_height="wrap_content"
 		android:visibility="gone"
 		android:text="@string/inventory_preset_load"
+		android:drawableLeft="@android:drawable/ic_menu_search"	/>
+	<TextView
+		android:id="@+id/preset_quickswitch_save"
+		style="@style/statsButtonStyle"
+		android:layout_width="@dimen/boxshape_width"
+		android:gravity="center_horizontal|center_vertical"
+		android:layout_height="wrap_content"
+		android:visibility="gone"
+		android:text="@string/inventory_preset_save"
+		android:drawableLeft="@android:drawable/ic_menu_save"
+
 		/>
 	<TextView
 		android:id="@+id/preset_quickswitch_delete"
@@ -66,6 +68,8 @@
 		android:layout_height="wrap_content"
 		android:visibility="gone"
 		android:text="@string/inventory_preset_delete"
+		android:drawableLeft="@android:drawable/ic_delete"
+
 		/>
 
 

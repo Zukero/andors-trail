@@ -731,12 +731,15 @@ Every skill level increases the attack chance of weapons with %1$d %% of their o
 	<string name="inventory_add_favorites">Add to favorites</string>
 	<string name="inventory_remove_favorites">Remove from favorites</string>
 	<string name="inventory_category_preset_default_repeat">Preset #%1$d</string>
-	<string name="inventory_category_preset_none">None</string>
+	<string name="inventory_category_preset_none">No Preset</string>
 	<string name="inventory_preset_loaded_default">Loaded preset -- %1$d</string>
 	<string name="inventory_preset_load_failed">Not enough AP to load %1$s</string>
 	<string name="inventory_preset_loaded_custom_name">Loaded preset -- %1$s</string>
+	<string name="inventory_preset_select_prompt">Select a Preset </string>
+	<string name="inventory_preset_select_description">%1$s (%2$d AP)</string>
 	<string name="inventory_preset_save">Save</string>
 	<string name="inventory_preset_load">Load</string>
 	<string name="inventory_preset_delete">Delete</string>
 	<string name="inventory_preset_overwrite">Overwrite</string>
+	<string name="inventory_preset_overwrite_message">Overwrite %1$s?</string>
 </resources>

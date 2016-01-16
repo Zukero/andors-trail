@@ -18,6 +18,7 @@ import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.item.DropListCollection;
 import com.gpl.rpg.AndorsTrail.model.item.Inventory;
+import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
@@ -311,6 +312,16 @@ public final class Player extends Actor {
 		case damageResistance: return baseTraits.damageResistance;
 		}
 		return 0;
+	}
+
+	public int getPresetEquipCost(String slot){
+		ItemType[] items = inventory.presets.get(slot);
+		int total = 0;
+		for(ItemType i: items){
+			if(i != null && !inventory.isWearing(i.id))
+				total += this.getReequipCost();
+		}
+		return total;
 	}
 
 	// ====== PARCELABLE ===================================================================

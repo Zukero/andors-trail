@@ -13,10 +13,10 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.Dialogs;
@@ -32,12 +32,13 @@ import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileCollection;
 import com.gpl.rpg.AndorsTrail.view.ItemContainerAdapter;
 
-import java.util.ArrayList;
-
 public final class HeroinfoActivity_Inventory extends Fragment {
 
 	private static final int INTENTREQUEST_ITEMINFO = 3;
 	private static final int INTENTREQUEST_BULKSELECT_DROP = 11;
+	public static final int INTENTREQUEST_PRESETLOAD = 12;
+	public static final int INTENTREQUEST_PRESETSAVE = 13;
+	public static final int INTENTREQUEST_PRESETDELETE = 14;
 
 	private WorldContext world;
 	private ControllerContext controllers;
@@ -61,11 +62,6 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 	private TextView preset_quickswitch_load;
 	private TextView preset_quickswitch_delete;
 
-	private  View preset_menu_view;
-	private LinearLayout presetMenu;
-	private ListView presetList;
-	private ArrayList<String> presetNames;
-	private ArrayAdapter<String> presetListAdapter;
 
 	private TextView heroinfo_stats_gold;
 	private TextView heroinfo_stats_attack;
@@ -182,8 +178,7 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 					world.model.uiSelections.presetListVisible = true;
 					setHeroStatsVisiblity(View.GONE);
 					setPresetListVisibility(View.VISIBLE);
-				}
-				if (world.model.uiSelections.presetListVisible) {
+				} else {
 					world.model.uiSelections.presetListVisible = false;
 					setHeroStatsVisiblity(View.VISIBLE);
 					setPresetListVisibility(View.GONE);
@@ -194,16 +189,28 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 		preset_quickswitch_save.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				preset_menu_view = inflater.inflate(R.layout.preset_menu, container, false);
-				inflater.inflate(R.layout.preset_menu, container, false);
+				Intent intent = Dialogs.getIntentForPresetSave(getActivity());
+				startActivityForResult(intent, HeroinfoActivity_Inventory.INTENTREQUEST_PRESETSAVE);
+
 			}
 		});
 
-		presetMenu = (LinearLayout)  preset_menu_view.findViewById(R.id.preset_menu);
-		presetList = (ListView) preset_menu_view.findViewById(R.id.presets_list);
-		presetNames = new ArrayList<>(player.inventory.presets.keySet());
-		presetListAdapter = new ArrayAdapter<String> (getActivity(), R.layout.preset_menu, presetNames);
-		presetList.setAdapter(presetListAdapter);
+		preset_quickswitch_load.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = Dialogs.getIntentForPresetLoad(getActivity());
+				startActivityForResult(intent, HeroinfoActivity_Inventory.INTENTREQUEST_PRESETLOAD);
+
+			}
+		});
+
+		preset_quickswitch_delete.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = Dialogs.getIntentForPresetDelete(getActivity());
+				startActivityForResult(intent, HeroinfoActivity_Inventory.INTENTREQUEST_PRESETDELETE);
+			}
+		});
 
 	}
 
@@ -259,9 +266,11 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 				if (actionType == ItemInfoActivity.ItemInfoAction.unequip) {
 					Inventory.WearSlot slot = Inventory.WearSlot.valueOf(data.getExtras().getString("inventorySlot"));
 					controllers.itemController.unequipSlot(itemType, slot);
+					updateCurrentPreset();
 				} else if (actionType == ItemInfoActivity.ItemInfoAction.equip) {
-					Inventory.WearSlot slot = suggestInventorySlot(itemType);
+					Inventory.WearSlot slot = suggestInventorySlot(itemType, player);
 					controllers.itemController.equipItem(itemType, slot);
+					updateCurrentPreset();
 				} else if (actionType == ItemInfoActivity.ItemInfoAction.use) {
 					controllers.itemController.useItem(itemType);
 				}
@@ -273,11 +282,36 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 				String itemTypeID = data.getExtras().getString("itemTypeID");
 				dropItem(itemTypeID, quantity);
 				break;
+			case INTENTREQUEST_PRESETDELETE:
+				if (resultCode != Activity.RESULT_OK) break;
+				player.inventory.presets.remove(data.getExtras().get("name"));
+				if(data.getExtras().get("name").equals(player.inventory.currentSelectedPreset)) {
+					player.inventory.currentSelectedPreset = "";
+					updateCurrentPreset();
+				}
+				break;
+			case INTENTREQUEST_PRESETLOAD:
+				if (resultCode != Activity.RESULT_OK) break;
+				controllers.itemController.equipPreset(data.getExtras().get("name"), player);
+				updateCurrentPreset();
+				break;
+			case INTENTREQUEST_PRESETSAVE:
+				if (resultCode != Activity.RESULT_OK) break;
+				player.inventory.savePreset(data.getExtras().get("name"));
+				player.inventory.currentSelectedPreset = data.getExtras().get("name").toString();
+				updateCurrentPreset();
+				break;
 		}
 		update();
 	}
 
-	private Inventory.WearSlot suggestInventorySlot(ItemType itemType) {
+	private void updateCurrentPreset() {
+		inventory_preset_button.setText(player.inventory.currentSelectedPreset);
+		if(player.inventory.currentSelectedPreset.equals(""))
+			inventory_preset_button.setText(getString(R.string.inventory_category_preset_none));
+	}
+
+	public static Inventory.WearSlot suggestInventorySlot(ItemType itemType, Player player) {
 		Inventory.WearSlot slot = itemType.category.inventorySlot;
 		if (player.inventory.isEmptySlot(slot)) return slot;
 

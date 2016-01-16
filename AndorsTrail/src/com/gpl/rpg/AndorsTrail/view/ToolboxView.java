@@ -2,6 +2,7 @@ package com.gpl.rpg.AndorsTrail.view;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -9,6 +10,7 @@ import android.graphics.drawable.LayerDrawable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewParent;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
@@ -18,6 +20,7 @@ import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.Dialogs;
 import com.gpl.rpg.AndorsTrail.R;
+import com.gpl.rpg.AndorsTrail.activity.MainActivity;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.WorldMapController;
@@ -34,7 +37,7 @@ public final class ToolboxView extends LinearLayout implements OnClickListener, 
 	private final ImageButton toolbox_map;
 	private final ImageButton toolbox_save;
 	private final ImageButton toolbox_combatlog;
-	private final ImageButton toolbox_preset;
+	/*private final ImageButton toolbox_preset;*/
 	private ImageButton toggleToolboxVisibility;
 	private QuickitemView quickitemView;
 	private boolean hideQuickslotsWhenToolboxIsClosed = false;
@@ -73,9 +76,9 @@ public final class ToolboxView extends LinearLayout implements OnClickListener, 
 		toolbox_save.setOnClickListener(this);
 		toolbox_combatlog = (ImageButton)findViewById(R.id.toolbox_combatlog);
 		toolbox_combatlog.setOnClickListener(this);
-		toolbox_preset = (ImageButton) findViewById(R.id.toolbox_preset);
+		/*toolbox_preset = (ImageButton) findViewById(R.id.toolbox_preset);
 		toolbox_preset.setOnClickListener(this);
-		toolbox_preset.setOnLongClickListener(this);
+		toolbox_preset.setOnLongClickListener(this);*/
 
 		res = getResources();
 		quickSlotIconsLockedDrawable = new LayerDrawable(new Drawable[] {
@@ -116,9 +119,9 @@ public final class ToolboxView extends LinearLayout implements OnClickListener, 
 		} else if (btn == toolbox_combatlog) {
 			Dialogs.showCombatLog(getContext(), controllers, world);
 			hide(false);
-		} else if (btn == toolbox_preset){
-			//controllers.itemController.selectNextRealPreset(world.model.player);
-		}
+		} /*else if (btn == toolbox_preset){
+			Dialogs.showPresetLoad((Activity)getContext());
+		}*/
 	}
 
 	@Override
