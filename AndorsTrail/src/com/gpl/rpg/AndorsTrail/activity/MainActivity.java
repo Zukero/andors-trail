@@ -17,10 +17,15 @@ import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.AttackResult;
 import com.gpl.rpg.AndorsTrail.controller.CombatController;
+import com.gpl.rpg.AndorsTrail.controller.MovementController;
+import com.gpl.rpg.AndorsTrail.controller.listeners.ActorConditionListener;
 import com.gpl.rpg.AndorsTrail.controller.listeners.CombatActionListener;
 import com.gpl.rpg.AndorsTrail.controller.listeners.CombatTurnListener;
 import com.gpl.rpg.AndorsTrail.controller.listeners.PlayerMovementListener;
+import com.gpl.rpg.AndorsTrail.controller.listeners.QuickSlotListener;
 import com.gpl.rpg.AndorsTrail.controller.listeners.WorldEventListener;
+import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
+import com.gpl.rpg.AndorsTrail.model.actor.Actor;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer.ItemEntry;
@@ -41,11 +46,15 @@ public final class MainActivity
 		PlayerMovementListener
 		, CombatActionListener
 		, CombatTurnListener
-		, WorldEventListener {
+		, WorldEventListener
+		, ActorConditionListener
+		, QuickSlotListener{
 
 	public static final int INTENTREQUEST_MONSTERENCOUNTER = 2;
 	public static final int INTENTREQUEST_CONVERSATION = 4;
 	public static final int INTENTREQUEST_SAVEGAME = 8;
+
+	public static final String repeatFiller =  "%1$s";
 
 	private ControllerContext controllers;
 	private WorldContext world;
@@ -181,6 +190,8 @@ public final class MainActivity
 		controllers.combatController.combatActionListeners.remove(this);
 		controllers.combatController.combatTurnListeners.remove(this);
 		controllers.mapController.worldEventListeners.remove(this);
+		controllers.actorStatsController.actorConditionListeners.remove(this);
+		controllers.itemController.quickSlotListeners.remove(this);
 	}
 
 	private void subscribeToModelChanges() {
@@ -188,6 +199,8 @@ public final class MainActivity
 		controllers.combatController.combatTurnListeners.add(this);
 		controllers.combatController.combatActionListeners.add(this);
 		controllers.movementController.playerMovementListeners.add(this);
+		controllers.actorStatsController.actorConditionListeners.add(this);
+		controllers.itemController.quickSlotListeners.add(this);
 		statusview.subscribe();
 		quickitemview.subscribe();
 		mainview.subscribe();
@@ -249,6 +262,11 @@ public final class MainActivity
 		statusText.setText(world.model.combatLog.getLastMessages());
 		statusText.setVisibility(View.VISIBLE);
 	}
+	private void message(String msg, String repeatable) {
+		world.model.combatLog.append(msg, repeatable);
+		statusText.setText(world.model.combatLog.getLastMessages());
+		statusText.setVisibility(View.VISIBLE);
+	}
 
 	private void clearMessages() {
 		world.model.combatLog.appendCombatEnded();
@@ -278,6 +296,32 @@ public final class MainActivity
 	public void onPlayerEnteredNewMap(PredefinedMap map, Coord p) { }
 
 	@Override
+	public void onPlayerAimInvalid() {
+		message(getString(R.string.player_aim_invalid),
+				getString(R.string.player_aim_invalid_repeat, repeatFiller));
+	}
+
+	@Override
+	public void onPlayerAimToofar() {
+		message(getString(R.string.player_aim_toofar),
+				getString(R.string.player_aim_toofar_repeat, repeatFiller));}
+
+	/*@Override
+	public void onToggledAimMode(Boolean change) {
+		if(change.booleanValue())
+			message(getString(R.string.player_toggled_aim_on));
+		else
+			message(getString(R.string.player_toggled_aim_off),
+					getString(R.string.player_toggled_aim_off_repeat, repeatFiller));
+	}*/
+
+	@Override
+	public void onPlayerCannotFindTargets(){
+		message(getString(R.string.player_cannot_find_targets),
+				getString(R.string.player_cannot_find_targets_repeat, repeatFiller));
+	}
+
+	@Override
 	public void onCombatStarted() {
 		clearMessages();
 	}
@@ -289,43 +333,68 @@ public final class MainActivity
 
 	@Override
 	public void onPlayerAttackMissed(Monster target, AttackResult attackResult) {
-		message(getString(R.string.combat_result_heromiss));
+		message(getString(R.string.combat_result_heromiss),
+				getString(R.string.combat_result_heromiss_repeat, repeatFiller));
 	}
 
 	@Override
 	public void onPlayerAttackSuccess(Monster target, AttackResult attackResult) {
 		final String monsterName = target.getName();
 		if (attackResult.isCriticalHit) {
-			message(getString(R.string.combat_result_herohitcritical, monsterName, attackResult.damage));
+			message(getString(R.string.combat_result_herohitcritical, monsterName, attackResult.damage),
+					getString(R.string.combat_result_herohitcritical_repeat, monsterName, attackResult.damage,repeatFiller));
 		} else {
-			message(getString(R.string.combat_result_herohit, monsterName, attackResult.damage));
+			message(getString(R.string.combat_result_herohit, monsterName, attackResult.damage),
+					getString(R.string.combat_result_herohit_repeat, monsterName, attackResult.damage, repeatFiller));
 		}
 		if (attackResult.targetDied) {
-			message(getString(R.string.combat_result_herokillsmonster, monsterName, attackResult.damage));
+			message(getString(R.string.combat_result_herokillsmonster, monsterName, attackResult.damage),
+					getString(R.string.combat_result_herokillsmonster_repeat, monsterName, attackResult.damage, repeatFiller));
 		}
 	}
 
 	@Override
 	public void onMonsterAttackMissed(Monster attacker, AttackResult attackResult) {
-		message(getString(R.string.combat_result_monstermiss, attacker.getName()));
+		message(getString(R.string.combat_result_monstermiss, attacker.getName()),
+				getString(R.string.combat_result_monstermiss_repeat, attacker.getName(),repeatFiller));
+	}
+
+	@Override
+	public void onCombatTargetOutsideRange() {
+		message(getString(R.string.player_aim_toofar),
+				getString(R.string.player_aim_toofar_repeat, repeatFiller));
 	}
 
 	@Override
 	public void onMonsterAttackSuccess(Monster attacker, AttackResult attackResult) {
 		final String monsterName = attacker.getName();
 		if (attackResult.isCriticalHit) {
-			message(getString(R.string.combat_result_monsterhitcritical, monsterName, attackResult.damage));
+			message(getString(R.string.combat_result_monsterhitcritical, monsterName, attackResult.damage),
+					getString(R.string.combat_result_monsterhitcritical, monsterName, attackResult.damage,repeatFiller));
 		} else {
-			message(getString(R.string.combat_result_monsterhit, monsterName, attackResult.damage));
+			message(getString(R.string.combat_result_monsterhit, monsterName, attackResult.damage),
+					getString(R.string.combat_result_monsterhit_repeat, monsterName, attackResult.damage, repeatFiller));
 		}
 	}
 
 	@Override
 	public void onMonsterMovedDuringCombat(Monster m) {
 		String monsterName = m.getName();
-		message(getString(R.string.combat_result_monstermoved, monsterName));
+		message(getString(R.string.combat_result_monstermoved, monsterName),
+				getString(R.string.combat_result_monstermoved_repeat, monsterName, repeatFiller));
 	}
 
+	@Override
+	public void onMonsterFleedDuringCombat(Monster m) {
+		if(MovementController.isAtRange( //Check if he is now at
+				world.model.player.position, m.position,
+				world.model.player.getMaxRange()+1)
+				&& MovementController.areWithinRange(m.lastPosition,  //Then check if monster was in range before
+				world.model.player.position,world.model.player.getMaxRange())){
+			String monsterName = m.getName();
+			message(getString(R.string.combat_result_monsterfleed, monsterName),
+					getString(R.string.combat_result_monsterfleed_repeat, monsterName, repeatFiller));}
+	}
 	@Override
 	public void onPlayerKilledMonster(Monster target) { }
 
@@ -352,6 +421,7 @@ public final class MainActivity
 
 	@Override
 	public void onPlayerSteppedOnMapSignArea(MapObject area) {
+		Dialogs.showMapSign(this, controllers, area.id);
 		Dialogs.showMapSign(this, controllers, area.id);
 	}
 
@@ -426,11 +496,75 @@ public final class MainActivity
 
 	@Override
 	public void onPlayerFailedFleeing() {
-		message(getString(R.string.combat_flee_failed));
+		message(getString(R.string.combat_flee_failed),
+				getString(R.string.combat_flee_failed_repeat, repeatFiller));
 	}
 
 	@Override
 	public void onPlayerDoesNotHaveEnoughAP() {
-		message(getString(R.string.combat_not_enough_ap));
+		message(getString(R.string.combat_not_enough_ap),
+				getString(R.string.combat_not_enough_ap_repeat, repeatFiller));
+	}
+
+	@Override
+	public void onActorConditionAdded(Actor actor, ActorCondition condition){
+		message(getString(R.string.combat_actorcondition_added, actor.getName(), condition.conditionType.name),
+				getString(R.string.combat_actorcondition_added_repeat, actor.getName(), condition.conditionType.name, repeatFiller));
+	}
+	@Override
+	public void onActorConditionRemoved(Actor actor, ActorCondition condition){
+		message(getString(R.string.combat_actorcondition_removed, actor.getName(), condition.conditionType.name),
+				getString(R.string.combat_actorcondition_removed_repeat, actor.getName(), condition.conditionType.name, repeatFiller));
+	}
+
+	@Override
+	public void onActorConditionDurationChanged(Actor actor, ActorCondition condition){
+		message(getString(R.string.combat_actorcondition_duration, condition.conditionType.name, actor.getName()),
+				getString(R.string.combat_actorcondition_duration_repeat, condition.conditionType.name, actor.getName(), repeatFiller));
+	}
+
+	@Override
+	public void onActorConditionMagnitudeChanged(Actor actor, ActorCondition condition){
+		message(getString(R.string.combat_actorcondition_magnitude, condition.conditionType.name, actor.getName()),
+				getString(R.string.combat_actorcondition_magnitude_repeat, condition.conditionType.name, actor.getName(), repeatFiller));
+	}
+
+	@Override
+	public void onActorConditionRoundEffectApplied(Actor actor, ActorCondition condition){
+		message(getString(R.string.combat_actorcondition_applied, condition.conditionType.name,actor.getName()),
+				getString(R.string.combat_actorcondition_applied_repeat, condition.conditionType.name, actor.getName(),  repeatFiller));
+	}
+
+	@Override
+	public void onQuickSlotChanged(int slotId) {}
+
+	@Override
+	public void onQuickSlotUsed(int slotId) {}
+
+	@Override
+	public void onPresetLoaded(Integer presetIndex, String name) {
+		/*if(name.equals("")){
+			world.model.player.inventory.setCurrentPresetNameByIndex(
+					getString(R.string.inventory_category_preset_default_repeat, presetIndex +1));
+		}*/
+		message(getString(R.string.inventory_preset_loaded_custom_name, name));
+	}
+
+	@Override
+	public void onPresetLoadFailed(Integer presetIndex, String name){
+		/*if(name.equals("")){
+			world.model.player.inventory.setCurrentPresetNameByIndex(
+					getString(R.string.inventory_category_preset_default_repeat, presetIndex + 1));
+		}*/
+		message(getString(R.string.inventory_preset_load_failed, name));
+	}
+
+	@Override
+	public void onPresetSelected(Integer presetIndex, String name){
+		/*if(name.equals("")){ // todo,twirl less hackish way of resetting.
+			world.model.player.inventory.setCurrentPresetNameByIndex(
+					getString(R.string.inventory_category_preset_default_repeat, presetIndex + 1));
+		}
+		message(getString(R.string.inventory_preset_selected, name));*/
 	}
 }

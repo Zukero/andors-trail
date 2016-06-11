@@ -60,6 +60,8 @@
 		<activity android:name=".activity.BulkSelectionInterface" android:theme="@android:style/Theme.Dialog" />
 		<activity android:name=".activity.SkillInfoActivity" android:theme="@android:style/Theme.Dialog" />
 		<activity android:name=".activity.DisplayWorldMapActivity" />
+		<activity android:name=".activity.LoadSavePresetActivity" android:theme="@android:style/Theme.Dialog"/>
+
 	</application>
 	
 </manifest>

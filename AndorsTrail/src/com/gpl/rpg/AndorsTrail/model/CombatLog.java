@@ -8,11 +8,44 @@ public final class CombatLog {
 	private static final int MAX_COMBAT_LOG_LENGTH = 100;
 	private static final String newCombatSession = "--";
 
+	int msgCounter=0;
+	String latestMsg;
+
+
 	public CombatLog() { }
 
 	public void append(String msg) {
 		while (messages.size() >= MAX_COMBAT_LOG_LENGTH) messages.removeFirst();
 		messages.addLast(msg);
+
+		latestMsg = msg;
+		msgCounter =0;
+	}
+
+	public void append(String msg, String repeatable) {
+		while (messages.size() >= MAX_COMBAT_LOG_LENGTH) messages.removeFirst();
+		if(repeatable == null){
+			append(msg);
+			return;
+		}
+		else if(messages.isEmpty()){
+			append(msg);
+			return;
+		}
+		else {
+			if(latestMsg.equals(msg)){
+				msgCounter++;
+				messages.removeLast();
+				messages.addLast(String.format(repeatable, msgCounter));
+				return;
+			}
+			else{
+				msgCounter =1;
+				messages.addLast(msg);
+				latestMsg = msg;
+				return;
+			}
+		}
 	}
 
 	public void appendCombatEnded() {

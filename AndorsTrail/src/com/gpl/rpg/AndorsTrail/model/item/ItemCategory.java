@@ -2,6 +2,7 @@ package com.gpl.rpg.AndorsTrail.model.item;
 
 public final class ItemCategory {
 
+
 	public static enum ItemCategorySize {
 		none, light, std, large;
 
@@ -16,6 +17,7 @@ public final class ItemCategory {
 	public final Inventory.WearSlot inventorySlot;
 	private final ActionType actionType;
 	private final ItemCategorySize size;
+	//private final boolean CanTargetDistantTiles;
 
 	public ItemCategory(
 			String id
@@ -23,12 +25,14 @@ public final class ItemCategory {
 			, ActionType actionType
 			, Inventory.WearSlot inventorySlot
 			, ItemCategorySize size
+			//, boolean targetsDistantTiles
 	) {
 		this.id = id;
 		this.displayName = displayName;
 		this.inventorySlot = inventorySlot;
 		this.size = size;
 		this.actionType = actionType;
+		//this.CanTargetDistantTiles = targetsDistantTiles;
 	}
 
 	public static enum ActionType {
@@ -55,5 +59,12 @@ public final class ItemCategory {
 		else if (size == ItemCategorySize.light) return true;
 		else if (size == ItemCategorySize.std) return true;
 		else return false;
+	}
+	public boolean isRing(){
+		return inventorySlot.equals(Inventory.WearSlot.rightring) || inventorySlot.equals(Inventory.WearSlot.leftring);
+	}
+	public boolean needsWeaponSlot() {
+		return isWeapon() || Inventory.WearSlot.shield.equals(inventorySlot);
+
 	}
 }

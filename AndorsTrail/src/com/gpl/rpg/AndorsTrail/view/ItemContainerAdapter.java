@@ -47,4 +47,49 @@ public final class ItemContainerAdapter extends ArrayAdapter<ItemEntry> {
 	public long getItemId(int position) {
 		return getItem(position).itemType.id.hashCode();
 	}
+
+	/*public void reloadShownCategory(int category){ // Overwrites player.inventory instead of cloning it
+		this.clear();
+		ArrayList<
+		for(ItemEntry i: (ItemEntry) this.player.inventory.items.clone()){
+			if(category == 0)
+				this.add(i);
+			else if(i.itemType.isWeapon())
+				if(category ==1)
+					this.add(i);
+			else if(i.itemType.isEquippable() && ! i.itemType.isWeapon())
+				if(category==2)
+					this.add(i);
+			else if(i.itemType.isUsable())
+					if(category ==3)
+						this.add(i);
+			else if(i.itemType.isQuestItem())
+						if(category ==4)
+							this.add(i);
+			else if(category == 5) //other items
+							this.add(i);
+		}
+	}*/
+
+	public static void reloadShownSort(int selected, int oldSortSelection, ItemContainer container, Player p) {
+		//Not sure which is worse, hardcoding the names or the position.
+
+		if(selected == oldSortSelection);
+			//inv.sortByReverse();
+		else if (selected ==1)
+			container.sortByName(p);
+		else if (selected == 2)
+			container.sortByPrice(p);
+		else if (selected == 3)
+			container.sortByQuantity(p);
+		else if (selected == 4)
+			container.sortByRarity(p);
+		else if (selected == 5)
+			container.sortByType(p);
+		else if (selected == 0); //Unsorted
+	}
+
+	public static void reloadShownSort(int selected, ItemContainer container, Player p){
+		reloadShownSort(selected, -1, container, p);
+	}
 }

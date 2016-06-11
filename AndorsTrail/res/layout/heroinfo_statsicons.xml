@@ -5,6 +5,14 @@
 	android:gravity="right"
 	android:orientation="vertical" >
 
+	<Button
+		android:id="@+id/inventory_preset_button"
+		style="@style/statsButtonStyle"
+		android:layout_width="@dimen/boxshape_width"
+		android:layout_height="wrap_content"
+		android:drawableLeft="@drawable/ui_icon_preset"
+		android:text="@string/inventory_category_preset_none"/>
+
 	<TextView
 		android:id="@+id/heroinfo_stats_gold"
 		style="@style/statsBoxStyle"
@@ -31,5 +39,39 @@
 		android:drawableLeft="@drawable/equip_shield"
 		android:text="@string/actorinfo_defense"
 		/>
+
+	<TextView
+		android:id="@+id/preset_quickswitch_load"
+		style="@style/statsButtonStyle"
+		android:layout_width="@dimen/boxshape_width"
+		android:gravity="center_horizontal|center_vertical"
+		android:layout_height="wrap_content"
+		android:visibility="gone"
+		android:text="@string/inventory_preset_load"
+		android:drawableLeft="@android:drawable/ic_menu_search"	/>
+	<TextView
+		android:id="@+id/preset_quickswitch_save"
+		style="@style/statsButtonStyle"
+		android:layout_width="@dimen/boxshape_width"
+		android:gravity="center_horizontal|center_vertical"
+		android:layout_height="wrap_content"
+		android:visibility="gone"
+		android:text="@string/inventory_preset_save"
+		android:drawableLeft="@android:drawable/ic_menu_save"
+
+		/>
+	<TextView
+		android:id="@+id/preset_quickswitch_delete"
+		style="@style/statsButtonStyle"
+		android:layout_width="@dimen/boxshape_width"
+		android:gravity="center_horizontal|center_vertical"
+		android:layout_height="wrap_content"
+		android:visibility="gone"
+		android:text="@string/inventory_preset_delete"
+		android:drawableLeft="@android:drawable/ic_delete"
+
+		/>
+
+
 
 </LinearLayout>

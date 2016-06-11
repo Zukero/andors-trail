@@ -65,15 +65,27 @@ public final class ItemType {
 		this.hasPersonalizedName = name.contains(Constants.PLACEHOLDER_PLAYERNAME);
 	}
 
-	public boolean isEquippable() { return category.isEquippable(); }
-	public boolean isUsable() { return category.isUsable(); }
-	public boolean isQuestItem() { return displayType == DisplayType.quest; }
-	public boolean isOrdinaryItem() { return displayType == DisplayType.ordinary; }
-	public boolean isWeapon() { return category.isWeapon(); }
-	public boolean isArmor() { return category.isArmor(); }
-	public boolean isShield() { return category.isShield(); }
-	public boolean isTwohandWeapon() { return category.isTwohandWeapon(); }
-	public boolean isOffhandCapableWeapon() { return category.isOffhandCapableWeapon(); }
+	public boolean isEquippable() {if(category == null) return false; return category.isEquippable(); }
+	public boolean isRing() {if(category == null) return false; return category.isRing(); }
+	public boolean isUsable() { if(category == null) return false; return category.isUsable(); }
+	public boolean isQuestItem() {if(category == null) return false; return displayType == DisplayType.quest; }
+	public boolean isOrdinaryItem() {if(category == null) return false; return displayType == DisplayType.ordinary; }
+	public boolean isWeapon() {if(category == null) return false; return category.isWeapon(); }
+	public boolean needsWeaponSlot() {if(category == null) return false; return category.needsWeaponSlot(); }
+	public boolean isArmor() { if(category == null) return false;return category.isArmor(); }
+	public boolean isShield() {if(category == null) return false; return category.isShield(); }
+	public boolean isTwohandWeapon() {if(category == null) return false; return category.isTwohandWeapon(); }
+	public boolean isOffhandCapableWeapon() { if(category == null) return false;return category.isOffhandCapableWeapon(); }
+	public boolean isRangedWeapon() {
+		if(this.effects_equip == null || this.effects_equip.stats == null)
+			return false;
+
+		if(this.effects_equip.stats.increaseMaxRange >1)
+			return true;
+		return false;
+		//return category.isRangedWeapon();
+	}
+
 	public boolean isSellable() {
 		if (isQuestItem()) return false;
 		if (baseMarketCost == 0) return false;

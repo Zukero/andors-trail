@@ -48,6 +48,11 @@ public final class MonsterType {
 	public final int damageResistance;
 	public final ItemTraits_OnUse[] onHitEffects;
 
+	public final double rageMultiplier;
+	public final double hpFleeThreshold;
+	public final int lineOfSight;
+	public final double fearMultiplier;
+
 	public MonsterType(
 			String id
 			, String name
@@ -72,6 +77,11 @@ public final class MonsterType {
 			, int blockChance
 			, int damageResistance
 			, ItemTraits_OnUse[] onHitEffects
+			, double rageMultiplier
+			, double hpFleeThreshold
+			, int lineOfSight
+			, double fearMultiplier
+
 	) {
 		this.id = id;
 		this.name = name;
@@ -96,6 +106,11 @@ public final class MonsterType {
 		this.blockChance = blockChance;
 		this.damageResistance = damageResistance;
 		this.onHitEffects = onHitEffects;
+
+		this.rageMultiplier = rageMultiplier;
+		this.hpFleeThreshold = hpFleeThreshold;
+		this.lineOfSight = lineOfSight;
+		this.fearMultiplier = fearMultiplier;
 	}
 
 	public static enum AggressionType {
@@ -110,6 +125,25 @@ public final class MonsterType {
 			return valueOf(s);
 		}
 	}
+
+	/*public static enum BraveryType {
+		none	// No fleeing, no ranged engage i.e. default behavior
+		,coward	// Flee when attacked by anything
+
+		//Flee at low HP:
+		,confused	// Flee from ranged attack
+		,myopic		// Stand still when attacked by ranged
+		,brave		// Engage when attacked by ranged
+
+		//todo,twirl separate the list into "ranged-fear", "flee", and "follow" properties.
+		,kamikaze	// Will fight till death
+		;
+
+		public static BraveryType fromString(String s, BraveryType default_) {
+			if (s == null) return default_;
+			return valueOf(s);
+		}
+	}*/
 
 	public boolean isImmuneToCriticalHits() {
 		if (monsterClass == MonsterClass.ghost) return true;

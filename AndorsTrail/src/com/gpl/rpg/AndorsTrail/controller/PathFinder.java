@@ -56,6 +56,37 @@ public class PathFinder {
 		return false;
 	}
 
+	public boolean findLimitedPathBetween(final CoordRect from, final Coord to, CoordRect nextStep, int distanceLimit) {
+		int xDirection = MonsterMovementController.sgn(to.x - from.topLeft.x);
+		int yDirection = MonsterMovementController.sgn(to.y - from.topLeft.y);
+
+		int iterations = 0;
+		if (from.contains(to)) return false;
+
+		Coord measureDistanceTo = from.topLeft;
+		Coord p = nextStep.topLeft;
+		Arrays.fill(visited, false);
+		visitQueue.reset();
+
+		visitQueue.push(to.x, to.y, 0);
+		visited[(to.y * maxWidth) + to.x] = true;
+
+		while (!visitQueue.isEmpty()) {
+			visitQueue.popFirst(p);
+			++iterations;
+
+			if (iterations > distanceLimit) return false;
+
+			if (from.isAdjacentTo(p)) return true;
+
+			// assume directions are x -1 and y -1
+			p.x += xDirection; visit(nextStep, measureDistanceTo); //left
+			p.y += yDirection; visit(nextStep, measureDistanceTo); //top left
+			p.x = 0; visit(nextStep, measureDistanceTo); // reset to to top
+		}
+		return false;
+	}
+
 	private void visit(CoordRect r, Coord measureDistanceTo) {
 		final int x = r.topLeft.x;
 		final int y = r.topLeft.y;

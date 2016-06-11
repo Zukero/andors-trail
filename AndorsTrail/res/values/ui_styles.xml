@@ -16,10 +16,19 @@
 
 	<style name="statsBoxStyle" parent="android:Widget.TextView">
 		<item name="android:background">@drawable/ui_boxshape</item>
-		<item name="android:drawablePadding">@dimen/boxshape_margin</item>
+		<item name="android:drawablePadding">@dimen/inventorystatbox_margin</item>
 		<item name="android:gravity">center_vertical</item>
 		<item name="android:layout_margin">@dimen/boxshape_margin</item>
-		<item name="android:padding">@dimen/boxshape_margin</item>
+		<item name="android:padding">@dimen/inventorystatbox_margin</item>
+		<item name="android:textSize">@dimen/smalltext</item>
+	</style>
+
+	<style name="statsButtonStyle" parent="android:Widget.TextView">
+		<item name="android:background">@drawable/ui_gradientshape</item>
+		<item name="android:drawablePadding">@dimen/inventorystatbox_margin</item>
+		<item name="android:gravity">center_vertical</item>
+		<item name="android:layout_margin">@dimen/boxshape_margin</item>
+		<item name="android:padding">@dimen/inventorystatbox_margin</item>
 		<item name="android:textSize">@dimen/smalltext</item>
 	</style>
 

@@ -14,6 +14,8 @@
 			<item android:id="@+id/inv_assign_slot3" android:title="@string/inventory_assign_slot3"></item>
 		</menu>
 	</item>
+	<item android:id="@+id/inv_menu_add_favorites" android:title="@string/inventory_add_favorites" android:visible="false" />
+	<item android:id="@+id/inv_menu_remove_favorites" android:title="@string/inventory_remove_favorites" android:visible="false" />
 	<item android:title="@string/inventory_movetop" android:id="@+id/inv_menu_movetop" />
 	<item android:title="@string/inventory_movebottom" android:id="@+id/inv_menu_movebottom" />
 </menu>

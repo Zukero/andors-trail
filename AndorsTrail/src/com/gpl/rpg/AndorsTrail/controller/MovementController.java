@@ -128,6 +128,83 @@ public final class MovementController implements TimedMessageTask.Callback {
 		moveToNextIfPossible();
 	}
 
+	private void usePlayerRangedAction(int dx, int dy, Coord dest){
+
+		world.model.player.nextPosition.set(dest);
+
+		Monster m = world.model.currentMap.getMonsterAt(dest);
+		if (m != null){
+			if (controllers.preferences.rangedAutoaim // || world.model.player.isInAimMode()
+					) {
+				if(m.isCombatant()){
+					if(isWithinAttackRangeOfPlayer(world.model.player, m)){
+						controllers.mapController.steppedOnMonster(m, dest);
+						//controllers.combatController.setCombatSelection(nextPos);
+						// controllers.combatController.executeMoveAttack(dx, dy);
+						return;
+					}
+					/*else if(world.model.player.isInAimMode()){
+						playerMovementListeners.onPlayerAimToofar();
+						return;
+					}*/
+					else{
+						world.model.player.nextPosition.set(dx,dy);
+						movePlayer(dx,dy);
+						return;
+					}
+
+				}
+				else{ //if (!world.model.player.isInAimMode()) {
+					int talkRange = 1;
+					if(world.model.player.isTalkingByShouting)
+						talkRange = world.model.player.maxShoutingRange;
+					if(areWithinRange(world.model.player.position, dest, talkRange)){
+						controllers.mapController.steppedOnMonster(m, dest);
+						return;
+					}
+
+					world.model.player.nextPosition.set(dx,dy);
+					movePlayer(dx,dy);
+					return;
+				}
+			}
+		}
+		else {
+			//if(world.model.player.isInAimMode()) {playerMovementListeners.onPlayerAimInvalid(); return;}
+			int walkRange;
+			if (world.model.player.inJumpingMode) {
+				walkRange = world.model.player.maxJumpRange;
+				if(areWithinRange(world.model.player.position, dest, walkRange)){
+					moveToNextIfPossible();
+					return;
+				}
+			}else{
+				world.model.player.nextPosition.set(dx, dy);
+				movePlayer(dx,dy);
+			}
+		}
+	}
+
+
+	public static boolean areWithinRange(Coord root, Coord target, int maxRange){
+		int distance_x = Math.abs((target.x - root.x));
+		int distance_y = Math.abs((target.y - root.y));
+		if(distance_x <= maxRange && distance_y <= maxRange)
+			return true;
+		return false;
+	}
+
+	public static boolean isAtRange(Coord root, Coord target, int maxRange){
+		int distance_x = Math.abs((target.x - root.x));
+		int distance_y = Math.abs((target.y - root.y));
+		// Used for fleeing notifications
+		if(distance_x == maxRange && distance_y <= maxRange)
+			return true;
+		if(distance_y == maxRange && distance_x <= maxRange)
+			return true;
+		return false;
+	}
+
 	private boolean findWalkablePosition(int dx, int dy) {
 		// try to move with movementAggresiveness, if that fails fall back to MOVEMENTAGGRESSIVENESS_NORMAL
 		if (findWalkablePosition(dx, dy, controllers.preferences.movementAggressiveness)) return true;
@@ -192,7 +269,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 		if (aggressiveness == AndorsTrailPreferences.MOVEMENTAGGRESSIVENESS_NORMAL) return true;
 
 		Monster m = world.model.currentMap.getMonsterAt(player.nextPosition);
-		if (m != null && !m.isAgressive()) return true; // avoid MOVEMENTAGGRESSIVENESS settings for NPCs
+		if (m != null && !m.isCombatant()) return true; // avoid MOVEMENTAGGRESSIVENESS settings for NPCs
 
 		if (aggressiveness == AndorsTrailPreferences.MOVEMENTAGGRESSIVENESS_AGGRESSIVE && m == null) return false;
 		if (aggressiveness == AndorsTrailPreferences.MOVEMENTAGGRESSIVENESS_DEFENSIVE && m != null) return false;
@@ -310,10 +387,19 @@ public final class MovementController implements TimedMessageTask.Callback {
 
 	private int movementDx;
 	private int movementDy;
+	private Coord movementDest;
 	public void startMovement(int dx, int dy, Coord destination) {
 		if (!mayMovePlayer()) return;
-		if (dx == 0 && dy == 0) return;
+		if (dx == 0 && dy == 0) {
+			if(controllers.preferences.rangedSafeaimSelf) {
+				//if(!controllers.preferences.rangedLegacySafeAim)
+					controllers.combatController.enterRangedCombatAsPlayer();
+				//else playerMovementListeners.onToggledAimMode(world.model.player.toggleAimMode());
+			}
+			else return;
+		}
 
+		movementDest = destination;
 		movementDx = dx;
 		movementDy = dy;
 		movementHandler.start();
@@ -328,7 +414,13 @@ public final class MovementController implements TimedMessageTask.Callback {
 		if (!world.model.uiSelections.isMainActivityVisible) return false;
 		if (world.model.uiSelections.isInCombat) return false;
 
-		movePlayer(movementDx, movementDy);
+		if(!(world.model.player.inJumpingMode
+				|| world.model.player.isTalkingByShouting
+				|| controllers.preferences.rangedAutoaim //(world.model.player.isInAimMode()
+		))
+			movePlayer(movementDx, movementDy);
+		else
+			usePlayerRangedAction(movementDx, movementDy, movementDest);
 
 		return true;
 	}
@@ -354,5 +446,42 @@ public final class MovementController implements TimedMessageTask.Callback {
 			}
 		}
 		return null;
+	}
+
+	public static Monster getInRangeAggressiveMonster(PredefinedMap map, Player player) {
+		for (MonsterSpawnArea a : map.spawnAreas) {
+			for (Monster m : a.monsters) {
+				if (!m.isAgressive()) continue;
+				if (isWithinAttackRangeOfPlayer(player, m))
+					return m;
+			}
+		}
+		return null;
+	}
+
+	public static Monster getInRangeEnragedMonster(PredefinedMap map, Player player) {
+		for (MonsterSpawnArea a : map.spawnAreas) {
+			for (Monster m : a.monsters) {
+				if (!m.isAgressive() || !m.isEnraged()) continue;
+				if (isWithinAttackRangeOfPlayer(player, m))
+					return m;
+			}
+		}
+		return null;
+	}
+
+	public static Monster getAdjacentEnragedMonster(PredefinedMap map, Player player) {
+		for (MonsterSpawnArea a : map.spawnAreas) {
+			for (Monster m : a.monsters) {
+				if (!m.isAgressive() || !m.isEnraged()) continue;
+				if (m.isAdjacentTo(player))
+					return m;
+			}
+		}
+		return null;
+	}
+
+	public static boolean isWithinAttackRangeOfPlayer(Player p, Monster m){
+		return MovementController.areWithinRange(m.position, p.position, p.getMaxRange());
 	}
 }

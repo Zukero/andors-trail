@@ -28,9 +28,39 @@ public final class DebugInterface {
 
 	public void addDebugButtons() {
 		if (!AndorsTrailApplication.DEVELOPMENT_DEBUGBUTTONS) return;
-
+		//world.model.player.baseTraits.moveCost = 5; //move to suitable location
 		addDebugButtons(new DebugButton[] {
-			new DebugButton("dmg", new OnClickListener() {
+				new DebugButton("Teleport", new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				boolean change = world.model.player.toggleJumpingMode();
+				if(change){
+					showToast(mainActivity, "DEBUG: teleport ON. \nLiterally unplayable.", Toast.LENGTH_SHORT);
+				}else{
+					showToast(mainActivity, "DEBUG: teleport OFF.", Toast.LENGTH_SHORT);
+				}
+			}
+				})
+				,new DebugButton("HP", new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				world.model.player.baseTraits.maxHP = 500;
+				world.model.player.health.max = world.model.player.baseTraits.maxHP;
+				controllerContext.actorStatsController.setActorMaxHealth(world.model.player);
+				world.model.player.conditions.clear();
+				showToast(mainActivity, "DEBUG: hp set to max", Toast.LENGTH_SHORT);
+			}
+		})
+				,new DebugButton("Bows", new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				world.model.player.inventory.addItem(world.itemTypes.getItemType("wooden_crossbow"), 2);
+				world.model.player.inventory.addItem(world.itemTypes.getItemType("wooden_longbow"));
+				world.model.player.inventory.addItem(world.itemTypes.getItemType("stronger_wooden_longbow"));
+				showToast(mainActivity, "DEBUG: Added bows to inventory.", Toast.LENGTH_SHORT);
+			}
+		})
+			/*,new DebugButton("dmg", new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
 					world.model.player.damagePotential.set(500, 500);
@@ -38,7 +68,7 @@ public final class DebugInterface {
 					world.model.player.attackCost = 1;
 					showToast(mainActivity, "DEBUG: damagePotential=500, chance=500%, cost=1", Toast.LENGTH_SHORT);
 				}
-			})
+			})*/
 			/*,new DebugButton("dmg=1", new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
@@ -71,13 +101,13 @@ public final class DebugInterface {
 					controllerContext.movementController.placePlayerAsyncAt(MapObject.MapObjectType.newmap, "blackwater_mountain29", "south", 0, 0);
 				}
 			})*/
-			/*,new DebugButton("exp+=10000", new OnClickListener() {
+			,new DebugButton("exp+=10000", new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
 					controllerContext.actorStatsController.addExperience(10000);
 					showToast(mainActivity, "DEBUG: given 10000 exp", Toast.LENGTH_SHORT);
 				}
-			})*/
+			})
 			,new DebugButton("reset", new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
@@ -87,18 +117,48 @@ public final class DebugInterface {
 					showToast(mainActivity, "DEBUG: maps respawned", Toast.LENGTH_SHORT);
 				}
 			})
-			,new DebugButton("hp", new OnClickListener() {
-				@Override
-				public void onClick(View arg0) {
-					world.model.player.baseTraits.maxHP = 500;
-					world.model.player.health.max = world.model.player.baseTraits.maxHP;
-					controllerContext.actorStatsController.setActorMaxHealth(world.model.player);
-					world.model.player.conditions.clear();
-					showToast(mainActivity, "DEBUG: hp set to max", Toast.LENGTH_SHORT);
+			/*,new DebugButton("Safe Aim", new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				world.model.player.toggleAimMode();
+			}
+			})*/
+				/*,new DebugButton("real following", new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				controllerContext.monsterMovementController.isRealMonsterMovementEmotional =
+						!controllerContext.monsterMovementController.isRealMonsterMovementEmotional;
+				boolean change = controllerContext.monsterMovementController.isRealMonsterMovementEmotional;
+				if(change){
+					showToast(mainActivity, "DEBUG: realtime following ON. \nPissed-off monsters try to follow when you flee.", Toast.LENGTH_SHORT);
+				}else{
+					showToast(mainActivity, "DEBUG: realtime following OFF. \nMonsters do not follow when you flee.", Toast.LENGTH_SHORT);
 				}
-			})
-			/*
-			,new DebugButton("cg", new OnClickListener() {
+			}
+		})*/
+			/*,new DebugButton("NPC telepathy", new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+			//Can interact with any NPC or monster without moving.
+				world.model.player.isTalkingByShouting = !world.model.player.isTalkingByShouting;
+				boolean change = world.model.player.isTalkingByShouting;
+				if(change){
+					showToast(mainActivity, "DEBUG: NPC telepathy ON", Toast.LENGTH_SHORT);
+				}else{
+					showToast(mainActivity, "DEBUG: NPC telepathy OFF", Toast.LENGTH_SHORT);
+				}
+			}
+		})*/
+
+				,new DebugButton("gold", new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				world.model.player.inventory.gold += 9999;
+				showToast(mainActivity, "DEBUG: gold increased", Toast.LENGTH_SHORT);
+			}
+		})
+
+			/*,new DebugButton("cg", new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
 					controllerContext.movementController.placePlayerAsyncAt(MapObject.MapObjectType.newmap, "crossglen", "hall", 0, 0);

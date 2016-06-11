@@ -41,7 +41,15 @@ public final class AndorsTrailPreferences {
 	public boolean confirmAttack = true;
 	public int displayLoot = DISPLAYLOOT_DIALOG_ALWAYS;
 	public boolean fullscreen = true;
+
+	// Combat & ranged settings
 	public int attackspeed_milliseconds = 1000;
+	public boolean rangedAutoaim = false;
+	//public boolean rangedLegacySafeAim = false;
+	public boolean rangedSafeaimSelf = false;
+	public  boolean rangedHideUnusedAim = true;
+	public int aimButtonPosition = 0; // 0 -> keep in toolbox, 2 -> next to player icon, 1 -> next to toolbox
+
 	public int movementMethod = MOVEMENTMETHOD_STRAIGHT;
 	public int movementAggressiveness = MOVEMENTAGGRESSIVENESS_NORMAL;
 	public float scalingFactor = 1.0f;
@@ -62,7 +70,14 @@ public final class AndorsTrailPreferences {
 			dest.confirmAttack = prefs.getBoolean("confirm_attack", true);
 			dest.displayLoot = Integer.parseInt(prefs.getString("display_lootdialog", Integer.toString(DISPLAYLOOT_DIALOG_ALWAYS)));
 			dest.fullscreen = prefs.getBoolean("fullscreen", true);
+
 			dest.attackspeed_milliseconds = Integer.parseInt(prefs.getString("attackspeed", "1000"));
+			dest.rangedAutoaim = prefs.getBoolean("ranged_autoaim", false);
+			//dest.rangedLegacySafeAim = prefs.getBoolean("ranged_legacy_safeaim", false);;
+			dest.rangedSafeaimSelf = prefs.getBoolean("ranged_safeaim_self", false);
+			//dest.rangedHideUnusedAim = prefs.getBoolean("ranged_hide_aim", true);
+			dest.aimButtonPosition = Integer.parseInt(prefs.getString("ranged_buttonPosition", "0"));
+
 			dest.movementMethod = Integer.parseInt(prefs.getString("movementmethod", Integer.toString(MOVEMENTMETHOD_STRAIGHT)));
 			dest.scalingFactor = Float.parseFloat(prefs.getString("scaling_factor", "1.0f"));
 			dest.dpadPosition = Integer.parseInt(prefs.getString("dpadposition", Integer.toString(DPAD_POSITION_DISABLED)));
@@ -81,7 +96,14 @@ public final class AndorsTrailPreferences {
 			dest.confirmAttack = true;
 			dest.displayLoot = DISPLAYLOOT_DIALOG_ALWAYS;
 			dest.fullscreen = true;
+
 			dest.attackspeed_milliseconds = 1000;
+			dest.rangedAutoaim = false;
+			//dest.rangedLegacySafeAim = false;
+			dest.rangedSafeaimSelf = false;
+			dest.rangedHideUnusedAim = true;
+			dest.aimButtonPosition =0;
+
 			dest.movementMethod = MOVEMENTMETHOD_STRAIGHT;
 			dest.movementAggressiveness = MOVEMENTAGGRESSIVENESS_NORMAL;
 			dest.scalingFactor = 1.0f;

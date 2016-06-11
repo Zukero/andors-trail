@@ -2,6 +2,7 @@
 <resources>
 	<array name="loadresource_itemcategories">
 		<item>@raw/itemcategories_1</item>
+		<item>@raw/itemcategories_1_ranged</item>
 	</array>
 
 	<array name="loadresource_actorconditions">
@@ -12,6 +13,7 @@
 		<item>@raw/actorconditions_v0611_2</item>
 		<item>@raw/actorconditions_v0612_2</item>
 		<item>@raw/actorconditions_v070</item>
+		<item>@raw/actorconditions_v070_ranged</item>
 	</array>
 
 	<array name="loadresource_items">
@@ -38,6 +40,7 @@
 		<item>@raw/itemlist_v070_questitems</item>
 		<item>@raw/itemlist_shortcut_lodar</item>
 		<item>@raw/itemlist_pathway_fallhaven</item>
+		<item>@raw/itemlist_v070_ranged</item>
 	</array>
 
 	<array name="loadresource_droplists">

@@ -1,0 +1,113 @@
+[
+    {
+        "id": "stronger_wooden_longbow",
+        "name": "Mighty Longbow",
+        "category": "longbow",
+        "iconID": "items_misc_2:57",
+        "description": "A basic ranged weapon.",
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": 0,
+                "max": 15
+            },
+            "increaseAttackCost": 7,
+            "increaseAttackChance": -30,
+            "increaseMaxRange": 5
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "magnitude": 1,
+                    "condition": "minor_stun",
+                    "duration": 3,
+                    "chance": 37
+                }
+            ],
+            "conditionsSource":[
+                {
+                    "magnitude":2,
+                    "condition":"minor_exposed",
+                    "duration":5,
+                    "chance": 100
+                }
+            ]
+        },
+        "hasManualPrice": 1,
+        "baseMarketCost": 8666,
+        "displaytype": "rare"
+    },
+    {
+        "id":"wooden_longbow",
+        "name":"Wooden Longbow",
+        "category":"longbow",
+        "iconID":"items_misc_2:56",
+        "description":"A more basic ranged weapon.",
+        "equipEffect":{
+            "increaseAttackDamage": {
+                "min": 0,
+                "max": 10
+            },
+            "increaseAttackCost":7,
+            "increaseAttackChance":-20,
+            "increaseMaxRange":3
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "magnitude": 1,
+                    "condition": "minor_stun",
+                    "duration": 3,
+                    "chance": 37
+                }
+            ],
+            "conditionsSource":[
+                {
+                    "magnitude":2,
+                    "condition":"minor_exposed",
+                    "duration":4,
+                    "chance": 100
+                }
+            ]
+        },
+        "hasManualPrice": 1,
+        "baseMarketCost":5666,
+        "displaytype": "extraordinary"
+    },
+    {
+        "id":"wooden_crossbow",
+        "name":"Wooden Crossbow",
+        "category":"crossbow",
+        "iconID":"items_misc_2:29",
+        "description":"A most basic ranged weapon.",
+        "equipEffect":{
+            "increaseAttackDamage": {
+                "min": 0,
+                "max": 5
+            },
+            "increaseAttackCost":4,
+            "increaseAttackChance":-10,
+            "increaseMaxRange":2
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "magnitude": 1,
+                    "condition": "minor_stun",
+                    "duration": 2,
+                    "chance": 37
+                }
+            ],
+            "conditionsSource":[
+                {
+                    "magnitude":1,
+                    "condition":"minor_exposed",
+                    "duration":5,
+                    "chance": 100
+                }
+            ]
+        },
+        "hasManualPrice": 1,
+        "baseMarketCost":2666,
+        "displaytype": "legendary"
+    }
+]

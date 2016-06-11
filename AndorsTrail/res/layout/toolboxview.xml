@@ -17,6 +17,10 @@
 		style="@style/toolboxButtonTile"
 		android:src="@drawable/ui_icon_combat"
 		/>
+<!--	<ImageButton
+		android:id="@+id/toolbox_preset"
+		style="@style/toolboxButtonTile"
+		android:src="@drawable/ui_icon_preset" /> -->
 	<ImageButton
 		android:id="@+id/toolbox_map"
 		style="@style/toolboxButtonTile"
@@ -26,5 +30,10 @@
 		android:id="@+id/toolbox_quickitems"
 		style="@style/toolboxButtonTile"
 		android:src="@drawable/ui_icon_equipment"
+		/>
+	<ImageButton
+		android:id="@+id/toolbox_safeAim"
+		style="@style/toolboxButtonTile"
+		android:src="@drawable/ui_icon_crosshair"
 		/>
 </LinearLayout>

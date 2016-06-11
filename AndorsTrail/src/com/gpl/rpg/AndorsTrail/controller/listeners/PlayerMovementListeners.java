@@ -10,6 +10,21 @@ public final class PlayerMovementListeners extends ListOfListeners<PlayerMovemen
 		@Override public void call(PlayerMovementListener listener, Coord newPosition, Coord previousPosition) { listener.onPlayerMoved(newPosition, previousPosition); }
 	};
 
+	private final Function<PlayerMovementListener> onPlayerAimInvalid = new Function<PlayerMovementListener>() {
+		@Override public void call(PlayerMovementListener listener) { listener.onPlayerAimInvalid(); }
+	};
+
+	private final Function<PlayerMovementListener> onPlayerCannotFindTargets = new Function<PlayerMovementListener>() {
+		@Override public void call(PlayerMovementListener listener) { listener.onPlayerCannotFindTargets(); }
+	};
+	private final Function<PlayerMovementListener> onPlayerAimToofar = new Function<PlayerMovementListener>() {
+		@Override public void call(PlayerMovementListener listener) { listener.onPlayerAimToofar(); }
+	};
+
+	/*private final Function1<PlayerMovementListener, Boolean> onToggledAimMode = new Function1<PlayerMovementListener, Boolean>() {
+		@Override public void call(PlayerMovementListener listener, Boolean change) { listener.onToggledAimMode(change); }
+	};*/
+
 	private final Function2<PlayerMovementListener, PredefinedMap, Coord> onPlayerEnteredNewMap = new Function2<PlayerMovementListener, PredefinedMap, Coord>() {
 		@Override public void call(PlayerMovementListener listener, PredefinedMap map, Coord p) { listener.onPlayerEnteredNewMap(map, p); }
 	};
@@ -22,5 +37,25 @@ public final class PlayerMovementListeners extends ListOfListeners<PlayerMovemen
 	@Override
 	public void onPlayerEnteredNewMap(PredefinedMap map, Coord p) {
 		callAllListeners(this.onPlayerEnteredNewMap, map, p);
+	}
+
+	@Override
+	public void onPlayerAimInvalid() {
+		callAllListeners(this.onPlayerAimInvalid);
+	}
+
+	@Override
+	public void onPlayerAimToofar() {
+		callAllListeners(this.onPlayerAimToofar);
+	}
+
+	/*@Override
+	public void onToggledAimMode(Boolean change) {
+		callAllListeners(this.onToggledAimMode, change);
+	}*/
+
+	@Override
+	public void onPlayerCannotFindTargets() {
+		callAllListeners(this.onPlayerCannotFindTargets);
 	}
 }

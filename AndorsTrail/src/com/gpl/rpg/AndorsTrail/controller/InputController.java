@@ -63,7 +63,9 @@ public final class InputController implements OnClickListener, OnLongClickListen
 
 	@Override
 	public void onClick(View arg0) {
+		//todo,twirl why was the below line present? The code doesn't go into this function outside combat
 		if (!world.model.uiSelections.isInCombat) return;
+
 		onRelativeMovement(lastTouchPosition_dx, lastTouchPosition_dy);
 	}
 
@@ -71,11 +73,23 @@ public final class InputController implements OnClickListener, OnLongClickListen
 	public boolean onLongClick(View arg0) {
 		if (world.model.uiSelections.isInCombat) {
 			//TODO: Should be able to mark positions far away (mapwalk / ranged combat)
+			// ^ what do you mean exactly? code unclear -twirl
+
 			if (lastTouchPosition_dx == 0 && lastTouchPosition_dy == 0) return false;
-			if (Math.abs(lastTouchPosition_dx) > 1) return false;
-			if (Math.abs(lastTouchPosition_dy) > 1) return false;
+
+
+			/*int touchRange = 1;
+			if(world.model.player.isInAimMode())
+				touchRange = world.model.player.maxRangeOfWeapon();
+			else if(world.model.player.inJumpingMode)
+				touchRange = world.model.player.maxJumpRange; // Finally some hard-coding!
+
+			if (Math.abs(lastTouchPosition_dx) > touchRange) return false;
+			if (Math.abs(lastTouchPosition_dy) > touchRange) return false;
+			*/
 
 			controllers.combatController.setCombatSelection(lastTouchPosition_tileCoords);
+			//onRelativeMovement(lastTouchPosition_tileCoords.x, lastTouchPosition_tileCoords.y);
 			return true;
 		}
 		return false;
@@ -99,7 +113,8 @@ public final class InputController implements OnClickListener, OnLongClickListen
 
 		if (world.model.uiSelections.isInCombat) return false;
 
-		controllers.movementController.startMovement(lastTouchPosition_dx, lastTouchPosition_dy, lastTouchPosition_tileCoords);
+		controllers.movementController.startMovement(
+				lastTouchPosition_dx, lastTouchPosition_dy, lastTouchPosition_tileCoords);
 		return true;
 	}
 }

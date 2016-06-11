@@ -18,6 +18,7 @@ import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.item.DropListCollection;
 import com.gpl.rpg.AndorsTrail.model.item.Inventory;
+import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
@@ -42,10 +43,57 @@ public final class Player extends Actor {
 	public int reequipCost;
 	public int totalExperience;
 
+	//public boolean inAimMode = false; //needs to be enabled in order to initiate ranged-attack outside combat
+	public boolean isFollowed = false;
+
+
+	public boolean isTalkingByShouting = false;
+	public int maxShoutingRange = 20;
+	public boolean inJumpingMode = false;
+	//public boolean hasRangedWeaponEquippedInInventory = false; //enabled through debug button menu
+	//allows player to attack from afar
+
+
 	private final HashMap<String, HashSet<Integer> > questProgress = new HashMap<String, HashSet<Integer> >();
 	private String spawnMap;
 	private String spawnPlace;
 	private final HashMap<String, Integer> alignments = new HashMap<String, Integer>();
+	public int maxJumpRange = 20;
+
+	/*public boolean toggleEquipOfRangedWeapon() {
+		if(!this.hasRangedWeaponEquippedInInventory) this.hasRangedWeaponEquippedInInventory = true;
+		else this.hasRangedWeaponEquippedInInventory = false;
+		return this.hasRangedWeaponEquippedInInventory;
+	}*/
+
+	public boolean toggleJumpingMode() {
+		if(!this.inJumpingMode) this.inJumpingMode = true;
+		else this.inJumpingMode = false;
+		return this.inJumpingMode;
+	}
+
+	/*public boolean toggleAimMode() {
+		if(!this.inAimMode && this.isWieldingRangedWeapon())
+				this.inAimMode = true;
+		else
+			this.inAimMode = false;
+		return this.inAimMode;
+	}*/
+
+	/*public boolean isInAimMode() {
+		if(!this.isWieldingRangedWeapon())
+			inAimMode = false;
+		return inAimMode;
+	}*/
+
+	public int getMaxRange() {
+		return increaseMaxRange;
+	}
+
+	public boolean isFollowed() {
+		return this.isFollowed;
+	}
+
 
 	// Unequipped stats
 	public static final class PlayerBaseTraits {
@@ -62,6 +110,7 @@ public final class Player extends Actor {
 		public int damageResistance;
 		public int useItemCost;
 		public int reequipCost;
+		public int increaseMaxRange =1;
 	}
 
 	public void resetStatsToBaseTraits() {
@@ -78,6 +127,7 @@ public final class Player extends Actor {
 		this.damageResistance = this.baseTraits.damageResistance;
 		this.useItemCost = this.baseTraits.useItemCost;
 		this.reequipCost = this.baseTraits.reequipCost;
+		this.increaseMaxRange = this.baseTraits.increaseMaxRange; //is not a base trait because share with actor class
 	}
 
 	public Player() {
@@ -105,6 +155,7 @@ public final class Player extends Actor {
 		baseTraits.damageResistance = 0;
 		baseTraits.useItemCost = 5;
 		baseTraits.reequipCost = 5;
+		baseTraits.increaseMaxRange=1;
 		this.name = playerName;
 		this.level = 1;
 		this.totalExperience = 1;
@@ -263,6 +314,16 @@ public final class Player extends Actor {
 		return 0;
 	}
 
+	public int getPresetEquipCost(String slot){
+		ItemType[] items = inventory.presets.get(slot);
+		int total = 0;
+		for(ItemType i: items){
+			if(i != null && !inventory.isWearing(i.id))
+				total += this.getReequipCost();
+		}
+		return total;
+	}
+
 	// ====== PARCELABLE ===================================================================
 
 	public static Player newFromParcel(DataInputStream src, WorldContext world, ControllerContext controllers, int fileversion) throws IOException {
@@ -412,5 +473,36 @@ public final class Player extends Actor {
 			dest.writeInt(e.getValue());
 		}
 	}
+
+	/*public void cancelAimMode(){
+		// this makes player flee instead of moving in combat
+		// allows player to flee from from combat mode
+		this.inAimMode = false;
+	}*/
+
+	//public boolean isJokeWieldingRangedWeapon() {return this.hasRangedWeaponEquippedInInventory;}
+
+	public boolean isWieldingRangedWeapon(){
+
+		if(this.inventory.getItemTypeInWearSlot(
+				Inventory.WearSlot.weapon) != null){
+			if(this.inventory.getItemTypeInWearSlot(
+					Inventory.WearSlot.weapon).isRangedWeapon())
+				return true; //wielding nothing
+		}
+		else if (this.inventory.getItemTypeInWearSlot(
+				Inventory.WearSlot.shield) != null) {
+			if(this.inventory.getItemTypeInWearSlot(
+				Inventory.WearSlot.shield).isRangedWeapon())
+				return true;
+		}
+		return false;
+	}
+	/*public boolean isKindaWieldingRangedWeapon(){
+		if(this.inventory.isWearing("wooden_longbow")){
+			return true;
+		}
+		return false;
+	}*/
 }
 

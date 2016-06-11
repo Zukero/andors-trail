@@ -3,14 +3,12 @@ package com.gpl.rpg.AndorsTrail.view;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.LayerDrawable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
+import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.activity.HeroinfoActivity;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
@@ -27,10 +25,13 @@ public final class StatusView extends RelativeLayout implements PlayerStatsListe
 	private final WorldContext world;
 	private final Player player;
 	private final Resources res;
+	private final AndorsTrailPreferences preferences;
 
 	private final RangeBar healthBar;
 	private final RangeBar expBar;
 	private final ImageButton heroImage;
+	private final ImageButton quickAimImageLeft;
+	private final ImageButton quickAimImageRight;
 	private boolean showingLevelup;
 //	private final Drawable levelupDrawable;
 
@@ -40,6 +41,7 @@ public final class StatusView extends RelativeLayout implements PlayerStatsListe
 		this.controllers = app.getControllerContext();
 		this.world = app.getWorld();
 		this.player = world.model.player;
+		this.preferences = app.getPreferences();
 
 		setFocusable(false);
 		inflate(context, R.layout.statusview, this);
@@ -54,6 +56,29 @@ public final class StatusView extends RelativeLayout implements PlayerStatsListe
 				context.startActivity(new Intent(context, HeroinfoActivity.class));
 			}
 		});
+
+		quickAimImageLeft = (ImageButton) findViewById(R.id.statusview_quickaim_left);
+		quickAimImageLeft.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				if (world.model.uiSelections.isInCombat)
+					controllers.combatController.exitRangedCombat(true);
+				else
+					controllers.combatController.enterRangedCombatAsPlayer();
+			}
+		});
+
+		quickAimImageRight = (ImageButton) findViewById(R.id.statusview_quickaim_right);
+		quickAimImageRight.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				if (world.model.uiSelections.isInCombat)
+					controllers.combatController.exitRangedCombat(true);
+				else
+					controllers.combatController.enterRangedCombatAsPlayer();
+			}
+		});
+
 		healthBar = (RangeBar) findViewById(R.id.statusview_health);
 		healthBar.init(R.drawable.ui_progress_health, R.string.status_hp);
 
@@ -67,7 +92,8 @@ public final class StatusView extends RelativeLayout implements PlayerStatsListe
 //		});
 
 		updateStatus();
-		updateIcon(player.canLevelup());
+		updateHeroIcon(player.canLevelup());
+		updateAimIcon();
 	}
 
 	public void registerToolboxViews(ToolboxView toolbox, QuickitemView quickitemView) {
@@ -77,6 +103,7 @@ public final class StatusView extends RelativeLayout implements PlayerStatsListe
 	public void updateStatus() {
 		updateHealth();
 		updateExperience();
+		updateAimIcon();
 	}
 
 	public void subscribe() {
@@ -95,17 +122,33 @@ public final class StatusView extends RelativeLayout implements PlayerStatsListe
 		expBar.update(player.getMaxLevelExperience(), player.getCurrentLevelExperience());
 		boolean canLevelUp = player.canLevelup();
 		if (showingLevelup != canLevelUp) {
-			updateIcon(canLevelUp);
+			updateHeroIcon(canLevelUp);
 		}
 	}
 
-	private void updateIcon(boolean canLevelUp) {
+	private void updateHeroIcon(boolean canLevelUp) {
 		showingLevelup = canLevelUp;
+		/*if(player.isFollowed()){
+			world.tileManager.setImageViewTileWithOverlay(res, heroImage, TileManager.iconID_attackselect, world.tileManager.preloadedTiles.getBitmap(player.iconID), true);
+			return;
+		}*/
 		if (canLevelUp) {
 			world.tileManager.setImageViewTileWithOverlay(res, heroImage, TileManager.iconID_moveselect, world.tileManager.preloadedTiles.getBitmap(player.iconID), true);
 		} else {
 			world.tileManager.setImageViewTile(res, heroImage, player);
 		}
+	}
+
+	private void updateAimIcon() {
+		//Hides buttons when disabled or not wielding ranged weapon.
+		if (preferences.aimButtonPosition !=1 ||(!player.isWieldingRangedWeapon() && preferences.rangedHideUnusedAim))
+			quickAimImageLeft.setVisibility(GONE);
+		else quickAimImageLeft.setVisibility(VISIBLE);
+
+		if (preferences.aimButtonPosition !=2
+				||(!player.isWieldingRangedWeapon() && preferences.rangedHideUnusedAim))
+			quickAimImageRight.setVisibility(GONE);
+		else quickAimImageRight.setVisibility(VISIBLE);
 	}
 
 	@Override
@@ -125,5 +168,10 @@ public final class StatusView extends RelativeLayout implements PlayerStatsListe
 	@Override
 	public void onPlayerExperienceChanged(Player p) {
 		updateExperience();
+	}
+
+	@Override
+	public void onPlayerChangedRangedWeapon() {
+		this.updateAimIcon();
 	}
 }

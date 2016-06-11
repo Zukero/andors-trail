@@ -25,6 +25,9 @@ public final class CombatActionListeners extends ListOfListeners<CombatActionLis
 	private final Function1<CombatActionListener, Monster> onMonsterMovedDuringCombat = new Function1<CombatActionListener, Monster>() {
 		@Override public void call(CombatActionListener listener, Monster m) { listener.onMonsterMovedDuringCombat(m); }
 	};
+	private final Function1<CombatActionListener, Monster> onMonsterFleedDuringCombat = new Function1<CombatActionListener, Monster>() {
+		@Override public void call(CombatActionListener listener, Monster m) { listener.onMonsterFleedDuringCombat(m); }
+	};
 
 	private final Function1<CombatActionListener, Monster> onPlayerKilledMonster = new Function1<CombatActionListener, Monster>() {
 		@Override public void call(CombatActionListener listener, Monster target) { listener.onPlayerKilledMonster(target); }
@@ -40,6 +43,10 @@ public final class CombatActionListeners extends ListOfListeners<CombatActionLis
 
 	private final Function<CombatActionListener> onPlayerDoesNotHaveEnoughAP = new Function<CombatActionListener>() {
 		@Override public void call(CombatActionListener listener) { listener.onPlayerDoesNotHaveEnoughAP(); }
+	};
+
+	private final Function<CombatActionListener> onCombatTargetOutsideRange = new Function<CombatActionListener>() {
+		@Override public void call(CombatActionListener listener) { listener.onCombatTargetOutsideRange(); }
 	};
 
 	@Override
@@ -68,6 +75,11 @@ public final class CombatActionListeners extends ListOfListeners<CombatActionLis
 	}
 
 	@Override
+	public void onMonsterFleedDuringCombat(Monster m) {
+		callAllListeners(this.onMonsterFleedDuringCombat, m);
+	}
+
+	@Override
 	public void onPlayerKilledMonster(Monster target) {
 		callAllListeners(this.onPlayerKilledMonster, target);
 	}
@@ -85,5 +97,10 @@ public final class CombatActionListeners extends ListOfListeners<CombatActionLis
 	@Override
 	public void onPlayerDoesNotHaveEnoughAP() {
 		callAllListeners(this.onPlayerDoesNotHaveEnoughAP);
+	}
+
+	@Override
+	public void onCombatTargetOutsideRange() {
+		callAllListeners(this.onCombatTargetOutsideRange);
 	}
 }

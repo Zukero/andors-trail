@@ -11,7 +11,13 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		/>
-		<TextView
+	<TextView
+		android:text="@string/iteminfo_effect_increase_attack_range"
+		android:id="@+id/abilitymodifierinfo_change_attack_range"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		/>
+	<TextView
 		android:text="@string/iteminfo_effect_increase_attack_chance"
 		android:id="@+id/abilitymodifierinfo_change_attack_chance"
 		android:layout_width="match_parent"

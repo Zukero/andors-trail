@@ -2,6 +2,7 @@ package com.gpl.rpg.AndorsTrail.view;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -9,6 +10,7 @@ import android.graphics.drawable.LayerDrawable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewParent;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
@@ -18,25 +20,30 @@ import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.Dialogs;
 import com.gpl.rpg.AndorsTrail.R;
+import com.gpl.rpg.AndorsTrail.activity.MainActivity;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.WorldMapController;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
 
-public final class ToolboxView extends LinearLayout implements OnClickListener {
+public final class ToolboxView extends LinearLayout implements OnClickListener, View.OnLongClickListener {
 	private final WorldContext world;
 	private final ControllerContext controllers;
 	private final AndorsTrailPreferences preferences;
 	private final Animation showAnimation;
 	private final Animation hideAnimation;
+	private final ImageButton toolbox_aim;
 	private final ImageButton toolbox_quickitems;
 	private final ImageButton toolbox_map;
 	private final ImageButton toolbox_save;
 	private final ImageButton toolbox_combatlog;
+	/*private final ImageButton toolbox_preset;*/
 	private ImageButton toggleToolboxVisibility;
 	private QuickitemView quickitemView;
 	private boolean hideQuickslotsWhenToolboxIsClosed = false;
 	private static final int quickSlotIcon = R.drawable.ui_icon_equipment;
+	public static final int aimIcon = R.drawable.ui_icon_crosshair;
+	public static final int presetIcon = R.drawable.ui_icon_preset;
 	private final Drawable quickSlotIconsLockedDrawable;
 	private final Resources res;
 
@@ -59,6 +66,8 @@ public final class ToolboxView extends LinearLayout implements OnClickListener {
 			}
 		});
 
+		toolbox_aim = (ImageButton) findViewById(R.id.toolbox_safeAim);
+		toolbox_aim.setOnClickListener(this);
 		toolbox_quickitems = (ImageButton)findViewById(R.id.toolbox_quickitems);
 		toolbox_quickitems.setOnClickListener(this);
 		toolbox_map = (ImageButton)findViewById(R.id.toolbox_map);
@@ -67,6 +76,9 @@ public final class ToolboxView extends LinearLayout implements OnClickListener {
 		toolbox_save.setOnClickListener(this);
 		toolbox_combatlog = (ImageButton)findViewById(R.id.toolbox_combatlog);
 		toolbox_combatlog.setOnClickListener(this);
+		/*toolbox_preset = (ImageButton) findViewById(R.id.toolbox_preset);
+		toolbox_preset.setOnClickListener(this);
+		toolbox_preset.setOnLongClickListener(this);*/
 
 		res = getResources();
 		quickSlotIconsLockedDrawable = new LayerDrawable(new Drawable[] {
@@ -88,6 +100,13 @@ public final class ToolboxView extends LinearLayout implements OnClickListener {
 		Context context = getContext();
 		if (btn == toggleToolboxVisibility) {
 			toggleVisibility();
+		} else if (btn == toolbox_aim){
+			//if(!preferences.rangedLegacySafeAim)
+			if(world.model.uiSelections.isInCombat)
+				controllers.combatController.exitRangedCombat(true);
+			else
+				controllers.combatController.enterRangedCombatAsPlayer();
+			//else controllers.movementController.playerMovementListeners.onToggledAimMode(world.model.player.toggleAimMode());
 		} else if (btn == toolbox_quickitems) {
 			toggleQuickslotItemView();
 		} else if (btn == toolbox_map) {
@@ -100,7 +119,18 @@ public final class ToolboxView extends LinearLayout implements OnClickListener {
 		} else if (btn == toolbox_combatlog) {
 			Dialogs.showCombatLog(getContext(), controllers, world);
 			hide(false);
-		}
+		} /*else if (btn == toolbox_preset){
+			Dialogs.showPresetLoad((Activity)getContext());
+		}*/
+	}
+
+	@Override
+	public boolean onLongClick(View btn) {
+//		if(btn == toolbox_preset) controllers.itemController.equipNextPreset(world.model.player);
+		//if(btn == toolbox_aim) preferences.rangedAutoaim = ! preferences.rangedAutoaim; //todo,twirlimp add combatlog message
+		// or maybe long-clicking makes in range monsters glow?
+		return true;
+
 	}
 
 	private void toggleQuickslotItemView() {
@@ -152,6 +182,11 @@ public final class ToolboxView extends LinearLayout implements OnClickListener {
 
 	public void updateIcons() {
 		setToolboxIcon(getVisibility() == View.VISIBLE);
+
+		if(preferences.aimButtonPosition != 0 // Hides button if shown elsewhere
+		||(!world.model.player.isWieldingRangedWeapon() && preferences.rangedHideUnusedAim)) //And when not wielding ranged wpn
+			toolbox_aim.setVisibility(GONE);
+		else toolbox_aim.setVisibility(VISIBLE);
 	}
 
 	private void setToolboxIcon(boolean opened) {

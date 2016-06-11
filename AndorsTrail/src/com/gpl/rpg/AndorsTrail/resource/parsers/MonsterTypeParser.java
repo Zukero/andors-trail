@@ -50,6 +50,14 @@ public final class MonsterTypeParser extends JsonCollectionParserFor<MonsterType
 		int damageResistance = o.optInt(JsonFieldNames.Monster.damageResistance, 0);
 		final ItemTraits_OnUse hitEffect = itemTraitsParser.parseItemTraits_OnUse(o.optJSONObject(JsonFieldNames.Monster.hitEffect));
 
+		final double rageMultiplier = o.optDouble(JsonFieldNames.Monster.rageMultiplier, 1.1);
+		final double hpFleeThreshold= o.optDouble(JsonFieldNames.Monster.hpFleeThreshold, 0.2);
+		final int lineOfSight= o.optInt(JsonFieldNames.Monster.lineOfSight, 4);
+		final double fleeMultiplier = o.optDouble(JsonFieldNames.Monster.fearMultiplier, 1.1);
+		// e.g rage multiplier of 1 makes them only go to where they were attacked
+		// rage multiplier of 2 makes them follow you by double the distance between you when first attacked/enraged
+
+
 		final int exp = getExpectedMonsterExperience(attackCost, attackChance, damagePotential, criticalSkill, criticalMultiplier, blockChance, damageResistance, hitEffect, maxHP, maxAP);
 
 		return new Pair<String, MonsterType>(monsterTypeID, new MonsterType(
@@ -76,6 +84,10 @@ public final class MonsterTypeParser extends JsonCollectionParserFor<MonsterType
 				, blockChance
 				, damageResistance
 				, hitEffect == null ? null : new ItemTraits_OnUse[] { hitEffect }
+				, rageMultiplier
+				, hpFleeThreshold
+				, lineOfSight
+				, fleeMultiplier
 		));
 	}
 

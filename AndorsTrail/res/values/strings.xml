@@ -33,11 +33,15 @@
 	<string name="heroinfo_char">Overview</string>
 	<string name="heroinfo_inv">Items</string>
 	<string name="heroinfo_skill">Skills</string>
+	<string name="heroinfo_skill_categories">Category</string>
+	<string name="heroinfo_skill_sort">Sort</string>
 	<string name="heroinfo_levelup">Level up</string>
 	<string name="heroinfo_level">Level</string>
 	<string name="heroinfo_totalexperience">Total experience</string>
-	<string name="heroinfo_wornequipment">Worn equipment</string>
+	<string name="heroinfo_wornequipment">Worn Equipment</string>
 	<string name="heroinfo_inventory">Inventory</string>
+	<string name="heroinfo_inventory_categories">Category</string>
+	<string name="heroinfo_inventory_sort">Sort By</string>
 	<string name="heroinfo_gold">Gold: %1$d</string>
 	<string name="heroinfo_actionpoints">Action points (AP):</string>
 	<string name="heroinfo_quests">Quests</string>
@@ -50,18 +54,27 @@
 	<string name="combat_flee">Flee</string>
 	<string name="combat_begin_flee">You can now flee combat by clicking in the direction you want to move.</string>
 	<string name="combat_flee_failed">You failed to flee!</string>
+	<string name="combat_flee_failed_repeat">You failed to flee! (x%1$s)</string>
 	<string name="combat_status_ap">AP: %1$d</string>
 	<string name="combat_monsterhealth">HP:</string>
 	<string name="combat_monsteraction">%1$s is attacking.</string>
 	<!-- <string name="combat_cannotexitcombat">You cannot exit combat since there are adjacent monsters. You first have to move by long-clicking a place with no adjacent monster, before you may end the combat.</string> -->
 	<string name="combat_result_monstermiss">%1$s misses!</string>
+	<string name="combat_result_monstermiss_repeat">%1$s misses! (x%2$s)</string>
 	<string name="combat_result_monsterhit">%1$s hits you for %2$d hp!</string>
+	<string name="combat_result_monsterhit_repeat">%1$s hits you for %2$d hp! (x%3$s)</string>
 	<string name="combat_result_monsterhitcritical">%1$s gets a critical hit for %2$d hp!</string>
+	<string name="combat_result_monsterhitcritical_repeat">%1$s gets a critical hit for %2$d hp! (x%3$s)</string>
 	<string name="combat_result_heromiss">Your attack misses.</string>
+	<string name="combat_result_heromiss_repeat">Your attack misses. (x%1$s)</string>
 	<string name="combat_result_herohit">You hit %1$s for %2$d hp!</string>
+	<string name="combat_result_herohit_repeat">You hit %1$s for %2$d hp! (x%3$s)</string>
 	<string name="combat_result_herohitcritical">You get a critical hit on %1$s for %2$d hp!</string>
+	<string name="combat_result_herohitcritical_repeat">You get a critical hit on %1$s for %2$d hp! (x%3$s)</string>
 	<string name="combat_result_herokillsmonster">%1$s dies!</string>
+	<string name="combat_result_herokillsmonster_repeat">%1$s dies! (x%2$s)</string>
 	<string name="combat_not_enough_ap">Not enough AP left this round.</string>
+	<string name="combat_not_enough_ap_repeat">Not enough AP left this round. (x%1$s)</string>
 	<string name="combat_hero_dies">You fall unconscious, but fortunately wake up alive, dazed and fatigued. You lost %1$d experience.</string>
 	<string name="combat_miss_animation_message">MISS</string>
 	
@@ -107,6 +120,7 @@
 	<string name="traitsinfo_criticalhit_multiplier">Critical multiplier:</string>
 	<string name="traitsinfo_defense_chance">Block chance:</string>
 	<string name="traitsinfo_defense_damageresist">Damage resistance:</string>
+	<string name="traitsinfo_max_range">Attack range:</string>
 
 	<!-- <string name="key_required">A specific key is required to pass.</string> -->
 
@@ -142,6 +156,7 @@
 	<string name="shop_yourgold">Your gold: %1$d</string>
 	<string name="shop_item_bought">%1$s bought.</string>
 	<string name="shop_item_sold">%1$s sold.</string>
+	<string name="shop_item_sort">Sort</string>
 
 	<string name="levelup_title">Level up</string>
 	<string name="levelup_description">Welcome to level %1$d!</string>
@@ -308,6 +323,8 @@
 	<string name="iteminfo_effect_decrease_current_ap">Drains %1$s AP</string>
 	<string name="iteminfo_effect_increase_current_ap">Restores %1$s AP</string>
 
+	<string name="iteminfo_effect_increase_max_range">Raises max range by +%1$d</string>
+	<string name="iteminfo_effect_decrease_max_range">Lowers max range by %1$d</string>
 	<string name="iteminfo_effect_increase_max_hp">Raises max HP +%1$d</string>
 	<string name="iteminfo_effect_decrease_max_hp">Lowers max HP by %1$d</string>
 	<string name="iteminfo_effect_increase_max_ap">Raises max AP +%1$d</string>
@@ -326,6 +343,7 @@
 	<string name="inventory_assign_slot2">Slot 2</string>
 	<string name="inventory_assign_slot3">Slot 3</string>
 	<string name="inventory_unassign">Un-assign quick slot</string>
+
 
 	<!-- =========================================== -->
 	<!-- Added in v0.6.10 -->
@@ -495,6 +513,7 @@
 
 	<string name="iteminfo_effect_weapon_attack_cost">Attack cost: %1$d AP</string>
 	<string name="iteminfo_effect_increase_attack_cost">Increases attack cost by %1$d AP</string>
+	<string name="iteminfo_effect_increase_attack_range">Increases attack range by %1$d AP</string>
 	<string name="iteminfo_effect_decrease_attack_cost">Lowers attack cost by %1$d AP</string>
 	<string name="iteminfo_effect_weapon_attack_chance">Attack chance: %1$d</string>
 	<string name="iteminfo_effect_increase_attack_chance">Increases attack chance by %1$d</string>
@@ -529,8 +548,12 @@
 	<!-- Added in v0.7.0 -->
 
 	<string name="heroinfo_reequip_cost">Re-equip cost (AP):</string>
+	<string name="heroinfo_reequip_cost_presets">Re-equip cost: </string>
 	<string name="heroinfo_useitem_cost">Use item cost (AP):</string>
 	<string name="combat_result_monstermoved">%1$s moves.</string>
+	<string name="combat_result_monstermoved_repeat">%1$s moves. (x%2$s)</string>
+	<string name="combat_result_monsterfleed">%1$s flees.</string>
+	<string name="combat_result_monsterfleed_repeat">%1$s flees. (x%2$s)</string>
 	<string name="combat_log_title">Combat log</string>
 	<string name="localize_resources_from_mo_filename"></string>
 	<string name="conversation_reward_quest_finished">[Quest completed: \"%1$s\"]</string>
@@ -630,4 +653,93 @@ Every skill level increases the attack chance of weapons with %1$d %% of their o
 	<string name="preferences_ui_use_localized_resources">Use translation of interface and content, where available. (requires restart)</string>
 	<string name="change_locale_requires_restart">Changing locale requires restart. Andor\'s Trail has been closed.</string>
 
+	<string name="combat_actorcondition_added">%1$s is now affected with %2$s.</string>
+	<string name="combat_actorcondition_added_repeat">%1$s is now affected with %2$s. (x%3$s)</string>
+	<string name="combat_actorcondition_removed">%1$s is no longer affected with %2$s.</string>
+	<string name="combat_actorcondition_removed_repeat">%1$s is no longer affected with %2$s. (x%3$s)</string>
+	<string name="combat_actorcondition_applied">%1$s has been applied to %2$s.</string>
+	<string name="combat_actorcondition_applied_repeat">%1$s has been applied to %2$s. (x%3$s)</string>
+	<string name="combat_actorcondition_duration">Decreased duration of %1$s on %2$s.</string>
+	<string name="combat_actorcondition_duration_repeat">Decreased duration of %1$s on %2$s. (x%3$s)</string>
+	<string name="combat_actorcondition_magnitude">Decreased magnitude of %1$s on %2$s.</string>
+	<string name="combat_actorcondition_magnitude_repeat">Decreased magnitude of %1$s on %2$s. (x%3$s)</string>
+
+	<!-- =========================================== -->
+	<!-- Added by twirlimp -->
+
+	<string name="preferences_combat_ranged_autoaim_title">Enable Auto-Aim</string>
+	<string name="preferences_combat_ranged_autoaim">Player uses ranged attacks without needing to aim.</string>
+	<string name="preferences_combat_ranged_safeaim_self_title">Press on hero to aim</string>
+	<string name="preferences_combat_ranged_safeaim_self">Press on hero to enter aiming mode.</string>
+	<string name="preferences_aim_button_position_title">Aim button position</string>
+	<string name="preferences_aim_button_position">Determines position of aim button on the screen.</string>
+	<!--<string name="preferences_combat_ranged_legacy_safeaim_title">Enable Legacy Safe-Aiming</string>
+	<string name="preferences_combat_ranged_legacy_safeaim_self">Warning: Extremely annoying.</string> -->
+	<!--<string name="preferences_combat_button_safeaim_title">Move Safe-Aim button to status bar</string>
+	<string name="preferences_combat_button_safeaim">Can be annoying for small screens.</string> -->
+
+	<string name="preferences_aim_button_position_toolbox">Inside the Toolbox</string>
+	<string name="preferences_aim_button_position_right">Beside the Toolbox</string>
+	<string name="preferences_aim_button_position_left">Beside the Player image button</string>
+
+	<string name="player_aim_invalid">Target not valid.</string>
+	<string name="player_aim_invalid_repeat">Target not valid. (x%1$s)</string>
+	<string name="player_aim_toofar">Target out of range.</string>
+	<string name="player_aim_toofar_repeat">Target out of range. (x%1$s)</string>
+	<string name="player_toggled_aim_on">You started aiming.</string>
+	<string name="player_toggled_aim_off">You are not aiming.</string>
+	<string name="player_toggled_aim_off_repeat">You are not aiming.</string>
+	<string name="player_cannot_find_targets">No combat targets in range.</string>
+	<string name="player_cannot_find_targets_repeat">No combat targets in range. (x%1$s)</string>
+
+	<string name="inventory_category_all">All</string>
+	<string name="inventory_category_favorites">Favorites</string>
+	<string name="inventory_category_weapons">Weapon</string>
+	<string name="inventory_category_armor">Armor</string>
+	<string name="inventory_category_usable">Consumable</string>
+	<string name="inventory_category_quest">Quest Item</string>
+	<string name="inventory_category_other">Other</string>
+
+	<string name="inventory_sort_custom">Unsorted</string>
+	<string name="inventory_sort_name">Name</string>
+	<string name="inventory_sort_price">Price</string>
+	<string name="inventory_sort_quantity">Quantity</string>
+	<string name="inventory_sort_rarity">Rarity</string>
+	<string name="inventory_sort_type">Type</string>
+
+	<string name="shoplist_sort_custom">Unsorted</string>
+	<string name="shoplist_sort_name">Name</string>
+	<string name="shoplist_sort_price">Price</string>
+	<string name="shoplist_sort_quantity">Quantity</string>
+	<string name="shoplist_sort_rarity">Rarity</string>
+	<string name="shoplist_sort_type">Type</string>
+
+	<string name="skill_category_all">All</string>
+	<string name="skill_category_offense"> Offense</string>
+	<string name="skill_category_defense">Defense</string>
+	<string name="skill_category_criticals">Criticals</string>
+	<string name="skill_category_immunity">Immunity</string>
+	<string name="skill_category_utility">Utility</string>
+	<string name="skill_category_speciality">Speciality</string>
+	<string name="skill_category_proficiency">Proficiency</string>
+
+	<string name="skill_sort_unsorted">Unsorted</string>
+	<string name="skill_sort_name">Name</string>
+	<string name="skill_sort_points">Points</string>
+	<string name="skill_sort_unlocked">Unlocked</string>
+
+	<string name="inventory_add_favorites">Add to favorites</string>
+	<string name="inventory_remove_favorites">Remove from favorites</string>
+	<string name="inventory_category_preset_default_repeat">Preset #%1$d</string>
+	<string name="inventory_category_preset_none">No Preset</string>
+	<string name="inventory_preset_loaded_default">Loaded preset -- %1$d</string>
+	<string name="inventory_preset_load_failed">Not enough AP to load %1$s</string>
+	<string name="inventory_preset_loaded_custom_name">Loaded preset -- %1$s</string>
+	<string name="inventory_preset_select_prompt">Select a Preset </string>
+	<string name="inventory_preset_select_description">%1$s (%2$d AP)</string>
+	<string name="inventory_preset_save">Save</string>
+	<string name="inventory_preset_load">Load</string>
+	<string name="inventory_preset_delete">Delete</string>
+	<string name="inventory_preset_overwrite">Overwrite</string>
+	<string name="inventory_preset_overwrite_message">Overwrite %1$s?</string>
 </resources>

@@ -1,5 +1,7 @@
 package com.gpl.rpg.AndorsTrail.controller;
 
+import android.content.ClipData;
+
 import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
@@ -32,6 +34,7 @@ public final class ItemController {
 	}
 
 	public void equipItem(ItemType type, Inventory.WearSlot slot) {
+		world.model.player.inventory.currentSelectedPreset = ""; // Always reset to 0; equipPreset() will post-set it properly.
 		if (!type.isEquippable()) return;
 		final Player player = world.model.player;
 		if (world.model.uiSelections.isInCombat) {
@@ -54,6 +57,9 @@ public final class ItemController {
 	}
 
 	public void unequipSlot(ItemType type, Inventory.WearSlot slot) {
+		world.model.player.inventory.currentSelectedPreset = "";
+		// ^ Always reset to null; equipPreset() will post-set it properly.
+
 		if (!type.isEquippable()) return;
 		final Player player = world.model.player;
 		if (player.inventory.isEmptySlot(slot)) return;
@@ -70,10 +76,11 @@ public final class ItemController {
 	private void unequipSlot(Player player, Inventory.WearSlot slot) {
 		ItemType removedItemType = player.inventory.getItemTypeInWearSlot(slot);
 		if (removedItemType == null) return;
-		player.inventory.addItem(removedItemType);
+		player.inventory.addItem(removedItemType, 1, true);
 		player.inventory.setItemTypeInWearSlot(slot, null);
 		controllers.actorStatsController.removeConditionsFromUnequippedItem(player, removedItemType);
 	}
+
 
 	public void useItem(ItemType type) {
 		if (!type.isUsable()) return;
@@ -352,4 +359,23 @@ public final class ItemController {
 		world.model.player.inventory.quickitem[quickSlotId] = itemType;
 		quickSlotListeners.onQuickSlotChanged(quickSlotId);
 	}
+
+	public boolean equipPreset(Object presetKey, Player player) {
+		if(world.model.uiSelections.isInCombat &&
+				player.getPresetEquipCost(presetKey.toString()) > player.getCurrentAP()){
+			quickSlotListeners.onPresetLoadFailed(0, presetKey.toString());
+			return false;
+		}
+		ItemType[] preset = player.inventory.presets.get(presetKey);
+		for(int i =0; i< preset.length; i++){
+			if(preset[i] != null) {
+				equipItem(preset[i], Inventory.WearSlot.values()[i]);
+			}
+		}
+		player.inventory.currentSelectedPreset = presetKey.toString();
+		quickSlotListeners.onPresetLoaded(0, presetKey.toString());
+
+		return true;
+	}
+
 }

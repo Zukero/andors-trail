@@ -21,6 +21,20 @@ public final class Monster extends Actor {
 	public long nextActionTime = 0;
 	public final CoordRect nextPosition;
 
+
+	public double hpFleeThreshold;
+	public double rageMultiplier;
+	public double fearMultiplier;
+	public int lineOfSight;
+
+	public int rageDistance = 0;
+	public int fearDistance = 0;
+	public boolean hasRage = false; //for pathfinding purposes
+
+	//	This value is for whether the monster will flee from ranged opponents
+	public boolean isDesperate = false;
+	public boolean hasFleePath = false;
+
 	private boolean forceAggressive = false;
 	private ItemContainer shopItems = null;
 
@@ -50,6 +64,11 @@ public final class Monster extends Actor {
 		this.blockChance = monsterType.blockChance;
 		this.damageResistance = monsterType.damageResistance;
 		this.onHitEffects = monsterType.onHitEffects;
+
+		this.rageMultiplier = monsterType.rageMultiplier;
+		this.hpFleeThreshold = monsterType.hpFleeThreshold;
+		this.lineOfSight = monsterType.lineOfSight;
+		this.fearMultiplier = monsterType.fearMultiplier;
 	}
 
 	public DropList getDropList() { return monsterType.dropList; }
@@ -59,6 +78,7 @@ public final class Monster extends Actor {
 	public String getFaction() { return monsterType.faction; }
 	public MonsterType.MonsterClass getMonsterClass() { return monsterType.monsterClass; }
 	public MonsterType.AggressionType getMovementAggressionType() { return monsterType.aggressionType; }
+	//public MonsterType.BraveryType getMovementBraveryType() {return monsterType.braveryType;}
 
 	public void createLoot(Loot container, Player player) {
 		int exp = this.getExp();
@@ -81,6 +101,9 @@ public final class Monster extends Actor {
 	public boolean isAdjacentTo(Player p) {
 		return this.rectPosition.isAdjacentTo(p.position);
 	}
+	//public boolean isInRangeOf(Player p){
+		//return this.rectPosition.isAdjacentTo(p.position);
+		//return true;}
 
 	public boolean isAgressive() {
 		return getPhraseID() == null || forceAggressive;
@@ -183,5 +206,83 @@ public final class Monster extends Actor {
 		} else {
 			dest.writeBoolean(false);
 		}
+	}
+
+	public boolean isFleeing() {
+		if(this.health.current <= this.health.max * this.hpFleeThreshold)
+			return true;
+
+		if(fearDistance >0)
+			return true;
+		if(fearDistance<0)
+			fearDistance =0;
+		if(fearDistance ==0)
+			return false;
+		return false;
+	}
+
+	public void setRageAndFear(Coord root, Coord here)
+	{
+		// Add -1 so monster comes next to you instead of trying to walk ON you
+		int distanceX = Math.abs(root.x - here.x);
+		int distanceY = Math.abs(root.y- here.y);
+
+		if(distanceX > this.lineOfSight || distanceY > this.lineOfSight) { //Flee if outside line of sight
+			int old_fearDistance = this.fearDistance;
+			if(distanceX <= 0 && distanceY <=0)
+				this.fearDistance = (int)fearMultiplier;
+			else {
+				if (distanceX >= distanceY) //&& distanceX>rageDistance)
+					this.fearDistance = (int) ((distanceX) * this.fearMultiplier);
+				else
+				if (distanceY>rageDistance)
+					this.fearDistance = (int) ((distanceY) * this.fearMultiplier);
+			}
+			if(old_fearDistance >this.rageDistance)
+				this.fearDistance = old_fearDistance;
+
+		} else{ //if (distanceX <= this.lineOfSight && distanceY <= this.lineOfSight){ //If within line of sight, attack.
+			int old_rageDistance = this.rageDistance;
+			if(distanceX <= 0 && distanceY <=0)
+				this.rageDistance = (int)rageMultiplier;
+			else {
+				if (distanceX >= distanceY) //&& distanceX>rageDistance)
+				this.rageDistance = (int) (distanceX * this.rageMultiplier);
+				else
+				if (distanceY>rageDistance)
+				this.rageDistance = (int) (distanceY * this.rageMultiplier);
+			}
+			if(old_rageDistance >this.rageDistance)
+				this.rageDistance = old_rageDistance;
+
+			this.hasRage = !isFleeing();
+		}
+	}
+
+	//These two can be used later to force Rage or Fleeing on non-aggressive monsters
+	public void forceRageDistance(int distance){
+		this.hasRage = true;
+		this.rageDistance = distance;
+	}
+	public  void forceFleeDistance(int distance){
+		fearDistance = distance;
+	}
+
+	public boolean isEnraged(){
+		if(!this.hasRage)
+			this.rageDistance = 0;
+		if(this.rageDistance <= 0)
+			this.hasRage = false;
+		if(isFleeing())
+			this.hasRage = false;
+		return this.hasRage;
+	}
+
+	public boolean isCombatant(){
+		return isEnraged() || isAgressive();
+	}
+	public boolean isDesperate(){
+		return false; // Don't need this right now, other problems afoot
+		//return Boolean.TRUE.equals(this.isDesperate);
 	}
 }

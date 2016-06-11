@@ -1,50 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="match_parent"
-	android:layout_height="wrap_content"
-	>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
-	<ImageButton
-		android:id="@+id/status_image"
-		android:scaleType="fitCenter"
-		android:padding="8dp"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_alignParentLeft="true"
-		android:layout_centerVertical="true"
-		android:layout_margin="0sp"
-		/>
+    <LinearLayout
+        android:id="@+id/left_part"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:gravity="center_vertical"
+        android:layout_centerVertical="true"
+        android:orientation="horizontal">
 
-	<ImageButton
-		android:id="@+id/toolbox_toggle"
-		android:scaleType="fitCenter"
-		android:padding="8dp"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_alignParentRight="true"
-		android:layout_centerVertical="true"
-		android:layout_margin="0sp"
-		/>
+        <ImageButton
+            android:id="@+id/status_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="0sp"
+            android:padding="8dp"
+            android:scaleType="fitCenter"
+            />
 
-	<LinearLayout
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:layout_centerVertical="true"
-		android:layout_toRightOf="@id/status_image"
-		android:layout_toLeftOf="@id/toolbox_toggle"
-		android:orientation="vertical"
-		>
-		<com.gpl.rpg.AndorsTrail.view.RangeBar
-			android:id="@+id/statusview_health"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			/>
-		<com.gpl.rpg.AndorsTrail.view.RangeBar
-			android:id="@+id/statusview_exp"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			/>
-	</LinearLayout>
+        <ImageButton
+            android:id="@+id/statusview_quickaim_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="0sp"
+            android:layout_toRightOf="@id/status_image"
+            android:padding="8dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ui_icon_crosshair"
+            style="@style/toolboxButtonTile"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/right_part"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/statusview_quickaim_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="0sp"
+            android:padding="8dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ui_icon_crosshair"
+            android:gravity="center_horizontal|center_vertical"
+            style="@style/toolboxButtonTile"/>
+
+        <ImageButton
+            android:id="@+id/toolbox_toggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="0sp"
+            android:layout_toRightOf="@id/statusview_quickaim_right"
+            android:padding="8dp"
+            android:scaleType="fitCenter" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@id/right_part"
+        android:layout_toRightOf="@id/left_part"
+        android:orientation="vertical"
+        android:id="@+id/status_range_bars">
+
+        <com.gpl.rpg.AndorsTrail.view.RangeBar
+            android:id="@+id/statusview_health"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.gpl.rpg.AndorsTrail.view.RangeBar
+            android:id="@+id/statusview_exp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
 
 </merge>

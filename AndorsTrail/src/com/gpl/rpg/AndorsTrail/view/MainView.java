@@ -603,6 +603,15 @@ public final class MainView extends SurfaceView
 		redrawAll(RedrawAllDebugReason.MapChanged);
 	}
 
+	@Override
+	public void onPlayerAimInvalid() {}
+
+	@Override
+	public void onPlayerAimToofar() {}
+
+	/*@Override
+	public void onToggledAimMode(Boolean change) {}*/
+
 	private void recalculateMapTopLeft(Coord playerPosition, boolean allowScrolling) {
 		synchronized (holder) {
 			int oldX = mapTopLeft.x;
@@ -772,6 +781,10 @@ public final class MainView extends SurfaceView
 
 	@Override
 	public void onMonsterSteppedOnPlayer(Monster m) {
+	}
+
+	@Override
+	public void onPlayerCannotFindTargets() {
 	}
 
 	@Override

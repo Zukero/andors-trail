@@ -6,7 +6,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
@@ -17,6 +20,7 @@ import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileCollection;
+import com.gpl.rpg.AndorsTrail.view.ItemContainerAdapter;
 import com.gpl.rpg.AndorsTrail.view.ShopItemContainerAdapter;
 import com.gpl.rpg.AndorsTrail.view.ShopItemContainerAdapter.OnContainerItemClickedListener;
 
@@ -33,6 +37,7 @@ public abstract class ShopActivityFragment extends Fragment implements OnContain
 	protected ItemContainer shopInventory;
 	private TextView shop_gc;
 	private ShopItemContainerAdapter listAdapter;
+	private Spinner shoplist_sort;
 
 	protected abstract boolean isSellingInterface();
 
@@ -66,7 +71,32 @@ public abstract class ShopActivityFragment extends Fragment implements OnContain
 		final boolean isSelling = isSellingInterface();
 		listAdapter = new ShopItemContainerAdapter(getActivity(), tiles, world.tileManager, player, isSelling ? player.inventory : shopInventory, this, isSelling);
 		shoplist.setAdapter(listAdapter);
+
+		//Initiating drop-down list for category filters
+		shoplist_sort = (Spinner) v.findViewById(R.id.shoplist_sort_filters);
+		ArrayAdapter<CharSequence> sortFilterAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.shoplist_sort_filters, android.R.layout.simple_spinner_item);
+		sortFilterAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		shoplist_sort.setAdapter(sortFilterAdapter);
+		shoplist_sort.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+			@Override
+			public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+				world.model.uiSelections.selectedShopSort = shoplist_sort.getSelectedItemPosition();
+				reloadShownSort(isSelling ? player.inventory : shopInventory);
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> arg0) {
+				world.model.uiSelections.selectedShopSort = 0;
+			}
+		});
+		shoplist_sort.setSelection(world.model.uiSelections.selectedShopSort);
+
 		return v;
+	}
+
+	private void reloadShownSort(ItemContainer itemContainer) {
+		listAdapter.reloadShownSort(world.model.uiSelections.selectedShopSort, itemContainer, player);
+		listAdapter.notifyDataSetChanged();
 	}
 
 	@Override
