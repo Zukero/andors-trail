@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
 	<string name="app_name">Andor\'s Trail</string>
 	<string name="app_description">Questgetriebenes Fantasy-Rollenspiel</string>
@@ -15,7 +14,7 @@
 	<string name="loadsave_selectslot">Speicherplatz wählen</string>
 	<string name="savegame_currenthero_displayinfo">Level %1$d, %2$d Erfahrung, %3$d Goldmünzen</string>
 
-	<string name="dialog_loading_message">Lade Ressourcen...</string>
+	<string name="dialog_loading_message">Lade Ressourcen…</string>
 	<string name="dialog_loading_failed_title">Laden fehlgeschlagen</string>
 	<string name="dialog_loading_failed_message">Der Spielstand konnte nicht geladen werden.\n\n:(\n\nDie Datei könnte beschädigt oder unvollständig sein.</string>
 	<string name="dialog_loading_failed_incorrectversion">Der Spielstand konnte nicht geladen werden. Die Datei wurde mit einer neueren Programmversion erstellt.</string>
@@ -74,9 +73,9 @@
 	<string name="inventory_item_equipped">%1$s angelegt.</string>
 
 	<string name="dialog_loot_pickall">Alles einsammeln</string>
-	<string name="dialog_loot_foundgold">Du findest %1$d Goldmünzen.</string>
-	<string name="dialog_loot_pickedupitem">Du hebst einen Gegenstand auf.</string>
-	<string name="dialog_loot_pickedupitems">Du hebst %1$d Gegenstände auf.</string>
+	<string name="dialog_loot_foundgold">"Du findest %1$d Goldmünzen. "</string>
+	<string name="dialog_loot_pickedupitem">"Du hebst einen Gegenstand auf. "</string>
+	<string name="dialog_loot_pickedupitems">"Du hebst %1$d Gegenstände auf. "</string>
 	<string name="dialog_groundloot_title">Gegenstände</string>
 	<string name="dialog_groundloot_message">Du hast ein paar Dinge gefunden. </string>
 	<string name="dialog_monsterloot_title">Sieg</string>
@@ -147,12 +146,12 @@
 	<string name="levelup_buttontext">Aufsteigen</string>
 	<string name="levelup_add_health">Lebenspunkte erhöhen (+%1$d LP)</string>
 	<string name="levelup_add_health_description">Fügt den maximalen Lebenspunkten %1$d Punkte hinzu.</string>
-	<string name="levelup_add_attackchance">Angriffschance erhöhen (+%1$d %%)</string>
-	<string name="levelup_add_attackchance_description">Fügt %1$d%% zur Basis-Angriffschance hinzu.</string>
+	<string name="levelup_add_attackchance">Angriffschance erhöhen (+%1$d)</string>
+	<string name="levelup_add_attackchance_description">Fügt %1$d zur Basis-Angriffschance hinzu.</string>
 	<string name="levelup_add_attackdamage">Angriffsschaden erhöhen (+%1$d)</string>
 	<string name="levelup_add_attackdamage_description">Fügt %1$d zum Basis-Angriffsschaden hinzu.</string>
-	<string name="levelup_add_blockchance">Abwehrchance erhöhen (+%1$d %%)</string>
-	<string name="levelup_add_blockchance_description">Fügt %1$d%% zur Basis-Abwehrchance hinzu.</string>
+	<string name="levelup_add_blockchance">Abwehrchance erhöhen (+%1$d)</string>
+	<string name="levelup_add_blockchance_description">Fügt %1$d zur Basis-Abwehrchance hinzu.</string>
 
 	<string name="dialog_rest_title">Schlafen</string>
 	<string name="dialog_rest_confirm_message">Willst du dich hier ausruhen?</string>
@@ -188,6 +187,54 @@
 		&lt;br /&gt;
 		Für den Quelltext und Verbesserungsanfragen, besuchen Sie bitte die Projektseite:&lt;a href="http://code.google.com/p/andors-trail/"&gt;http://code.google.com/p/andors-trail/&lt;/a&gt;&lt;br /&gt;
 	</string>
+	<string name="about_interface"><![CDATA[
+
+<div><b>Spiel Einstellungen</b> können über den Menüknopf deines Gerätes erreicht werden.</div>
+
+<p>________________</p>
+<h1>Symbole der Benutzeroberfläche</h1>
+
+<div><b>Die Truhe</b><img alt="chest" src="chest.png" /></div>
+<p>Quickslots [Durch einen langen Klick auf die einzelnen Slots können den Slots Gegenstände zugewiesen werden, die anschließend schneller verwendet werden können]</p>
+
+<div><b>Der Held</b><img alt="hero" src="char_hero.png" /></div>
+<p>Menü [Übersicht, Quests, Skills &amp; Inventar *]</p>
+<p>* (Im Inventar werden durch einen kurzen Klick auf den Gegenstand Informationen angezeigt; durch einen langen Klick können weitere Optionen erreicht werden)</p>
+
+<div><b>Die Gegner</b><img alt="monster" src="monster.png" /></div>
+<p>Informationen [Erscheint während dem Kampf]</p>
+
+
+
+<p>________________</p>
+<h1>Kampf</h1>
+
+<p>Aktionen die während dem Kampf ausgeführt werden kosten AP...</p>
+
+<div><b>Angreifen</b> - [3AP] *</div>
+<img alt="attacking" src="doubleattackexample.png" />
+<p>* (das Anlegen von Ausrüstung &amp; das Verwenden von Gegenständen kann die AP &amp; Kosten verändern)</p>
+
+<div><b>Gegenstände verwenden</b> - [5AP]</div>
+<div><b>Fliehen</b> - [6AP]</div>
+
+
+
+<p>________________</p>
+<h1>Erweiterter Kampf</h1>
+
+<div>Während eines Kampfes, langklicke ein Feld das an den Held angrenzt um...</div>
+
+<div><b>zu Fliehen</b></div>
+<p>(gewähltes Feld wird hervorgehoben - Angriffs Button ändert sich zu einem Bewegen Button)</p>
+<img alt="flee" src="flee_example.png" />
+<p>[bei aktivem Fluchtmodus - Langklick auf einen Gegner um dem Kampf erneut beizutreten]</p>
+
+<div><b>Ziele zu ändern</b></div>
+<p>(die rote Zielhervorhebung wechselt zwischen den Gegnern)</p>
+<p>[Das Ziel hat sich geändert]</p>
+
+]]></string>
 
 	<string name="dialog_newversion_title">Willkommen</string>
 	<string name="dialog_newversion_message">
@@ -352,7 +399,7 @@
 	<string name="skill_longdescription_barter">Verringert bei jeder Stufe den Auf- und Abschlag von An- und Verkäufen um %1$d Prozentpunkte.</string>
 	<string name="skill_longdescription_dodge">Erhöht die Abwehrchance bei jeder Stufe um %1$d.</string>
 	<string name="skill_longdescription_barkskin">Erhöht die Schadensresistenz bei jeder Stufe um %1$d.</string>
-	<string name="skill_longdescription_more_criticals">Erhöht bei jeder Stufe die durch die Ausrüstung bestehende kritische Fähigkeit um %1$d %% (prozentualer Anteil an der bestehenden kritischen Fähigkeit, es handelt sich nicht um zusätzliche Prozentpunkte).</string>
+	<string name="skill_longdescription_more_criticals">Erhöht bei jeder Stufe die durch die Ausrüstung bestehende kritische Fähigkeit um %1$d %%.</string>
 	<string name="skill_longdescription_better_criticals">Erhöht bei jeder Stufe den durch die Ausrüstung bestehenden kritischen Faktor um %1$d %%.</string>
 	<string name="skill_longdescription_speed">Erhöht die maximalen Aktionspunkte (AP) bei jeder Stufe um %1$d.</string>
 	<string name="skill_longdescription_coinfinder">Erhöht bei jeder Stufe die Chance bei einem Gegner Goldmünzen zu finden um %1$d %%. Auch die Menge der gefundenen Goldmünzen erhöht sich jeweils um %2$d %% (bis zu der für den Gegnertyp maximalen Menge).</string>
@@ -447,9 +494,9 @@
 	<string name="iteminfo_effect_weapon_attack_cost">Angriffskosten: %1$d AP</string>
 	<string name="iteminfo_effect_increase_attack_cost">Erhöht die Angriffskosten um %1$d AP</string>
 	<string name="iteminfo_effect_decrease_attack_cost">Verringert die Angriffskosten um %1$d AP</string>
-	<string name="iteminfo_effect_weapon_attack_chance">Angriffschance: %1$d %%</string>
-	<string name="iteminfo_effect_increase_attack_chance">Erhöht die Angriffschance um %1$d %%</string>
-	<string name="iteminfo_effect_decrease_attack_chance">Reduziert die Angriffschance um %1$d %%</string>
+	<string name="iteminfo_effect_weapon_attack_chance">Angriffschance: %1$d</string>
+	<string name="iteminfo_effect_increase_attack_chance">Erhöht die Angriffschance um %1$d</string>
+	<string name="iteminfo_effect_decrease_attack_chance">Reduziert die Angriffschance um %1$d</string>
 	<string name="iteminfo_effect_weapon_attack_damage">Schaden: %1$d</string>
 	<string name="iteminfo_effect_weapon_attack_damage_minmax">Schaden: %1$d-%2$d</string>
 	<string name="iteminfo_effect_increase_attack_damage">Erhöht den Schaden um %1$d</string>
@@ -459,8 +506,8 @@
 	<string name="iteminfo_effect_increase_critical_skill">Erhöht die kritische Fähigkeit um %1$d</string>
 	<string name="iteminfo_effect_decrease_critical_skill">Reduziert die kritische Fähigkeit um %1$d</string>
 	<string name="iteminfo_effect_critical_multiplier">Ermöglicht kritische Treffer mit einem Multiplikator von x%1$.1f</string>
-	<string name="iteminfo_effect_increase_block_chance">Erhöht die Abwehrchance um %1$d %%</string>
-	<string name="iteminfo_effect_decrease_block_chance">Reduziert die Abwehrchance um %1$d %%</string>
+	<string name="iteminfo_effect_increase_block_chance">Erhöht die Abwehrchance um %1$d</string>
+	<string name="iteminfo_effect_decrease_block_chance">Reduziert die Abwehrchance um %1$d</string>
 	<string name="iteminfo_effect_increase_damage_resistance">Erhöht die Schadensresistenz um %1$d</string>
 	<string name="iteminfo_effect_decrease_damage_resistance">Reduziert die Schadensresistenz um %1$d</string>
 	<string name="iteminfo_effect_increase_use_cost">Erhöht die AP Kosten Gegenstände im Kampf zu verwenden um %1$d AP</string>
@@ -583,4 +630,6 @@ Jeder Level des Skills erhöht die Angriffschance von Waffen um %1$d %% ihrer ur
 	<string name="preferences_ui_use_localized_resources">Verwende Übersetzungen von Oberfläche und Inhalt, sofern verfügbar. (Erfordert Neustart)</string>
 	<string name="change_locale_requires_restart">Änderung der Lokalisierung erfordert Neustart. Andor\'s Trail wurde beendet.</string>
 
-</resources>
+<string name="combat_miss_animation_message">MISS</string>
+	
+	</resources>

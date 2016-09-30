@@ -2,11 +2,9 @@ package com.gpl.rpg.AndorsTrail.view;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.Bitmap.Config;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Paint.Style;
 import android.graphics.Rect;
 import android.os.Handler;
 import android.util.AttributeSet;
@@ -24,7 +22,13 @@ import com.gpl.rpg.AndorsTrail.controller.InputController;
 import com.gpl.rpg.AndorsTrail.controller.VisualEffectController.BloodSplatter;
 import com.gpl.rpg.AndorsTrail.controller.VisualEffectController.SpriteMoveAnimation;
 import com.gpl.rpg.AndorsTrail.controller.VisualEffectController.VisualEffectAnimation;
-import com.gpl.rpg.AndorsTrail.controller.listeners.*;
+import com.gpl.rpg.AndorsTrail.controller.listeners.CombatSelectionListener;
+import com.gpl.rpg.AndorsTrail.controller.listeners.GameRoundListener;
+import com.gpl.rpg.AndorsTrail.controller.listeners.MapLayoutListener;
+import com.gpl.rpg.AndorsTrail.controller.listeners.MonsterMovementListener;
+import com.gpl.rpg.AndorsTrail.controller.listeners.MonsterSpawnListener;
+import com.gpl.rpg.AndorsTrail.controller.listeners.PlayerMovementListener;
+import com.gpl.rpg.AndorsTrail.controller.listeners.VisualEffectFrameListener;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
@@ -118,6 +122,8 @@ public final class MainView extends SurfaceView
 		requestFocus();
 		setOnClickListener(this.inputController);
 		setOnLongClickListener(this.inputController);
+		
+		
 	}
 
 	@Override
@@ -201,7 +207,7 @@ public final class MainView extends SurfaceView
 	}
 
 	private static enum RedrawAllDebugReason {
-		SurfaceChanged, MapChanged, PlayerMoved, MapScrolling
+		SurfaceChanged, MapChanged, PlayerMoved, MapScrolling, FilterAnimation
 	}
 	private static enum RedrawAreaDebugReason {
 		MonsterMoved, MonsterKilled, EffectCompleted

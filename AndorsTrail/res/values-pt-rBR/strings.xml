@@ -147,12 +147,12 @@
 	<string name="levelup_buttontext">Aumento de nível</string>
 	<string name="levelup_add_health">Aumentar a saúde (+%1$d HP)</string>
 	<string name="levelup_add_health_description">Adiciona %1$d à saúde máxima.</string>
-	<string name="levelup_add_attackchance">Aumentar a probabilidade de ataque (+%1$d %%)</string>
-	<string name="levelup_add_attackchance_description">Adiciona %1$d%% à probabilidade de ataque base.</string>
+	<string name="levelup_add_attackchance">Aumentar a probabilidade de ataque (+%1$d)</string>
+	<string name="levelup_add_attackchance_description">Adiciona %1$d à probabilidade de ataque base.</string>
 	<string name="levelup_add_attackdamage">Aumentar o dado de ataque (+%1$d)</string>
 	<string name="levelup_add_attackdamage_description">Adiciona %1$d ao dano de ataque base.</string>
-	<string name="levelup_add_blockchance">Aumentar a probabilidade de bloqueio (+%1$d %%)</string>
-	<string name="levelup_add_blockchance_description">Adiciona %1$d%% à probabilidade de bloqueio base.</string>
+	<string name="levelup_add_blockchance">Aumentar a probabilidade de bloqueio (+%1$d)</string>
+	<string name="levelup_add_blockchance_description">Adiciona %1$d à probabilidade de bloqueio base.</string>
 
 	<string name="dialog_rest_title">Repouso</string>
 	<string name="dialog_rest_confirm_message">Quer descansar aqui?</string>
@@ -189,6 +189,54 @@
 		&lt;br /&gt;
 		O acesso ao código-fonte está disponível na página do projeto em &lt;a href="http://code.google.com/p/andors-trail/"&gt;http://code.google.com/p/andors-trail/&lt;/a&gt;&lt;br /&gt;
 	</string>
+	<string name="about_interface"><![CDATA[
+
+<div><b>Preferências de Jogo</b> Podem ser encontradas pressionando o botão Menu.</div>
+
+<p>________________</p>
+<h1>Ícones da Interface</h1>
+
+<div><b>A Cesta</b><img alt="chest" src="chest.png" /></div>
+<p>Botões rápidos [pressão longa atribui items para úso instantâneo]</p>
+
+<div><b>O Herói</b><img alt="hero" src="char_hero.png" /></div>
+<p>Menu [Visão Geral, Desafios, Habilidades &amp; Inventário *]</p>
+<p>* (No inventário, pressione um item para informação. pressão longa para mais opções)</p>
+
+<div><b>O Inimigo</b><img alt="monster" src="monster.png" /></div>
+<p>Informação [Aparece durante combate]</p>
+
+
+
+<p>________________</p>
+<h1>Combate</h1>
+
+<p>Ações durante batalha custam pontos de ação(AP)...</p>
+
+<div><b>Ataque</b> - [3AP] *</div>
+<img alt="attacking" src="doubleattackexample.png" />
+<p>* (Equipar itens pode alterar o custo de uso e pontos de ação (AP)</p>
+
+<div><b>Usando itens</b> - [5AP]</div>
+<div><b>Fuga</b> - [6AP]</div>
+
+
+
+<p>________________</p>
+<h1>Combate avançado</h1>
+
+<div>Durante combate, pressão longa em uma casa adijacente ao Herói...</div>
+
+<div><b>Para fuga</b></div>
+<p>(Casa esolhida é destacada - botões de ataque muda para Mover)</p>
+<img alt="flee" src="flee_example.png" />
+<p>[Modo de fuga ativado - pressão longa no inimigo para retomar combate]</p>
+
+<div><b>Para mudar alvos</b></div>
+<p>(O destaque avermelhado do alvo muda entre inimigos)</p>
+<p>[o alfo foi alterado]</p>
+
+]]></string>
 
 	<string name="dialog_newversion_title">Benvido</string>
 	<string name="dialog_newversion_message">
@@ -349,7 +397,7 @@
 	<string name="skill_longdescription_barter">Por cada nível de habilidade, diminui a penalização monetária de compra e venda em %1$d pontos percentuais.</string>
 	<string name="skill_longdescription_dodge">Aumenta a probabilidade de bloqueio em %1$d por cada nível de habilidade.</string>
 	<string name="skill_longdescription_barkskin">Aumenta a resistência a danos em %1$d por cada nível de habilidade.</string>
-	<string name="skill_longdescription_more_criticals">Aumenta todas as probabilidades de ataque crítico dadas por equipamento em %1$d %% por cada nível de habilidade (percentagem do valor da probabilidade de ataque crítico existente, não pontos percentuais).</string>
+	<string name="skill_longdescription_more_criticals">Aumenta todas as probabilidades de ataque crítico dadas por equipamento em %1$d %% por cada nível de habilidade.</string>
 	<string name="skill_longdescription_better_criticals">Aumenta todos os multiplicadores de ataque crítico dados por equipamento em %1$d %% por cada nível de habilidade.</string>
 	<string name="skill_longdescription_speed">Aumenta o máximo de pontos de ação (AP) em %1$d por cada nível de habilidade.</string>
 	<string name="skill_longdescription_coinfinder">Aumenta a probabilidade de encontrar moedas na morte de monstros em %1$d %%, e aumenta a quantidade de moedas por cada morte em %2$d %% por cada nível de habilidade (até ao valor máximo que cada monstro possa dar).</string>
@@ -445,9 +493,9 @@
 	<string name="iteminfo_effect_weapon_attack_cost">Custo de ataque: %1$d AP</string>
 	<string name="iteminfo_effect_increase_attack_cost">Aumenta custo de ataque em %1$d AP</string>
 	<string name="iteminfo_effect_decrease_attack_cost">Reduz custo de ataque em %1$d AP</string>
-	<string name="iteminfo_effect_weapon_attack_chance">Chance de ataque: %1$d %%</string>
-	<string name="iteminfo_effect_increase_attack_chance">Aumenta a chance de ataque em %1$d %%</string>
-	<string name="iteminfo_effect_decrease_attack_chance">Reduz a chance de ataque em %1$d %%</string>
+	<string name="iteminfo_effect_weapon_attack_chance">Chance de ataque: %1$d</string>
+	<string name="iteminfo_effect_increase_attack_chance">Aumenta a chance de ataque em %1$d</string>
+	<string name="iteminfo_effect_decrease_attack_chance">Reduz a chance de ataque em %1$d</string>
 	<string name="iteminfo_effect_weapon_attack_damage">Dano no ataque: %1$d</string>
 	<string name="iteminfo_effect_weapon_attack_damage_minmax">Dano de ataque: %1$d-%2$d</string>
 	<string name="iteminfo_effect_increase_attack_damage">Aumenta o dano de ataque em %1$d</string>
@@ -457,8 +505,8 @@
 	<string name="iteminfo_effect_increase_critical_skill">Aumenta habilidade crítica em %1$d</string>
 	<string name="iteminfo_effect_decrease_critical_skill">Reduz habilidade crítica em %1$d</string>
 	<string name="iteminfo_effect_critical_multiplier">Habilita golpes críticos com um muliplicador de x%1$.1f</string>
-	<string name="iteminfo_effect_increase_block_chance">Aumenta a chance de bloqueio em %1$d %%</string>
-	<string name="iteminfo_effect_decrease_block_chance">Reduz a chance de bloqueio em %1$d %%</string>
+	<string name="iteminfo_effect_increase_block_chance">Aumenta a chance de bloqueio em %1$d</string>
+	<string name="iteminfo_effect_decrease_block_chance">Reduz a chance de bloqueio em %1$d</string>
 	<string name="iteminfo_effect_increase_damage_resistance">Aumenta a resistência a dano em %1$d</string>
 	<string name="iteminfo_effect_decrease_damage_resistance">Reduz a resistência a dano em %1$d</string>
 	<string name="iteminfo_effect_increase_use_cost">Aumenta o custo AP usando itens em combate em %1$d AP</string>

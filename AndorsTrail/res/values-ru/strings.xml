@@ -147,12 +147,12 @@
 	<string name="levelup_buttontext">Новый уровень</string>
 	<string name="levelup_add_health">Увеличить здоровье (+%1$d ОЗ)</string>
 	<string name="levelup_add_health_description">Добавить %1$d к максимальному здоровью.</string>
-	<string name="levelup_add_attackchance">Увеличить шанс атаки (+%1$d %%)</string>
-	<string name="levelup_add_attackchance_description">Добавить %1$d%% к базовому шансу атаки.</string>
+	<string name="levelup_add_attackchance">Увеличить шанс атаки (+%1$d)</string>
+	<string name="levelup_add_attackchance_description">Добавить %1$d к базовому шансу атаки.</string>
 	<string name="levelup_add_attackdamage">Увеличить силу атаки (+%1$d)</string>
 	<string name="levelup_add_attackdamage_description">Добавить %1$d к базовой силе атаки.</string>
-	<string name="levelup_add_blockchance">Увеличить шанс блока (+%1$d %%)</string>
-	<string name="levelup_add_blockchance_description">Добавить %1$d%% к базовому шансу на блок.</string>
+	<string name="levelup_add_blockchance">Увеличить шанс блока (+%1$d)</string>
+	<string name="levelup_add_blockchance_description">Добавить %1$d к базовому шансу на блок.</string>
 
 	<string name="dialog_rest_title">Отдых</string>
 	<string name="dialog_rest_confirm_message">Вы хотите отдохнуть здесь?</string>
@@ -348,7 +348,7 @@
 	<string name="skill_longdescription_barter">Уменьшает разницу между ценой покупки или продажи и базовой ценой на %1$d процентов на каждый уровень навыка.</string>
 	<string name="skill_longdescription_dodge">Увеличивает шанс блока на %1$d на каждый уровень навыка.</string>
 	<string name="skill_longdescription_barkskin">Увеличивает сопротивление урону на %1$d на каждый уровень навыка.</string>
-	<string name="skill_longdescription_more_criticals">Увеличивает любой существующий шанс критического удара используемой экипировки на %1$d %% на каждый уровень навыка (процент существующего значения, а не процентных пунктов).</string>
+	<string name="skill_longdescription_more_criticals">Увеличивает любой существующий шанс критического удара используемой экипировки на %1$d %% на каждый уровень навыка.</string>
 	<string name="skill_longdescription_better_criticals">Увеличивает любой существующий критического умножитель используемой экипировки на %1$d %% на каждый уровень навыка.</string>
 	<string name="skill_longdescription_speed">Увеличивает колчество очков действия (ОД) на %1$d на каждый уровень навыка.</string>
 	<string name="skill_longdescription_coinfinder">Увеличивает шансы найти золото в останках монстра на %1$d %%, и увеличивает количество найденного золота на %2$d %% на каждый уровень навыка (но не более верхнего лимита на золото для этого монстра).</string>
@@ -444,9 +444,9 @@
 		<string name="iteminfo_effect_weapon_attack_cost">Атака стоит: %1$d ОД</string>
 		<string name="iteminfo_effect_increase_attack_cost">Увеличивает стоимости атаки на %1$d ОД</string>
 		<string name="iteminfo_effect_decrease_attack_cost">Уменьшает стоимости атаки на %1$d ОД</string>
-		<string name="iteminfo_effect_weapon_attack_chance">Шанс атаки: %1$d %%</string>
-		<string name="iteminfo_effect_increase_attack_chance">Увеличивает шанс атаки на %1$d %%</string>
-		<string name="iteminfo_effect_decrease_attack_chance">Уменьшает шанс атаки на %1$d %%</string>
+		<string name="iteminfo_effect_weapon_attack_chance">Шанс атаки: %1$d</string>
+		<string name="iteminfo_effect_increase_attack_chance">Увеличивает шанс атаки на %1$d</string>
+		<string name="iteminfo_effect_decrease_attack_chance">Уменьшает шанс атаки на %1$d</string>
 		<string name="iteminfo_effect_weapon_attack_damage">Сила атаки: %1$d</string>
 		<string name="iteminfo_effect_weapon_attack_damage_minmax">Сила атаки: %1$d-%2$d</string>
 		<string name="iteminfo_effect_increase_attack_damage">Увеличивает силу атаки на %1$d</string>
@@ -456,8 +456,8 @@
 		<string name="iteminfo_effect_increase_critical_skill">Увеличивает шанс крит. удара на %1$d</string>
 		<string name="iteminfo_effect_decrease_critical_skill">Уменьшает шанс крит. удара на %1$d</string>
 		<string name="iteminfo_effect_critical_multiplier">Увеличивает повреждения при крит. ударе в %1$.1f раз(а)</string>
-		<string name="iteminfo_effect_increase_block_chance">Увеличивает шанс блока на %1$d %%</string>
-		<string name="iteminfo_effect_decrease_block_chance">Уменьшает шанс блока на %1$d %%</string>
+		<string name="iteminfo_effect_increase_block_chance">Увеличивает шанс блока на %1$d</string>
+		<string name="iteminfo_effect_decrease_block_chance">Уменьшает шанс блока на %1$d</string>
 		<string name="iteminfo_effect_increase_damage_resistance">Увеличивает сопротивление повреждениям на %1$d</string>
 		<string name="iteminfo_effect_decrease_damage_resistance">Уменьшает сопротивление повреждениям на %1$d</string>
 		<string name="iteminfo_effect_increase_use_cost">Увеличивает необходимое кол-во ОД для использования предметов в бою на %1$d ОД</string>

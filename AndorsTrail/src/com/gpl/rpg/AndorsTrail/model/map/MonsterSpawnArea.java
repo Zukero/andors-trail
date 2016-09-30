@@ -17,7 +17,7 @@ public final class MonsterSpawnArea {
 	public final CoordRect area;
 	public final Range quantity;
 	private final Range spawnChance;
-	public final String monsterTypeSpawnGroup;
+	public final String areaID;
 	public final String[] monsterTypeIDs;
 	public final ArrayList<Monster> monsters = new ArrayList<Monster>();
 	public final boolean isUnique; // unique == non-respawnable
@@ -29,7 +29,7 @@ public final class MonsterSpawnArea {
 			CoordRect area
 			, Range quantity
 			, Range spawnChance
-			, String monsterTypeSpawnGroup
+			, String areaID
 			, String[] monsterTypeIDs
 			, boolean isUnique
 			, String group
@@ -38,7 +38,7 @@ public final class MonsterSpawnArea {
 		this.area = area;
 		this.quantity = quantity;
 		this.spawnChance = spawnChance;
-		this.monsterTypeSpawnGroup = monsterTypeSpawnGroup;
+		this.areaID = areaID;
 		this.monsterTypeIDs = monsterTypeIDs;
 		this.isUnique = isUnique;
 		this.group = group;

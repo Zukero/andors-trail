@@ -26,12 +26,11 @@ public final class MapObject {
 	public final String id; //placeName on this map or phraseID
 	public final String map;
 	public final String place;
-	private final String group;
+	public final String group;
 	public final Requirement enteringRequirement;
 	public final DropList dropList;
 	public final MapObjectEvaluationType evaluateWhen;
 	public boolean isActive;
-	public final boolean isActiveForNewGame;
 
 	private MapObject(
 			final CoordRect position
@@ -43,7 +42,6 @@ public final class MapObject {
 			, final DropList dropList
 			, final MapObjectEvaluationType evaluateWhen
 			, final String group
-			, final boolean isActiveForNewGame
 	) {
 		this.position = new CoordRect(position);
 		this.type = type;
@@ -54,21 +52,16 @@ public final class MapObject {
 		this.dropList = dropList;
 		this.evaluateWhen = evaluateWhen;
 		this.group = group;
-		this.isActiveForNewGame = isActiveForNewGame;
-		this.isActive = isActiveForNewGame;
+		this.isActive = true;
 	}
 
-	public void resetForNewGame() {
-		isActive = isActiveForNewGame;
-	}
 
 	public static MapObject createMapSignEvent(
 			final CoordRect position
 			, final String phraseID
 			, String group
-			, boolean isActiveForNewGame
 	) {
-		return new MapObject(position, MapObjectType.sign, phraseID, null, null, null, null, MapObjectEvaluationType.whenEntering, group, isActiveForNewGame);
+		return new MapObject(position, MapObjectType.sign, phraseID, null, null, null, null, MapObjectEvaluationType.whenEntering, group);
 	}
 
 	public static MapObject createMapChangeArea(
@@ -77,18 +70,16 @@ public final class MapObject {
 			, final String destinationMap
 			, final String destinationPlace
 			, String group
-			, boolean isActiveForNewGame
 	) {
-		return new MapObject(position, MapObjectType.newmap, thisMapTitle, destinationMap, destinationPlace, null, null, MapObjectEvaluationType.whenEntering, group, isActiveForNewGame);
+		return new MapObject(position, MapObjectType.newmap, thisMapTitle, destinationMap, destinationPlace, null, null, MapObjectEvaluationType.whenEntering, group);
 	}
 
 	public static MapObject createRestArea(
 			final CoordRect position
 			, final String placeId
 			, String group
-			, boolean isActiveForNewGame
 	) {
-		return new MapObject(position, MapObjectType.rest, placeId, null, null, null, null, MapObjectEvaluationType.whenEntering, group, isActiveForNewGame);
+		return new MapObject(position, MapObjectType.rest, placeId, null, null, null, null, MapObjectEvaluationType.whenEntering, group);
 	}
 
 	public static MapObject createKeyArea(
@@ -96,18 +87,16 @@ public final class MapObject {
 			, final String phraseID
 			, final Requirement enteringRequirement
 			, String group
-			, boolean isActiveForNewGame
 	) {
-		return new MapObject(position, MapObjectType.keyarea, phraseID, null, null, enteringRequirement, null, MapObjectEvaluationType.whenEntering, group, isActiveForNewGame);
+		return new MapObject(position, MapObjectType.keyarea, phraseID, null, null, enteringRequirement, null, MapObjectEvaluationType.whenEntering, group);
 	}
 
 	public static MapObject createContainerArea(
 			final CoordRect position
 			, final DropList dropList
 			, String group
-			, boolean isActiveForNewGame
 	) {
-		return new MapObject(position, MapObjectType.container, null, null, null, null, dropList, MapObjectEvaluationType.whenEntering, group, isActiveForNewGame);
+		return new MapObject(position, MapObjectType.container, null, null, null, null, dropList, MapObjectEvaluationType.whenEntering, group);
 	}
 
 	public static MapObject createScriptArea(
@@ -115,8 +104,7 @@ public final class MapObject {
 			, final String phraseID
 			, final MapObjectEvaluationType evaluateWhen
 			, String group
-			, boolean isActiveForNewGame
 	) {
-		return new MapObject(position, MapObjectType.script, phraseID, null, null, null, null, evaluateWhen, group, isActiveForNewGame);
+		return new MapObject(position, MapObjectType.script, phraseID, null, null, null, null, evaluateWhen, group);
 	}
 }

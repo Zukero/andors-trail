@@ -65,7 +65,7 @@ public final class TraitsInfoView {
 		} else {
 			row.setVisibility(View.VISIBLE);
 			tv = (TextView) group.findViewById(R.id.traitsinfo_attack_chance);
-			tv.setText(Integer.toString(attackChance) + '%');
+			tv.setText(Integer.toString(attackChance));
 		}
 
 		row = (TableRow) group.findViewById(R.id.traitsinfo_attack_damage_row);
@@ -110,7 +110,7 @@ public final class TraitsInfoView {
 		} else {
 			row.setVisibility(View.VISIBLE);
 			tv = (TextView) group.findViewById(R.id.traitsinfo_block_chance);
-			tv.setText(Integer.toString(blockChance) + '%');
+			tv.setText(Integer.toString(blockChance));
 		}
 
 		row = (TableRow) group.findViewById(R.id.traitsinfo_damageresist_row);

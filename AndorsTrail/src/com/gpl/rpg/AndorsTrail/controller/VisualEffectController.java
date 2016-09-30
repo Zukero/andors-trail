@@ -29,7 +29,7 @@ public final class VisualEffectController {
 	private final VisualEffectCollection effectTypes;
 
 	public final VisualEffectFrameListeners visualEffectFrameListeners = new VisualEffectFrameListeners();
-
+	
 	public VisualEffectController(ControllerContext controllers, WorldContext world) {
 		this.controllers = controllers;
 		this.world = world;
@@ -118,6 +118,8 @@ public final class VisualEffectController {
 			if (duration == 0 || !controllers.preferences.enableUiAnimations) onCompleted();
 			else postDelayed(this, 0);
 		}
+		
+		
 		
 	}
 
@@ -261,4 +263,6 @@ public final class VisualEffectController {
 			return -1;
 		}
 	}
+
+	
 }

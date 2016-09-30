@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
 	<string name="app_name">Andor\'s Trail</string>
 	<string name="app_description">Quest-driven fantasy RPG</string>
@@ -147,12 +146,12 @@
 	<string name="levelup_buttontext">Level up</string>
 	<string name="levelup_add_health">体力の上昇 (+%1$d HP)</string>
 	<string name="levelup_add_health_description">最大HPが %1$d だけ上昇します。</string>
-	<string name="levelup_add_attackchance">命中率の向上 (+%1$d%%)</string>
-	<string name="levelup_add_attackchance_description">基礎命中率が %1$d%% だけ上昇します。</string>
+	<string name="levelup_add_attackchance">命中率の向上 (+%1$d)</string>
+	<string name="levelup_add_attackchance_description">基礎命中率が %1$d だけ上昇します。</string>
 	<string name="levelup_add_attackdamage">ダメージの強化 (+%1$d)</string>
 	<string name="levelup_add_attackdamage_description">基礎ダメージが %1$d だけ上昇します。</string>
-	<string name="levelup_add_blockchance">回避率の向上 (+%1$d%%)</string>
-	<string name="levelup_add_blockchance_description">基礎回避率が %1$d%% だけ上昇します。</string>
+	<string name="levelup_add_blockchance">回避率の向上 (+%1$d)</string>
+	<string name="levelup_add_blockchance_description">基礎回避率が %1$d だけ上昇します。</string>
 
 	<string name="dialog_rest_title">休憩</string>
 	<string name="dialog_rest_confirm_message">ここで休みますか?</string>
@@ -357,7 +356,7 @@
 	<string name="skill_longdescription_barter">スキル1レベルごとに、店でアイテムを買うときに割高にされる比率や、売るときに割安にされる比率を %1$d%% ずつ有利にします。</string>
 	<string name="skill_longdescription_dodge">スキル1レベルにつき、回避率を %1$d 向上させます。</string>
 	<string name="skill_longdescription_barkskin">スキル1レベルにつき、ダメージを %1$d ずつ軽減します。</string>
-	<string name="skill_longdescription_more_criticals">スキル1レベルにつき、装備によるクリティカルスキルを %1$d%% 増加させます。(クリティカルスキルの合計値に対する割合であり、この値がそのままクリティカル率に加算されるわけではありません。)</string>
+	<string name="skill_longdescription_more_criticals">スキル1レベルにつき、装備によるクリティカルスキルを %1$d%% 増加させます。</string>
 	<string name="skill_longdescription_better_criticals">スキル1レベルにつき、装備によるクリティカル倍率を %1$d%% 増加させます。</string>
 	<string name="skill_longdescription_speed">スキル1レベルにつき、行動値(AP)の最大値を %1$d ずつ増加させます。</string>
 	<string name="skill_longdescription_coinfinder">スキル1レベルにつき、モンスターがgoldを落とす確率を %1$d%%, モンスターが落とすgoldの量を %2$d%% 増加させます。(そのモンスターが落とすgoldの上限額は増加しません。)</string>
@@ -441,4 +440,35 @@
 
 	<string name="localize_resources_from_mo_filename">ja.mo</string>
 
-</resources>
+<string name="combat_miss_animation_message">欠かす</string>
+	
+	<string name="preferences_display_loot_dialog_on_items">アイテムを見つけたときに戦利品]ダイアログボックスを表示</string>
+	<string name="preferences_display_loot_dialog_on_items_or_toast">Notif 項目ダイアログ ボックス。それ以外の場合</string>
+	<string name="preferences_display_loot_toast_on_items">アイテムを見つけるときにのみ、通知を表示します。</string>
+	<string name="preferences_ui_category">インターフェイス</string>
+	<string name="preferences_ui_enable_animations_title">アニメーションを有効にします。</string>
+	<string name="preferences_ui_enable_animations">戦闘のバーなどの各種のインターフェイス要素のアニメーションを表示します。</string>
+	<string name="menu_button_worldmap">地図</string>
+	<string name="menu_button_worldmap_failed">地図を表示できません。</string>
+	<string name="display_worldmap_not_available">この場所からは、地図を表示できません。</string>
+	<string name="display_worldmap_title">地図</string>
+
+	<string name="inventory_equip_offhand">装備（ぶっきらぼう）</string>
+
+	<string name="iteminfo_effect_weapon_attack_cost">攻撃コスト: %1$d AP</string>
+	<string name="iteminfo_effect_increase_attack_cost">%1$d AP 増加攻撃コスト</string>
+	<string name="iteminfo_effect_decrease_attack_cost">削減は、%1$d AP コストを攻撃します。</string>
+	<string name="iteminfo_effect_weapon_attack_chance">攻撃チャンス: %1$d</string>
+	<string name="iteminfo_effect_increase_attack_chance">%1$d 増加攻撃チャンス</string>
+	<string name="iteminfo_effect_decrease_attack_chance">%1$d 下げる攻撃チャンス</string>
+	<string name="iteminfo_effect_weapon_attack_damage">ダメージ: %1$d</string>
+	<string name="iteminfo_effect_weapon_attack_damage_minmax">ダメージ: %1$d-%2$d</string>
+	<string name="iteminfo_effect_increase_attack_damage">増加が %1$d によって損害を攻撃します。</string>
+	<string name="iteminfo_effect_increase_attack_damage_minmax">%1$d-%2$d のによって攻撃ダメージを増加</string>
+	<string name="iteminfo_effect_decrease_attack_damage">削減は %1$d によって損傷を攻撃します。</string>
+	<string name="iteminfo_effect_decrease_attack_damage_minmax">削減は %1$d-%2$d によって損傷を攻撃します。</string>
+	<string name="iteminfo_effect_increase_critical_skill">%1$d クリティカルスキルを上げ</string>
+	<string name="iteminfo_effect_decrease_critical_skill">%1$d の重要なスキルを下げる</string>
+	<string name="iteminfo_effect_critical_multiplier">x%1$.1f の乗数でクリティカル ヒットを有効に</string>
+	<string name="iteminfo_effect_increase_block_chance">%1$d ブロック発動力をチャンス</string>
+	</resources>

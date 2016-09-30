@@ -21,7 +21,7 @@ public final class VisualEffectFrameListeners extends ListOfListeners<VisualEffe
 	private final Function1<VisualEffectFrameListener, SpriteMoveAnimation> onSpriteMoveCompleted = new Function1<VisualEffectFrameListener, SpriteMoveAnimation>() {
 		@Override public void call(VisualEffectFrameListener listener, SpriteMoveAnimation animation) { listener.onSpriteMoveCompleted(animation); }
 	};
-
+	
 	@Override
 	public void onNewAnimationFrame(VisualEffectAnimation animation, int tileID, int textYOffset) {
 		callAllListeners(this.onNewAnimationFrame, animation, tileID, textYOffset);

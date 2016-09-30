@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map.Entry;
 
-import android.util.FloatMath;
 import android.util.SparseIntArray;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
@@ -254,7 +253,7 @@ public final class Player extends Actor {
 		case attackCost: return baseTraits.attackCost;
 		case attackChance: return baseTraits.attackChance;
 		case criticalSkill: return baseTraits.criticalSkill;
-		case criticalMultiplier: return (int) FloatMath.floor(baseTraits.criticalMultiplier);
+		case criticalMultiplier: return (int) Math.floor(baseTraits.criticalMultiplier);
 		case damagePotentialMin: return baseTraits.damagePotential.current;
 		case damagePotentialMax: return baseTraits.damagePotential.max;
 		case blockChance: return baseTraits.blockChance;

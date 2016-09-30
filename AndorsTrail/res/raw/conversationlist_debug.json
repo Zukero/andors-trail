@@ -181,5 +181,44 @@
       }
     ],
     "message": "Sorry. You already spent 100 gold..."
-  }
+  },
+  {
+        "message":"Hmmm.... Beer....",
+        "id":"signbeer"
+    },
+    {
+        "message":"Do you want beer ?",
+        "id":"npc3_0",
+        "replies":[
+            {
+                "nextPhraseID":"npc3_1",
+                "text":"Beer !"
+            }
+        ]
+    },
+    {
+        "message":"Bees & beer !",
+        "id":"npc3_1",
+        "rewards":[
+            {
+                "rewardID":"debug_insect_inactive",
+                "mapName":"debugmap",
+                "rewardType":"spawnAll"
+            },
+            {
+                "rewardID":"Inactive",
+                "mapName":"debugmap",
+                "rewardType":"activateMapObjectGroup"
+            },
+            {
+                "rewardID":"Active",
+                "mapName":"debugmap",
+                "rewardType":"deactivateMapObjectGroup"
+            }
+        ]
+    },
+    {
+        "message":"No beer for you !",
+        "id":"signnobeer"
+    }
 ]

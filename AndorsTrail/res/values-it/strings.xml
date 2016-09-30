@@ -143,12 +143,12 @@
 	<string name="levelup_buttontext">Nuovo Livello</string>
 	<string name="levelup_add_health">Aumenta salute (+%1$d HP)</string>
 	<string name="levelup_add_health_description">Aggiungi %1$d alla salute massima</string>
-	<string name="levelup_add_attackchance">Aumenta possibilità attacco (+%1$d %%)</string>
-	<string name="levelup_add_attackchance_description">Aggiungi %1$d%% alla tua possibilità attacco</string>
+	<string name="levelup_add_attackchance">Aumenta possibilità attacco (+%1$d)</string>
+	<string name="levelup_add_attackchance_description">Aggiungi %1$d alla tua possibilità attacco</string>
 	<string name="levelup_add_attackdamage">Aumenta danni attacco (+%1$d)</string>
 	<string name="levelup_add_attackdamage_description">Aggiungi %1$d al tuo attacco base</string>
-	<string name="levelup_add_blockchance">Aumenta possibilità difesa (+%1$d %%)</string>
-	<string name="levelup_add_blockchance_description">Aggiungi %1$d%% alla tua possibilità difesa base</string>
+	<string name="levelup_add_blockchance">Aumenta possibilità difesa (+%1$d)</string>
+	<string name="levelup_add_blockchance_description">Aggiungi %1$d alla tua possibilità difesa base</string>
 
 	<string name="dialog_rest_title">Riposa</string>
 	<string name="dialog_rest_confirm_message">Vuoi riposare qui?</string>

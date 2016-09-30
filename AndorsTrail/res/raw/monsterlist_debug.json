@@ -38,10 +38,28 @@
         }
     },
     {
-        "id": "black_ant",
+        "id": "traveller3",
+        "iconID": "monsters_man1:0",
+        "name": "Traveller3",
+        "spawnGroup": "debugNPC3",
+        "monsterClass": "humanoid",
+        "unique": 1,
+        "maxHP": 10,
+        "maxAP": 10,
+        "moveCost": 10,
+        "attackCost": 10,
+        "attackChance": 50,
+        "phraseID": "npc3_0",
+        "attackDamage": {
+            "min": 1,
+            "max": 2
+        }
+    },
+    {
+        "id": "debug_black_ant",
         "iconID": "monsters_insects:0",
         "name": "Ant",
-        "spawnGroup": "insect",
+        "spawnGroup": "debug_insect",
         "monsterClass": "insect",
         "maxHP": 10,
         "maxAP": 10,
@@ -56,10 +74,10 @@
         }
     },
     {
-        "id": "small_wasp",
+        "id": "debug_small_wasp",
         "iconID": "monsters_insects:1",
         "name": "Pitiful debug bug with long name",
-        "spawnGroup": "insect",
+        "spawnGroup": "debug_insect",
         "monsterClass": "insect",
         "maxHP": 10,
         "maxAP": 10,
@@ -73,10 +91,10 @@
         }
     },
     {
-        "id": "winged_demon",
+        "id": "debug_winged_demon",
         "iconID": "monsters_demon1:0",
         "name": "Winged demon",
-        "spawnGroup": "demon",
+        "spawnGroup": "debug_demon",
         "size": "2x2",
         "monsterClass": "demon",
         "maxHP": 10,
@@ -91,10 +109,10 @@
         }
     },
     {
-        "id": "troll",
+        "id": "debug_troll",
         "iconID": "monsters_misc:5",
         "name": "Troll",
-        "spawnGroup": "troll",
+        "spawnGroup": "debug_troll",
         "monsterClass": "giant",
         "maxHP": 10,
         "maxAP": 10,

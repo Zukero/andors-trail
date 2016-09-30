@@ -1,6 +1,8 @@
 package com.gpl.rpg.AndorsTrail.savegames;
 
-import android.util.FloatMath;
+import java.io.DataInputStream;
+import java.io.IOException;
+
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.Constants;
@@ -13,9 +15,6 @@ import com.gpl.rpg.AndorsTrail.model.map.MonsterSpawnArea;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
 import com.gpl.rpg.AndorsTrail.util.Range;
-
-import java.io.DataInputStream;
-import java.io.IOException;
 
 public final class LegacySavegameFormatReaderForPlayer {
 
@@ -116,7 +115,7 @@ public final class LegacySavegameFormatReaderForPlayer {
 	private static void deactivateSpawnArea(WorldContext world, ControllerContext controllers, String mapName, String monsterTypeSpawnGroup) {
 		PredefinedMap map = world.maps.findPredefinedMap(mapName);
 		for (MonsterSpawnArea area : map.spawnAreas) {
-			if (!area.monsterTypeSpawnGroup.equals(monsterTypeSpawnGroup)) continue;
+			if (!area.areaID.equals(monsterTypeSpawnGroup)) continue;
 			controllers.monsterSpawnController.deactivateSpawnArea(area, true);
 		}
 	}
@@ -124,7 +123,7 @@ public final class LegacySavegameFormatReaderForPlayer {
 	public static int getExpectedNumberOfSkillpointsForLevel(int level) {
 		level -= Constants.FIRST_SKILL_POINT_IS_GIVEN_AT_LEVEL;
 		if (level < 0) return 0;
-		return 1 + (int) FloatMath.floor((float) level / Constants.NEW_SKILL_POINT_EVERY_N_LEVELS);
+		return 1 + (int) Math.floor((float) level / Constants.NEW_SKILL_POINT_EVERY_N_LEVELS);
 	}
 
 	private static void correctActorConditionsFromItemsPre0611b1(Player player, String conditionTypeID, WorldContext world, ControllerContext controllers, String itemTypeIDWithCondition) {

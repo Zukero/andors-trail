@@ -148,12 +148,12 @@
 	<string name="levelup_buttontext">Level up</string>
 	<string name="levelup_add_health">Increase health (+%1$d HP)</string>
 	<string name="levelup_add_health_description">Adds %1$d to your maximum health.</string>
-	<string name="levelup_add_attackchance">Increase attack chance (+%1$d %%)</string>
-	<string name="levelup_add_attackchance_description">Adds %1$d%% to your base attack chance.</string>
+	<string name="levelup_add_attackchance">Increase attack chance (+%1$d)</string>
+	<string name="levelup_add_attackchance_description">Adds %1$d to your base attack chance.</string>
 	<string name="levelup_add_attackdamage">Increase attack damage (+%1$d)</string>
 	<string name="levelup_add_attackdamage_description">Adds %1$d to your base attack damage.</string>
-	<string name="levelup_add_blockchance">Increase block chance (+%1$d %%)</string>
-	<string name="levelup_add_blockchance_description">Adds %1$d%% to your base block chance.</string>
+	<string name="levelup_add_blockchance">Increase block chance (+%1$d)</string>
+	<string name="levelup_add_blockchance_description">Adds %1$d to your base block chance.</string>
 
 	<string name="dialog_rest_title">Rest</string>
 	<string name="dialog_rest_confirm_message">Do you want to rest here?</string>
@@ -169,7 +169,7 @@
 		&lt;br /&gt;
 		&lt;a href="http://andorstrail.com/wiki"&gt;Game wiki for info about the Andor\'s Trail world, among other things.&lt;/a&gt;&lt;br /&gt;
 		&lt;br /&gt;
-		&lt;a href="http://code.google.com/p/andors-trail/"&gt;Project homepage on code.google.com for developers.&lt;/a&gt;&lt;br /&gt;
+		&lt;a href="https://github.com/Zukero/andors-trail/"&gt;Project source code on github.com for developers.&lt;/a&gt;&lt;br /&gt;
 		&lt;br /&gt;
 		Please visit the forums to discuss the game with other players.&lt;br /&gt;
 	</string>
@@ -187,8 +187,56 @@
 		&lt;br /&gt;
 		You should have received a copy of the GNU General Public License along with this program; if not, see &lt;a href="http://www.gnu.org/licenses"&gt;http://www.gnu.org/licenses&lt;/a&gt;&lt;br /&gt;
 		&lt;br /&gt;
-		For source code and feature requests, please visit the project page at &lt;a href="http://code.google.com/p/andors-trail/"&gt;http://code.google.com/p/andors-trail/&lt;/a&gt;&lt;br /&gt;
+		For source code and feature requests, please visit the project page at &lt;a href="https://github.com/Zukero/andors-trail/"&gt;https://github.com/Zukero/andors-trail/&lt;/a&gt;&lt;br /&gt;
 	</string>
+	<string name="about_interface"><![CDATA[
+
+<div><b>Game Settings</b> can be found by pressing your device\'s Menu Button.</div>
+
+<p>________________</p>
+<h1>Interface Icons</h1>
+
+<div><b>The Chest</b><img alt="chest" src="chest.png" /></div>
+<p>Quickslots [Long press the pouches inside to assign items for instant use]</p>
+
+<div><b>The Hero</b><img alt="hero" src="char_hero.png" /></div>
+<p>Menu [Overview, Quests, Skills &amp; Inventory *]</p>
+<p>* (While in inventory, "press" an item for information &amp; "long press" for more options)</p>
+
+<div><b>The Enemy</b><img alt="monster" src="monster.png" /></div>
+<p>Information [Appears during Combat]</p>
+
+
+
+<p>________________</p>
+<h1>Combat</h1>
+
+<p>Actions taken during battle cost AP...</p>
+
+<div><b>Attacking</b> - [3AP] *</div>
+<img alt="attacking" src="doubleattackexample.png" />
+<p>* (Equipping Gear &amp; Using Items may alter AP &amp; usage cost)</p>
+
+<div><b>Using Items</b> - [5AP]</div>
+<div><b>Fleeing</b> - [6AP]</div>
+
+
+
+<p>________________</p>
+<h1>Advanced Combat</h1>
+
+<div>During Combat, long press a tile adjacent to the Hero...</div>
+
+<div><b>To Flee</b></div>
+<p>(chosen tile is highlighted - Attack Button changes to Move)</p>
+<img alt="flee" src="flee_example.png" />
+<p>[flee mode activated - Long press enemy to re-enter combat]</p>
+
+<div><b>To Change Targets</b></div>
+<p>(the red target highlight shifts between enemies)</p>
+<p>[the target has been changed]</p>
+
+]]></string>
 
 	<string name="dialog_newversion_title">Welcome</string>
 	<string name="dialog_newversion_message">
@@ -353,7 +401,7 @@
 	<string name="skill_longdescription_barter">For every skill level, decreases the buying and selling gold penalty by %1$d percentage points.</string>
 	<string name="skill_longdescription_dodge">Increases block chance by %1$d percentage points for each skill level.</string>
 	<string name="skill_longdescription_barkskin">Increases damage resistance by %1$d for each skill level.</string>
-	<string name="skill_longdescription_more_criticals">Increases any existing critical skill given by equipment by %1$d %% for each skill level (percentage of existing critical skill value, not percentage points).</string>
+	<string name="skill_longdescription_more_criticals">Increases any existing critical skill given by equipment by %1$d %% for each skill level.</string>
 	<string name="skill_longdescription_better_criticals">Increases any existing critical multiplier given by equipment by %1$d %% for each skill level.</string>
 	<string name="skill_longdescription_speed">Increases maximum action points (AP) by %1$d for each skill level.</string>
 	<string name="skill_longdescription_coinfinder">Increases chance of finding gold in monster drops by %1$d %%, and increases amount of gold in drops by %2$d %% for each skill level (up to the maximum amount that the monster drops).</string>
@@ -448,9 +496,9 @@
 	<string name="iteminfo_effect_weapon_attack_cost">Attack cost: %1$d AP</string>
 	<string name="iteminfo_effect_increase_attack_cost">Increases attack cost by %1$d AP</string>
 	<string name="iteminfo_effect_decrease_attack_cost">Lowers attack cost by %1$d AP</string>
-	<string name="iteminfo_effect_weapon_attack_chance">Attack chance: %1$d %%</string>
-	<string name="iteminfo_effect_increase_attack_chance">Increases attack chance by %1$d %%</string>
-	<string name="iteminfo_effect_decrease_attack_chance">Lowers attack chance by %1$d %%</string>
+	<string name="iteminfo_effect_weapon_attack_chance">Attack chance: %1$d</string>
+	<string name="iteminfo_effect_increase_attack_chance">Increases attack chance by %1$d</string>
+	<string name="iteminfo_effect_decrease_attack_chance">Lowers attack chance by %1$d</string>
 	<string name="iteminfo_effect_weapon_attack_damage">Attack damage: %1$d</string>
 	<string name="iteminfo_effect_weapon_attack_damage_minmax">Attack damage: %1$d-%2$d</string>
 	<string name="iteminfo_effect_increase_attack_damage">Increases attack damage by %1$d</string>
@@ -460,8 +508,8 @@
 	<string name="iteminfo_effect_increase_critical_skill">Increases critical skill by %1$d</string>
 	<string name="iteminfo_effect_decrease_critical_skill">Lowers critical skill by %1$d</string>
 	<string name="iteminfo_effect_critical_multiplier">Enables critical hits with a multiplier of x%1$.1f</string>
-	<string name="iteminfo_effect_increase_block_chance">Increases block chance by %1$d %%</string>
-	<string name="iteminfo_effect_decrease_block_chance">Lowers block chance by %1$d %%</string>
+	<string name="iteminfo_effect_increase_block_chance">Increases block chance by %1$d</string>
+	<string name="iteminfo_effect_decrease_block_chance">Lowers block chance by %1$d</string>
 	<string name="iteminfo_effect_increase_damage_resistance">Raises damage resistance by %1$d</string>
 	<string name="iteminfo_effect_decrease_damage_resistance">Lowers damage resistance by %1$d</string>
 	<string name="iteminfo_effect_increase_use_cost">Increases AP cost of using items in combat by %1$d AP</string>
@@ -527,9 +575,9 @@
 	<string name="skill_longdescription_weapon_prof_2hsword">For each skill level, increases attack chance of two-handed swords by %1$d %% of the item\'s base attack chance, increases block chance by %2$d %% of the item\'s base block chance, and increases critical skill by %3$d %% of the item\'s base critical skill.</string>
 	<string name="skill_longdescription_weapon_prof_axe">For each skill level, increases attack chance of axes and greataxes by %1$d %% of the item\'s base attack chance, increases block chance by %2$d %% of the item\'s base block chance, and increases critical skill by %3$d %% of the item\'s base critical skill.</string>
 	<string name="skill_longdescription_weapon_prof_blunt">For each skill level, increases attack chance of bludgeoning weapons by %1$d %% of the item\'s base attack chance, increases block chance by %2$d %% of the item\'s base block chance, and increases critical skill by %3$d %% of the item\'s base critical skill. This includes clubs, quarterstaves, maces, scepters, warhammers and giant hammers.</string>
-	<string name="skill_longdescription_weapon_prof_unarmed">When fighting without a weapon and shield, gain %1$d %% attack chance, %2$d damage potential and %3$d %% block chance per skill level.</string>
+	<string name="skill_longdescription_weapon_prof_unarmed">When fighting without a weapon and shield, gain %1$d attack chance, %2$d damage potential and %3$d block chance per skill level.</string>
 	<string name="skill_longdescription_armor_prof_shield">Increase damage resistance by %1$d per skill level while having a shield equipped.</string>
-	<string name="skill_longdescription_armor_prof_unarmored">While fighting without having any piece of armor equipped, gain %1$d %% block chance per skill level. Items made of cloth are not considered as being armor.</string>
+	<string name="skill_longdescription_armor_prof_unarmored">While fighting without having any piece of armor equipped, gain %1$d block chance per skill level. Items made of cloth are not considered as being armor.</string>
 	<string name="skill_longdescription_armor_prof_light">For every skill level, increases the block chance of every piece of light armor being worn by %1$d %% of their original block chances. Light armors include leather, light metal and hide armors.</string>
 	<string name="skill_longdescription_armor_prof_heavy">For every skill level, increases the block chance of every piece of heavy armor being worn by %1$d %% of their original block chances. Pieces of heavy armor have their movement penalties reduced by %2$d %% per skill level, and their attack speed penalties reduced by %3$d %% per skill level. Heavy armors include metal armors, chain mail and plate mail.</string>
 	<string name="skill_longdescription_fightstyle_dualwield">"Gives benefits when fighting with two weapons at the same time, one in the main hand and one in the off-hand.

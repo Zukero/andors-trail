@@ -1,0 +1,142 @@
+[
+    {
+        "id":"halvor_surprise",
+        "name":"Surprise ?",
+        "showInLog":1,
+        "stages":[
+            {
+                "progress":10,
+                "logText":"Halvor asked me to bring him 5 insect wings."
+            },
+            {
+                "progress":15,
+                "logText":"I have given Halvor the 5 insect wings he wanted."
+            },
+            {
+                "progress":20,
+                "logText":"Halvor asked me to bring him 5 rat tails."
+            },
+            {
+                "progress":25,
+                "logText":"I have given Halvor 5 rat tails."
+            },
+            {
+                "progress":30,
+                "logText":"My rat tails weren't good enough for him. He needs more. How much does he really want ?"
+            },
+            {
+                "progress":40,
+                "rewardExperience":500,
+                "logText":"I refused to bring more rat tails to Halvor. He left Crossglen."
+            },
+            {
+                "progress":50,
+                "logText":"I met Halvor at the foot of a mountain."
+            },
+            {
+                "progress":60,
+                "logText":"Halvor still looks for 5 rat tails. I agreed to help again."
+            },
+            {
+                "progress":65,
+                "logText":"The 5 rat tails I gave him were good enough."
+            },
+            {
+                "progress":70,
+                "logText":"Halvor asked for 4 animal hairs now."
+            },
+            {
+                "progress":75,
+                "logText":"I have given him 4 animal hairs."
+            },
+            {
+                "progress":80,
+                "logText":"Halvor liked only one of my animal hairs. He wants me to bring him 3 more."
+            },
+            {
+                "progress":90,
+                "rewardExperience":1500,
+                "logText":"I have given up on finding animal hairs that suit Halvor's taste. He has left."
+            },
+            {
+                "progress":100,
+                "logText":"I met Havlor again. He is standing by the lakeside, near an old house, in the north."
+            },
+            {
+                "progress":110,
+                "logText":"Halvor is in bad condition. He asked me to give him a healing potion."
+            },
+            {
+                "progress":111,
+                "rewardExperience":500,
+                "logText":"I gave Halvor a small healing potion."
+            },
+            {
+                "progress":112,
+                "rewardExperience":1000,
+                "logText":"I gave Halvor an healing potion."
+            },
+            {
+                "progress":113,
+                "rewardExperience":1500,
+                "logText":"I gave Halvor a powerful healing potion."
+            },
+            {
+                "progress":114,
+                "rewardExperience":5000,
+                "logText":"I gave Halvor a potion made by Lodar."
+            },
+            {
+                "progress":115,
+                "logText":"He is healed."
+            },
+            {
+                "progress":120,
+                "logText":"Halvor still looks for 3 animal hairs."
+            },
+            {
+                "progress":125,
+                "logText":"This time, the animal hairs I gave him were soft enough."
+            },
+            {
+                "progress":130,
+                "logText":"Halvor wants to find two long bones. I'll try to find some."
+            },
+            {
+                "progress":135,
+                "logText":"I have given Halvor two bones, but they weren't long enough. Should I really bring him more bones ?"
+            },
+            {
+                "progress":140,
+                "rewardExperience":3500,
+                "logText":"Halvor left the lakeside when I refused to get him more bones."
+            },
+            {
+                "progress":150,
+                "logText":"Exploring the ruins of Charwood, I stumbled upon Halvor."
+            },
+            {
+                "progress":160,
+                "logText":"He found one long bone since I last met him, but he's still looking for one."
+            },
+            {
+                "progress":165,
+                "logText":"I found a long enough bone, and gave it to Halvor."
+            },
+            {
+                "progress":170,
+                "logText":"Now, Halvor wants me to find 10 scales from Venomscales snakes."
+            },
+            {
+                "progress":175,
+                "rewardExperience":5000,
+                "logText":"I brought Halvor the 10 Venomscale scales."
+            },
+            {
+                "progress":180,
+            	"finishesQuest":1,
+                "logText":"Halvor left, asking me to pay a visit to his friend Kayla if I ever come to Stoutford."
+            }
+        ]
+    }
+]

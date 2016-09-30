@@ -1,8 +1,9 @@
 package com.gpl.rpg.AndorsTrail.controller;
 
+import java.util.ArrayList;
+
 import android.os.Handler;
 import android.os.Message;
-import android.util.FloatMath;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.R;
@@ -22,8 +23,6 @@ import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.model.map.MonsterSpawnArea;
 import com.gpl.rpg.AndorsTrail.resource.VisualEffectCollection;
 import com.gpl.rpg.AndorsTrail.util.Coord;
-
-import java.util.ArrayList;
 
 public final class CombatController implements VisualEffectCompletedCallback {
 	private final ControllerContext controllers;
@@ -493,7 +492,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 
 		float averageDamagePerTurn = getAverageDamagePerTurn(attacker, target);
 		if (averageDamagePerTurn <= 0) return 100;
-		return (int) FloatMath.ceil(target.getMaxHP() / averageDamagePerTurn);
+		return (int) Math.ceil(target.getMaxHP() / averageDamagePerTurn);
 	}
 	public int getMonsterDifficulty(Monster monster) {
 		// returns [0..100) . 100 == easy.

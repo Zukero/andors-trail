@@ -253,6 +253,11 @@
  <map id="wild9" x="186" y="434" />
  <map id="woodcave0" x="201" y="331" />
  <map id="woodsettlement0" x="201" y="367" />
+ <map id="stoutford_gate" x="53" y="485" area="stoutford"/>
+ <map id="stoutford_ne" x="74" y="485" area="stoutford"/>
+ <map id="stoutford_se" x="63" y="506" area="stoutford"/>
+ <map id="stoutford_sw" x="38" y="506" area="stoutford"/>
+ <map id="stoutford_nw" x="32" y="476" area="stoutford"/>
  <namedarea id="charwoodh" name="Charwood" type="settlement"/>
  <namedarea id="crossglen" name="Crossglen" type="settlement"/>
  <namedarea id="crossroads" name="Crossroads Guardhouse" type="other"/>
@@ -263,5 +268,6 @@
  <namedarea id="remgard" name="Remgard" type="settlement"/>
  <namedarea id="vilegard" name="Vilegard" type="settlement"/>
  <namedarea id="prim" name="Prim" type="settlement"/>
+ <namedarea id="stoutford" name="Stoutford" type="settlement"/>
 </segment>
 </worldmap>

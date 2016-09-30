@@ -39,7 +39,7 @@ public final class MapController {
 
 			switch (mapObject.evaluateWhen) {
 			case afterEveryRound:
-				return;
+				continue;
 			case whenEntering:
 				// Do not trigger event if the player already was on the same MapObject before.
 				if (mapObject.position.contains(lastPosition)) return;
@@ -213,13 +213,11 @@ public final class MapController {
 		mapScriptExecutor = new ConversationController.ConversationStatemachine(world, controllers, conversationStateListener);
 	}
 
-	public void activateMapObject(PredefinedMap map, MapObject o) {
-		if (o.isActive) return;
-		o.isActive = true;
-		if (o.type == MapObject.MapObjectType.container) map.createContainerLoot(o);
+	public void activateMapObjectGroup(PredefinedMap map, String group) {
+		map.activateMapObjectGroup(group);
 	}
 
-	public void deactivateMapObject(MapObject o) {
-		o.isActive = false;
+	public void deactivateMapObjectGroup(PredefinedMap map, String group) {
+		map.deactivateMapObjectGroup(group);
 	}
 }

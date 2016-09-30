@@ -76,6 +76,7 @@
 		<item>@raw/questlist_v070_misc</item>
 		<item>@raw/questlist_shortcut_lodar</item>
 		<item>@raw/questlist_pathway_fallhaven</item>
+		<item>@raw/questlist_halvor_surprise</item>
 	</array>
 
 	<array name="loadresource_conversationlists">
@@ -232,6 +233,7 @@
 		<item>@raw/conversationlist_fallhaven_potions</item>
 		<item>@raw/conversationlist_shortcut_lodar</item>
 		<item>@raw/conversationlist_pathway_fallhaven</item>
+		<item>@raw/conversationlist_halvor_surprise</item>
 	</array>
 
 	<array name="loadresource_monsters">
@@ -260,6 +262,7 @@
 		<item>@raw/monsterlist_v070_roadcave</item>
 		<item>@raw/monsterlist_v070_npcs</item>
 		<item>@raw/monsterlist_pathway_fallhaven</item>
+		<item>@raw/monsterlist_halvor_surprise</item>
 	</array>
 
 	<array name="loadresource_maps">
@@ -657,5 +660,26 @@
 		<item>@xml/shortcut_lodar2</item>
 		<item>@xml/shortcut_lodar3</item>
 		<item>@xml/shortcut_lodar4</item>
+		
+		<!-- maps for Stoutford -->
+		<item>@xml/stoutford_armorer</item>
+		<item>@xml/stoutford_cellar</item>
+		<item>@xml/stoutford_cellar2</item>
+		<item>@xml/stoutford_church</item>
+		<item>@xml/stoutford_cottage1</item>
+		<item>@xml/stoutford_cottage2</item>
+		<item>@xml/stoutford_derelict</item>
+		<item>@xml/stoutford_farmhouse1</item>
+		<item>@xml/stoutford_farmhouse2</item>
+		<item>@xml/stoutford_farmhouse3</item>
+		<item>@xml/stoutford_gate</item>
+		<item>@xml/stoutford_ne</item>
+		<item>@xml/stoutford_nw</item>
+		<item>@xml/stoutford_se</item>
+		<item>@xml/stoutford_sw</item>
+		<item>@xml/stoutford_potion</item>
+		<item>@xml/stoutford_smith</item>
+		<item>@xml/stoutford_smith_basement</item>
+		<item>@xml/stoutford_tavern</item>
 	</array>
 </resources>

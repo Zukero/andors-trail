@@ -1,6 +1,7 @@
 package com.gpl.rpg.AndorsTrail.model.map;
 
 import android.content.res.Resources;
+
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
 import com.gpl.rpg.AndorsTrail.model.actor.MonsterTypeCollection;
@@ -47,14 +48,25 @@ public final class TMXMapTranslator {
 			}
 
 			final Size mapSize = new Size(m.width, m.height);
-			ArrayList<MapObject> mapObjects = new ArrayList<MapObject>();
-			ArrayList<MonsterSpawnArea> spawnAreas = new ArrayList<MonsterSpawnArea>();
+			List<MapObject> mapObjects = new LinkedList<MapObject>();
+			List<MonsterSpawnArea> spawnAreas = new LinkedList<MonsterSpawnArea>();
+			List<String> activeGroups = new LinkedList<String>();
 
 			for (TMXObjectGroup group : m.objectGroups) {
+				boolean active = true;
+				for (TMXProperty p : group.properties) {
+					if (p.name.equalsIgnoreCase("active")) {
+						active = Boolean.parseBoolean(p.value);
+					} else if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+						L.log("OPTIMIZE: Map " + m.name + ", group " + group.name + " has unrecognized property \"" + p.name + "\".");
+					}
+				}
+				if (active) {
+					activeGroups.add(group.name);
+				}
 				for (TMXObject object : group.objects) {
 					final CoordRect position = getTMXObjectPosition(object, m);
 					final Coord topLeft = position.topLeft;
-					boolean isActiveForNewGame = true;
 
 					if (object.type == null) {
 						if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA)
@@ -64,7 +76,7 @@ public final class TMXMapTranslator {
 						for (TMXProperty p : object.properties) {
 							if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) L.log("OPTIMIZE: Map " + m.name + ", sign " + object.name + "@" + topLeft.toString() + " has unrecognized property \"" + p.name + "\".");
 						}
-						mapObjects.add(MapObject.createMapSignEvent(position, phraseID, group.name, isActiveForNewGame));
+						mapObjects.add(MapObject.createMapSignEvent(position, phraseID, group.name));
 					} else if (object.type.equalsIgnoreCase("mapchange")) {
 						String map = null;
 						String place = null;
@@ -73,17 +85,16 @@ public final class TMXMapTranslator {
 								map = p.value;
 							} else if (p.name.equalsIgnoreCase("place")) {
 								place = p.value;
-							} else if (p.name.equalsIgnoreCase("active")) {
-								isActiveForNewGame = Boolean.parseBoolean(p.value);
 							} else if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 								L.log("OPTIMIZE: Map " + m.name + ", mapchange " + object.name + "@" + topLeft.toString() + " has unrecognized property \"" + p.name + "\".");
 							}
 						}
-						mapObjects.add(MapObject.createMapChangeArea(position, object.name, map, place, group.name, isActiveForNewGame));
+						mapObjects.add(MapObject.createMapChangeArea(position, object.name, map, place, group.name));
 					} else if (object.type.equalsIgnoreCase("spawn")) {
-						ArrayList<MonsterType> types = monsterTypes.getMonsterTypesFromSpawnGroup(object.name);
+						boolean isActiveForNewGame = true;
 						int maxQuantity = 1;
 						int spawnChance = 10;
+						String spawnGroup = object.name;
 						for (TMXProperty p : object.properties) {
 							if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 								if (p.value.equals("")) {
@@ -97,11 +108,14 @@ public final class TMXMapTranslator {
 								spawnChance = Integer.parseInt(p.value);
 							} else if (p.name.equalsIgnoreCase("active")) {
 								isActiveForNewGame = Boolean.parseBoolean(p.value);
+							} else if (p.name.equalsIgnoreCase("spawngroup")) {
+								spawnGroup = p.value;
 							} else if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 								L.log("OPTIMIZE: Map " + m.name + ", spawn " + object.name + "@" + topLeft.toString() + " has unrecognized property \"" + p.name + "\".");
 							}
 						}
 
+						ArrayList<MonsterType> types = monsterTypes.getMonsterTypesFromSpawnGroup(spawnGroup);
 						if (types.isEmpty()) {
 							if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 								L.log("OPTIMIZE: Map " + m.name + " contains spawn \"" + object.name + "\"@" + topLeft.toString() + " that does not correspond to any monsters. The spawn will be removed.");
@@ -146,13 +160,13 @@ public final class TMXMapTranslator {
 								L.log("OPTIMIZE: Map " + m.name + ", key " + object.name + "@" + topLeft.toString() + " has unrecognized property \"" + p.name + "\".");
 							}
 						}
-						mapObjects.add(MapObject.createKeyArea(position, phraseID, new Requirement(requireType, requireId, requireValue, requireNegation), group.name, isActiveForNewGame));
+						mapObjects.add(MapObject.createKeyArea(position, phraseID, new Requirement(requireType, requireId, requireValue, requireNegation), group.name));
 					} else if (object.type.equals("rest")) {
-						mapObjects.add(MapObject.createRestArea(position, object.name, group.name, isActiveForNewGame));
+						mapObjects.add(MapObject.createRestArea(position, object.name, group.name));
 					} else if (object.type.equals("container")) {
 						DropList dropList = dropLists.getDropList(object.name);
 						if (dropList == null) continue;
-						mapObjects.add(MapObject.createContainerArea(position, dropList, group.name, isActiveForNewGame));
+						mapObjects.add(MapObject.createContainerArea(position, dropList, group.name));
 					} else if (object.type.equals("replace")) {
 						// Do nothing. Will be handled when reading map layers instead.
 					} else if (object.type.equalsIgnoreCase("script")) {
@@ -175,7 +189,7 @@ public final class TMXMapTranslator {
 								L.log("OPTIMIZE: Map " + m.name + ", script " + object.name + "@" + topLeft.toString() + " has unrecognized property \"" + p.name + "\".");
 							}
 						}
-						mapObjects.add(MapObject.createScriptArea(position, phraseID, evaluateWhen, group.name, isActiveForNewGame));
+						mapObjects.add(MapObject.createScriptArea(position, phraseID, evaluateWhen, group.name));
 					} else if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 						L.log("OPTIMIZE: Map " + m.name + ", has unrecognized object type \"" + object.type + "\" for name \"" + object.name + "\".");
 					}
@@ -186,7 +200,7 @@ public final class TMXMapTranslator {
 			MonsterSpawnArea[] _spawnAreas = new MonsterSpawnArea[spawnAreas.size()];
 			_spawnAreas = spawnAreas.toArray(_spawnAreas);
 
-			result.add(new PredefinedMap(m.xmlResourceId, m.name, mapSize, _eventObjects, _spawnAreas, isOutdoors));
+			result.add(new PredefinedMap(m.xmlResourceId, m.name, mapSize, _eventObjects, _spawnAreas, activeGroups, isOutdoors));
 		}
 
 		return result;

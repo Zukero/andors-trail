@@ -60,6 +60,7 @@ public final class MonsterMovementController implements EvaluateWalkable {
 
 		for (MapObject m : map.eventObjects) {
 			if (m == null) continue;
+			if (!m.isActive) continue;
 			if (!m.position.intersects(p)) continue;
 			switch (m.type) {
 				case newmap:

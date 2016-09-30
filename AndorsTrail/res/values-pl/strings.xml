@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
 	<string name="app_name">Andor\'s Trail</string>
 	<string name="app_description">Quest-driven fantasy RPG</string>
@@ -7,18 +6,18 @@
 	<string name="exit_to_menu">Wyjście do menu</string>
 	<string name="menu_settings">Ustawienia gry</string>
 	<string name="menu_save">Zapisz</string>
-	<string name="menu_save_gamesaved">Gra została zapisana do slotu % %1$d</string>
-	<string name="menu_save_failed">Zapis niemożliwy! Czy karta SD jest zamontowana i zapisywalna?</string>
+	<string name="menu_save_gamesaved">Gra została zapisana do slotu %1$d</string>
+	<string name="menu_save_failed">Zapis niemożliwy! Czy karta SD jest zamontowana i istnieje na niej możliwość zapisu?</string>
 
 	<string name="loadsave_title_save">Zapisz grę</string>
 	<string name="loadsave_title_load">Wczytaj grę</string>
 	<string name="loadsave_selectslot">Wybierz slot</string>
 	<string name="savegame_currenthero_displayinfo">Poziom: %1$d, Punkty doświadczenia: %2$d, Złoto: %3$d</string>
 
-	<string name="dialog_loading_message">Wczytywanie gry...</string>
-	<string name="dialog_loading_failed_title">Wczytywanie gry nieudane</string>
-	<string name="dialog_loading_failed_message">Andor\'s Trail nie był w stanie wczytać zapisu gry.\n\n:(\n\nPlik może byc uszkodzony lub niekompletny.</string>
-	<string name="dialog_loading_failed_incorrectversion">Andor\'s Trail nie był w stanie wczytać zapisu gry.Zapis gry został stworzony w późniejszej wersji gry niż obecnie uruchomiona.</string>
+	<string name="dialog_loading_message">Wczytywanie gry…</string>
+	<string name="dialog_loading_failed_title">Wczytanie gry nieudane</string>
+	<string name="dialog_loading_failed_message">Andor\'s Trail nie był w stanie wczytać zapisu gry.\n\n:(\n\nPlik może być uszkodzony lub niekompletny.</string>
+	<string name="dialog_loading_failed_incorrectversion">Andor\'s Trail nie był w stanie wczytać pliku z zapisem gry. Został on utworzony w późniejszej wersji gry, niż obecnie uruchomiona.</string>
 
 	<string name="dialog_close">Zamknij</string>
 
@@ -48,7 +47,7 @@
 	<string name="combat_endturn">Koniec tury</string>
 	<!-- <string name="combat_endcombat">End combat</string>-->
 	<string name="combat_flee">Ucieczka</string>
-	<string name="combat_begin_flee">Możesz teraz uciec z pola walki klikając odpowiedni kierunek.</string>
+	<string name="combat_begin_flee">Możesz teraz przetrwać walkę, klikając po stronie, w którą chcesz uciec.</string>
 	<string name="combat_flee_failed">Ucieczka nieudana!</string>
 	<string name="combat_status_ap">PA: %1$d</string>
 	<string name="combat_monsterhealth">PŻ:</string>
@@ -60,13 +59,13 @@
 	<string name="combat_result_heromiss">Twój cios chybił.</string>
 	<string name="combat_result_herohit">Trafiasz- %1$s traci %2$d PŻ!</string>
 	<string name="combat_result_herohitcritical">Zadajesz cios krytyczny- %1$s traci %2$d PŻ!</string>
-	<string name="combat_result_herokillsmonster">%1$s umiera!</string>
-	<string name="combat_not_enough_ap">Zbyt mało PA zostało w tej rundzie.</string>
-	<string name="combat_hero_dies">Upadasz nieprzytomny, ale na szczęście budzisz się żywy, chociaż jesteś oszołomiony i zmęczony. Tracisz %1$d punktów doświadczenia.</string>
+	<string name="combat_result_herokillsmonster">%1$s ginie!</string>
+	<string name="combat_not_enough_ap">Pozostało zbyt mało PA do podjęcia akcji.</string>
+	<string name="combat_hero_dies">Upadasz nieprzytomny, ale na szczęście budzisz się żywy, oszołomiony i zmęczony. Tracisz %1$d punktów doświadczenia.</string>
 
-	<string name="inventory_info">Info</string>
-	<string name="inventory_equip">Użyj jako ekwipunku</string>
-	<string name="inventory_unequip">Zrezygnuj z ekwipunku</string>
+	<string name="inventory_info">Informacje</string>
+	<string name="inventory_equip">Wyekwipuj</string>
+	<string name="inventory_unequip">Zrezygnuj</string>
 	<string name="inventory_use">Użyj</string>
 	<string name="inventory_drop">Porzuć</string>
 	<string name="inventory_item_used">Użyłeś %1$s.</string>
@@ -81,7 +80,7 @@
 	<string name="dialog_groundloot_message">Znalazłeś kilka przedmiotów. </string>
 	<string name="dialog_monsterloot_title">Zwycięstwo</string>
 	<string name="dialog_monsterloot_message">Przeżyłeś potyczkę. </string>
-	<string name="dialog_monsterloot_gainedexp">Zdobyłeś %1$d punktów doświadczenia. </string>
+	<string name="dialog_monsterloot_gainedexp">"Zdobyłeś %1$d punkty/ów doświadczenia. "</string>
 
 	<string name="monster_difficulty_veryeasy">Bardzo łatwy</string>
 	<string name="monster_difficulty_easy">Łatwy</string>
@@ -111,21 +110,21 @@
 
 	<string name="iteminfo_category">Kategoria: </string>
 	<string name="iteminfo_action_use">Użyj</string>
-	<string name="iteminfo_action_equip">Użyj jako ekwipunku</string>
-	<string name="iteminfo_action_unequip">Zrezygnuj z ekwipunku</string>
+	<string name="iteminfo_action_equip">Wyekwipuj</string>
+	<string name="iteminfo_action_unequip">Zrezygnuj</string>
 	<string name="iteminfo_action_use_ap">Użyj (%1$d PA)</string>
-	<string name="iteminfo_action_equip_ap">Użyj jako ekwipunku (%1$d PA)</string>
-	<string name="iteminfo_action_unequip_ap">Zrezygnuj z ekwipunku (%1$d PA)</string>
+	<string name="iteminfo_action_equip_ap">Wyekwipuj (%1$d PA)</string>
+	<string name="iteminfo_action_unequip_ap">Zrezygnuj (%1$d PA)</string>
 
 	<string name="startscreen_continue">Kontynuuj bieżącą grę</string>
 	<string name="startscreen_newgame">Nowa gra</string>
-	<string name="startscreen_newgame_confirm">Utracisz swoją bieżącą grę i postać, czy na pewno chcesz rozpocząć nową grę?</string>
+	<string name="startscreen_newgame_confirm">Utracisz swoją bieżącą grę i postać, czy na pewno chcesz rozpocząć przygodę od nowa?</string>
 	<string name="startscreen_about">O grze/pomoc</string>
 	<string name="startscreen_enterheroname">Wpisz imię bohatera</string>
 	<string name="startscreen_load">Wczytaj</string>
 
 	<!-- <string name="conversation_title">%1$s says</string> -->
-	<string name="conversation_rewardexp"> [Zyskujesz %1$d punktów doświadczenia]</string>
+	<string name="conversation_rewardexp">" [Zyskujesz %1$d punkty/ów doświadczenia]"</string>
 	<string name="conversation_rewardgold"> [Zyskujesz %1$d sztuk złota]</string>
 	<string name="conversation_lostgold"> [Tracisz %1$d sztuk złota]</string>
 	<string name="conversation_rewarditem"> [Zyskujesz przedmiot]</string>
@@ -147,31 +146,21 @@
 	<string name="levelup_buttontext">Podnieś poziom</string>
 	<string name="levelup_add_health">Zwiększ punkty życia (+%1$d PŻ)</string>
 	<string name="levelup_add_health_description">Dodaje %1$d do maksymalnej liczby punktów życia.</string>
-	<string name="levelup_add_attackchance">Zwiększ szansę trafienia (+%1$d %%)</string>
-	<string name="levelup_add_attackchance_description">Dodaje %1$d%% do bazowej szansy trafienia.</string>
+	<string name="levelup_add_attackchance">Zwiększ szansę trafienia (+%1$d)</string>
+	<string name="levelup_add_attackchance_description">Dodaje %1$d do bazowej szansy trafienia.</string>
 	<string name="levelup_add_attackdamage">Zwiększ zadawane obrażenia (+%1$d)</string>
 	<string name="levelup_add_attackdamage_description">Dodaje %1$d do bazowej wartości zadawanych obrażeń.</string>
-	<string name="levelup_add_blockchance">Zwieksz szansę bloku (+%1$d %%)</string>
-	<string name="levelup_add_blockchance_description">Dodaje %1$d%% do bazowej szansy bloku.</string>
+	<string name="levelup_add_blockchance">Zwiększ szansę bloku (+%1$d)</string>
+	<string name="levelup_add_blockchance_description">Dodaje %1$d do bazowej szansy bloku.</string>
 
 	<string name="dialog_rest_title">Odpoczynek</string>
 	<string name="dialog_rest_confirm_message">Czy chcesz odpocząć w tym miejscu?</string>
-	<string name="dialog_rest_message">Odpocząłeś i odzyskałeś wszystkie Punkty życia.</string>
+	<string name="dialog_rest_message">Odpocząłeś i odzyskałeś wszystkie punkty życia.</string>
 
 	<string name="about_button1">Pomoc</string>
 	<string name="about_button2">Autorzy</string>
 	<string name="about_button3">Licencja</string>
-	<string name="about_contents1">
-		Witaj w Andor\`s Trail – otwartej grze roguelike RPG na Androida.&lt;br /&gt;
-		&lt;br /&gt;
-		&lt;a href="http://andorstrail.com/"&gt;Forum gry na andorstrail.com – pytania i dyskusje o grze .&lt;/a&gt;&lt;br /&gt;
-		&lt;br /&gt;
-		&lt;a href="http://andorstrail.com/wiki"&gt;Strona wiki z  informacjami o Andor\`s Trail.&lt;/a&gt;&lt;br /&gt;
-		&lt;br /&gt;
-		&lt;a href="http://code.google.com/p/andors-trail/"&gt;Strona gry na code.google.com z materiałami dla developerów.&lt;/a&gt;&lt;br /&gt;
-		&lt;br /&gt;
-		Zachęcamy do odwiedzenia forum gry i dyskusji z innymi graczami.&lt;br /&gt;
-	</string>
+	<string name="about_contents1">" Witaj w Andors Trail – otwartej grze roguelike RPG na Androida.&lt;br /&gt; &lt;br /&gt; &lt;a href=http://andorstrail.com/&gt;Forum gry na andorstrail.com – pytania i dyskusje o grze .&lt;/a&gt;&lt;br /&gt; &lt;br /&gt; &lt;a href=http://andorstrail.com/wiki&gt;Strona wiki z informacjami o Andors Trail.&lt;/a&gt;&lt;br /&gt; &lt;br /&gt; &lt;a href=https://github.com/Zukero/andors-trail/&gt;Strona gry na code.google.com z materiałami dla developerów.&lt;/a&gt;&lt;br /&gt; &lt;br /&gt; Zachęcamy do odwiedzenia forum gry i dyskusji z innymi graczami.&lt;br /&gt; "</string>
 
 	<!--
 		This is the GNU GPL v2 text, originally from
@@ -179,26 +168,62 @@
 		For translation of this text, you might be able to find a version in your language here:
 			http://www.gnu.org/licenses/old-licenses/gpl-2.0-translations.html
 	-->
-	<string name="about_contents3">
-		Niniejszy program jest wolnym oprogramowaniem; możesz go rozprowadzać dalej i/lub modyfikować na warunkach Powszechnej Licencji Publicznej GNU, wydanej przez Fundację Wolnego Oprogramowania - według wersji 2-giej tej Licencji lub którejś z późniejszych wersji.&lt;br /&gt;
-		&lt;br /&gt;
-		Niniejszy program rozpowszechniany jest z nadzieją, iż będzie on użyteczny - jednak BEZ JAKIEJKOLWIEK GWARANCJI, nawet domyślnej gwarancji PRZYDATNOŚCI HANDLOWEJ albo PRZYDATNOŚCI DO OKREŚLONYCH ZASTOSOWAŃ. W celu uzyskania bliższych informacji -patrz Powszechna Licencja Publiczna GNU.&lt;br /&gt;
-		&lt;br /&gt;
-		Z pewnością wraz z niniejszym programem otrzymałeś też egzemplarz Powszechnej Licencji Publicznej GNU (GNU General Public License);jeśli nie to patrz &lt;a href="http://www.gnu.org/licenses"&gt;http://www.gnu.org/licenses&lt;/a&gt;&lt;br /&gt;
-		&lt;br /&gt;
-		W celu pobrania kodu źródłowego i opisu gry odwiedź stronę projektu: &lt;a href="http://code.google.com/p/andors-trail/"&gt;http://code.google.com/p/andors-trail/&lt;/a&gt;&lt;br /&gt;
-	</string>
+	
+	<string name="about_contents3">" Niniejszy program jest wolnym oprogramowaniem; możesz go rozprowadzać dalej i/lub modyfikować na warunkach Powszechnej Licencji Publicznej GNU, wydanej przez Fundację Wolnego Oprogramowania - według wersji 2-giej tej Licencji lub którejś z późniejszych wersji.&lt;br /&gt; &lt;br /&gt; Niniejszy program rozpowszechniany jest z nadzieją, iż będzie on użyteczny - jednak BEZ JAKIEJKOLWIEK GWARANCJI, nawet domyślnej gwarancji PRZYDATNOŚCI HANDLOWEJ albo PRZYDATNOŚCI DO OKREŚLONYCH ZASTOSOWAŃ. W celu uzyskania bliższych informacji -patrz Powszechna Licencja Publiczna GNU.&lt;br /&gt; &lt;br /&gt; Z pewnością wraz z niniejszym programem otrzymałeś też egzemplarz Powszechnej Licencji Publicznej GNU (GNU General Public License);jeśli nie to patrz &lt;a href=http://www.gnu.org/licenses&gt;http://www.gnu.org/licenses&lt;/a&gt;&lt;br /&gt; &lt;br /&gt; W celu pobrania kodu źródłowego i opisu gry odwiedź stronę projektu: &lt;a href=https://github.com/Zukero/andors-trail/&gt;https://github.com/Zukero/andors-trail/&lt;/a&gt;&lt;br /&gt; "</string>
+	<string name="about_interface"><![CDATA[
 
-	<string name="dialog_newversion_title">Welcome</string>
-	<string name="dialog_newversion_message">
-		Dziękujemy za instalację Andor\`s Trail!\n\n
-		Zwracamy uwagę, iż prace nad Andor\`s Trail ciagle trwają, co oznacza, że nie wszystkie mapy są jeszcze gotowe.\n
-		Zapraszamy do dyskusji na temat gry na forum (więcej informacji w zakładce "O grze").\n
-		\n
-		Dziękujemy za wszelkie sugestie i uwagi dotyczące gry!
-	</string>
+<div><b>Opcje Gry</b> uzyskasz, gdy wciśniesz klawisz menu.</div>
 
-	<string name="questlog_includecompleted_prompt">Wybierz, które zadania chcesz wyświelić</string>
+<p>________________</p>
+<h1>Ikony interfejsu</h1>
+
+<div><b>Skrzynia</b><img alt="chest" src="chest.png" /></div>
+<p>Slot ekwpipunku [Przytrzymaj dłużej palec na slocie, aby przypisać mu przedmiot]</p>
+
+<div><b>Bohater</b><img alt="hero" src="char_hero.png" /></div>
+<p>Menu [Przegląd, Zadania, Umiejętności oraz Inwentarz *]</p>
+<p>* (Gdy jesteś w inwentarzu kliknij przedmiot, żeby otrzymać informacje lub przytrzymaj dłużej palec na przedmiocie aby uzyskać więcej opcji)</p>
+
+<div><b>Przeciwnik</b><img alt="monster" src="monster.png" /></div>
+<p>Informacja [Wyświetlana podczas walki]</p>
+
+
+
+<p>________________</p>
+<h1>Walka</h1>
+
+<p>Akcje wykonane podczas walki kosztują Punkty Akcji (PA)...</p>
+
+<div><b>Atak</b> - [3PA] *</div>
+<img alt="attacking" src="doubleattackexample.png" />
+<p>* (Ekwipunek oraz użycie przedmiotów może wpłynąć na ilość PA i(lub) koszt użycia)</p>
+
+<div><b>Użycie Przedmiotu</b> - [5PA]</div>
+<div><b>Ucieczka</b> - [6PA]</div>
+
+
+
+<p>________________</p>
+<h1>Zaawansowana Walka</h1>
+
+<div>Podczas walki przytrzymaj dłużej palec na polu sąsiadującym z Bohaterem...</div>
+
+<div><b>Aby uciec</b></div>
+<p>(Wybrana podświetlona ikona zamienia koszt ataku na koszt ruchu)</p>
+<img alt="flee" src="flee_example.png" />
+<p>[Tryb ucieczki aktywowany - Przytrzymaj dłużej palec na wrogu by powrócić do trybu walki]</p>
+
+<div><b>Aby zmienić cel</b></div>
+<p>(przełącz czerwone podświetlenie celu między poszczególnymi przeciwnikami)</p>
+<p>[Cel został zmieniony]</p>
+
+]]></string>
+
+	<string name="dialog_newversion_title">Witaj</string>
+	<string name="dialog_newversion_message">" Dziękujemy za instalację Andor\'s Trail!\n\n Zwracamy uwagę, iż prace nad grą ciągle trwają, co oznacza, że nie wszystkie mapy są jeszcze gotowe.\n Zapraszamy do dyskusji  na forum (więcej informacji w zakładce O grze).\n
+\n Dziękujemy za wszelkie sugestie i uwagi dotyczące gry! "</string>
+
+	<string name="questlog_includecompleted_prompt">Wybierz zadania, które chcesz wyświetlić</string>
 	<string name="questlog_includecompleted_hidecompleted">Ukryj ukończone zadania</string>
 	<string name="questlog_includecompleted_includecompleted">Wyświetl wszystkie zadania</string>
 	<string name="questlog_includecompleted_onlycompleted">Wyświetl tylko ukończone zadania</string>
@@ -213,7 +238,7 @@
 	<string name="preferences_dialog_confirmrest_title">Potwierdź odpoczynek</string>
 	<string name="preferences_dialog_confirmrest">Wyświetla okienko z zapytaniem o odpoczynek po wejściu na pole z łóżkiem. Wyłączenie tej opcji powoduje automatyczny odpoczynek w tej sytuacji.</string>
 	<string name="preferences_dialog_confirmattack_title">Potwierdź atak</string>
-	<string name="preferences_dialog_confirmattack">Przy ataku na przeciwnika wyświetla okienko z zapytaniem \`Czy na pewno chcesz zaatakować..?\`.</string>
+	<string name="preferences_dialog_confirmattack">Przy ataku na przeciwnika wyświetla okienko z zapytaniem \'Czy na pewno chcesz zaatakować..\'?.</string>
 	<string name="preferences_dialog_monsterloot_title">Wyświetl łup</string>
 	<string name="preferences_dialog_monsterloot">Decyduje o tym ,w jaki sposób są pokazywane wyniki walki (zdobyte punkty doświadczenia, złoto, przedmioty).</string>
 	<string name="preferences_combat_category">Walka</string>
@@ -234,7 +259,7 @@
 
 	<string name="preferences_movement_category">Ruch</string>
 	<string name="preferences_movementmethod_title">Metoda ruchu</string>
-	<string name="preferences_movementmethod">Wybór metody przemieszczania się i obchodzenia przeszkód.</string>
+	<string name="preferences_movementmethod">Wybór metody przemieszczania się i omijania przeszkód.</string>
 	<string name="preferences_movementmethods_straight">Prosto(oryginalnie)</string>
 	<string name="preferences_movementmethods_avoid">Omijanie przeszkód</string>
 
@@ -252,7 +277,7 @@
 	<string name="iteminfo_effect_works_when_hitting_target">Po trafieniu w cel</string>
 	<string name="iteminfo_effect_works_when_killing_target">Przy każdym zabitym przeciwniku</string>
 	<string name="iteminfo_effect_works_when_used">Gdy zostanie użyty</string>
-	<string name="iteminfo_effect_works_when_equipped">Gdy jest używany</string>
+	<string name="iteminfo_effect_works_when_equipped">Gdy jest używany jako ekwipunek</string>
 
 	<string name="iteminfo_effect_decrease_current_hp">Zabiera %1$s PŻ</string>
 	<string name="iteminfo_effect_increase_current_hp">Przywraca %1$s PŻ</string>
@@ -270,13 +295,13 @@
 	<string name="preferences_display_scaling_factor">Umożliwia wyświetlenie obiektów gry na ekranie jako większych.</string>
 	<string name="preferences_display_scaling_factor_normal">Normalny rozmiar</string>
 	<string name="preferences_display_scaling_factor_50_percent_larger">Powiększenie 1.5x</string>
-	<string name="preferences_display_scaling_factor_double">Dwukrotne powięszenie</string>
+	<string name="preferences_display_scaling_factor_double">Dwukrotne powiększenie</string>
 
-	<string name="inventory_assign">Przydziel slot ekwipunku</string>
+	<string name="inventory_assign">Przydziel slot</string>
 	<string name="inventory_assign_slot1">Slot 1</string>
 	<string name="inventory_assign_slot2">Slot 2</string>
 	<string name="inventory_assign_slot3">Slot 3</string>
-	<string name="inventory_unassign">Cofnij przydział slotu ekwipunku</string>
+	<string name="inventory_unassign">Cofnij przydział slotu</string>
 
 	<!-- =========================================== -->
 	<!-- Added in v0.6.10 -->
@@ -292,7 +317,7 @@
 	<string name="preferences_movement_dpad_positions_center_bottom">Środek dolnej krawędzi ekranu</string>
 	<string name="preferences_movement_dpad_positions_center_left">Środek lewej krawędzi ekranu</string>
 	<string name="preferences_movement_dpad_positions_center_right">Środek prawej krawędzi ekranu</string>
-	<string name="preferences_movement_dpad_positions_upper_left">Górny lewy rógr</string>
+	<string name="preferences_movement_dpad_positions_upper_left">Górny lewy róg</string>
 	<string name="preferences_movement_dpad_positions_upper_right">Górny prawy róg</string>
 	<string name="preferences_movement_dpad_positions_center_top">Środek górnej krawędzi ekranu</string>
 
@@ -305,42 +330,42 @@
 	<string name="bulkselection_sell_confirmation_title">Czy jesteś pewien?</string>
 	<string name="bulkselection_sell_confirmation">Czy jesteś pewien że chcesz sprzedać %1$s? Ten przedmiot jest %2$s i możliwe jest, że już nigdy go nie odzyskasz.</string>
 
-	<string name="skill_title_weapon_chance">Celność trafień</string>
-	<string name="skill_title_weapon_dmg">Mocny cios</string>
+	<string name="skill_title_weapon_chance">Celny cios</string>
+	<string name="skill_title_weapon_dmg">Potężny cios</string>
 	<string name="skill_title_barter">Kupiec</string>
 	<string name="skill_title_dodge">Unik</string>
 	<string name="skill_title_barkskin">Zdrewniała skóra</string>
 	<string name="skill_title_more_criticals">Częstsze ciosy krytyczne</string>
 	<string name="skill_title_better_criticals">Mocniejsze ciosy krytyczne</string>
-	<string name="skill_title_speed">Prędkość walki</string>
-	<string name="skill_title_coinfinder">Łowca skarbów</string>
+	<string name="skill_title_speed">Błyskawiczny cios</string>
+	<string name="skill_title_coinfinder">Poszukiwacz skarbów</string>
 	<string name="skill_title_more_exp">Dobry uczeń</string>
 	<string name="skill_title_cleave">Rozłupanie</string>
 	<string name="skill_title_eater">Zjadacz ciał</string>
 	<string name="skill_title_fortitude">Zwiększony hart</string>
-	<string name="skill_title_evasion">Uniki</string>
+	<string name="skill_title_evasion">Odskok</string>
 	<string name="skill_title_regeneration">Regeneracja</string>
 	<string name="skill_title_lower_exploss">Mistrz Upadków</string>
 	<string name="skill_title_magicfinder">Poszukiwacz artefaktów</string>
-	<string name="skill_title_resistance_mental">Mocny umysł</string>
+	<string name="skill_title_resistance_mental">Silny umysł</string>
 	<string name="skill_title_resistance_physical_capacity">Wytrzymałe ciało</string>
 	<string name="skill_title_resistance_blood_disorder">Czysta krew</string>
 
 	<string name="skill_shortdescription_weapon_chance">Zwiększa szansę trafienia.</string>
 	<string name="skill_shortdescription_weapon_dmg">Zwiększa zadawane obrażenia.</string>
 	<string name="skill_shortdescription_barter">Lepsze ceny w sklepach.</string>
-	<string name="skill_shortdescription_dodge">Zwieksza szansę bloku.</string>
-	<string name="skill_shortdescription_barkskin">Odpornośc na obrażenia.</string>
-	<string name="skill_shortdescription_more_criticals">Zwiększa umiejętnośc ciosów krytycznych.</string>
+	<string name="skill_shortdescription_dodge">Zwiększa szansę bloku.</string>
+	<string name="skill_shortdescription_barkskin">Odporność na obrażenia.</string>
+	<string name="skill_shortdescription_more_criticals">Zwiększa umiejętność zadawania ciosów krytycznych.</string>
 	<string name="skill_shortdescription_better_criticals">Zwiększa obrażenia zadawane przez ciosy krytyczne.</string>
 	<string name="skill_shortdescription_speed">Zwiększa liczbę Punktów Akcji (PA)</string>
 	<string name="skill_shortdescription_coinfinder">Zwiększa szansę na znalezienie złota.</string>
 	<string name="skill_shortdescription_more_exp">Zwiększa liczbę punktów doświadczenia uzyskiwaną z zabicia przeciwnika.</string>
-	<string name="skill_shortdescription_cleave">Przywraca Punkty Akcji (PA) po każdym zabiciu przeciwnika.</string>
-	<string name="skill_shortdescription_eater">Przywraca Punkty Życia (PŻ) po każdym zabiciu przeciwnika.</string>
-	<string name="skill_shortdescription_fortitude">Podnosi Punkty Życia (PŻ) przy każdym zwiększaniu poziomu.</string>
-	<string name="skill_shortdescription_evasion">Zwiększa szansę na udana ucieczkę.</string>
-	<string name="skill_shortdescription_regeneration">Przywraca Punkty Życia (PŻ) przy każdej rundzie.</string>
+	<string name="skill_shortdescription_cleave">Zabicie przeciwnika przywraca Punkty Akcji (PA).</string>
+	<string name="skill_shortdescription_eater">Zabicie przeciwnika przywraca punkty życia (PŻ).</string>
+	<string name="skill_shortdescription_fortitude">Podnosi Punkty Życia (PŻ) przy awansie na kolejny poziom.</string>
+	<string name="skill_shortdescription_evasion">Zwiększa szansę na udaną ucieczkę.</string>
+	<string name="skill_shortdescription_regeneration">Przywraca Punkty Życia (PŻ) w każdej rundzie.</string>
 	<string name="skill_shortdescription_lower_exploss">Obniża liczbę punktów doświadczenia traconych w wyniku śmierci.</string>
 	<string name="skill_shortdescription_magicfinder">Zwiększa szansę na znalezienie magicznych przedmiotów.</string>
 	<string name="skill_shortdescription_resistance_mental">Zwiększa odporność na umysłowe efekty ataku.</string>
@@ -349,20 +374,20 @@
 
 	<string name="skill_longdescription_weapon_chance">Zwiększa szansę trafienia o %1$d procent na każdy poziom umiejętności.</string>
 	<string name="skill_longdescription_weapon_dmg">Zwiększa zadawane obrażenia o %1$d na każdy poziom umiejętności.</string>
-	<string name="skill_longdescription_barter">Na każdy poziom umiejętności, obniża różnicę pomiędzy ceną zakupu a ceną sprzedaży o %1$d procent.</string>
+	<string name="skill_longdescription_barter">Obniża różnicę pomiędzy ceną zakupu a ceną sprzedaży o %1$d procent na każdy poziom umiejętności.</string>
 	<string name="skill_longdescription_dodge">Zwiększa szansę bloku o %1$d procent na każdy poziom umiejętności.</string>
 	<string name="skill_longdescription_barkskin">Zwiększa odporność na obrażenia o %1$d na każdy poziom umiejętności.</string>
-	<string name="skill_longdescription_more_criticals">Zwiększa umiejętność ciosu krytycznego dawaną przez ekwipunek o %1$d %% na każdy poziom umiejętności (procent od aktualnej wartości).</string>
+	<string name="skill_longdescription_more_criticals">Zwiększa umiejętność ciosu krytycznego dawaną przez ekwipunek o %1$d %% na każdy poziom umiejętności.</string>
 	<string name="skill_longdescription_better_criticals">Zwiększa mnożnik obrażeń ciosu krytycznego dawany przez ekwipunek o %1$d %% na każdy poziom umiejętności.</string>
 	<string name="skill_longdescription_speed">Zwiększa liczbę Punktów Akcji (PA) o %1$d na każdy poziom umiejętności.</string>
 	<string name="skill_longdescription_coinfinder">Zwiększa szansę na znalezienie złota przy zabitym przeciwniku o %1$d %%, oraz zwiększa ilość zdobytego w ten sposób złota o %2$d %% na każdy poziom umiejętności (do maksymalnej wartości którą przeciwnik może posiadać).</string>
-	<string name="skill_longdescription_more_exp">Zwiększa liczbę punktów doświadczenia uzyskiwaną z zabitych przeciwników o %1$d %% na każdy poziom umiejętności.</string>
-	<string name="skill_longdescription_cleave">Po każdym zabiciu przeciwnika dodaje +%1$d punktów akcji (PA) za każdy poziom umiejętności.</string>
-	<string name="skill_longdescription_eater">Po każdym zabiciu przeciwnika dodaje +%1$d punktów życia (PŻ) za każdy poziom umiejętności.</string>
-	<string name="skill_longdescription_fortitude">Z każdym kolejnym podniesieniem poziomu, maksymalny poziom punktów życia (PŻ) będzię zwiększany o %1$d na każdy poziom umiejętności. Umiejętnośc nie działa wstecz, tylko z następnym podniesieniem poziomu.</string>
+	<string name="skill_longdescription_more_exp">Zwiększa liczbę punktów doświadczenia uzyskiwaną z zabicia przeciwnika o %1$d %% na każdy poziom umiejętności.</string>
+	<string name="skill_longdescription_cleave">Po każdym zabiciu przeciwnika dodaje +%1$d punktów akcji (PA) na każdy poziom umiejętności.</string>
+	<string name="skill_longdescription_eater">Po każdym zabiciu przeciwnika dodaje +%1$d punktów życia (PŻ) na każdy poziom umiejętności.</string>
+	<string name="skill_longdescription_fortitude">Z każdym awansem na kolejny poziom, maksymalny poziom punktów życia (PŻ) będzie zwiększany o %1$d na każdy poziom umiejętności. Umiejętność nie działa wstecz, a tylko od następnego awansu.</string>
 	<string name="skill_longdescription_evasion">Na każdy poziom umiejętności, redukuje szansę na nieudaną ucieczkę o %1$d %% oraz szansę że przeciwnik zaatakuje w trakcie ucieczki o %2$d %%.</string>
-	<string name="skill_longdescription_regeneration">Przywraca +%1$d punktów życia (PŻ) każdej rundy na każdy poziom umiejętności ,o ile tylko na przylegającym polu nie znajduje się przeciwnik.</string>
-	<string name="skill_longdescription_lower_exploss">Na każdy poziom umiejętności, redukuje liczbe punktów doświadczenia traconych w wyniku śmierci o %1$d %% (procent z traconej liczby punktów doświadczenia).Poziom %2$d usuwa w ogóle utratę punktów doświadczenia w wyniku śmierci.</string>
+	<string name="skill_longdescription_regeneration">Przywraca +%1$d punktów życia (PŻ) każdej rundy na każdy poziom umiejętności, o ile tylko na przyległym polu nie znajduje się przeciwnik.</string>
+	<string name="skill_longdescription_lower_exploss">Na każdy poziom umiejętności, redukuje liczbę punktów doświadczenia traconych w wyniku śmierci o %1$d %% (procent z traconej liczby punktów doświadczenia).Poziom %2$d usuwa w ogóle utratę punktów doświadczenia w wyniku śmierci.</string>
 	<string name="skill_longdescription_magicfinder">Zwiększa szansę znalezienia niezwykłych przedmiotów o %1$d %% na każdy poziom umiejętności.</string>
 	<string name="skill_longdescription_resistance_mental">Obniża szansę bycia dotkniętym umysłowymi efektami ataku (takimi jak np. Oszołomienie, Słabość broni) o %1$d %% na każdy poziom umiejętności, aż do maksimum wynoszącego %2$d %%.</string>
 	<string name="skill_longdescription_resistance_physical_capacity">Obniża szansę bycia dotkniętym przez fizyczne efekty ataku (takimi jak Zmęczenie) o %1$d %% na każdy poziom umiejętności, aż do maksimum wynoszącego %2$d %%.</string>
@@ -399,7 +424,7 @@
 	<string name="menu_save_saving_not_allowed_in_combat">Nie można zapisywać gry w trakcie walki.</string>
 
 	<string name="preferences_optimized_drawing_title">Optymalizuj grafikę</string>
-	<string name="preferences_optimized_drawing">Wyłącz tę opcję jeśli widzisz błędy graficzne. Zaznaczenie tej opcji spowoduje ,że gra odświeża tylko fragment ekranu za każdym razem.</string>
+	<string name="preferences_optimized_drawing">Wyłącz tę opcję jeśli widzisz błędy graficzne. Zaznaczenie tej opcji spowoduje, że gra odświeża tylko fragment ekranu za każdym razem.</string>
 
 	<!-- =========================================== -->
 	<!-- Added in v0.6.11 -->
@@ -423,8 +448,8 @@
 	<string name="skill_shortdescription_rejuvenation">Szansa na usunięcie negatywnych efektów ataku/stanów</string>
 	<string name="skill_longdescription_rejuvenation">W każdej rundzie (6 sekund), istnieje %1$d %% szans, że jeden z negatywnych efektów ataku/stanów zostanie obniżony o jeden stopień. Dotyczy to wszystkich stanów ciała, umysłu oraz chorób krwi.</string>
 	<string name="skill_title_taunt">Kpina</string>
-	<string name="skill_shortdescription_taunt">Atakujący traci punkty akcji (PA) przy każdym chybionym ciosie</string>
-	<string name="skill_longdescription_taunt">Kidy atakujący wyprowadza atak który chybia, istnieje %1$d %% szans, że utraci %2$d punktów akcji (PA. Dotyczy to wszelkiego rodzaju ataków w walce wręcz przeciwko Tobie.</string>
+	<string name="skill_shortdescription_taunt">Atakujący traci punkty akcji (PA) po każdym chybionym ciosie</string>
+	<string name="skill_longdescription_taunt">Kiedy atakujący wyprowadza atak który chybia, istnieje %1$d %% szans, że utraci %2$d punktów akcji (PA). Dotyczy to wszelkiego rodzaju ataków w walce wręcz przeciwko Tobie.</string>
 	<string name="skill_title_concussion">Wstrząs</string>
 	<string name="skill_shortdescription_concussion">Szansa na wstrząs</string>
 	<string name="skill_longdescription_concussion">Kiedy wykonujesz atak na przeciwnika którego szansa bloku jest niższa przynajmniej o %1$d od Twojej szansy trafienia, to istnieje %2$d %% szans, że trafienie wywoła szok u przeciwnika. Wstrząs znacząco obniża ofensywne zdolności przeciwnika, zmniejszając jego szanse na wyprowadzenie udanego ataku.</string>
@@ -438,18 +463,18 @@
 	<string name="preferences_ui_enable_animations_title">Włącz animacje</string>
 	<string name="preferences_ui_enable_animations">Włącza animacje dla różnych elementów interfejsu jak na przykład pasek walki.</string>
 	<string name="menu_button_worldmap">Mapa</string>
-	<string name="menu_button_worldmap_failed">Mapa nie może byś wyświetlona.</string>
-	<string name="display_worldmap_not_available">Mapa nie może byś wyświetlona w tej lokalizacji.</string>
+	<string name="menu_button_worldmap_failed">Mapa nie może być wyświetlona.</string>
+	<string name="display_worldmap_not_available">Mapa nie może być wyświetlona w tej lokalizacji.</string>
 	<string name="display_worldmap_title">Mapa</string>
 
-	<string name="inventory_equip_offhand">Użyj jako ekwipunku (lewa ręka)</string>
+	<string name="inventory_equip_offhand">Wyekwipuj (lewa ręka)</string>
 
 	<string name="iteminfo_effect_weapon_attack_cost">Koszt ataku: %1$d PA</string>
 	<string name="iteminfo_effect_increase_attack_cost">Zwiększa koszt ataku o %1$d PA</string>
 	<string name="iteminfo_effect_decrease_attack_cost">Zmniejsza koszt ataku o %1$d PA</string>
-	<string name="iteminfo_effect_weapon_attack_chance">Szansa trafienia: %1$d %%</string>
-	<string name="iteminfo_effect_increase_attack_chance">Zwiększa szansę trafienia o %1$d %%</string>
-	<string name="iteminfo_effect_decrease_attack_chance">Zmniejsza szansę trafienia o %1$d %%</string>
+	<string name="iteminfo_effect_weapon_attack_chance">Szansa trafienia: %1$d</string>
+	<string name="iteminfo_effect_increase_attack_chance">Zwiększa szansę trafienia o %1$d</string>
+	<string name="iteminfo_effect_decrease_attack_chance">Zmniejsza szansę trafienia o %1$d</string>
 	<string name="iteminfo_effect_weapon_attack_damage">Zadawane obrażenia: %1$d</string>
 	<string name="iteminfo_effect_weapon_attack_damage_minmax">Zadawane obrażenia: %1$d-%2$d</string>
 	<string name="iteminfo_effect_increase_attack_damage">Zwiększa zadawane obrażenia o %1$d</string>
@@ -459,31 +484,31 @@
 	<string name="iteminfo_effect_increase_critical_skill">Zwiększa szansę trafienia krytycznego o %1$d</string>
 	<string name="iteminfo_effect_decrease_critical_skill">Zmniejsza szansę trafienia krytycznego o %1$d</string>
 	<string name="iteminfo_effect_critical_multiplier">Umożliwia trafienia krytyczne z mnożnikiem obrażeń x%1$.1f</string>
-	<string name="iteminfo_effect_increase_block_chance">Zwiększa szansę bloku o %1$d %%</string>
-	<string name="iteminfo_effect_decrease_block_chance">Zmniejsza szansę bloku o %1$d %%</string>
+	<string name="iteminfo_effect_increase_block_chance">Zwiększa szansę bloku o %1$d</string>
+	<string name="iteminfo_effect_decrease_block_chance">Zmniejsza szansę bloku o %1$d</string>
 	<string name="iteminfo_effect_increase_damage_resistance">Zwiększa odpornośc na obrażenia o %1$d</string>
 	<string name="iteminfo_effect_decrease_damage_resistance">Zmniejsza odpornośc na obrażenia o %1$d</string>
 	<string name="iteminfo_effect_increase_use_cost">Zwiększa liczbę punktów akcji (PA) za używanie przedmiotów podczas walki o %1$d PA</string>
 	<string name="iteminfo_effect_decrease_use_cost">Zmniejsza liczbę punktów akcji (PA) za używanie przedmiotów podczas walki o %1$d PA</string>
 	<string name="iteminfo_effect_increase_reequip_cost">Zwiększa liczbę punktów akcji (PA) za wyekwipowanie podczas walki o %1$d PA</string>
-	<string name="iteminfo_effect_decrease_reequip_cost">Zmniejsza liczbę punktów akcji (PA) za wyekwipowani podczas walki o %1$d PA</string>
+	<string name="iteminfo_effect_decrease_reequip_cost">Zmniejsza liczbę punktów akcji (PA) za wyekwipowanie podczas walki o %1$d PA</string>
 
-	<string name="loadsave_save_overwrite_confirmation_all">Czy jesteś pewien że chcesz nadpisać zapis gry?</string>
+	<string name="loadsave_save_overwrite_confirmation_all">Czy jesteś pewien, że chcesz nadpisać zapis gry?</string>
 	<string name="loadsave_save_overwrite_confirmation_slot">(slot %1$d)</string>
 	<string name="preferences_display_overwrite_savegame_entries_always_confirm">Zawsze wyświetlaj okienko dialogowe</string>
 	<string name="preferences_display_overwrite_savegame_entries_confirm_overwrite">Wyświetlaj okienko dialogowe gdy chcesz nadpisać zapis gry z innym imieniem gracza</string>
 	<string name="preferences_display_overwrite_savegame_entries_never_confirm">Nie wyświetlaj okienka dialogowego</string>
-	<string name="preferences_dialog_overwrite_savegame_title">Potwierdzenia nadpisywania zapisów gry</string>
-	<string name="preferences_dialog_overwrite_savegame">Zadaje pytanie za każdym razem kiedy chcesz zapisać grę w slocie w który znajdje się jż zapis gry.</string>
+	<string name="preferences_dialog_overwrite_savegame_title">Potwierdzenie nadpisania zapisu gry</string>
+	<string name="preferences_dialog_overwrite_savegame">Zadaje pytanie za każdym razem, gdy chcesz zapisać grę w slocie w którym znajduje się już zapis gry.</string>
 
 	<!-- =========================================== -->
 	<!-- Added in v0.7.0 -->
 
 	<string name="heroinfo_reequip_cost">Koszt ponownego wyekwipowania (PA):</string>
 	<string name="heroinfo_useitem_cost">Koszt użycia przedmiotu (PA):</string>
-	<string name="combat_result_monstermoved">%1$s przemieścił się.</string>
+	<string name="combat_result_monstermoved">%1$s przemieszcza się.</string>
 	<string name="combat_log_title">Dziennik walki</string>
-	<string name="localize_resources_from_mo_filename"></string>
+	<string name="localize_resources_from_mo_filename">" "</string>
 	<string name="conversation_reward_quest_finished">[Zadanie ukończone: \"%1$s\"]</string>
 	<string name="conversation_reward_quest_updated">[Zaktualizowano zadanie: \"%1$s\"]</string>
 
@@ -514,30 +539,24 @@
 	<string name="skill_shortdescription_armor_prof_unarmored">Lepsza walka bez zbroi</string>
 	<string name="skill_shortdescription_armor_prof_light">Lepsze wykorzystanie lekkiej zbroi w walce</string>
 	<string name="skill_shortdescription_armor_prof_heavy">Lepsze wykorzystanie ciężkiej zbroi w walce</string>
-	<string name="skill_shortdescription_fightstyle_dualwield">Używanie w walce dwóch broni w tym samym czasie</string>
-	<string name="skill_shortdescription_fightstyle_2hand">Lepszy w walce z użyciem broni wymagającej uzycia obu rąk</string>
+	<string name="skill_shortdescription_fightstyle_dualwield">Używanie dwóch broni w tym samym czasie</string>
+	<string name="skill_shortdescription_fightstyle_2hand">Lepszy w walce z użyciem broni wymagającej użycia obu rąk</string>
 	<string name="skill_shortdescription_fightstyle_weapon_shield">Lepszy w walce z użyciem miecza i tarczy</string>
 	<string name="skill_shortdescription_specialization_dualwield">Mistrzostwo w używaniu dwóch broni równocześnie</string>
 	<string name="skill_shortdescription_specialization_2hand">Mistrzostwo w używaniu broni dwuręcznych</string>
 	<string name="skill_shortdescription_specialization_weapon_shield">Mistrzostwo w używaniu broni i tarczy równocześnie</string>
 
 	<string name="skill_longdescription_weapon_prof_dagger">Kiedy używasz sztyletu lub krótkiego miecza, to z każdym poziomem tej umiejętności zwiększają się (w odniesieniu do wartości bazowych poszczególnych cech danej broni): szansa trafienia o %1$d %% ; szansa bloku o %2$d %%  oraz szansa trafienia krytycznego o %3$d %%.</string>
-	<string name="skill_longdescription_weapon_prof_1hsword">Kiedy używasz rapiera, długiego miecza lub pałasza to z każdym poziomem tej umiejętności zwiększają się (w odniesieniu do wartości bazowych poszczególnych cech danej broni) :szansa trafienia o %1$d %% ; szansa bloku o %2$d %% oraz szansa trafienia krytycznego o %3$d %%.</string>
-	<string name="skill_longdescription_weapon_prof_2hsword">Kiedy używasz dwuręcznego miecza, to z każdym poziomem tej umiejętności zwiększają się (w odniesieniu do wartości bazowych poszczególnych cech danej broni):szansa trafienia o %1$d %% ; szansa bloku o %2$d %% oraz szansa trafienia krytycznego o %3$d %%.</string>
-	<string name="skill_longdescription_weapon_prof_axe">Kiedy używasz topora lub wielkiego topora, to z każdym poziomem tej umiejętności zwiększają się (w odniesieniu do wartości bazowych poszczególnych cech danej broni):szansa trafienia o %1$d %% ; szansa bloku o %2$d %% oraz szansa trafienia krytycznego o %3$d %%.</string>
-	<string name="skill_longdescription_weapon_prof_blunt">Kiedy używasz broni obuchowej,to z każdym poziomem tej umiejętności zwiększają się (w odniesieniu do wartości bazowych poszczególnych cech danej broni):szansa trafienia o %1$d %% ; szansa bloku o %2$d %% oraz szansa trafienia krytycznego o %3$d %%. Umiejętnośc obejmuje takie bronie jak: maczugi, buławy, berła, młoty i olbrzymie młoty.</string>
+	<string name="skill_longdescription_weapon_prof_1hsword">Kiedy używasz rapiera, długiego miecza lub pałasza to z każdym poziomem tej umiejętności zwiększają się (w odniesieniu do wartości bazowych poszczególnych cech danej broni): szansa trafienia o %1$d %% ; szansa bloku o %2$d %% oraz szansa trafienia krytycznego o %3$d %%.</string>
+	<string name="skill_longdescription_weapon_prof_2hsword">Kiedy używasz dwuręcznego miecza, to z każdym poziomem tej umiejętności zwiększają się (w odniesieniu do wartości bazowych poszczególnych cech danej broni): szansa trafienia o %1$d %% ; szansa bloku o %2$d %% oraz szansa trafienia krytycznego o %3$d %%.</string>
+	<string name="skill_longdescription_weapon_prof_axe">Kiedy używasz topora lub wielkiego topora, to z każdym poziomem tej umiejętności zwiększają się (w odniesieniu do wartości bazowych poszczególnych cech danej broni): szansa trafienia o %1$d %% ; szansa bloku o %2$d %% oraz szansa trafienia krytycznego o %3$d %%.</string>
+	<string name="skill_longdescription_weapon_prof_blunt">Kiedy używasz broni obuchowej, to z każdym poziomem tej umiejętności zwiększają się (w odniesieniu do wartości bazowych poszczególnych cech danej broni): szansa trafienia o %1$d %% ; szansa bloku o %2$d %% oraz szansa trafienia krytycznego o %3$d %%. Umiejętność obejmuje takie bronie jak: maczugi, buławy, berła, młoty i olbrzymie młoty.</string>
 	<string name="skill_longdescription_weapon_prof_unarmed">Kiedy walczysz bez broni i tarczy, to z każdym poziomem tej umiejętności zwiększają się: szansa trafienia o %1$d %% ,zadawane obrażenia o %2$d oraz szansa bloku o %3$d %%.</string>
 	<string name="skill_longdescription_armor_prof_shield">Jeśli używasz tarczy, to z każdym poziomem umiejętności o %1$d zwiększa się odporność na obrażenia.</string>
 	<string name="skill_longdescription_armor_prof_unarmored">Kiedy walczysz bez jakiegokolwiek elementu zbroi, to z każdym poziomem tej umiejętności o %1$d %% zwiększa się szansa bloku. Ubrania nie są uważane za zbroję.</string>
 	<string name="skill_longdescription_armor_prof_light">Z każdym poziomem tej umiejętności,o %1$d %% zwiększa się szansa bloku za każdy element ekwipunku należący do kategorii zbroi lekkich (w odniesieniu do wartości bazowej szansy bloku używanego ekwiunku). Kategoria lekkie zboje obejmuje pancerze skórzane, lekkie pancerze metalowe oraz ukryte pancerze.</string>
 	<string name="skill_longdescription_armor_prof_heavy">Z każdym poziomem tej umiejętności,o %1$d %% zwiększa się szansa bloku za każdy element ekwipunku należący do kategorii zbroi ciężkich (w odniesieniu do wartości bazowej szansy bloku używanego ekwiunku). Ponadto reducji ulegają kary naliczane za używanie tychże elementów ekwipunku: kara dla ruchu o %2$d %% na poziom umiejętności oraz kara dla kosztu ataku o %3$d %% na poziom umiejętności. Kategoria ciężkie zbroje obejmuje pancerze metalowe, kolczugi i zbroje płytowe.</string>
-	<string name="skill_longdescription_fightstyle_dualwield">Daje korzyści w przypadku walki dwoma broniami równocześnie (gdy w każdej ręce znajduje sie broń).
-
-Bez tej umiejętności, tylko %1$d %% wartości cech broni jest wykorzystywane, gdy broń znajduje się w lewej ręce. Dotyczy to szansy trafienia, szansy trafienia krytycznego, zadawanych obrażeń oraz szansy bloku. Ponadto, koszt ataku (liczony w PA) jest sumą kosztów ataku obu broni znajdujących się w rękach bohatera.
-
-Na pierwszym poziomie umiejętności, %2$d %% wartości cech broni jest wykorzystywane, gdy broń znajduje się w lewej ręce. Ponadto koszt ataku (liczony w PA) jest sumą: kosztu ataku broni w prawej ręce plus %3$d %% kosztu ataku broni w lewej ręce.
-
-Na drugim poziomie umiejętności, %4$d %% wartości cech broni jest wykorzystywane, gdy broń znajduje się w lewej ręce. Jako prędkość ataku (koszt ataku liczony w PA) przyjmuje się wyższą wartość spośród wartości ataku używanych broni."</string>
+	<string name="skill_longdescription_fightstyle_dualwield">Daje korzyści w przypadku walki dwoma broniami równocześnie (gdy w każdej ręce znajduje się broń). Bez tej umiejętności, tylko %1$d %% wartości cech broni jest wykorzystywane, gdy broń znajduje się w lewej ręce. Dotyczy to szansy trafienia, szansy trafienia krytycznego, zadawanych obrażeń oraz szansy bloku. Ponadto, koszt ataku (liczony w PA) jest sumą kosztów ataku obu broni znajdujących się w rękach bohatera. Na pierwszym poziomie umiejętności, %2$d %% wartości cech broni jest wykorzystywane, gdy broń znajduje się w lewej ręce. Ponadto koszt ataku (liczony w PA) jest sumą: kosztu ataku broni w prawej ręce plus %3$d %% kosztu ataku broni w lewej ręce. Na drugim poziomie umiejętności, %4$d %% wartości cech broni jest wykorzystywane, gdy broń znajduje się w lewej ręce. Jako prędkość ataku (koszt ataku liczony w PA) przyjmuje się wyższą wartość spośród wartości ataku używanych broni.</string>
 
 	<string name="skill_longdescription_fightstyle_2hand">"Daje korzyści z używania broni wymagających użycia obu rąk, jak na przykład miecze dwuręczne, wielkie topory czy też olbrzymie młoty.
 
@@ -547,9 +566,9 @@ Każdy poziom umiejętności podnosi obrażenia zadawane każdą broń dwuręczn
 Każdy poziom umiejętności podnosi szansę trafienia broni o %1$d %% (licząc z wartości bazowej szansy trafienia danej broni). Ponadto szansa bloku używanej tarczy rośnie o %2$d %% (licząc z wartości bazowej szansy bloku danej tarczy)."</string>
 	<string name="skill_longdescription_specialization_dualwield">Oprócz korzyści dawanych przez umiejętność Styl walki: dwie bronie podnosi dodatkowo szansę trafienia obydwu używanych broni o %1$d %% (w stosunku do bazowej szansy trafienia używanych broni). Ponadto szansa bloku obydwu używanych broni wzrasta o %2$d %% (licząc z wartości bazowej szansy bloku danych broni).</string>
 	<string name="skill_longdescription_specialization_2hand">Oprócz korzyści dawanych przez umiejętność Styl walki: Broń dwuręczna podnosi dodatkowo obrażenia zadawane przez bronie dwuręczne  o %1$d %% (w stosunku do bazowej wartości zadawanych obrażeń używanej broni). Ponadto szansa trafienia używanej broni dwuręcznej wzrasta o %2$d %% (licząc z wartości bazowej szansy trafienia danej broni).</string>
-	<string name="skill_longdescription_specialization_weapon_shield">Oprócz korzyści dawanych przez umiejętność Styl walki: Broń i tarcza podnosi dodatkowo szanse trafienia oraz zadawane obrażenia używanej broni. Szansa trafienia (w stosunku do bazowej wartości szansy trafienia używanej broni) wzrasta o %1$d %% a zadawane obrażenia (w stosunku do bazowej wartości zadawanych obrażeń używanej broni) wzrastają o %2$d %%</string> 
+	<string name="skill_longdescription_specialization_weapon_shield">Oprócz korzyści dawanych przez umiejętność Styl walki: Broń i tarcza podnosi dodatkowo szanse trafienia oraz zadawane obrażenia używanej broni. Szansa trafienia (w stosunku do bazowej wartości szansy trafienia używanej broni) wzrasta o %1$d %% a zadawane obrażenia (w stosunku do bazowej wartości zadawanych obrażeń używanej broni) wzrastają o %2$d %%.</string> 
 	<string name="preferences_quickslots_placement">Umiejscowienie szybkich slotów </string>
-	<string name="preferences_quickslots_placement_summary">Wybierz gdzie mają znajdowaś się sloty ekwipunku</string>
+	<string name="preferences_quickslots_placement_summary">Wybierz miejsce, w którym mają znajdować się sloty ekwipunku</string>
 	<string name="preferences_quickslots_placements_horizontal_center_bottom">Środek dolnej krawędzi ekranu</string>
 	<string name="preferences_quickslots_placements_vertical_center_left">Środek lewej krawędzi ekranu</string>
 	<string name="preferences_quickslots_placements_vertical_center_right">Środek prawej krawędzi ekranu</string>
@@ -557,28 +576,30 @@ Każdy poziom umiejętności podnosi szansę trafienia broni o %1$d %% (licząc 
 	<string name="preferences_quickslots_placements_horizontal_bottom_left">Środek lewej krawędzi ekranu, prostopadle do lewej granicy</string>
 	<string name="preferences_quickslots_placements_horizontal_bottom_right">Środek prawej krawędzi ekranu, prostopadle do prawej granicy</string>
 	<string name="preferences_quickslots_placements_vertical_bottom_right">Środek prawej krawędzi ekranu, równolegle do prawej granicy</string>
-	<string name="preferences_ui_show_quickslots_when_toolbox_is_visible_title">Pokazuje sloty ekwipunku kiedy przybornik jest otwarty</string>
-	<string name="preferences_ui_show_quickslots_when_toolbox_is_visible">Pokazuje sloty ekwipunku tak długo jak otwarty jest przybornik</string>
-	<string name="startscreen_incompatible_savegames">To jest wersja deweloperska Andor`s Trail. Zapisy gry tej wersji gry moga byc niekompatybilne z publicznymi wersjami gry.</string>
-	<string name="startscreen_non_release_version">Jest to wersja testowa Andor`s Trail. Zapisy gry tej wersji gry moga byc niekompatybilne z publicznymi wersjami gry.</string>
+	<string name="preferences_ui_show_quickslots_when_toolbox_is_visible_title">Pokazuje sloty ekwipunku gdy przybornik jest otwarty</string>
+	<string name="preferences_ui_show_quickslots_when_toolbox_is_visible">Pokazuje sloty ekwipunku tak długo, jak otwarty jest przybornik</string>
+	<string name="startscreen_incompatible_savegames">To jest wersja deweloperska Andor`s Trail. Zapisy z tej wersji mogą być niekompatybilne z publicznymi wersjami gry.</string>
+	<string name="startscreen_non_release_version">Jest to wersja testowa Andor`s Trail. Zapisy z tej wersji mogą być niekompatybilne z publicznymi wersjami gry.</string>
 	<string name="heroinfo_gamestats">Statystyki gry:</string>
 	<string name="heroinfo_gamestats_quests">Zadania ukończone:</string>
-	<string name="heroinfo_gamestats_deaths">Liczba zgonów bohatera</string>
-	<string name="heroinfo_gamestats_spent_gold">Złoto wydane w sklepach</string>
-	<string name="heroinfo_gamestats_bonemeals">Użyte mikstury z kostnego prochu</string>
-	<string name="heroinfo_gamestats_num_used_items">Przedmioty użyte</string>
-	<string name="heroinfo_gamestats_visited_maps">Odwiedzone miejsca</string>
-	<string name="heroinfo_gamestats_fav_item">Najczęściej uzywany przdmiot</string>
-	<string name="heroinfo_gamestats_num_killed_monsters">Zabici przeciwnicy</string>
-	<string name="heroinfo_gamestats_top_boss">Najsilniejszy zabity przeciwnik</string>
-	<string name="heroinfo_gamestats_fav_monsters">Najczęściej zabijany potwór</string>
+	<string name="heroinfo_gamestats_deaths">Liczba zgonów bohatera:</string>
+	<string name="heroinfo_gamestats_spent_gold">Złoto wydane w sklepach:</string>
+	<string name="heroinfo_gamestats_bonemeals">Użyte mikstury z kostnego prochu:</string>
+	<string name="heroinfo_gamestats_num_used_items">Przedmioty użyte:</string>
+	<string name="heroinfo_gamestats_visited_maps">Odwiedzone miejsca:</string>
+	<string name="heroinfo_gamestats_fav_item">Najczęściej używany przedmiot:</string>
+	<string name="heroinfo_gamestats_num_killed_monsters">Zabici przeciwnicy:</string>
+	<string name="heroinfo_gamestats_top_boss">Najsilniejszy zabity przeciwnik:</string>
+	<string name="heroinfo_gamestats_fav_monsters">Najczęściej zabijany potwór:</string>
 	<string name="heroinfo_gamestats_name_and_qty">%1$s (%2$d)</string>
 
 	<!-- =========================================== -->
 	<!-- Added in v0.7.1 -->
 
 	<string name="preferences_ui_use_localized_resources_title">Użyj lokalizacji zasobów</string>
-	<string name="preferences_ui_use_localized_resources">Użyj tłumaczenia gry jesli jest dostępna (wymaga restartu gry))</string>
+	<string name="preferences_ui_use_localized_resources">Użyj tłumaczenia gry jeśli jest dostępne (wymaga restartu gry).</string>
 	<string name="change_locale_requires_restart">Zmiany ustawień lokalnych wymagały restartu gry. Andor`s Trail został zamknięty.</string>
 
-</resources>
+<string name="combat_miss_animation_message">PUDŁO</string>
+	
+	</resources>

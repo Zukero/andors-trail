@@ -147,12 +147,12 @@
 	<string name="levelup_buttontext">Aumento de nível</string>
 	<string name="levelup_add_health">Aumentar a saúde (+%1$d HP)</string>
 	<string name="levelup_add_health_description">Adiciona %1$d à tua saúde máxima.</string>
-	<string name="levelup_add_attackchance">Aumentar a probabilidade de ataque (+%1$d %%)</string>
-	<string name="levelup_add_attackchance_description">Adiciona %1$d%% à tua probabilidade de ataque base.</string>
+	<string name="levelup_add_attackchance">Aumentar a probabilidade de ataque (+%1$d)</string>
+	<string name="levelup_add_attackchance_description">Adiciona %1$d à tua probabilidade de ataque base.</string>
 	<string name="levelup_add_attackdamage">Aumentar o dado de ataque (+%1$d)</string>
 	<string name="levelup_add_attackdamage_description">Adiciona %1$d ao teu dano de ataque base.</string>
-	<string name="levelup_add_blockchance">Aumentar a probabilidade de bloqueio (+%1$d %%)</string>
-	<string name="levelup_add_blockchance_description">Adiciona %1$d%% à tua probabilidade de bloqueio base.</string>
+	<string name="levelup_add_blockchance">Aumentar a probabilidade de bloqueio (+%1$d)</string>
+	<string name="levelup_add_blockchance_description">Adiciona %1$d à tua probabilidade de bloqueio base.</string>
 
 	<string name="dialog_rest_title">Repouso</string>
 	<string name="dialog_rest_confirm_message">Queres descansar aqui?</string>
@@ -348,7 +348,7 @@
 	<string name="skill_longdescription_barter">Por cada nível de habilidade, diminui a penalização monetária de compra e venda em %1$d pontos percentuais.</string>
 	<string name="skill_longdescription_dodge">Aumenta a probabilidade de bloqueio em %1$d por cada nível de habilidade.</string>
 	<string name="skill_longdescription_barkskin">Aumenta a resistência a danos em %1$d por cada nível de habilidade.</string>
-	<string name="skill_longdescription_more_criticals">Aumenta todas as probabilidades de ataque crítico dadas por equipamento em %1$d %% por cada nível de habilidade (percentagem do valor da probabilidade de ataque crítico existente, não pontos percentuais).</string>
+	<string name="skill_longdescription_more_criticals">Aumenta todas as probabilidades de ataque crítico dadas por equipamento em %1$d %% por cada nível de habilidade.</string>
 	<string name="skill_longdescription_better_criticals">Aumenta todos os multiplicadores de ataque crítico dados por equipamento em %1$d %% por cada nível de habilidade.</string>
 	<string name="skill_longdescription_speed">Aumenta o máximo de pontos de acção (AP) em %1$d por cada nível de habilidade.</string>
 	<string name="skill_longdescription_coinfinder">Aumenta a probabilidade de encontrar moedas na morte de monstros em %1$d %%, e aumenta a quantidade de moedas por cada morte em %2$d %% por cada nível de habilidade (até ao valor máximo que cada monstro possa dar).</string>

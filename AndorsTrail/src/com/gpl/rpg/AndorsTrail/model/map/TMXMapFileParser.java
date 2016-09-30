@@ -144,6 +144,8 @@ public final class TMXMapFileParser {
 			public void handleTag(XmlResourceParser xrp, String tagName) throws XmlPullParserException, IOException {
 				if (tagName.equals("object")) {
 					group.objects.add(readTMXObject(xrp));
+				} else if (tagName.equals("property")) {
+					group.properties.add(readTMXProperty(xrp));
 				}
 			}
 		});
@@ -291,6 +293,7 @@ public final class TMXMapFileParser {
 	public static final class TMXObjectGroup {
 		public String name;
 		public final ArrayList<TMXObject> objects = new ArrayList<TMXObject>();
+		public final ArrayList<TMXProperty> properties = new ArrayList<TMXProperty>();
 	}
 	public static final class TMXObject {
 		public String name;

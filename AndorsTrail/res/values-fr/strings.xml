@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
 	<string name="app_name">La Piste d\'Andor</string>
 	<string name="app_description">Jeu de rôle fantastique à base de quêtes</string>
@@ -15,7 +14,7 @@
 	<string name="loadsave_selectslot">Sélectionner un emplacement</string>
 	<string name="savegame_currenthero_displayinfo">niveau %1$d, %2$d exp, %3$d or</string>
 
-	<string name="dialog_loading_message">Chargement des ressources...</string>
+	<string name="dialog_loading_message">Chargement des ressources…</string>
 	<string name="dialog_loading_failed_title">Échec du chargement</string>
 	<string name="dialog_loading_failed_message">Impossible de charger la sauvegarde.\n\n:(\n\nLe fichier est peut-être endommagé ou incomplet.</string>
 	<string name="dialog_loading_failed_incorrectversion">Impossible de charger la sauvegarde. Cette sauvegarde a été créée avec une version plus récente du jeu.</string>
@@ -147,12 +146,12 @@
 	<string name="levelup_buttontext">Niveau supérieur</string>
 	<string name="levelup_add_health">Augmenter les points de vie (+%1$d HP)</string>
 	<string name="levelup_add_health_description">Ajoute %1$d à votre total de points de vie.</string>
-	<string name="levelup_add_attackchance">Augmenter la probabilité de toucher (+%1$d %%)</string>
-	<string name="levelup_add_attackchance_description">Ajoute %1$d%% à votre probabilité de toucher de base.</string>
+	<string name="levelup_add_attackchance">Augmenter la probabilité de toucher (+%1$d)</string>
+	<string name="levelup_add_attackchance_description">Ajoute %1$d à votre probabilité de toucher de base.</string>
 	<string name="levelup_add_attackdamage">Augmenter les dégâts (+%1$d)</string>
 	<string name="levelup_add_attackdamage_description">Ajoute %1$d à vos dégâts de base.</string>
-	<string name="levelup_add_blockchance">Augmenter la probabilité de bloquer (+%1$d %%)</string>
-	<string name="levelup_add_blockchance_description">Ajoute %1$d%% à votre probabilité de bloquer de base.</string>
+	<string name="levelup_add_blockchance">Augmenter la probabilité de bloquer (+%1$d)</string>
+	<string name="levelup_add_blockchance_description">Ajoute %1$d à votre probabilité de bloquer de base.</string>
 
 	<string name="dialog_rest_title">Repos</string>
 	<string name="dialog_rest_confirm_message">Voulez-vous vous reposer ici ?</string>
@@ -168,7 +167,7 @@
 		&lt;br /&gt;
 		&lt;a href="http://andorstrail.com/wiki"&gt;Game wiki for info about the Andor\'s Trail world, among other things.&lt;/a&gt;&lt;br /&gt;
 		&lt;br /&gt;
-		&lt;a href="http://code.google.com/p/andors-trail/"&gt;Page du projet sur code.google.com pour les développeurs.&lt;/a&gt;&lt;br /&gt;
+		&lt;a href="https://github.com/Zukero/andors-trail/"&gt;Code source du projet sur github.com pour les développeurs.&lt;/a&gt;&lt;br /&gt;
 		&lt;br /&gt;
 		Vous pouvez visiter les forums pour discuter du jeu avec d\'autres joueurs.&lt;br /&gt;
 	</string>
@@ -179,7 +178,7 @@
 		&lt;br /&gt;
 		Vous devriez avoir reçu une copie de la Licence Générale Publique GNU avec ce programme ; si ce n’est pas le cas, consultez : &lt;a href="http://www.gnu.org/licenses"&gt;http://www.gnu.org/licenses&lt;/a&gt;&lt;br /&gt;
 		&lt;br /&gt;
-		Pour toute requête concernant le code source ou les fonctionnalités, veuillez visiter la page du projet : &lt;a href="http://code.google.com/p/andors-trail/"&gt;http://code.google.com/p/andors-trail/&lt;/a&gt;&lt;br /&gt;
+		Pour toute requête concernant le code source ou les fonctionnalités, veuillez visiter la page du projet : &lt;a href="https://github.com/Zukero/andors-trail/"&gt;https://github.com/Zukero/andors-trail/&lt;/a&gt;&lt;br /&gt;
 	</string>
 
 	<string name="dialog_newversion_title">Bienvenue</string>
@@ -190,7 +189,56 @@
 		\n
 		Merci pour les retours d\'utilisation !
 	</string>
+	<string name="about_interface"><![CDATA[
 
+<div><b>Game Settings</b> can be found by pressing your device\'s Menu Button.</div>
+
+<p>________________</p>
+<h1>Interface Icons</h1>
+
+<div><b>The Chest</b><img alt="chest" src="chest.png" /></div>
+<p>Quickslots [Long press the pouches inside to assign items for instant use]</p>
+
+<div><b>The Hero</b><img alt="hero" src="char_hero.png" /></div>
+<p>Menu [Overview, Quests, Skills &amp; Inventory *]</p>
+<p>* (While in inventory, "press" an item for information &amp; "long press" for more options)</p>
+
+<div><b>The Enemy</b><img alt="monster" src="monster.png" /></div>
+<p>Information [Appears during Combat]</p>
+
+
+
+<p>________________</p>
+<h1>Combat</h1>
+
+<p>Actions taken during battle cost AP...</p>
+
+<div><b>Attacking</b> - [3AP] *</div>
+<img alt="attacking" src="doubleattackexample.png" />
+<p>* (Equipping Gear &amp; Using Items may alter AP &amp; usage cost)</p>
+
+<div><b>Using Items</b> - [5AP]</div>
+<div><b>Fleeing</b> - [6AP]</div>
+
+
+
+<p>________________</p>
+<h1>Advanced Combat</h1>
+
+<div>During Combat, long press a tile adjacent to the Hero...</div>
+
+<div><b>To Flee</b></div>
+<p>(chosen tile is highlighted - Attack Button changes to Move)</p>
+<img alt="flee" src="flee_example.png" />
+<p>[flee mode activated - Long press enemy to re-enter combat]</p>
+
+<div><b>To Change Targets</b></div>
+<p>(the red target highlight shifts between enemies)</p>
+<p>[the target has been changed]</p>
+
+]]></string>
+	
+	
 	<string name="questlog_includecompleted_prompt">Sélectionner les quêtes à afficher</string>
 	<string name="questlog_includecompleted_hidecompleted">Cacher les quêtes terminées</string>
 	<string name="questlog_includecompleted_includecompleted">Inclure les quêtes terminées</string>
@@ -208,7 +256,7 @@
 	<string name="preferences_dialog_confirmattack_title">Confirmer les attaques</string>
 	<string name="preferences_dialog_confirmattack">Active la boîte de dialogue « Voulez-vous attaquer ? » quand vous attaquez un monstre.</string>
 	<string name="preferences_dialog_monsterloot_title">Afficher le butin des monstres</string>
-	<string name="preferences_dialog_monsterloot">Change la façon dont s\'affichent les résultats d\'un combat (or, expérience, objets)</string>
+	<string name="preferences_dialog_monsterloot">Change la façon dont s\'affichent les résultats d\'un combat (or, expérience, objets).</string>
 	<string name="preferences_combat_category">Combat</string>
 	<string name="preferences_combat_speed_title">Vitesse des combats</string>
 	<string name="preferences_combat_speed">Détermine la vitesse d\'attaque des monstres.</string>
@@ -258,7 +306,7 @@
 	<!-- La suite est ok -->
 
 	<string name="preferences_display_scaling_factor_title">Facteur de zoom</string>
-	<string name="preferences_display_scaling_factor">Permet d\'agrandir toute la zone de jeu</string>
+	<string name="preferences_display_scaling_factor">Permet d\'agrandir toute la zone de jeu.</string>
 	<string name="preferences_display_scaling_factor_normal">Taille normale</string>
 	<string name="preferences_display_scaling_factor_50_percent_larger">Zoom de 150%</string>
 	<string name="preferences_display_scaling_factor_double">Zoom de 200%</string>
@@ -274,7 +322,7 @@
 	<!-- Added in v0.6.10 -->
 
 	<string name="preferences_movement_dpad_position_title">Croix directionnelle (D-pad) virtuelle</string>
-	<string name="preferences_movement_dpad_position">Active une croix directionnelle virtuelle sur l\'écran pour guider les déplacements</string>
+	<string name="preferences_movement_dpad_position">Active une croix directionnelle virtuelle sur l\'écran pour guider les déplacements.</string>
 	<string name="preferences_movement_dpad_minimizeable_title">Minimisation de la croix directionnelle virtuelle</string>
 	<string name="preferences_movement_dpad_minimizeable">Si la croix directionnelle virtuelle est activée, ce réglage permet de la réduire en pressant son centre.</string>
 
@@ -344,7 +392,7 @@
 	<string name="skill_longdescription_barter">Chaque niveau de compétence réduit le malus financier d\'achat et de vente de %1$d %%.</string>
 	<string name="skill_longdescription_dodge">Chaque niveau de compétence augmente la chance de bloquer de %1$d.</string>
 	<string name="skill_longdescription_barkskin">Chaque niveau de compétence augmente la résistance aux dégâts de %1$d.</string>
-	<string name="skill_longdescription_more_criticals">Chaque niveau de compétence augmente la probabilité d\'infliger un coup critique de %1$d %%. Attention, ce pourcentage est relatif à la probabilité déjà existante (équipement, ...), ce n\'est pas un pourcentage absolu.</string>
+	<string name="skill_longdescription_more_criticals">Chaque niveau de compétence augmente la probabilité d\'infliger un coup critique de %1$d %%.</string>
 	<string name="skill_longdescription_better_criticals">Chaque niveau de compétence augmente le facteur multiplicatif de coups critiques existant (donné par l\'équipement) de %1$d %%.</string>
 	<string name="skill_longdescription_speed">Chaque niveau de compétence augmente le nombre maximal de points d\'action (AP) de %1$d.</string>
 	<string name="skill_longdescription_coinfinder">Chaque niveau de compétence augmente les chances de trouver de l\'or dans les butins de monstres de %1$d %%, et augmente le montant d\'or trouvé de %2$d %% (jusqu\'à atteindre le montant maximum propre à chaque monstre).</string>
@@ -406,7 +454,162 @@
 	<string name="traitsinfo_criticalhit_effectivechance">Taux de coups critiques : </string>
 
 	<!-- =========================================== -->
+	<!-- Added in v0.6.12 -->
+
+	<string name="preferences_ui_category">Interface</string>
+	<string name="preferences_ui_enable_animations_title">Activer les animations</string>
+	<string name="preferences_ui_enable_animations">Animer différents éléments de l\'interface, comme la barre de combat.</string>
+	<string name="menu_button_worldmap">Carte</string>
+	<string name="menu_button_worldmap_failed">Impossible d\'afficher la carte.</string>
+	<string name="display_worldmap_not_available">Impossible d\'afficher la carte à partir de cet endroit.</string>
+	<string name="display_worldmap_title">Carte</string>
+
+	<string name="inventory_equip_offhand">Equiper (main gauche)</string>
+
+	<string name="iteminfo_effect_weapon_attack_cost">Coût d\'attaque : %1$d AP</string>
+	<string name="iteminfo_effect_increase_attack_cost">Augmente le coût d\'attaque de %1$d AP</string>
+	<string name="iteminfo_effect_decrease_attack_cost">Diminue le coût d\'attaque de %1$d AP</string>
+	<string name="iteminfo_effect_weapon_attack_chance">Chance d\'attaque : %1$d</string>
+	<string name="iteminfo_effect_increase_attack_chance">Increases attack chance by %1$d</string>
+	<string name="iteminfo_effect_decrease_attack_chance">Lowers attack chance by %1$d</string>
+	<string name="iteminfo_effect_weapon_attack_damage">Attack damage: %1$d</string>
+	<string name="iteminfo_effect_weapon_attack_damage_minmax">Attack damage: %1$d-%2$d</string>
+	<string name="iteminfo_effect_increase_attack_damage">Increases attack damage by %1$d</string>
+	<string name="iteminfo_effect_increase_attack_damage_minmax">Increases attack damage by %1$d-%2$d</string>
+	<string name="iteminfo_effect_decrease_attack_damage">Lowers attack damage by %1$d</string>
+	<string name="iteminfo_effect_decrease_attack_damage_minmax">Lowers attack damage by %1$d-%2$d</string>
+	<string name="iteminfo_effect_increase_critical_skill">Increases critical skill by %1$d</string>
+	<string name="iteminfo_effect_decrease_critical_skill">Lowers critical skill by %1$d</string>
+	<string name="iteminfo_effect_critical_multiplier">Enables critical hits with a multiplier of x%1$.1f</string>
+	<string name="iteminfo_effect_increase_block_chance">Increases block chance by %1$d</string>
+	<string name="iteminfo_effect_decrease_block_chance">Lowers block chance by %1$d</string>
+	<string name="iteminfo_effect_increase_damage_resistance">Raises damage resistance by %1$d</string>
+	<string name="iteminfo_effect_decrease_damage_resistance">Lowers damage resistance by %1$d</string>
+	<string name="iteminfo_effect_increase_use_cost">Increases AP cost of using items in combat by %1$d AP</string>
+	<string name="iteminfo_effect_decrease_use_cost">Lowers AP cost of using items in combat by %1$d AP</string>
+	<string name="iteminfo_effect_increase_reequip_cost">Increases AP cost of equipping items in combat by %1$d AP</string>
+	<string name="iteminfo_effect_decrease_reequip_cost">Lowers AP cost of equipping items in combat by %1$d AP</string>
+
+	<string name="loadsave_save_overwrite_confirmation_all">Are you sure you want to overwrite this savegame?</string>
+	<string name="loadsave_save_overwrite_confirmation_slot">(slot %1$d)</string>
+	<string name="preferences_display_overwrite_savegame_entries_always_confirm">Always show confirmation dialog box</string>
+	<string name="preferences_display_overwrite_savegame_entries_confirm_overwrite">Only show when overwriting a different playername</string>
+	<string name="preferences_display_overwrite_savegame_entries_never_confirm">Never display confirmation dialog box</string>
+	<string name="preferences_dialog_overwrite_savegame_title">Confirm overwriting savegames</string>
+	<string name="preferences_dialog_overwrite_savegame">Gives a question about whether you want to overwrite when saving to a savegame slot that already contains a savegame.</string>
+	
+	<!-- =========================================== -->
 	<!-- Added in v0.7.0 -->
 
+	<string name="heroinfo_reequip_cost">Re-equip cost (AP):</string>
+	<string name="heroinfo_useitem_cost">Use item cost (AP):</string>
+	<string name="combat_result_monstermoved">%1$s moves.</string>
+	<string name="combat_log_title">Combat log</string>
+	<string name="conversation_reward_quest_finished">[Quest completed: \"%1$s\"]</string>
+	<string name="conversation_reward_quest_updated">[Quest updated: \"%1$s\"]</string>
+
+	<string name="skill_title_weapon_prof_dagger">Dagger proficiency</string>
+	<string name="skill_title_weapon_prof_1hsword">One-handed sword proficiency</string>
+	<string name="skill_title_weapon_prof_2hsword">Two-handed sword proficiency</string>
+	<string name="skill_title_weapon_prof_axe">Axe proficiency</string>
+	<string name="skill_title_weapon_prof_blunt">Bludgeoning weapon proficiency</string>
+	<string name="skill_title_weapon_prof_unarmed">Unarmed fighting</string>
+	<string name="skill_title_armor_prof_shield">Shield proficiency</string>
+	<string name="skill_title_armor_prof_unarmored">Unarmored fighting</string>
+	<string name="skill_title_armor_prof_light">Light armor proficiency</string>
+	<string name="skill_title_armor_prof_heavy">Heavy armor proficiency</string>
+	<string name="skill_title_fightstyle_dualwield">Fighting style: Dual wield</string>
+	<string name="skill_title_fightstyle_2hand">Fighting style: Two-handed weapon</string>
+	<string name="skill_title_fightstyle_weapon_shield">Fighting style: Weapon and shield</string>
+	<string name="skill_title_specialization_dualwield">Specialization: Dual wield</string>
+	<string name="skill_title_specialization_2hand">Specialization: Two-handed weapon</string>
+	<string name="skill_title_specialization_weapon_shield">Specialization: Weapon and shield</string>
+
+	<string name="skill_shortdescription_weapon_prof_dagger">Better at fighting with daggers</string>
+	<string name="skill_shortdescription_weapon_prof_1hsword">Better at fighting with one-handed swords</string>
+	<string name="skill_shortdescription_weapon_prof_2hsword">Better at fighting with two-handed swords</string>
+	<string name="skill_shortdescription_weapon_prof_axe">Better at fighting with axes</string>
+	<string name="skill_shortdescription_weapon_prof_blunt">Better at fighting with bludgeoning weapons</string>
+	<string name="skill_shortdescription_weapon_prof_unarmed">Better at fighting without weapons</string>
+	<string name="skill_shortdescription_armor_prof_shield">Make better use of shields</string>
+	<string name="skill_shortdescription_armor_prof_unarmored">Better at fighting without armor</string>
+	<string name="skill_shortdescription_armor_prof_light">Make better use of light armor</string>
+	<string name="skill_shortdescription_armor_prof_heavy">Make better use of heavy armor</string>
+	<string name="skill_shortdescription_fightstyle_dualwield">Wield two weapons at the same time</string>
+	<string name="skill_shortdescription_fightstyle_2hand">Make better use of weapons that require both hands</string>
+	<string name="skill_shortdescription_fightstyle_weapon_shield">Better at fighting with weapon and shield</string>
+	<string name="skill_shortdescription_specialization_dualwield">Expert at dual wielding</string>
+	<string name="skill_shortdescription_specialization_2hand">Expert at two-handed weapons</string>
+	<string name="skill_shortdescription_specialization_weapon_shield">Expert at fighting with weapon and shield</string>
+
+	<string name="skill_longdescription_weapon_prof_dagger">For each skill level, increases attack chance when using daggers and shortswords by %1$d %% of the item\'s base attack chance, increases block chance by %2$d %% of the item\'s base block chance, and increases critical skill by %3$d %% of the item\'s base critical skill.</string>
+	<string name="skill_longdescription_weapon_prof_1hsword">For each skill level, increases attack chance of rapiers, longswords and broadswords by %1$d %% of the item\'s base attack chance, increases block chance by %2$d %% of the item\'s base block chance, and increases critical skill by %3$d %% of the item\'s base critical skill.</string>
+	<string name="skill_longdescription_weapon_prof_2hsword">For each skill level, increases attack chance of two-handed swords by %1$d %% of the item\'s base attack chance, increases block chance by %2$d %% of the item\'s base block chance, and increases critical skill by %3$d %% of the item\'s base critical skill.</string>
+	<string name="skill_longdescription_weapon_prof_axe">For each skill level, increases attack chance of axes and greataxes by %1$d %% of the item\'s base attack chance, increases block chance by %2$d %% of the item\'s base block chance, and increases critical skill by %3$d %% of the item\'s base critical skill.</string>
+	<string name="skill_longdescription_weapon_prof_blunt">For each skill level, increases attack chance of bludgeoning weapons by %1$d %% of the item\'s base attack chance, increases block chance by %2$d %% of the item\'s base block chance, and increases critical skill by %3$d %% of the item\'s base critical skill. This includes clubs, quarterstaves, maces, scepters, warhammers and giant hammers.</string>
+	<string name="skill_longdescription_weapon_prof_unarmed">When fighting without a weapon and shield, gain %1$d attack chance, %2$d damage potential and %3$d block chance per skill level.</string>
+	<string name="skill_longdescription_armor_prof_shield">Increase damage resistance by %1$d per skill level while having a shield equipped.</string>
+	<string name="skill_longdescription_armor_prof_unarmored">While fighting without having any piece of armor equipped, gain %1$d block chance per skill level. Items made of cloth are not considered as being armor.</string>
+	<string name="skill_longdescription_armor_prof_light">For every skill level, increases the block chance of every piece of light armor being worn by %1$d %% of their original block chances. Light armors include leather, light metal and hide armors.</string>
+	<string name="skill_longdescription_armor_prof_heavy">For every skill level, increases the block chance of every piece of heavy armor being worn by %1$d %% of their original block chances. Pieces of heavy armor have their movement penalties reduced by %2$d %% per skill level, and their attack speed penalties reduced by %3$d %% per skill level. Heavy armors include metal armors, chain mail and plate mail.</string>
+	<string name="skill_longdescription_fightstyle_dualwield">"Gives benefits when fighting with two weapons at the same time, one in the main hand and one in the off-hand.
+
+Without this skill, only %1$d %% of a weapon\'s qualities may be used when equipped in the off-hand. This includes attack chance, critical skill, damage potential and block chance. Without this skill, attack speed (AP cost) of making an attack is the sum of the attack speed of the main weapon and that of the weapon used in the off-hand.
+
+With one level of this skill, %2$d %% of the off-hand\'s weapon\'s qualities may be used, and the attack speed is the attack speed of the weapon in the main hand plus %3$d %% of the attack speed of the weapon in the off-hand.
+
+With two levels of this skill, %4$d %% of the off-hand\'s weapon\'s qualities may be used, and the attack speed equals the highest of the attack speeds of the two equipped weapons."</string>
+	<string name="skill_longdescription_fightstyle_2hand">"Gives benefits when using weapons that require both hands to wield, such as two-handed swords, greataxes or giant hammers.
+
+Every skill level increases damage potential of two-handed weapons with %1$d %% of the original damage potential."</string>
+	<string name="skill_longdescription_fightstyle_weapon_shield">"Gives benefits when fighting with a weapon in the main hand and having a shield equipped in the off-hand.
+
+Every skill level increases the attack chance of weapons with %1$d %% of their original attack chances, and the block chance of shields by %2$d %% of their original block chances."</string>
+	<string name="skill_longdescription_specialization_dualwield">Increases the attack chance of both wielded weapons by an additional %1$d %% of their original attack chances, in addition to the benefits given by the weapon style skill. The block chances of both wielded weapons are also increased by %2$d %% of their original block chances.</string>
+	<string name="skill_longdescription_specialization_2hand">Increases damage potential of two-handed weapons by an additional %1$d %% of the original damage potential, in addition to the benefits given by the weapon style skill. The attack chances of two-handed weapons are also increased by %2$d %% of their original attack chances.</string>
+	<string name="skill_longdescription_specialization_weapon_shield">Increases both attack chances and damage potential of weapons. The attack chance is increased by %1$d %% of the original attack chance, and the damage potential is increased by %2$d %% of the original damage potential.</string>
+
+	<string name="preferences_quickslots_placement">Quickslot position</string>
+	<string name="preferences_quickslots_placement_summary">Where to place the quickslots</string>
+	<string name="preferences_quickslots_placements_horizontal_center_bottom">Center bottom</string>
+	<string name="preferences_quickslots_placements_vertical_center_left">Middle left</string>
+	<string name="preferences_quickslots_placements_vertical_center_right">Middle right</string>
+	<string name="preferences_quickslots_placements_vertical_bottom_left">Bottom left, along left border</string>
+	<string name="preferences_quickslots_placements_horizontal_bottom_left">Bottom left, along bottom border</string>
+	<string name="preferences_quickslots_placements_horizontal_bottom_right">Bottom right, along bottom border</string>
+	<string name="preferences_quickslots_placements_vertical_bottom_right">Bottom right, along right border</string>
+	<string name="preferences_ui_show_quickslots_when_toolbox_is_visible_title">Show quickslots when toolbox is opened</string>
+	<string name="preferences_ui_show_quickslots_when_toolbox_is_visible">Makes the quickslot buttons be displayed as soon as the toolbox is opened</string>
+	<string name="startscreen_incompatible_savegames">This is a development version of Andor\'s Trail. Savegames produced by this version are incompatible with the release version.</string>
+	<string name="startscreen_non_release_version">This is a prerelease version of Andor\'s Trail. Savegames produced by this version might not be compatible with the release version.</string>
+	<string name="heroinfo_gamestats">Game statistics</string>
+	<string name="heroinfo_gamestats_quests">Completed quests</string>
+	<string name="heroinfo_gamestats_deaths">Times fallen unconscious</string>
+	<string name="heroinfo_gamestats_spent_gold">Gold spent in shops</string>
+	<string name="heroinfo_gamestats_bonemeals">Bonemeal potions used</string>
+	<string name="heroinfo_gamestats_num_used_items">Items used</string>
+	<string name="heroinfo_gamestats_visited_maps">Places visited</string>
+	<string name="heroinfo_gamestats_fav_item">Most commonly used item</string>
+	<string name="heroinfo_gamestats_num_killed_monsters">Monsters killed</string>
+	<string name="heroinfo_gamestats_top_boss">Most powerful monster killed</string>
+	<string name="heroinfo_gamestats_fav_monsters">Most commonly killed monsters</string>
+	<string name="heroinfo_gamestats_name_and_qty">%1$s (%2$d)</string>
 	<string name="localize_resources_from_mo_filename">fr.mo</string>
-</resources>
+	
+	<!-- =========================================== -->
+	<!-- Added in v0.7.1 -->
+
+	<string name="preferences_ui_use_localized_resources_title">Activer la traduction</string>
+	<string name="preferences_ui_use_localized_resources">Utiliser une interface et un contenu traduit en francais (si disponible). Nécessite un redémarrage.</string>
+	<string name="change_locale_requires_restart">Changing locale requires restart. Andor\'s Trail has been closed.</string>
+	
+<string name="combat_miss_animation_message">RATE</string>
+	
+	<string name="about_button4">A propos</string>
+
+	<string name="preferences_display_loot_dialog_on_items">Afficher la boîte de dialogue uniquement quand le butin contient des objets</string>
+	<string name="preferences_display_loot_dialog_on_items_or_toast">Boîte de dialogue pour les objets, simple notification sinon</string>
+	<string name="preferences_display_loot_toast_on_items">Afficher une simple notification uniquement quand le butin contient des objets</string>
+	<string name="skill_title_crit1">Hémorragie interne</string>
+	<string name="skill_shortdescription_crit1">Chance d\'hémorragie interne</string>
+	</resources>
