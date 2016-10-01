@@ -1,14 +1,13 @@
 [
     {
-        "id":"fallhaven_lumberjack",
         "replies":[
             {
                 "nextPhraseID":"fallhaven_lumberjack_15",
                 "requires":[
                     {
                         "requireType":"questProgress",
-                        "value":50,
-                        "requireID":"pathway_fallhaven"
+                        "requireID":"pathway_fallhaven",
+                        "value":50
                     }
                 ]
             },
@@ -17,268 +16,273 @@
                 "requires":[
                     {
                         "requireType":"questProgress",
-                        "value":30,
-                        "requireID":"pathway_fallhaven"
+                        "requireID":"pathway_fallhaven",
+                        "value":30
                     }
                 ]
             },
             {
                 "nextPhraseID":"fallhaven_lumberjack_1"
             }
-        ]
+        ],
+        "id":"fallhaven_lumberjack"
     },
     {
-        "message":"Hi, I'm Jakrar.",
-        "id":"fallhaven_lumberjack_1",
         "replies":[
             {
-                "nextPhraseID":"fallhaven_lumberjack_2",
-                "text":"Are you a woodcutter?"
+                "text":"Are you a woodcutter?",
+                "nextPhraseID":"fallhaven_lumberjack_2"
             }
-        ]
+        ],
+        "id":"fallhaven_lumberjack_1",
+        "message":"Hi, I'm Jakrar."
     },
     {
-        "message":"Yes, I'm Fallhaven's woodcutter. Need anything done in the finest of woods? I have probably got it.",
-        "id":"fallhaven_lumberjack_2",
         "replies":[
             {
-                "nextPhraseID":"fallhaven_lumberjack_3",
                 "text":"I'd like to talk with you about Fallhaven's passage to the Duleian Road.",
+                "nextPhraseID":"fallhaven_lumberjack_3",
                 "requires":[
                     {
                         "requireType":"questLatestProgress",
-                        "value":20,
-                        "requireID":"pathway_fallhaven"
+                        "requireID":"pathway_fallhaven",
+                        "value":20
                     }
                 ]
             },
             {
-                "nextPhraseID":"X",
-                "text":"Never mind. I don't need your services for now."
+                "text":"Never mind. I don't need your services for now.",
+                "nextPhraseID":"X"
             },
             {
-                "nextPhraseID":"S",
-                "text":"What have you got for sale?"
+                "text":"What have you got for sale?",
+                "nextPhraseID":"S"
             }
-        ]
+        ],
+        "id":"fallhaven_lumberjack_2",
+        "message":"Yes, I'm Fallhaven's woodcutter. Need anything done in the finest of woods? I have probably got it."
     },
     {
-        "message":"Hello. I'm Alaun. How can I help you?",
+        "replies":[
+            {
+                "text":"Have you seen my brother Andor? He looks similar to me.",
+                "nextPhraseID":"alaun_2"
+            }
+        ],
         "id":"alaun",
-        "replies":[
-            {
-                "nextPhraseID":"alaun_2",
-                "text":"Have you seen my brother Andor? He looks similar to me."
-            }
-        ]
+        "message":"Hello. I'm Alaun. How can I help you?"
     },
     {
-        "message":"You are looking for your brother you say? Looks like you? Hm.",
+        "replies":[
+            {
+                "text":"N",
+                "nextPhraseID":"alaun_3"
+            }
+        ],
         "id":"alaun_2",
+        "message":"You are looking for your brother you say? Looks like you? Hm."
+    },
+    {
+        "id":"alaun_3",
+        "message":"No, I cannot recall seeing anyone by that description. Maybe you should try in Crossglen village west of here."
+    },
+    {
+        "id":"fallhaven_farmer1",
+        "message":"Hello there. Please do not bother me, I have a lot of work to do."
+    },
+    {
+        "id":"fallhaven_farmer2",
+        "message":"Hello. Could you please move out of the way? I am trying to work here."
+    },
+    {
+        "id":"khorand",
+        "message":"Hey you, don't even think of touching any of the crates. I am watching you!"
+    },
+    {
         "replies":[
             {
-                "nextPhraseID":"alaun_3",
-                "text":"N"
+                "text":"Is there anything that would change your mind?",
+                "nextPhraseID":"fallhaven_lumberjack_4"
+            },
+            {
+                "text":"Seems like nobody wants to open the road again. Great.",
+                "nextPhraseID":"X"
             }
-        ]
-    },
-    {
-        "message":"No, I cannot recall seeing anyone by that description. Maybe you should try in Crossglen village west of here.",
-        "id":"alaun_3"
-    },
-    {
-        "message":"Hello there. Please do not bother me, I have a lot of work to do.",
-        "id":"fallhaven_farmer1"
-    },
-    {
-        "message":"Hello. Could you please move out of the way? I am trying to work here.",
-        "id":"fallhaven_farmer2"
-    },
-    {
-        "message":"Hey you, don't even think of touching any of the crates. I am watching you!",
-        "id":"khorand"
-    },
-    {
-        "message":"Oh no. Not again. I won't start cutting the trees before I have received a payment beforehand. Go away!",
+        ],
         "id":"fallhaven_lumberjack_3",
-        "replies":[
-            {
-                "nextPhraseID":"fallhaven_lumberjack_4",
-                "text":"Is there anything that would change your mind?"
-            },
-            {
-                "nextPhraseID":"X",
-                "text":"Seems like nobody wants to open the road again. Great."
-            }
-        ]
+        "message":"Oh no. Not again. I won't start cutting the trees unless I have received a payment beforehand. Go away!"
     },
     {
-        "message":"Hmm. Well if you would do me a great favor I would start to cut the trees away.",
+        "replies":[
+            {
+                "text":"Sure! What is it?",
+                "nextPhraseID":"fallhaven_lumberjack_5"
+            }
+        ],
         "id":"fallhaven_lumberjack_4",
-        "replies":[
-            {
-                "nextPhraseID":"fallhaven_lumberjack_5",
-                "text":"Sure! What is it?"
-            }
-        ]
+        "message":"Hmm. Well if you would do me a great favor I would start to cut the trees away."
     },
     {
-        "message":"Let me tell you a story: Long ago, I was cutting in the woods in the north of Fallhaven. I used to cut the trees with great speed with my favorite axe. It was made of fine steel and probably worth more than my hut.",
+        "replies":[
+            {
+                "text":"N",
+                "nextPhraseID":"fallhaven_lumberjack_6"
+            }
+        ],
         "id":"fallhaven_lumberjack_5",
-        "replies":[
-            {
-                "nextPhraseID":"fallhaven_lumberjack_6",
-                "text":"N"
-            }
-        ]
+        "message":"Let me tell you a story: Long ago, I was cutting in the woods in the north of Fallhaven. I used to cut the trees with great speed with my favorite axe. It was made of fine steel and probably worth more than my hut."
     },
     {
-        "message":"But then, I got attacked by a pack of wolves and I had to flee immediately to save my bare life. But during the escape I lost my precious axe.",
+        "replies":[
+            {
+                "text":"N",
+                "nextPhraseID":"fallhaven_lumberjack_7"
+            }
+        ],
         "id":"fallhaven_lumberjack_6",
-        "replies":[
-            {
-                "nextPhraseID":"fallhaven_lumberjack_7",
-                "text":"N"
-            }
-        ]
+        "message":"But then, I got attacked by a pack of wolves and I had to flee immediately. I barely saved my life, but during the escape I lost my precious axe."
     },
     {
-        "message":"I'm afraid of travelling to that place again because I'm not a trained fighter and the wolves, especially their leader was really powerful.",
+        "replies":[
+            {
+                "text":"So I guess you want me to retrieve your axe?",
+                "nextPhraseID":"fallhaven_lumberjack_8"
+            }
+        ],
         "id":"fallhaven_lumberjack_7",
-        "replies":[
-            {
-                "nextPhraseID":"fallhaven_lumberjack_8",
-                "text":"So I guess you want me to retrieve your axe?"
-            }
-        ]
+        "message":"I'm afraid of travelling to that place again because I'm not a trained fighter and the wolves, especially their leader, was really powerful."
     },
     {
-        "message":"Yes exactly. If you would do me that favor I would gladly cut away the trees and receive the payment afterwards. Just head north to the Crossroads Guardhouse and then  head eastwards down the Duleian Road. There I lost my axe. And look out for that wolf pack!",
+        "replies":[
+            {
+                "text":"Sounds simple enough. On my way.",
+                "nextPhraseID":"X"
+            },
+            {
+                "text":"No way! This is far to dangerous!",
+                "nextPhraseID":"X"
+            }
+        ],
         "id":"fallhaven_lumberjack_8",
-        "replies":[
-            {
-                "nextPhraseID":"X",
-                "text":"Sounds simple enough. On my way."
-            },
-            {
-                "nextPhraseID":"X",
-                "text":"No way! This is far to dangerous!"
-            }
-        ],
+        "message":"Yes exactly. If you would do me that favor I will gladly cut away the trees and receive payment afterwards. Just head north to the Crossroads Guardhouse and then head eastwards down the Duleian Road. That's where I lost my axe. And look out for that wolf pack!",
         "rewards":[
             {
-                "value":30,
                 "rewardID":"pathway_fallhaven",
-                "rewardType":"questProgress"
+                "rewardType":"questProgress",
+                "value":30
             }
         ]
     },
     {
-        "message":"Have you made any progress in finding my axe?",
-        "id":"fallhaven_lumberjack_9"
+        "id":"fallhaven_lumberjack_9",
+        "message":"Have you made any progress in finding my axe?"
     },
     {
-        "message":"Let me see... Oh yes! This is my axe! I cannot thank you enough, boy!",
+        "replies":[
+            {
+                "text":"So will you cut away those trees that block the old pathway?",
+                "nextPhraseID":"fallhaven_lumberjack_11"
+            }
+        ],
         "id":"fallhaven_lumberjack_10",
-        "replies":[
-            {
-                "nextPhraseID":"fallhaven_lumberjack_11",
-                "text":"So will you cut away those trees which block the old pathway?"
-            }
-        ],
+        "message":"Let me see... Oh yes! This is my axe! I cannot thank you enough, boy!",
         "rewards":[
             {
-                "value":40,
                 "rewardID":"pathway_fallhaven",
-                "rewardType":"questProgress"
+                "rewardType":"questProgress",
+                "value":40
             }
         ]
     },
     {
-        "message":"Sure! Already on my way! This work will be finished soon.",
+        "replies":[
+            {
+                "text":"That sounds great! Remember to ask the stupid warden for a decent payment.",
+                "nextPhraseID":"fallhaven_lumberjack_12"
+            }
+        ],
         "id":"fallhaven_lumberjack_11",
-        "replies":[
-            {
-                "nextPhraseID":"fallhaven_lumberjack_12",
-                "text":"That sounds great! Remember to ask this stupid warden for a decent payment."
-            }
-        ],
+        "message":"Sure! Already on my way! The work will be finished soon.",
         "rewards":[
             {
-                "value":50,
                 "rewardID":"pathway_fallhaven",
-                "rewardType":"questProgress"
+                "rewardType":"questProgress",
+                "value":50
             }
         ]
     },
     {
-        "message":"Sure. Will do that. He he.",
-        "id":"fallhaven_lumberjack_12",
         "replies":[
             {
-                "nextPhraseID":"X",
-                "text":"Shadow be with you."
-            }
-        ]
-    },
-    {
-        "message":"You're welcome. But you're not the only one who is happy: There are more persons who are resting for a night in Fallhaven which raises our economy. Some even bought items at my store! By the way, I was surprised I even got paid well by the warden.",
-        "id":"fallhaven_lumberjack_13",
-        "replies":[
-            {
-                "nextPhraseID":"X",
-                "text":"Indeed. Now everything is a lot better than it was before!"
+                "text":"Shadow be with you.",
+                "nextPhraseID":"X"
             },
             {
-                "nextPhraseID":"fallhaven_lumberjack_15",
-                "text":"I wanted to ask for something else."
+                "text":"Goodbye.",
+                "nextPhraseID":"X"
             }
-        ]
+        ],
+        "id":"fallhaven_lumberjack_12",
+        "message":"Sure. Will do that. He he."
     },
     {
-        "message":"Have you made any progress in finding my precious axe?",
-        "id":"fallhaven_lumberjack_14",
         "replies":[
             {
-                "nextPhraseID":"fallhaven_lumberjack_10",
+                "text":"Indeed. Now everything is a lot better than it was before!",
+                "nextPhraseID":"X"
+            },
+            {
+                "text":"I wanted to ask for something else.",
+                "nextPhraseID":"fallhaven_lumberjack_15"
+            }
+        ],
+        "id":"fallhaven_lumberjack_13",
+        "message":"You're welcome. But you're not the only one who is happy. There are more people resting for a night in Fallhaven, which helps our economy. Some even bought items at my store! By the way, I was surprised, but I even got paid well by the warden."
+    },
+    {
+        "replies":[
+            {
                 "text":"Hello again! I've finally found your axe!",
+                "nextPhraseID":"fallhaven_lumberjack_10",
                 "requires":[
                     {
                         "requireType":"inventoryRemove",
-                        "value":1,
-                        "requireID":"jakrar_axe"
+                        "requireID":"jakrar_axe",
+                        "value":1
                     }
                 ]
             },
             {
-                "nextPhraseID":"X",
-                "text":"No I haven't. But I'm working on it."
+                "text":"No I haven't. But I'm working on it.",
+                "nextPhraseID":"X"
             }
-        ]
+        ],
+        "id":"fallhaven_lumberjack_14",
+        "message":"Have you made any progress in finding my precious axe?"
     },
     {
-        "message":"Hello again my friend.",
-        "id":"fallhaven_lumberjack_15",
         "replies":[
             {
-                "nextPhraseID":"fallhaven_lumberjack_13",
                 "text":"I cannot thank you enough for cutting away those trees! Finally I've got a shortcut!",
+                "nextPhraseID":"fallhaven_lumberjack_13",
                 "requires":[
                     {
                         "requireType":"questProgress",
-                        "value":60,
-                        "requireID":"pathway_fallhaven"
+                        "requireID":"pathway_fallhaven",
+                        "value":60
                     }
                 ]
             },
             {
-                "nextPhraseID":"S",
-                "text":"What have you got for sale?"
+                "text":"What have you got for sale?",
+                "nextPhraseID":"S"
             },
             {
-                "nextPhraseID":"X",
-                "text":"Never mind. I don't need your services for now."
+                "text":"Never mind. I don't need your services for now.",
+                "nextPhraseID":"X"
             }
-        ]
+        ],
+        "id":"fallhaven_lumberjack_15",
+        "message":"Hello again my friend."
     }
 ]

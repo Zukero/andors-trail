@@ -1,8 +1,7 @@
 [
     {
-        "id":"shortcut_lodar",
-        "name":"The way out is through",
         "showInLog":1,
+        "name":"The way out is through",
         "stages":[
             {
                 "progress":10,
@@ -22,17 +21,18 @@
             },
             {
                 "progress":30,
-                "logText":"Upon telling Lodar about the purple fire he gave me a green vial, told me to pour it over the torch and see what happens."
+                "logText":"Upon telling Lodar about the purple fire he gave me a green vial, and told me to pour it over the torch to see what happens."
             },
             {
                 "progress":40,
                 "finishesQuest":1,
                 "logText":"I poured the vial over the purple fire and then it turned green. When approaching it I was teleported into another room of the cave with more purple torches. I was able to activate them as well. Finally, I have got my shortcut and can travel to Lodar a lot faster!"
             },
-        	{
-	            "progress":50,
-        	    "logText":"I told Lodar about the new shortcut. He asked me to keep it a secret."
-        	}
-        ]
+            {
+                "progress":50,
+                "logText":"I told Lodar about the new shortcut. He asked me to keep it a secret."
+            }
+        ],
+        "id":"shortcut_lodar"
     }
 ]

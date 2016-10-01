@@ -1,36 +1,36 @@
 [
-  {
-    "id": "pathway_fallhaven",
-    "name": "A path to the Duleian Road",
-    "showInLog": 1,
-    "stages": [
-      {
-        "progress": 10,
-        "logText": "I talked to a guard in the east of Fallhaven. He watches over the old passage to the Duleian Road which is now blocked by fallen trees. If I want to help opening the pathway again I should talk to his superior the warden working in the Fallhaven prison."
-      },
-      {
-        "progress": 20,
-        "logText": "I talked to the warden. I wasn't able to convince him but he advised me to talk to the woodcutter Jakrar living right south  of Fallhaven's prison."
-      },
-      {
-        "progress": 30,
-        "logText": "I talked to Jakrar the woodcutter. He will only cut the trees away if I do him a favor: I should search for his favorite axe east of the Crossroads Guardhouse located in the north of Fallhaven. I should look out for an evil wolf pack."
-      },
-      {
-        "progress": 40,
-        "logText": "I have found a wolf pack and slain their leader. Beneath its remains I found Jakrar's axe. I should bring it him back.",
-        "rewardExperience": 300
-      },
-      {
-        "progress": 50,
-        "logText": "Jakrar was very happy to see his good old axe again. He is grateful now and started to cut away the woods immediately."
-      },
-      {
-        "progress": 60,
-        "logText": "Now the woodcutter has cut away all the trees which blocked the passage. Yay, finally I've got a nice shortcut to the Duleian Road!",
-        "finishesQuest": 1,
-        "rewardExperience": 700
-      }
-    ]
-  }
+    {
+        "showInLog":1,
+        "name":"A path to the Duleian Road",
+        "stages":[
+            {
+                "progress":10,
+                "logText":"I talked to a guard in the east of Fallhaven. He watches over the old passage to the Duleian Road, which is now blocked by fallen trees. If I want to help opening the path I should talk to his superior, the warden in the Fallhaven prison."
+            },
+            {
+                "progress":20,
+                "logText":"I talked to the warden. I wasn't able to convince him, but he advised me to talk to the woodcutter Jakrar, who lives just south of Fallhaven's prison."
+            },
+            {
+                "progress":30,
+                "logText":"I talked to Jakrar the woodcutter. He will only clear the trees away if I do him a favor. I should search for his favorite axe east of the Crossroads Guardhouse, located to the north of Fallhaven. I should keep my eyes open for an evil wolf pack."
+            },
+            {
+                "rewardExperience":300,
+                "progress":40,
+                "logText":"I have found a wolf pack and slain their leader. Beneath its remains I found Jakrar's axe. I should take it back to him."
+            },
+            {
+                "progress":50,
+                "logText":"Jakrar was very happy to see his good old axe again. He expressed his gratitude, and started to clear away the trees immediately."
+            },
+            {
+                "rewardExperience":700,
+                "progress":60,
+                "finishesQuest":1,
+                "logText":"Now the woodcutter has cleared away all the trees that blocked the path. Finally, the townsfolk have got back their shortcut to the Duleian Road!"
+            }
+        ],
+        "id":"pathway_fallhaven"
+    }
 ]
