@@ -1,16 +1,15 @@
 [
     {
-        "id":"rumblings",
-        "name":"Rumblings",
         "showInLog":1,
+        "name":"Rumblings",
         "stages":[
             {
                 "progress":10,
-                "logText":"The priest in Stoutford looks scared of me and of what I did, but we never met before. Can this have something to do with Andor ?"
+                "logText":"The priest in Stoutford looks scared of me and of what I did, but we never met before. Can this have something to do with Andor?"
             },
             {
                 "progress":20,
-                "logText":"The priest's acolyte, Yolgen, told me that Andor was here a while ago, and since then, scary noises resonate in the church, seemingly coming from the underground."
+                "logText":"The priest's acolyte, Yolgen, told me that Andor was here a while ago, and since then, scary noises resonate in the church, seemingly coming from underground."
             },
             {
                 "progress":25,
@@ -18,7 +17,7 @@
             },
             {
                 "progress":30,
-                "logText":"Glasforn, the owner of the tavern of Stoutford, admits to knowing Andor, but evades all my questions by boasting about his beds' quality."
+                "logText":"Glasforn, the owner of the tavern of Stoutford, admits to knowing Andor, but evades all my questions by boasting about his bed's quality."
             },
             {
                 "progress":50,
@@ -26,11 +25,11 @@
             },
             {
                 "progress":60,
-                "logText":"When Glasforn saw me, he was really scared. Hopefully I'll get some informations from him."
+                "logText":"When Glasforn saw me, he was really scared. Hopefully I'll get some information from him."
             },
             {
                 "progress":70,
-                "logText":"I confronted Glasforn. He admited everything, but blamed Andor for it. How can Andor be involved in this ?"
+                "logText":"I confronted Glasforn. He admited everything, but blamed Andor for it. How can Andor be involved in this?"
             },
             {
                 "progress":80,
@@ -42,26 +41,27 @@
             },
             {
                 "progress":90,
-                "logText":"The priest thanked me for saving his church and asked for the culprit."
+                "logText":"The priest thanked me for saving his church and asked who the culprit was."
             },
             {
-                "progress":100,
                 "rewardExperience":2000,
+                "progress":100,
                 "finishesQuest":1,
                 "logText":"I told him I do not know who was responsible."
             },
             {
-                "progress":103,
                 "rewardExperience":2500,
+                "progress":103,
                 "finishesQuest":1,
                 "logText":"I told him Glasforn was responsible."
             },
             {
-                "progress":106,
                 "rewardExperience":2500,
+                "progress":106,
                 "finishesQuest":1,
                 "logText":"I told him Andor was responsible."
             }
-        ]
+        ],
+        "id":"rumblings"
     }
 ]

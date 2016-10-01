@@ -1,1208 +1,1207 @@
 [
     {
-        "message":"Welcome to Stoutford.",
-        "id":"sign_stoutford_gate"
+        "id":"sign_stoutford_gate",
+        "message":"Welcome to Stoutford."
     },
     {
-        "message":"The owner shouts: \"Hey ! These beds aren't for strangers ! Come here !\"",
-        "id":"stoutford_bed_locked"
+        "id":"stoutford_bed_locked",
+        "message":"The owner shouts: \"Hey ! These beds aren't for strangers ! Come here !\""
     },
     {
-        "message":"What do you want kid ?",
+        "replies":[
+            {
+                "text":"What is this place?",
+                "nextPhraseID":"soutford_gateguard_what_0"
+            },
+            {
+                "text":"What are you doing here?",
+                "nextPhraseID":"soutford_gateguard_who_0"
+            },
+            {
+                "text":"Have you seen my brother Andor?",
+                "nextPhraseID":"stoutford_gateguard_andor_0"
+            }
+        ],
         "id":"stoutford_gateguard_0",
+        "message":"What do you want kid?"
+    },
+    {
+        "id":"stoutford_builder_0",
+        "message":"Sorry. I have work to do."
+    },
+    {
+        "id":"stoutford_widow_0",
+        "message":"Hello."
+    },
+    {
+        "id":"stoutford_commoner_0",
+        "message":"Welcome to Stoutford kid."
+    },
+    {
+        "id":"stoutford_farmer_jan_0",
+        "message":"Can't you see I'm busy? Go talk to my brother Jen, he's always slacking off in the field."
+    },
+    {
+        "id":"stoutford_farmer_jen_0",
+        "message":"Can't you see I'm busy? Go talk to my brother Jan, he's always slacking off in the house."
+    },
+    {
         "replies":[
             {
-                "nextPhraseID":"soutford_gateguard_what_0",
-                "text":"What is this place ?"
-            },
-            {
-                "nextPhraseID":"soutford_gateguard_who_0",
-                "text":"What are you doing here ?"
-            },
-            {
-                "nextPhraseID":"stoutford_gateguard_andor_0",
-                "text":"Have you seen my brother Andor ?"
+                "text":"N",
+                "nextPhraseID":"kayla_1"
             }
-        ]
+        ],
+        "id":"kayla_0"
     },
     {
-        "message":"Sorry. I have work to do.",
-        "id":"stoutford_builder_0"
-    },
-    {
-        "message":"Hello.",
-        "id":"stoutford_widow_0"
-    },
-    {
-        "message":"Welcome to Stoutford kid.",
-        "id":"stoutford_commoner_0"
-    },
-    {
-        "message":"Can't you see I'm busy ? Go talk to my brother Jen, he's always slacking off in the field.",
-        "id":"stoutford_farmer_jan_0"
-    },
-    {
-        "message":"Can't you see I'm busy ? Go talk to my brother Jan, he's always slacking off in the house.",
-        "id":"stoutford_farmer_jen_0"
-    },
-    {
-        "id":"kayla_0",
         "replies":[
             {
-                "nextPhraseID":"kayla_1",
-                "text":"N"
-            }
-        ]
-    },
-    {
-        "message":"Hello.",
-        "id":"kayla_1",
-        "replies":[
-            {
-                "nextPhraseID":"kayla_2",
-                "text":"Who are you ?"
+                "text":"Who are you?",
+                "nextPhraseID":"kayla_2"
             },
             {
-                "nextPhraseID":"kayla_3",
-                "text":"Have you seen my brother Andor ?"
+                "text":"Have you seen my brother Andor?",
+                "nextPhraseID":"kayla_3"
             },
             {
+                "text":"Are you a friend of Halvor?",
                 "nextPhraseID":"kayla_halvor_0",
-                "text":"Are you a friend of Halvor ?",
                 "requires":[
                     {
                         "requireType":"questProgress",
-                        "value":180,
-                        "requireID":"halvor_surprise"
+                        "requireID":"halvor_surprise",
+                        "value":180
                     },
                     {
-                        "negate":true,
                         "requireType":"questProgress",
-                        "value":190,
-                        "requireID":"halvor_surprise"
+                        "requireID":"halvor_surprise",
+                        "value":190
                     }
                 ]
             }
-        ]
+        ],
+        "id":"kayla_1",
+        "message":"Hello."
     },
     {
-        "message":"I'm Kayla. I love making clothes, shoes and boots.",
+        "replies":[
+            {
+                "text":"N",
+                "nextPhraseID":"kayla_4"
+            }
+        ],
         "id":"kayla_2",
+        "message":"I'm Kayla. I love making clothes, shoes and boots."
+    },
+    {
+        "id":"stoutford_guard1_0",
+        "message":"Don't cause trouble."
+    },
+    {
         "replies":[
             {
-                "nextPhraseID":"kayla_4",
-                "text":"N"
+                "text":"Was?",
+                "nextPhraseID":"soutford_gateguard_what_1"
             }
-        ]
-    },
-    {
-        "message":"Don't cause trouble.",
-        "id":"stoutford_guard1_0"
-    },
-    {
-        "message":"This is Stoutford. Our small village has been the resting place of choice for many merchants on their way between Fallhaven and the Blackwater moutain.",
+        ],
         "id":"soutford_gateguard_what_0",
-        "replies":[
-            {
-                "nextPhraseID":"soutford_gateguard_what_1",
-                "text":"Has been ?"
-            }
-        ]
+        "message":"This is Stoutford. Our small village was the resting place of choice for many merchants on their way between Fallhaven and the Blackwater moutain."
     },
     {
-        "message":"Yes. It seems the road is closed somehow. Maybe this is related to the monsters attacks we have been suffering from recently.",
+        "replies":[
+            {
+                "text":"Is there anything I can do to help?",
+                "nextPhraseID":"soutford_gateguard_what_2"
+            },
+            {
+                "text":"Whatever...",
+                "nextPhraseID":"X"
+            }
+        ],
         "id":"soutford_gateguard_what_1",
-        "replies":[
-            {
-                "nextPhraseID":"soutford_gateguard_what_2",
-                "text":"Is there anything I can do to help ?"
-            },
-            {
-                "nextPhraseID":"X",
-                "text":"Whatever..."
-            }
-        ]
+        "message":"Yes. It seems the road is closed for some reason. Maybe this is related to the monsters attacks we have been suffering from recently."
     },
     {
-        "message":"I don't know. You look very young. Try talking to our priest.",
+        "replies":[
+            {
+                "text":"I have other questions...",
+                "nextPhraseID":"stoutford_gateguard_0"
+            },
+            {
+                "text":"Thank you.",
+                "nextPhraseID":"X"
+            }
+        ],
         "id":"soutford_gateguard_what_2",
-        "replies":[
-            {
-                "nextPhraseID":"stoutford_gateguard_0",
-                "text":"I have other questions..."
-            },
-            {
-                "nextPhraseID":"X",
-                "text":"Thank you."
-            }
-        ]
+        "message":"I don't know. You look very young. Try talking to our priest."
     },
     {
-        "message":"I'm guarding the town's gate. ",
+        "replies":[
+            {
+                "text":"Guarding against what?",
+                "nextPhraseID":"soutford_gateguard_who_1"
+            }
+        ],
         "id":"soutford_gateguard_who_0",
-        "replies":[
-            {
-                "nextPhraseID":"soutford_gateguard_who_1",
-                "text":"Guarding against what ?"
-            }
-        ]
+        "message":"I'm guarding the town's gate. "
     },
     {
-        "message":"In the past, troublemakers that bother the citizens or merchants. Nowadays, it's mainly the monsters, when I can handle them.",
+        "replies":[
+            {
+                "text":"What monsters?",
+                "nextPhraseID":"soutford_gateguard_who_2"
+            },
+            {
+                "text":"Pathetic...",
+                "nextPhraseID":"X"
+            }
+        ],
         "id":"soutford_gateguard_who_1",
-        "replies":[
-            {
-                "nextPhraseID":"soutford_gateguard_who_2",
-                "text":"What monsters ?"
-            },
-            {
-                "nextPhraseID":"X",
-                "text":"Pathetic..."
-            }
-        ]
+        "message":"In the past, troublemakers that bother the citizens or merchants. Nowadays, it's mainly the monsters, when I can handle them."
     },
     {
-        "message":"You should talk to our priest about that.",
+        "replies":[
+            {
+                "text":"I have other questions...",
+                "nextPhraseID":"stoutford_gateguard_0"
+            },
+            {
+                "text":"Thank you.",
+                "nextPhraseID":"X"
+            }
+        ],
         "id":"soutford_gateguard_who_2",
-        "replies":[
-            {
-                "nextPhraseID":"stoutford_gateguard_0",
-                "text":"I have other questions..."
-            },
-            {
-                "nextPhraseID":"X",
-                "text":"Thank you."
-            }
-        ]
+        "message":"You should talk to our priest about that."
     },
     {
-        "message":"I do recall some kid that looked a bit like you a while ago. He stayed here a couple of days, and never came back as far as I can tell.",
+        "replies":[
+            {
+                "text":"What did he do here?",
+                "nextPhraseID":"stoutford_gateguard_andor_1"
+            },
+            {
+                "text":"Do you know where he was going?",
+                "nextPhraseID":"stoutford_gateguard_andor_2"
+            }
+        ],
         "id":"stoutford_gateguard_andor_0",
-        "replies":[
-            {
-                "nextPhraseID":"stoutford_gateguard_andor_1",
-                "text":"What did he do here ?"
-            },
-            {
-                "nextPhraseID":"stoutford_gateguard_andor_2",
-                "text":"Do you know where he was going ?"
-            }
-        ]
+        "message":"I do recall some kid that looked a bit like you a while ago. He stayed here a couple of days, and never came back as far as I can tell."
     },
     {
-        "message":"I can't really tell. No known trouble at least. He headed straight to the tavern, and I didn't see him before he left.",
+        "replies":[
+            {
+                "text":"Do you know where he was going?",
+                "nextPhraseID":"stoutford_gateguard_andor_2"
+            },
+            {
+                "text":"I have other questions...",
+                "nextPhraseID":"stoutford_gateguard_0"
+            },
+            {
+                "text":"Thank you.",
+                "nextPhraseID":"X"
+            }
+        ],
         "id":"stoutford_gateguard_andor_1",
-        "replies":[
-            {
-                "nextPhraseID":"stoutford_gateguard_andor_2",
-                "text":"Do you know where he was going ?"
-            },
-            {
-                "nextPhraseID":"stoutford_gateguard_0",
-                "text":"I have other questions..."
-            },
-            {
-                "nextPhraseID":"X",
-                "text":"Thank you."
-            }
-        ]
+        "message":"I can't really tell. No known trouble at least. He headed straight to the tavern, and I didn't see him before he left."
     },
     {
-        "message":"No.",
+        "replies":[
+            {
+                "text":"What did he do here?",
+                "nextPhraseID":"stoutford_gateguard_andor_1"
+            },
+            {
+                "text":"I have other questions...",
+                "nextPhraseID":"stoutford_gateguard_0"
+            },
+            {
+                "text":"Thank you.",
+                "nextPhraseID":"X"
+            }
+        ],
         "id":"stoutford_gateguard_andor_2",
-        "replies":[
-            {
-                "nextPhraseID":"stoutford_gateguard_andor_1",
-                "text":"What did he do here ?"
-            },
-            {
-                "nextPhraseID":"stoutford_gateguard_0",
-                "text":"I have other questions..."
-            },
-            {
-                "nextPhraseID":"X",
-                "text":"Thank you."
-            }
-        ]
+        "message":"No."
     },
     {
-        "id":"tahalendor_0",
         "replies":[
             {
-                "nextPhraseID":"tahalendor_rumblings10x_0",
                 "text":"N",
+                "nextPhraseID":"tahalendor_rumblings10x_0",
                 "requires":[
                     {
                         "requireType":"questProgress",
-                        "value":106,
-                        "requireID":"rumblings"
+                        "requireID":"rumblings",
+                        "value":106
                     }
                 ]
             },
             {
-                "nextPhraseID":"tahalendor_rumblings10x_0",
                 "text":"N",
+                "nextPhraseID":"tahalendor_rumblings10x_0",
                 "requires":[
                     {
                         "requireType":"questProgress",
-                        "value":103,
-                        "requireID":"rumblings"
+                        "requireID":"rumblings",
+                        "value":103
                     }
                 ]
             },
             {
-                "nextPhraseID":"tahalendor_rumblings10x_0",
                 "text":"N",
+                "nextPhraseID":"tahalendor_rumblings10x_0",
                 "requires":[
                     {
                         "requireType":"questProgress",
-                        "value":100,
-                        "requireID":"rumblings"
+                        "requireID":"rumblings",
+                        "value":100
                     }
                 ]
             },
             {
+                "text":"N",
                 "nextPhraseID":"tahalendor_rumblings90_0",
-                "text":"N",
                 "requires":[
                     {
                         "requireType":"questProgress",
-                        "value":90,
-                        "requireID":"rumblings"
+                        "requireID":"rumblings",
+                        "value":90
                     }
                 ]
             },
             {
+                "text":"N",
                 "nextPhraseID":"tahalendor_rumblings80_0",
-                "text":"N",
                 "requires":[
                     {
                         "requireType":"questProgress",
-                        "value":80,
-                        "requireID":"rumblings"
+                        "requireID":"rumblings",
+                        "value":80
                     }
                 ]
             },
             {
-                "nextPhraseID":"tahalendor_initial_0",
-                "text":"N"
+                "text":"N",
+                "nextPhraseID":"tahalendor_initial_0"
             }
-        ]
+        ],
+        "id":"tahalendor_0"
     },
     {
-        "message":"How dare you come back here after all you've done ?",
+        "replies":[
+            {
+                "text":"Wait. What?",
+                "nextPhraseID":"tahalendor_initial_1"
+            },
+            {
+                "text":"Actually, it's the first time we have met.",
+                "nextPhraseID":"tahalendor_initial_2"
+            }
+        ],
         "id":"tahalendor_initial_0",
-        "replies":[
-            {
-                "nextPhraseID":"tahalendor_initial_1",
-                "text":"Wait. What ?"
-            },
-            {
-                "nextPhraseID":"tahalendor_initial_2",
-                "text":"Actually, it's the first time we meet."
-            }
-        ]
+        "message":"How dare you come back here after all you've done?"
     },
     {
-        "message":"Go away ! You're not welcome here !",
+        "replies":[
+            {
+                "text":"Okay...",
+                "nextPhraseID":"X"
+            }
+        ],
         "id":"tahalendor_initial_1",
-        "replies":[
-            {
-                "nextPhraseID":"X",
-                "text":"Okay..."
-            }
-        ],
+        "message":"Go away! You're not welcome here!",
         "rewards":[
             {
-                "value":10,
                 "rewardID":"rumblings",
-                "rewardType":"questProgress"
+                "rewardType":"questProgress",
+                "value":10
             }
         ]
     },
     {
-        "message":"Nonsense ! Go away !",
+        "replies":[
+            {
+                "text":"Okay...",
+                "nextPhraseID":"X"
+            }
+        ],
         "id":"tahalendor_initial_2",
-        "replies":[
-            {
-                "nextPhraseID":"X",
-                "text":"Okay..."
-            }
-        ],
+        "message":"Nonsense! Go away!",
         "rewards":[
             {
-                "value":10,
                 "rewardID":"rumblings",
-                "rewardType":"questProgress"
+                "rewardType":"questProgress",
+                "value":10
             }
         ]
     },
     {
-        "id":"yolgen_0",
         "replies":[
             {
-                "nextPhraseID":"yolgen_initial_0",
                 "text":"N",
+                "nextPhraseID":"yolgen_initial_0",
                 "requires":[
                     {
                         "requireType":"questProgress",
-                        "value":80,
-                        "requireID":"rumblings"
+                        "requireID":"rumblings",
+                        "value":80
                     }
                 ]
             },
             {
+                "text":"N",
                 "nextPhraseID":"yolgen_rumblings50_0",
-                "text":"N",
                 "requires":[
                     {
                         "requireType":"questProgress",
-                        "value":50,
-                        "requireID":"rumblings"
+                        "requireID":"rumblings",
+                        "value":50
                     }
                 ]
             },
             {
+                "text":"N",
                 "nextPhraseID":"yolgen_rumblings20_0",
-                "text":"N",
                 "requires":[
                     {
                         "requireType":"questProgress",
-                        "value":20,
-                        "requireID":"rumblings"
+                        "requireID":"rumblings",
+                        "value":20
                     }
                 ]
             },
             {
+                "text":"N",
                 "nextPhraseID":"yolgen_rumblings10_0",
-                "text":"N",
                 "requires":[
                     {
                         "requireType":"questProgress",
-                        "value":10,
-                        "requireID":"rumblings"
+                        "requireID":"rumblings",
+                        "value":10
                     }
                 ]
             },
             {
-                "nextPhraseID":"yolgen_initial_0",
-                "text":"N"
-            }
-        ]
-    },
-    {
-        "message":"Go with the shadow.",
-        "id":"yolgen_initial_0",
-        "replies":[
-            {
-                "nextPhraseID":"X",
-                "text":"Shadow be with you."
-            },
-            {
-                "nextPhraseID":"X",
-                "text":"Whatever."
-            }
-        ]
-    },
-    {
-        "message":"Walk in the shadow kid. I have to apologize for my master Tahalendor.",
-        "id":"yolgen_rumblings10_0",
-        "replies":[
-            {
-                "nextPhraseID":"yolgen_rumblings10_1",
-                "text":"Crazy old geezer... What's wrong with him ?"
-            },
-            {
-                "nextPhraseID":"yolgen_rumblings10_1",
-                "text":"Can you explain ?"
-            }
-        ]
-    },
-    {
-        "message":"My master is wise and old, but his sight is not as sharp as it once was. He took you for someone else.",
-        "id":"yolgen_rumblings10_1",
-        "replies":[
-            {
-                "nextPhraseID":"yolgen_rumblings10_2",
-                "text":"Who ?"
-            }
-        ]
-    },
-    {
-        "message":"To his credit, I have to admit you look a bit like him. I don't know his name.",
-        "id":"yolgen_rumblings10_2",
-        "replies":[
-            {
-                "nextPhraseID":"yolgen_rumblings10_3",
-                "text":"That must be my brother Andor !"
-            },
-            {
-                "nextPhraseID":"yolgen_rumblings10_3",
-                "text":"Go on."
-            }
-        ]
-    },
-    {
-        "message":"He came around here not long ago, stayed a couple of days from what I heard. Since then, we have been hearing frequent rumbles in the church, coming from the underground.",
-        "id":"yolgen_rumblings10_3",
-        "replies":[
-            {
-                "nextPhraseID":"yolgen_rumblings10_4",
-                "text":"N"
-            }
-        ]
-    },
-    {
-        "message":"It can be as loud as to make the whole church shake. It even damaged the walls and the roof.",
-        "id":"yolgen_rumblings10_4",
-        "replies":[
-            {
-                "nextPhraseID":"yolgen_rumblings10_5",
-                "text":"N"
-            }
-        ]
-    },
-    {
-        "message":"This church is the refuge for all the villagers when monsters attack. We are really worried now.",
-        "id":"yolgen_rumblings10_5",
-        "replies":[
-            {
-                "nextPhraseID":"yolgen_rumblings10_6",
-                "text":"I can't believe Andor has anything to do with this. Can you tell me more ?"
-            },
-            {
-                "nextPhraseID":"yolgen_rumblings10_6",
-                "text":"Is there anything I can do to help ?"
-            },
-            {
-                "nextPhraseID":"X",
-                "text":"Whatever... It's none of my business."
+                "text":"N",
+                "nextPhraseID":"yolgen_initial_0"
             }
         ],
-        "rewards":[
-            {
-                "value":20,
-                "rewardID":"rumblings",
-                "rewardType":"questProgress"
-            }
-        ]
+        "id":"yolgen_0"
     },
     {
-        "message":"I told you all I know. Maybe others in town have seen him.",
-        "id":"yolgen_rumblings10_6",
         "replies":[
             {
-                "nextPhraseID":"yolgen_rumblings10_7",
-                "text":"Thank you for your help."
+                "text":"Shadow be with you.",
+                "nextPhraseID":"X"
             },
             {
-                "nextPhraseID":"yolgen_rumblings10_7",
-                "text":"Guess I'll have to look into it."
+                "text":"Whatever.",
+                "nextPhraseID":"X"
             }
-        ]
+        ],
+        "id":"yolgen_initial_0",
+        "message":"Go with the shadow."
     },
     {
-        "message":"Shadow be with you.",
-        "id":"yolgen_rumblings10_7"
-    },
-    {
-        "message":"Hello again. Have you found anything about these noises ?",
-        "id":"yolgen_rumblings20_0",
         "replies":[
             {
-                "nextPhraseID":"yolgen_rumblings10_7",
-                "text":"No. Not yet."
+                "text":"Crazy old geezer... What's wrong with him?",
+                "nextPhraseID":"yolgen_rumblings10_1"
+            },
+            {
+                "text":"Can you explain?",
+                "nextPhraseID":"yolgen_rumblings10_1"
             }
-        ]
+        ],
+        "id":"yolgen_rumblings10_0",
+        "message":"Walk in the shadow kid. I have to apologize for my master, Tahalendor."
     },
     {
-        "id":"stoutford_thief_0",
         "replies":[
             {
-                "nextPhraseID":"stoutford_thief_rumblings20_0",
+                "text":"Who?",
+                "nextPhraseID":"yolgen_rumblings10_2"
+            }
+        ],
+        "id":"yolgen_rumblings10_1",
+        "message":"My master is wise and old, but his sight is not as sharp as it once was. He took you for someone else."
+    },
+    {
+        "replies":[
+            {
+                "text":"That must be my brother Andor!",
+                "nextPhraseID":"yolgen_rumblings10_3"
+            },
+            {
+                "text":"Go on.",
+                "nextPhraseID":"yolgen_rumblings10_3"
+            }
+        ],
+        "id":"yolgen_rumblings10_2",
+        "message":"To his credit, I have to admit you do look a bit like him. I don't know his name."
+    },
+    {
+        "replies":[
+            {
                 "text":"N",
+                "nextPhraseID":"yolgen_rumblings10_4"
+            }
+        ],
+        "id":"yolgen_rumblings10_3",
+        "message":"He came around here not long ago, with a shady looking travelling companion. He stayed a couple of days from what I heard. Since then, we have been hearing frequent rumbles in the church, coming from underground."
+    },
+    {
+        "replies":[
+            {
+                "text":"N",
+                "nextPhraseID":"yolgen_rumblings10_5"
+            }
+        ],
+        "id":"yolgen_rumblings10_4",
+        "message":"It can be so loud as to make the whole church shake. It has even damaged the walls and the roof."
+    },
+    {
+        "replies":[
+            {
+                "text":"I can't believe Andor has anything to do with this. Can you tell me more?",
+                "nextPhraseID":"yolgen_rumblings10_6"
+            },
+            {
+                "text":"Is there anything I can do to help?",
+                "nextPhraseID":"yolgen_rumblings10_6"
+            },
+            {
+                "text":"Whatever... It's none of my business.",
+                "nextPhraseID":"X"
+            }
+        ],
+        "id":"yolgen_rumblings10_5",
+        "message":"This church is the refuge for all the villagers when monsters attack. We are really worried now.",
+        "rewards":[
+            {
+                "rewardID":"rumblings",
+                "rewardType":"questProgress",
+                "value":20
+            }
+        ]
+    },
+    {
+        "replies":[
+            {
+                "text":"Thank you for your help.",
+                "nextPhraseID":"yolgen_rumblings10_7"
+            },
+            {
+                "text":"Guess I'll have to look into it.",
+                "nextPhraseID":"yolgen_rumblings10_7"
+            }
+        ],
+        "id":"yolgen_rumblings10_6",
+        "message":"I told you all I know. Maybe others in town have seen him."
+    },
+    {
+        "id":"yolgen_rumblings10_7",
+        "message":"Shadow be with you."
+    },
+    {
+        "replies":[
+            {
+                "text":"No. Not yet.",
+                "nextPhraseID":"yolgen_rumblings10_7"
+            }
+        ],
+        "id":"yolgen_rumblings20_0",
+        "message":"Hello again. Have you found anything about the noises?"
+    },
+    {
+        "replies":[
+            {
+                "text":"N",
+                "nextPhraseID":"stoutford_thief_rumblings20_0",
                 "requires":[
                     {
                         "requireType":"questProgress",
-                        "value":20,
-                        "requireID":"rumblings"
+                        "requireID":"rumblings",
+                        "value":20
                     },
                     {
                         "requireType":"questProgress",
-                        "value":70,
-                        "requireID":"farrik"
+                        "requireID":"farrik",
+                        "value":70
                     }
                 ]
             },
             {
-                "nextPhraseID":"stoutford_thief_initial_0",
-                "text":"N"
+                "text":"N",
+                "nextPhraseID":"stoutford_thief_initial_0"
             }
-        ]
+        ],
+        "id":"stoutford_thief_0"
     },
     {
-        "message":"Wanna trade ?",
+        "replies":[
+            {
+                "text":"Sure.",
+                "nextPhraseID":"S"
+            },
+            {
+                "text":"No.",
+                "nextPhraseID":"X"
+            }
+        ],
         "id":"stoutford_thief_initial_1",
-        "replies":[
-            {
-                "nextPhraseID":"S",
-                "text":"Sure."
-            },
-            {
-                "nextPhraseID":"X",
-                "text":"No."
-            }
-        ]
+        "message":"Wanna trade?"
     },
     {
-        "message":"Hey kid. A \"common friend\" told me about you.",
+        "replies":[
+            {
+                "text":"Who?",
+                "nextPhraseID":"stoutford_thief_rumblings20_1"
+            }
+        ],
         "id":"stoutford_thief_rumblings20_0",
-        "replies":[
-            {
-                "nextPhraseID":"stoutford_thief_rumblings20_1",
-                "text":"Who ?"
-            }
-        ]
+        "message":"Hey kid. A \"common friend\" told me about you."
     },
     {
-        "message":"Shhh ! Quiet here. You helped the guild, so I'll help you too.",
+        "replies":[
+            {
+                "text":"Help me do what?",
+                "nextPhraseID":"stoutford_thief_rumblings20_2"
+            },
+            {
+                "text":"Great!",
+                "nextPhraseID":"stoutford_thief_rumblings20_2"
+            }
+        ],
         "id":"stoutford_thief_rumblings20_1",
-        "replies":[
-            {
-                "nextPhraseID":"stoutford_thief_rumblings20_2",
-                "text":"Help me do what ?"
-            },
-            {
-                "nextPhraseID":"stoutford_thief_rumblings20_2",
-                "text":"Great !"
-            }
-        ]
+        "message":"Shhh! Quiet here. You helped the guild, so I'll help you too."
     },
     {
-        "message":"A kid that looked like you was here. He apparently did some business with the owner and the regulars.",
+        "replies":[
+            {
+                "text":"N",
+                "nextPhraseID":"stoutford_thief_rumblings20_3"
+            }
+        ],
         "id":"stoutford_thief_rumblings20_2",
-        "replies":[
-            {
-                "nextPhraseID":"stoutford_thief_rumblings20_3",
-                "text":"N"
-            }
-        ],
+        "message":"A kid that looked like you was here. He apparently did some business with the owner and the regulars.",
         "rewards":[
             {
-                "value":25,
                 "rewardID":"rumblings",
-                "rewardType":"questProgress"
+                "rewardType":"questProgress",
+                "value":25
             }
         ]
     },
     {
-        "message":"They were very careful, and even I couldn't catch a glimpse of their deeds, but you should be cautious if you deal with them.",
+        "replies":[
+            {
+                "text":"Thanks for the advice. I'll take care.",
+                "nextPhraseID":"stoutford_thief_rumblings20_4"
+            },
+            {
+                "text":"I can handle myself! I don't fear them, or anyone else!",
+                "nextPhraseID":"stoutford_thief_rumblings20_4"
+            }
+        ],
         "id":"stoutford_thief_rumblings20_3",
-        "replies":[
-            {
-                "nextPhraseID":"stoutford_thief_rumblings20_4",
-                "text":"Thanks for the advice. I'll take care."
-            },
-            {
-                "nextPhraseID":"stoutford_thief_rumblings20_4",
-                "text":"I can handle myself ! I don't fear them, or anyone else !"
-            }
-        ]
+        "message":"They were very careful, and even I couldn't catch a glimpse of their deeds, but you should be cautious if you deal with them."
     },
     {
-        "message":"Just sayin'. Do what you will.",
-        "id":"stoutford_thief_rumblings20_4",
         "replies":[
             {
-                "nextPhraseID":"stoutford_thief_initial_1",
-                "text":"N"
-            }
-        ]
-    },
-    {
-        "message":"Psst.",
-        "id":"stoutford_thief_initial_0",
-        "replies":[
-            {
-                "nextPhraseID":"stoutford_thief_initial_1",
-                "text":"N"
-            }
-        ]
-    },
-    {
-        "message":"An unknown force prevents you to go further.",
-        "id":"stoutford_cellar_locked_key"
-    },
-    {
-        "id":"glasforn_0",
-        "replies":[
-            {
-                "nextPhraseID":"glasforn_rumblings103_0",
                 "text":"N",
-                "requires":[
-                    {
-                        "requireType":"questProgress",
-                        "value":103,
-                        "requireID":"rumblings"
-                    }
-                ]
-            },
-            {
-                "nextPhraseID":"glasforn_rumblings70_0",
-                "text":"N",
-                "requires":[
-                    {
-                        "requireType":"questProgress",
-                        "value":70,
-                        "requireID":"rumblings"
-                    }
-                ]
-            },
-            {
-                "nextPhraseID":"glasforn_rumblings60_0",
-                "text":"N",
-                "requires":[
-                    {
-                        "requireType":"questProgress",
-                        "value":60,
-                        "requireID":"rumblings"
-                    }
-                ]
-            },
-            {
-                "nextPhraseID":"glasforn_rumblings50_0",
-                "text":"N",
-                "requires":[
-                    {
-                        "requireType":"questProgress",
-                        "value":50,
-                        "requireID":"rumblings"
-                    }
-                ]
-            },
-            {
-                "nextPhraseID":"glasforn_rumblings30_0",
-                "text":"N",
-                "requires":[
-                    {
-                        "requireType":"questProgress",
-                        "value":30,
-                        "requireID":"rumblings"
-                    }
-                ]
-            },
-            {
-                "nextPhraseID":"glasforn_initial_0",
-                "text":"N"
-            }
-        ]
-    },
-    {
-        "message":"I'm Glasforn, proud owner of this fine establishment.",
-        "id":"glasforn_initial_who_0",
-        "replies":[
-            {
-                "nextPhraseID":"glasforn_initial_bed_0",
-                "text":"Can I use one of your beds ?"
-            },
-            {
-                "nextPhraseID":"glasforn_rumblings20_0",
-                "text":"What can you tell me about the strange noises in the church ?",
-                "requires":[
-                    {
-                        "requireType":"questProgress",
-                        "value":20,
-                        "requireID":"rumblings"
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        "message":"Sorry, none are available today.",
-        "id":"glasforn_initial_bed_0",
-        "replies":[
-            {
-                "nextPhraseID":"glasforn_initial_who_0",
-                "text":"Who are you ?"
-            },
-            {
-                "nextPhraseID":"glasforn_rumblings20_0",
-                "text":"What can you tell me about the strange noises in the church ?",
-                "requires":[
-                    {
-                        "requireType":"questProgress",
-                        "value":20,
-                        "requireID":"rumblings"
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        "message":"What about them ?",
-        "id":"glasforn_rumblings20_0",
-        "replies":[
-            {
-                "nextPhraseID":"glasforn_rumblings20_1",
-                "text":"Well, I heard they may be related to my brother Andor. I'm looking for him."
-            }
-        ]
-    },
-    {
-        "message":"You indeed look a lot like him....",
-        "id":"glasforn_rumblings20_1",
-        "replies":[
-            {
-                "nextPhraseID":"glasforn_rumblings20_2",
-                "text":"N"
-            }
-        ]
-    },
-    {
-        "message":"Okay, I can believe that you are Andor's brother. You should have told me earlier !",
-        "id":"glasforn_rumblings20_2",
-        "replies":[
-            {
-                "nextPhraseID":"glasforn_rumblings20_3",
-                "text":"Why ?"
-            }
-        ]
-    },
-    {
-        "message":"Hello.",
-        "id":"glasforn_initial_0",
-        "replies":[
-            {
-                "nextPhraseID":"glasforn_initial_who_0",
-                "text":"Who are you ?"
-            },
-            {
-                "nextPhraseID":"glasforn_initial_bed_0",
-                "text":"Can I use one of your beds ?"
-            },
-            {
-                "nextPhraseID":"glasforn_rumblings20_0",
-                "text":"What can you tell me about the strange noises in the church ?",
-                "requires":[
-                    {
-                        "requireType":"questProgress",
-                        "value":20,
-                        "requireID":"rumblings"
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        "message":"Well, you see, I keep some beds for occasions like this one. You can use the one in the corner, near the painting, if you wish to rest.",
-        "id":"glasforn_rumblings20_3",
-        "replies":[
-            {
-                "nextPhraseID":"glasforn_rumblings20_4",
-                "text":"For free ?"
-            },
-            {
-                "nextPhraseID":"X",
-                "text":"Thanks."
-            },
-            {
-                "nextPhraseID":"glasforn_rumblings20_5",
-                "text":"About those noises..."
+                "nextPhraseID":"stoutford_thief_initial_1"
             }
         ],
+        "id":"stoutford_thief_rumblings20_4",
+        "message":"Just sayin'. Do what you will."
+    },
+    {
+        "replies":[
+            {
+                "text":"N",
+                "nextPhraseID":"stoutford_thief_initial_1"
+            }
+        ],
+        "id":"stoutford_thief_initial_0",
+        "message":"Psst."
+    },
+    {
+        "id":"stoutford_cellar_locked_key",
+        "message":"An unknown force prevents you to go further."
+    },
+    {
+        "replies":[
+            {
+                "text":"N",
+                "nextPhraseID":"glasforn_rumblings103_0",
+                "requires":[
+                    {
+                        "requireType":"questProgress",
+                        "requireID":"rumblings",
+                        "value":103
+                    }
+                ]
+            },
+            {
+                "text":"N",
+                "nextPhraseID":"glasforn_rumblings70_0",
+                "requires":[
+                    {
+                        "requireType":"questProgress",
+                        "requireID":"rumblings",
+                        "value":70
+                    }
+                ]
+            },
+            {
+                "text":"N",
+                "nextPhraseID":"glasforn_rumblings60_0",
+                "requires":[
+                    {
+                        "requireType":"questProgress",
+                        "requireID":"rumblings",
+                        "value":60
+                    }
+                ]
+            },
+            {
+                "text":"N",
+                "nextPhraseID":"glasforn_rumblings50_0",
+                "requires":[
+                    {
+                        "requireType":"questProgress",
+                        "requireID":"rumblings",
+                        "value":50
+                    }
+                ]
+            },
+            {
+                "text":"N",
+                "nextPhraseID":"glasforn_rumblings30_0",
+                "requires":[
+                    {
+                        "requireType":"questProgress",
+                        "requireID":"rumblings",
+                        "value":30
+                    }
+                ]
+            },
+            {
+                "text":"N",
+                "nextPhraseID":"glasforn_initial_0"
+            }
+        ],
+        "id":"glasforn_0"
+    },
+    {
+        "replies":[
+            {
+                "text":"Can I use one of your beds?",
+                "nextPhraseID":"glasforn_initial_bed_0"
+            },
+            {
+                "text":"What can you tell me about the strange noises in the church?",
+                "nextPhraseID":"glasforn_rumblings20_0",
+                "requires":[
+                    {
+                        "requireType":"questProgress",
+                        "requireID":"rumblings",
+                        "value":20
+                    }
+                ]
+            }
+        ],
+        "id":"glasforn_initial_who_0",
+        "message":"I'm Glasforn, proud owner of this fine establishment."
+    },
+    {
+        "replies":[
+            {
+                "text":"Who are you?",
+                "nextPhraseID":"glasforn_initial_who_0"
+            },
+            {
+                "text":"What can you tell me about the strange noises in the church?",
+                "nextPhraseID":"glasforn_rumblings20_0",
+                "requires":[
+                    {
+                        "requireType":"questProgress",
+                        "requireID":"rumblings",
+                        "value":20
+                    }
+                ]
+            }
+        ],
+        "id":"glasforn_initial_bed_0",
+        "message":"Sorry, none are available today."
+    },
+    {
+        "replies":[
+            {
+                "text":"Well, I heard they may be related to my brother Andor. I'm looking for him.",
+                "nextPhraseID":"glasforn_rumblings20_1"
+            }
+        ],
+        "id":"glasforn_rumblings20_0",
+        "message":"What about them?"
+    },
+    {
+        "replies":[
+            {
+                "text":"N",
+                "nextPhraseID":"glasforn_rumblings20_2"
+            }
+        ],
+        "id":"glasforn_rumblings20_1",
+        "message":"You indeed look a lot like him...."
+    },
+    {
+        "replies":[
+            {
+                "text":"Why?",
+                "nextPhraseID":"glasforn_rumblings20_3"
+            }
+        ],
+        "id":"glasforn_rumblings20_2",
+        "message":"Okay, I can believe that you are Andor's brother. You should have told me earlier!"
+    },
+    {
+        "replies":[
+            {
+                "text":"Who are you?",
+                "nextPhraseID":"glasforn_initial_who_0"
+            },
+            {
+                "text":"Can I use one of your beds?",
+                "nextPhraseID":"glasforn_initial_bed_0"
+            },
+            {
+                "text":"What can you tell me about the strange noises in the church?",
+                "nextPhraseID":"glasforn_rumblings20_0",
+                "requires":[
+                    {
+                        "requireType":"questProgress",
+                        "requireID":"rumblings",
+                        "value":20
+                    }
+                ]
+            }
+        ],
+        "id":"glasforn_initial_0",
+        "message":"Hello."
+    },
+    {
+        "replies":[
+            {
+                "text":"For free?",
+                "nextPhraseID":"glasforn_rumblings20_4"
+            },
+            {
+                "text":"Thanks.",
+                "nextPhraseID":"X"
+            },
+            {
+                "text":"About those noises...",
+                "nextPhraseID":"glasforn_rumblings20_5"
+            }
+        ],
+        "id":"glasforn_rumblings20_3",
+        "message":"Well, you see, I keep some beds for occasions like this one. You can use the one in the corner, near the painting, if you wish to rest.",
         "rewards":[
             {
-                "value":30,
                 "rewardID":"rumblings",
-                "rewardType":"questProgress"
+                "rewardType":"questProgress",
+                "value":30
             }
         ]
     },
     {
-        "message":"Sure.",
+        "replies":[
+            {
+                "text":"Thank you.",
+                "nextPhraseID":"X"
+            }
+        ],
         "id":"glasforn_rumblings20_4",
-        "replies":[
-            {
-                "nextPhraseID":"X",
-                "text":"Thank you."
-            }
-        ]
+        "message":"Sure."
     },
     {
-        "message":"Oh, you'll definitely enjoy our beds. I'm very proud of them. ",
+        "replies":[
+            {
+                "text":"...yes but...",
+                "nextPhraseID":"glasforn_rumblings20_6"
+            }
+        ],
         "id":"glasforn_rumblings20_5",
-        "replies":[
-            {
-                "nextPhraseID":"glasforn_rumblings20_6",
-                "text":"...yes but..."
-            }
-        ]
+        "message":"Oh, you'll definitely enjoy our beds. I'm very proud of them. "
     },
     {
-        "message":"Our food isn't bad either. Go see our cook. He's weird but works great.",
+        "replies":[
+            {
+                "text":"...",
+                "nextPhraseID":"X"
+            }
+        ],
         "id":"glasforn_rumblings20_6",
-        "replies":[
-            {
-                "nextPhraseID":"X",
-                "text":"..."
-            }
-        ]
+        "message":"Our food isn't bad either. Go see our cook. He's weird, but does great work."
     },
     {
-        "message":"So kid, have you tried your bed ? Our beds are the best !",
+        "replies":[
+            {
+                "text":"About Andor...",
+                "nextPhraseID":"glasforn_rumblings30_1"
+            },
+            {
+                "text":"About those noises...",
+                "nextPhraseID":"glasforn_rumblings30_1"
+            },
+            {
+                "text":"Not yet.",
+                "nextPhraseID":"glasforn_rumblings30_1"
+            }
+        ],
         "id":"glasforn_rumblings30_0",
-        "replies":[
-            {
-                "nextPhraseID":"glasforn_rumblings30_1",
-                "text":"About Andor..."
-            },
-            {
-                "nextPhraseID":"glasforn_rumblings30_1",
-                "text":"About those noises..."
-            },
-            {
-                "nextPhraseID":"glasforn_rumblings30_1",
-                "text":"Not yet."
-            }
-        ]
+        "message":"So kid, have you tried your bed? Our beds are the best!"
     },
     {
-        "message":"You really should. You'll thank me afterwards.",
-        "id":"glasforn_rumblings30_1"
+        "id":"glasforn_rumblings30_1",
+        "message":"You really should. You'll thank me afterwards."
     },
     {
-        "id":"stoutford_lich_killed_0",
         "replies":[
             {
-                "nextPhraseID":"stoutford_lich_killed_1",
                 "text":"N",
+                "nextPhraseID":"stoutford_lich_killed_1",
                 "requires":[
                     {
                         "requireType":"killedMonster",
-                        "value":1,
-                        "requireID":"stoutford_lich"
+                        "requireID":"stoutford_lich",
+                        "value":1
                     },
                     {
-                        "negate":true,
                         "requireType":"questProgress",
-                        "value":50,
-                        "requireID":"rumblings"
+                        "requireID":"rumblings",
+                        "negate":true,
+                        "value":50
                     }
                 ]
             }
-        ]
+        ],
+        "id":"stoutford_lich_killed_0"
     },
     {
-        "message":"You hear a loud rumble, then nothing. Silence. What was that monster ?",
         "id":"stoutford_lich_killed_1",
+        "message":"You hear a loud rumble, then nothing. Silence. What was that monster ?",
         "rewards":[
             {
-                "value":50,
                 "rewardID":"rumblings",
-                "rewardType":"questProgress"
+                "rewardType":"questProgress",
+                "value":50
             },
             {
                 "rewardID":"Active",
-                "mapName":"stoutford_tavern",
-                "rewardType":"deactivateMapObjectGroup"
+                "rewardType":"deactivateMapObjectGroup",
+                "mapName":"stoutford_tavern"
             }
         ]
     },
     {
-        "message":"Wha... impossible... how did you...",
+        "replies":[
+            {
+                "text":"I should kill you right now!",
+                "nextPhraseID":"glasforn_rumblings50_1"
+            },
+            {
+                "text":"What was that beast?",
+                "nextPhraseID":"glasforn_rumblings50_1"
+            },
+            {
+                "text":"What did you do to me?",
+                "nextPhraseID":"glasforn_rumblings50_1"
+            }
+        ],
         "id":"glasforn_rumblings50_0",
-        "replies":[
-            {
-                "nextPhraseID":"glasforn_rumblings50_1",
-                "text":"I should kill you right now !"
-            },
-            {
-                "nextPhraseID":"glasforn_rumblings50_1",
-                "text":"What was that beast ?"
-            },
-            {
-                "nextPhraseID":"glasforn_rumblings50_1",
-                "text":"What did you do to me ?"
-            }
-        ]
+        "message":"Wha... impossible... how did you..."
     },
     {
-        "message":"You... you should be dead !",
+        "replies":[
+            {
+                "text":"And so should you.",
+                "nextPhraseID":"glasforn_rumblings60_0"
+            },
+            {
+                "text":"Stop. Talk. Tell me everything.",
+                "nextPhraseID":"glasforn_rumblings60_0"
+            }
+        ],
         "id":"glasforn_rumblings50_1",
-        "replies":[
-            {
-                "nextPhraseID":"glasforn_rumblings60_0",
-                "text":"And so should you."
-            },
-            {
-                "nextPhraseID":"glasforn_rumblings60_0",
-                "text":"Stop. Talk. Tell me everything."
-            }
-        ]
+        "message":"You... you should be dead!"
     },
     {
-        "message":"Wait. Ok. I stand no chance against you. I'll tell you all I know.",
+        "replies":[
+            {
+                "text":"It'd better be worth it.",
+                "nextPhraseID":"glasforn_rumblings60_1"
+            },
+            {
+                "text":"Go ahead.",
+                "nextPhraseID":"glasforn_rumblings60_1"
+            },
+            {
+                "text":"I'm all ears.",
+                "nextPhraseID":"glasforn_rumblings60_1"
+            }
+        ],
         "id":"glasforn_rumblings60_0",
-        "replies":[
-            {
-                "nextPhraseID":"glasforn_rumblings60_1",
-                "text":"It'd better be worth it."
-            },
-            {
-                "nextPhraseID":"glasforn_rumblings60_1",
-                "text":"Go ahead."
-            },
-            {
-                "nextPhraseID":"glasforn_rumblings60_1",
-                "text":"I'm all ears."
-            }
-        ],
+        "message":"Wait. Ok. I stand no chance against you. I'll tell you all I know.",
         "rewards":[
             {
-                "value":60,
                 "rewardID":"rumblings",
-                "rewardType":"questProgress"
+                "rewardType":"questProgress",
+                "value":60
             }
         ]
     },
     {
-        "message":"It was Andor. He made us do it, and promised to rid us of the Shadow church if we helped.",
+        "replies":[
+            {
+                "text":"N",
+                "nextPhraseID":"glasforn_rumblings60_2"
+            }
+        ],
         "id":"glasforn_rumblings60_1",
-        "replies":[
-            {
-                "nextPhraseID":"glasforn_rumblings60_2",
-                "text":"N"
-            }
-        ]
+        "message":"It was Andor. He made us do it, and promised to rid us of the Shadow church if we helped."
     },
     {
-        "message":"When he came, he asked me for a \"private\" place where he could do his weird stuff undisturbed. It had to be underground, and it had to be in the city. I have no idea why.",
-        "id":"glasforn_rumblings60_2",
         "replies":[
             {
-                "nextPhraseID":"glasforn_rumblings60_3",
-                "text":"N"
-            }
-        ]
-    },
-    {
-        "message":"I showed him the cellar under the old derelict house.",
-        "id":"glasforn_rumblings60_3",
-        "replies":[
-            {
-                "nextPhraseID":"glasforn_rumblings60_4",
-                "text":"N"
-            }
-        ]
-    },
-    {
-        "message":"I think he spent several days in there, as we didn't see him. Around that time, the rumbles in the church began and we knew he would be keeping his promise.",
-        "id":"glasforn_rumblings60_4",
-        "replies":[
-            {
-                "nextPhraseID":"glasforn_rumblings60_5",
-                "text":"N"
-            }
-        ]
-    },
-    {
-        "message":"When he returned, he ordered me to drug you and make you prisoner in the cellar should you come here, otherwise he would kill us all.",
-        "id":"glasforn_rumblings60_5",
-        "replies":[
-            {
-                "nextPhraseID":"glasforn_rumblings60_6",
-                "text":"N"
-            }
-        ]
-    },
-    {
-        "message":"He gave me this, told me to wear it when I bring you to the cellar, and left. Take it. It scares me anyway. The monsters' attacks began shortly after.",
-        "id":"glasforn_rumblings60_6",
-        "replies":[
-            {
-                "nextPhraseID":"glasforn_rumblings70_0",
-                "text":"N"
+                "text":"N",
+                "nextPhraseID":"glasforn_rumblings60_3"
             }
         ],
+        "id":"glasforn_rumblings60_2",
+        "message":"When he came, he asked me for a \"private\" place where he could do his weird stuff undisturbed. It had to be underground, and it had to be in the city. I have no idea why."
+    },
+    {
+        "replies":[
+            {
+                "text":"N",
+                "nextPhraseID":"glasforn_rumblings60_4"
+            }
+        ],
+        "id":"glasforn_rumblings60_3",
+        "message":"I showed him the cellar under the old derelict house."
+    },
+    {
+        "replies":[
+            {
+                "text":"N",
+                "nextPhraseID":"glasforn_rumblings60_5"
+            }
+        ],
+        "id":"glasforn_rumblings60_4",
+        "message":"I think he spent several days in there, as we didn't see him. Around that time, the rumbles in the church began and we knew he would be keeping his promise."
+    },
+    {
+        "replies":[
+            {
+                "text":"N",
+                "nextPhraseID":"glasforn_rumblings60_5_1"
+            }
+        ],
+        "id":"glasforn_rumblings60_5",
+        "message":"When he returned he put this horrible necklace on me. He told me that thing in the cellar needed lives to grow stronger, and either I could give it those lives or the necklace would take mine. "
+    },
+    {
+        "replies":[
+            {
+                "text":"N",
+                "nextPhraseID":"glasforn_rumblings70_0"
+            }
+        ],
+        "id":"glasforn_rumblings60_6",
+        "message":"I\u2019m sorry! How was I to know you could actually kill it? You\u2019re just a kid! Anyway, now I can remove the necklace. Please take it. I never want to see it again.",
         "rewards":[
             {
-                "value":1,
                 "rewardID":"necklace_undead",
-                "rewardType":"giveItem"
+                "rewardType":"giveItem",
+                "value":1
             },
             {
-                "value":70,
                 "rewardID":"rumblings",
-                "rewardType":"questProgress"
+                "rewardType":"questProgress",
+                "value":70
             }
         ]
     },
     {
-        "message":"That's all I know, I swear. Please spare me. You can use the bed safely now.",
-        "id":"glasforn_rumblings70_0",
         "replies":[
             {
-                "nextPhraseID":"glasforn_rumblings70_1",
-                "text":"I'll spare you. For now. But no more tricks. Or else..."
+                "text":"I'll spare you. For now. But no more tricks. Or else...",
+                "nextPhraseID":"glasforn_rumblings70_1"
             },
             {
-                "nextPhraseID":"glasforn_rumblings70_1",
-                "text":"I guess this was all necessary."
+                "text":"I guess this was all necessary.",
+                "nextPhraseID":"glasforn_rumblings70_1"
             }
         ],
+        "id":"glasforn_rumblings70_0",
+        "message":"That's all I know, I swear. Please spare me. You can use the bed safely now.",
         "rewards":[
             {
                 "rewardID":"Inactive",
-                "mapName":"stoutford_tavern",
-                "rewardType":"activateMapObjectGroup"
+                "rewardType":"activateMapObjectGroup",
+                "mapName":"stoutford_tavern"
             }
         ]
     },
     {
-        "message":"I swear. You'll be my honored guest for life.",
-        "id":"glasforn_rumblings70_1"
+        "id":"glasforn_rumblings70_1",
+        "message":"I swear. You'll be my honored guest for life."
     },
     {
-        "message":"Hello again. Have you found anything about these noises ? It seems they have stopped.",
-        "id":"yolgen_rumblings50_0",
         "replies":[
             {
-                "nextPhraseID":"X",
-                "text":"No. Not yet."
+                "text":"No. Not yet.",
+                "nextPhraseID":"X"
             },
             {
-                "nextPhraseID":"yolgen_rumblings50_1",
-                "text":"Yes. I think I found the cause."
-            }
-        ]
-    },
-    {
-        "message":"Great. You should talk to my master. I told him you were not who he thought you were.",
-        "id":"yolgen_rumblings50_1",
-        "replies":[
-            {
-                "nextPhraseID":"yolgen_initial_0",
-                "text":"N"
+                "text":"Yes. I think I found the cause.",
+                "nextPhraseID":"yolgen_rumblings50_1"
             }
         ],
+        "id":"yolgen_rumblings50_0",
+        "message":"Hello again. Have you found anything about the noises? It seems they have stopped."
+    },
+    {
+        "replies":[
+            {
+                "text":"N",
+                "nextPhraseID":"yolgen_initial_0"
+            }
+        ],
+        "id":"yolgen_rumblings50_1",
+        "message":"Great. You should talk to my master. I told him you were not who he thought you were.",
         "rewards":[
             {
-                "value":80,
                 "rewardID":"rumblings",
-                "rewardType":"questProgress"
+                "rewardType":"questProgress",
+                "value":80
             }
         ]
     },
     {
-        "message":"You ! You saved us !",
+        "replies":[
+            {
+                "text":"No thanks to you...",
+                "nextPhraseID":"tahalendor_rumblings80_1"
+            },
+            {
+                "text":"Indeed.",
+                "nextPhraseID":"tahalendor_rumblings80_1"
+            },
+            {
+                "text":"That was the right thing to do.",
+                "nextPhraseID":"tahalendor_rumblings80_1"
+            }
+        ],
         "id":"tahalendor_rumblings80_0",
-        "replies":[
-            {
-                "nextPhraseID":"tahalendor_rumblings80_1",
-                "text":"Not thanks to you..."
-            },
-            {
-                "nextPhraseID":"tahalendor_rumblings80_1",
-                "text":"Indeed."
-            },
-            {
-                "nextPhraseID":"tahalendor_rumblings80_1",
-                "text":"That was the right thing to do."
-            }
-        ]
+        "message":"You! You saved us!"
     },
     {
-        "message":"All my apologies for earlier. I took you for someone else. Do you know what was causing the rumbles ?",
-        "id":"tahalendor_rumblings80_1",
         "replies":[
             {
-                "nextPhraseID":"tahalendor_rumblings80_2",
                 "text":"(Show Demon heart) Some monster. Here's what it left when I killed it.",
+                "nextPhraseID":"tahalendor_rumblings80_2",
                 "requires":[
                     {
                         "requireType":"inventoryKeep",
-                        "value":1,
-                        "requireID":"eliszylae_heart"
+                        "requireID":"eliszylae_heart",
+                        "value":1
                     }
                 ]
             },
             {
-                "nextPhraseID":"tahalendor_rumblings80_2bis",
-                "text":"Not really..."
+                "text":"Not really...",
+                "nextPhraseID":"tahalendor_rumblings80_2bis"
             }
-        ]
+        ],
+        "id":"tahalendor_rumblings80_1",
+        "message":"My sincerest apologies for earlier. I took you for someone else. Do you know what was causing the rumbles?"
     },
     {
-        "message":"Oh my. It's the heart of a lich ! These are nasty creatures. ",
+        "replies":[
+            {
+                "text":"These? You mean there are others?",
+                "nextPhraseID":"tahalendor_rumblings80_3"
+            }
+        ],
         "id":"tahalendor_rumblings80_2",
-        "replies":[
-            {
-                "nextPhraseID":"tahalendor_rumblings80_3",
-                "text":"These ? You mean there are others ?"
-            }
-        ]
+        "message":"Oh my. It's the heart of a lich! These are nasty creatures. "
     },
     {
-        "message":"They aren't common, but I have heard stories. They are powerful and live underground. They seem to be related to Kazaul somehow. ",
+        "replies":[
+            {
+                "text":"N",
+                "nextPhraseID":"tahalendor_rumblings80_4"
+            }
+        ],
         "id":"tahalendor_rumblings80_3",
-        "replies":[
-            {
-                "nextPhraseID":"tahalendor_rumblings80_4",
-                "text":"N"
-            }
-        ]
+        "message":"They aren't common, but I have heard stories. They are powerful and live underground. They seem to be related to Kazaul somehow. "
     },
     {
-        "message":"I'm surprised such a young boy managed to survive encountering one, let alone actually kill it.",
+        "replies":[
+            {
+                "text":"N",
+                "nextPhraseID":"tahalendor_rumblings80_5"
+            }
+        ],
         "id":"tahalendor_rumblings80_4",
-        "replies":[
-            {
-                "nextPhraseID":"tahalendor_rumblings80_5",
-                "text":"N"
-            }
-        ]
+        "message":"I'm surprised such a young boy as you managed to survive encountering one, let alone actually kill it."
     },
     {
-        "message":"Too bad. Come back when you know more.",
-        "id":"tahalendor_rumblings80_2bis"
+        "id":"tahalendor_rumblings80_2bis",
+        "message":"Too bad. Come back when you know more."
     },
     {
-        "message":"You know, since those monsters' attacks, we don't have much to offer, but take these. By the way, do you have any idea of who might be responsible for all this ?",
-        "id":"tahalendor_rumblings80_5",
         "replies":[
             {
-                "nextPhraseID":"tahalendor_rumblings100_0",
-                "text":"Not really."
+                "text":"Not really.",
+                "nextPhraseID":"tahalendor_rumblings100_0"
             },
             {
-                "nextPhraseID":"tahalendor_rumblings103_0",
                 "text":"It was all Glasforn's doing. The tavern owner.",
+                "nextPhraseID":"tahalendor_rumblings103_0",
                 "requires":[
                     {
                         "requireType":"questProgress",
-                        "value":70,
-                        "requireID":"rumblings"
+                        "requireID":"rumblings",
+                        "value":70
                     }
                 ]
             },
             {
-                "nextPhraseID":"tahalendor_rumblings106_0",
                 "text":"It was my brother Andor. I need to find him.",
+                "nextPhraseID":"tahalendor_rumblings106_0",
                 "requires":[
                     {
                         "requireType":"questProgress",
-                        "value":70,
-                        "requireID":"rumblings"
+                        "requireID":"rumblings",
+                        "value":70
                     }
                 ]
             }
         ],
+        "id":"tahalendor_rumblings80_5",
+        "message":"You know, since those monsters' attacks, we don't have much to offer, but take these. By the way, do you have any idea who might be responsible for all this?",
         "rewards":[
             {
-                "value":90,
                 "rewardID":"rumblings",
-                "rewardType":"questProgress"
+                "rewardType":"questProgress",
+                "value":90
             },
             {
                 "rewardID":"tahalendor_present",
@@ -1211,218 +1210,218 @@
         ]
     },
     {
-        "message":"It's a shame we cannot punish the culprits. Thank you for your help kid.",
         "id":"tahalendor_rumblings100_0",
+        "message":"It's a shame we cannot punish the culprits. Thank you for your help kid.",
         "rewards":[
             {
-                "value":100,
                 "rewardID":"rumblings",
-                "rewardType":"questProgress"
+                "rewardType":"questProgress",
+                "value":100
             }
         ]
     },
     {
-        "message":"That fool ! We'll make him pay. Thank you for your help kid.",
         "id":"tahalendor_rumblings103_0",
+        "message":"That fool! We'll make him pay. Thank you for your help kid.",
         "rewards":[
             {
-                "value":103,
                 "rewardID":"rumblings",
-                "rewardType":"questProgress"
+                "rewardType":"questProgress",
+                "value":103
             },
             {
                 "rewardID":"stoutford_drinkers",
-                "mapName":"stoutford_tavern",
-                "rewardType":"removeSpawnArea"
+                "rewardType":"removeSpawnArea",
+                "mapName":"stoutford_tavern"
             }
         ]
     },
     {
-        "message":"That is troublesome. I have no idea were he went when he left Stoutford, but Kazaul has always been linked to the Undertell, south of here. Thank you for your help kid.",
-        "id":"tahalendor_rumblings106_0",
         "replies":[
             {
-                "nextPhraseID":"tahalendor_rumblings10x_0",
-                "text":"N"
-            }
-        ]
-    },
-    {
-        "message":"Go with the shadow child.",
-        "id":"tahalendor_rumblings10x_0",
-        "replies":[
-            {
-                "nextPhraseID":"X",
-                "text":"Shadow be with you."
-            },
-            {
-                "nextPhraseID":"X",
-                "text":"Whatever."
-            }
-        ]
-    },
-    {
-        "message":"Thank you for your help. Do you have any idea of who might be responsible for all this ?",
-        "id":"tahalendor_rumblings90_0",
-        "replies":[
-            {
-                "nextPhraseID":"tahalendor_rumblings100_0",
-                "text":"Not really."
-            },
-            {
-                "nextPhraseID":"tahalendor_rumblings103_0",
-                "text":"It was all Glasforn's doing. The tavern owner.",
-                "requires":[
-                    {
-                        "requireType":"questProgress",
-                        "value":70,
-                        "requireID":"rumblings"
-                    }
-                ]
-            },
-            {
-                "nextPhraseID":"tahalendor_rumblings106_0",
-                "text":"It was my brother Andor. I need to find him.",
-                "requires":[
-                    {
-                        "requireType":"questProgress",
-                        "value":70,
-                        "requireID":"rumblings"
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        "message":"Boohoohoo.... the whole city hates me now. Even my dear customers left.",
-        "id":"glasforn_rumblings103_0",
-        "replies":[
-            {
-                "nextPhraseID":"glasforn_rumblings103_1",
-                "text":"You deserved it."
-            },
-            {
-                "nextPhraseID":"glasforn_rumblings103_1",
-                "text":"Well done."
-            },
-            {
-                "nextPhraseID":"X",
-                "text":"Whatever."
-            }
-        ]
-    },
-    {
-        "message":"Boohoohoo...",
-        "id":"glasforn_rumblings103_1"
-    },
-    {
-        "message":"No. Sorry.",
-        "id":"kayla_3"
-    },
-    {
-        "message":"Halvor ? Yes ! He's so nice ! Do you know him ?",
-        "id":"kayla_halvor_0",
-        "replies":[
-            {
-                "nextPhraseID":"kayla_halvor_1",
-                "text":"I hate this guy. He's nothing but trouble..."
-            },
-            {
-                "nextPhraseID":"kayla_halvor_2",
-                "text":"Sure, We keep meeting around the world in the most unusual places. I even helped him gather some items."
-            }
-        ]
-    },
-    {
-        "message":"He's always been good to me. If you don't like him, I don't like you !",
-        "id":"kayla_halvor_1"
-    },
-    {
-        "message":"So that's you ! He told me about you.",
-        "id":"kayla_halvor_2",
-        "replies":[
-            {
-                "nextPhraseID":"kayla_halvor_3",
-                "text":"N"
-            }
-        ]
-    },
-    {
-        "message":"He told me you were of great help.",
-        "id":"kayla_halvor_3",
-        "replies":[
-            {
-                "nextPhraseID":"kayla_halvor_4",
-                "text":"It was a pleasure."
-            },
-            {
-                "nextPhraseID":"kayla_halvor_4",
-                "text":"I just did my part."
-            },
-            {
-                "nextPhraseID":"kayla_halvor_4",
-                "text":"Well, he paid good money."
-            }
-        ]
-    },
-    {
-        "message":"Anyway. I made these boots with the items he brought me.",
-        "id":"kayla_halvor_4",
-        "replies":[
-            {
-                "nextPhraseID":"kayla_halvor_5",
-                "text":"N"
-            }
-        ]
-    },
-    {
-        "message":"I'm really proud of the result. \nThey are light, but sturdy,thanks to the bones and insect wings. \nThey are comfortable but tough thanks to the animal hair and venomscale scales. \nThey are stiff when adjusted, thanks to the rat tails.",
-        "id":"kayla_halvor_5",
-        "replies":[
-            {
-                "nextPhraseID":"kayla_halvor_6",
-                "text":"N"
-            }
-        ]
-    },
-    {
-        "message":"Here. Take these. I've given one pair to Halvor, and I'll keep the last one for me.",
-        "id":"kayla_halvor_6",
-        "replies":[
-            {
-                "nextPhraseID":"kayla_4",
-                "text":"Thank you."
-            },
-            {
-                "nextPhraseID":"X",
-                "text":"Wow. I have to try these. Good bye."
+                "text":"N",
+                "nextPhraseID":"tahalendor_rumblings10x_0"
             }
         ],
-        "rewards":[
+        "id":"tahalendor_rumblings106_0",
+        "message":"That is troublesome. I have no idea where he went when he left Stoutford, but Kazaul has always been linked to the Undertell, south of here. Thank you for your help kid."
+    },
+    {
+        "replies":[
             {
-                "value":190,
-                "rewardID":"halvor_surprise",
-                "rewardType":"questProgress"
+                "text":"Shadow be with you.",
+                "nextPhraseID":"X"
             },
             {
-                "value":1,
+                "text":"Whatever.",
+                "nextPhraseID":"X"
+            }
+        ],
+        "id":"tahalendor_rumblings10x_0",
+        "message":"Go with the shadow child."
+    },
+    {
+        "replies":[
+            {
+                "text":"Not really.",
+                "nextPhraseID":"tahalendor_rumblings100_0"
+            },
+            {
+                "text":"It was all Glasforn's doing. The tavern owner.",
+                "nextPhraseID":"tahalendor_rumblings103_0",
+                "requires":[
+                    {
+                        "requireType":"questProgress",
+                        "requireID":"rumblings",
+                        "value":70
+                    }
+                ]
+            },
+            {
+                "text":"It was my brother Andor. I need to find him.",
+                "nextPhraseID":"tahalendor_rumblings106_0",
+                "requires":[
+                    {
+                        "requireType":"questProgress",
+                        "requireID":"rumblings",
+                        "value":70
+                    }
+                ]
+            }
+        ],
+        "id":"tahalendor_rumblings90_0",
+        "message":"Thank you for your help. Do you have any idea who might be responsible for all this?"
+    },
+    {
+        "replies":[
+            {
+                "text":"You deserved it.",
+                "nextPhraseID":"glasforn_rumblings103_1"
+            },
+            {
+                "text":"Well done.",
+                "nextPhraseID":"glasforn_rumblings103_1"
+            },
+            {
+                "text":"Whatever.",
+                "nextPhraseID":"X"
+            }
+        ],
+        "id":"glasforn_rumblings103_0",
+        "message":"Boohoohoo.... the whole town hates me now. Even my dear customers left."
+    },
+    {
+        "id":"glasforn_rumblings103_1",
+        "message":"Boohoohoo..."
+    },
+    {
+        "id":"kayla_3",
+        "message":"No. Sorry."
+    },
+    {
+        "replies":[
+            {
+                "text":"I hate the guy. He's nothing but trouble...",
+                "nextPhraseID":"kayla_halvor_1"
+            },
+            {
+                "text":"Sure, we keep meeting around the world in the most unusual places. I even helped him gather some items.",
+                "nextPhraseID":"kayla_halvor_2"
+            }
+        ],
+        "id":"kayla_halvor_0",
+        "message":"Halvor? Yes! He's so nice! Do you know him?"
+    },
+    {
+        "id":"kayla_halvor_1",
+        "message":"He's always been good to me. If you don't like him, I don't like you!"
+    },
+    {
+        "replies":[
+            {
+                "text":"N",
+                "nextPhraseID":"kayla_halvor_3"
+            }
+        ],
+        "id":"kayla_halvor_2",
+        "message":"So that's you! He told me about you."
+    },
+    {
+        "replies":[
+            {
+                "text":"It was a pleasure.",
+                "nextPhraseID":"kayla_halvor_4"
+            },
+            {
+                "text":"I just did my part.",
+                "nextPhraseID":"kayla_halvor_4"
+            },
+            {
+                "text":"Well, he paid good money.",
+                "nextPhraseID":"kayla_halvor_4"
+            }
+        ],
+        "id":"kayla_halvor_3",
+        "message":"He told me you were of great help."
+    },
+    {
+        "replies":[
+            {
+                "text":"N",
+                "nextPhraseID":"kayla_halvor_5"
+            }
+        ],
+        "id":"kayla_halvor_4",
+        "message":"Anyway. I made these boots with the items he brought me."
+    },
+    {
+        "replies":[
+            {
+                "text":"N",
+                "nextPhraseID":"kayla_halvor_6"
+            }
+        ],
+        "id":"kayla_halvor_5",
+        "message":"I'm really proud of the result. \nThey are light, but sturdy, thanks to the bones and insect wings. \nThey are comfortable but tough thanks to the animal hair and venomscale scales. \nThey are stiff when adjusted, thanks to the rat tails."
+    },
+    {
+        "replies":[
+            {
+                "text":"Thank you.",
+                "nextPhraseID":"kayla_4"
+            },
+            {
+                "text":"Wow. I have to try these. Goodbye.",
+                "nextPhraseID":"X"
+            }
+        ],
+        "id":"kayla_halvor_6",
+        "message":"Here. Take these. I've given one pair to Halvor, and I'll keep the last one for me.",
+        "rewards":[
+            {
+                "rewardID":"halvor_surprise",
+                "rewardType":"questProgress",
+                "value":190
+            },
+            {
                 "rewardID":"globetrotter_boots",
-                "rewardType":"giveItem"
+                "rewardType":"giveItem",
+                "value":1
             }
         ]
     },
     {
-        "message":"Do you want to trade ?",
-        "id":"kayla_4",
         "replies":[
             {
-                "nextPhraseID":"S",
-                "text":"Sure."
+                "text":"Sure.",
+                "nextPhraseID":"S"
             },
             {
-                "nextPhraseID":"X",
-                "text":"Not now."
+                "text":"Not now.",
+                "nextPhraseID":"X"
             }
-        ]
+        ],
+        "id":"kayla_4",
+        "message":"Do you want to trade?"
     }
 ]
