@@ -10,6 +10,7 @@ import com.gpl.rpg.AndorsTrail.model.ability.traits.AbilityModifierTraits;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.*;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer.ItemEntry;
+import com.gpl.rpg.AndorsTrail.view.ItemContainerAdapter;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -210,6 +211,7 @@ public final class ItemController {
 	public void pickupAll(Loot loot) {
 		world.model.player.inventory.add(loot.items);
 		consumeNonItemLoot(loot);
+		refreshIfItemIsOnQuickslot(loot);
 		loot.clear();
 	}
 	public void pickupAll(Iterable<Loot> lootBags) {
@@ -217,6 +219,13 @@ public final class ItemController {
 			pickupAll(l);
 		}
 	}
+
+	private void refreshIfItemIsOnQuickslot(Loot l){
+		for(ItemEntry item : l.items.items){
+			quickSlotListeners.onQuickSlotItemLooted(item.itemType.id);
+		}
+	}
+
 	public boolean removeLootBagIfEmpty(final Loot loot) {
 		if (loot.hasItemsOrGold()) return false;
 
@@ -352,4 +361,18 @@ public final class ItemController {
 		world.model.player.inventory.quickitem[quickSlotId] = itemType;
 		quickSlotListeners.onQuickSlotChanged(quickSlotId);
 	}
+
+	public void pickupItem(ItemType itemTypeID, Iterable<Loot> lootBags, Loot combinedLoot){
+		boolean removeFromCombinedLoot = true;
+		for (Loot l : lootBags) {
+			if (l == combinedLoot) removeFromCombinedLoot = false;
+			if (l.items.removeItem(itemTypeID.id)) {
+				controllers.itemController.removeLootBagIfEmpty(l);
+				break;
+			}
+		}
+		if (removeFromCombinedLoot) combinedLoot.items.removeItem(itemTypeID.id);
+		ItemType type = world.itemTypes.getItemType(itemTypeID.id);
+		world.model.player.inventory.addItem(type);
+	    }
 }
