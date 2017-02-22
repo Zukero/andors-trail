@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentTabHost;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.activity.fragment.ShopActivity_Buy;
+import com.gpl.rpg.AndorsTrail.activity.fragment.ShopActivity_Inventory;
 import com.gpl.rpg.AndorsTrail.activity.fragment.ShopActivity_Sell;
 
 public final class ShopActivity extends FragmentActivity {
@@ -32,5 +33,8 @@ public final class ShopActivity extends FragmentActivity {
 		tabHost.addTab(tabHost.newTabSpec("sell")
 				.setIndicator(res.getString(R.string.shop_sell))
 				,ShopActivity_Sell.class, null);
+		tabHost.addTab(tabHost.newTabSpec("inventory")
+				.setIndicator(res.getString(R.string.shop_inventory))
+				,ShopActivity_Inventory.class, null);
 	}
 }

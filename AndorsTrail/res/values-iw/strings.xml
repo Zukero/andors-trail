@@ -90,5 +90,7 @@
 	<string name="actorinfo_attack">תקיפה:</string>
 	<string name="actorinfo_defense">הגנה:</string>
 	<string name="actorinfo_movecost">עלות תנועה (פעילות):</string>
+	
+	<string name="shop_inventory">ציוד</string>
 
 </resources>

@@ -140,7 +140,8 @@
 	<string name="shop_yourgold">所持金: %1$d gold</string>
 	<string name="shop_item_bought">%1$s を買った。</string>
 	<string name="shop_item_sold">%1$s を売った。</string>
-
+	<string name="shop_inventory">アイテム</string>
+	
 	<string name="levelup_title">Level up</string>
 	<string name="levelup_description">Level %1$d に到達しました!</string>
 	<string name="levelup_buttontext">Level up</string>

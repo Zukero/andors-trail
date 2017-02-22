@@ -140,6 +140,7 @@
 	<string name="shop_yourgold">Deine Goldmünzen: %1$d</string>
 	<string name="shop_item_bought">%1$s gekauft.</string>
 	<string name="shop_item_sold">%1$s verkauft.</string>
+	<string name="shop_inventory">Inventar</string>
 
 	<string name="levelup_title">Aufsteigen</string>
 	<string name="levelup_description">Du hast Level %1$d erreicht!</string>

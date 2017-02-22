@@ -141,7 +141,8 @@
 	<string name="shop_yourgold">Ваше золото: %1$d</string>
 	<string name="shop_item_bought">%1$s куплен.</string>
 	<string name="shop_item_sold">%1$s продан.</string>
-
+	<string name="shop_inventory">Инвентарь</string>
+	
 	<string name="levelup_title">Уровень повышен</string>
 	<string name="levelup_description">Добро пожаловать на уровень %1$d!</string>
 	<string name="levelup_buttontext">Новый уровень</string>

@@ -27,7 +27,7 @@ import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileCollection;
 import com.gpl.rpg.AndorsTrail.view.ItemContainerAdapter;
 
-public final class HeroinfoActivity_Inventory extends Fragment {
+public class HeroinfoActivity_Inventory extends Fragment {
 
 	private static final int INTENTREQUEST_ITEMINFO = 3;
 	private static final int INTENTREQUEST_BULKSELECT_DROP = 11;
