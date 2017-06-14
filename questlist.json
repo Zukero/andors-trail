@@ -1,0 +1,33 @@
+[
+    {
+        "id":"nocmar",
+        "name":"Lost treasures",
+        "showInLog":1,
+        "stages":[
+            {
+                "progress":10,
+                "logText":"Unnmir told me he used to be an adventurer, and gave me a hint to go see Nocmar. His house is just southwest of the tavern in Fallhaven.",
+                "finishesQuest":0
+            },
+            {
+                "progress":20,
+                "logText":"Nocmar tells me he used to be a smith. But Lord Geomyr has banned the use of heartsteel, so he cannot forge his weapons anymore. If I can find a heartstone and bring it to Nocmar, he should be able to forge the heartsteel again.",
+                "finishesQuest":0
+            },
+            {
+                "progress":30,
+                "logText":"I found a cave that used to be a heartstone mine. It was abandoned after Lord Geomyr banned the use of heartsteel. Monsters now inhabits the mine. I will have to battle them if I want a heartstone."
+            },
+            {
+                "progress":40,
+                "logText":"I discovered a heartstone after defeating a monster in the cave."
+            },
+            {
+                "progress":50,
+                "logText":"I have brought a heartstone to Nocmar. He should have heartsteel items available now.",
+                "rewardExperience":1200,
+                "finishesQuest":1
+            }
+        ]
+    }
+]
