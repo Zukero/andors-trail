@@ -963,6 +963,11 @@
                 "rewardType":"giveItem",
                 "rewardID":"gem4",
                 "value":1
+            },
+            {
+                "rewardType":"questProgress",
+                "rewardID":"findgem",
+                "value":20
             }
         ]
     },
@@ -974,6 +979,11 @@
                 "rewardType":"giveItem",
                 "rewardID":"gem6",
                 "value":1
+            },
+            {
+                "rewardType":"questProgress",
+                "rewardID":"findgem",
+                "value":30
             }
         ]
     },
@@ -1389,5 +1399,34 @@
     {
         "id":"graveyardwall_1b",
         "message":"A magical force prevents you from entering the cemetery."
+    },
+    {
+        "id":"lostfound0",
+        "replies":[
+            {
+                "text":"N",
+                "nextPhraseID":"lostfound1",
+                "requires":[
+                    {
+                        "requireType":"questProgress",
+                        "requireID":"findgem",
+                        "value":20,
+                        "negate":true
+                    }
+                ]
+            },
+            {
+                "text":"N",
+                "nextPhraseID":"lostfound2",
+                "requires":[
+                    {
+                        "requireType":"questProgress",
+                        "requireID":"findgem",
+                        "value":30,
+                        "negate":true
+                    }
+                ]
+            }
+        ]
     }
 ]

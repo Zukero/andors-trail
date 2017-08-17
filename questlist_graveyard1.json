@@ -107,5 +107,23 @@
                 "finishesQuest":1
             }
         ]
+    },
+    {
+        "id":"findgem",
+        "name":"find gem",
+        "stages":[
+            {
+                "progress":10,
+                "logText":"no gems found"
+            },
+            {
+                "progress":20,
+                "logText":"the gem was found"
+            },
+            {
+                "progress":30,
+                "logText":"another gem was found"
+            }
+        ]
     }
 ]
