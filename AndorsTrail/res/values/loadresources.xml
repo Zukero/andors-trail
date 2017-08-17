@@ -81,6 +81,7 @@
 
 	<array name="loadresource_conversationlists">
 		<item>@raw/conversationlist_mikhail</item>
+		<item>@raw/conversationlist_mikhail_foodpoison</item>
 		<item>@raw/conversationlist_crossglen</item>
 		<item>@raw/conversationlist_crossglen_gruil</item>
 		<item>@raw/conversationlist_crossglen_leonid</item>

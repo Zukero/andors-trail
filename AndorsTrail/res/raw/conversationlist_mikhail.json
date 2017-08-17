@@ -59,7 +59,7 @@
         "id":"mikhail_start_select_default",
         "replies":[
             {
-                "nextPhraseID":"mikhail_visited",
+                "nextPhraseID":"mikhail_default",
                 "requires":[
                     {
                         "requireType":"questProgress",
@@ -115,8 +115,72 @@
         "message":"Anything else I can help you with?",
         "replies":[
             {
+                "text":"Do you have any more tasks for me?",
+                "nextPhraseID":"mikhail_all_tasks_done",
+                "requires":[
+                    {
+                        "requireType":"questProgress",
+                        "requireID":"mikhail_bread",
+                        "value":100
+                    },
+                    {
+                        "requireType":"questProgress",
+                        "requireID":"mikhail_rats",
+                        "value":100
+                    }
+                ]
+            },
+            {
+                "text":"Do you have any more tasks for me?",
+                "nextPhraseID":"mikhail_bread_done",
+                "requires":[
+                    {
+                        "requireType":"questProgress",
+                        "requireID":"mikhail_bread",
+                        "value":100
+                    },
+                    {
+                        "requireType":"questProgress",
+                        "requireID":"mikhail_rats",
+                        "value":100,
+                        "negate":"true"
+                    }
+                ]
+            },
+            {
+                "text":"Do you have any more tasks for me?",
+                "nextPhraseID":"mikhail_rats_done",
+                "requires":[
+                    {
+                        "requireType":"questProgress",
+                        "requireID":"mikhail_bread",
+                        "value":100,
+                        "negate":"true"
+                    },
+                    {
+                        "requireType":"questProgress",
+                        "requireID":"mikhail_rats",
+                        "value":100
+                    }
+                ]
+            },
+            {
                 "text":"Do you have any tasks for me?",
-                "nextPhraseID":"mikhail_tasks"
+                "nextPhraseID":"mikhail_tasks",
+                "requires":[
+                    {
+                        "requireType":"questProgress",
+                        "requireID":"mikhail_bread",
+                        "value":100,
+                        "negate":"true"
+                    },
+                    {
+                        "requireType":"questProgress",
+                        "requireID":"mikhail_rats",
+                        "value":100,
+                        "negate":"true"
+                    }
+                ]
             },
             {
                 "text":"Is there anything else you can tell me about Andor?",
@@ -136,6 +200,44 @@
                 "text":"What about the rats?",
                 "nextPhraseID":"mikhail_rats_select"
             },
+            {
+                "text":"Never mind, let's talk about the other things.",
+                "nextPhraseID":"mikhail_default"
+            }
+        ]
+    },
+    {
+        "id":"mikhail_bread_done",
+        "message":"Thanks for getting me the bread. There are still the rats.",
+        "replies":[
+            {
+                "text":"What about the rats?",
+                "nextPhraseID":"mikhail_rats_select"
+            },
+            {
+                "text":"Never mind, let's talk about the other things.",
+                "nextPhraseID":"mikhail_default"
+            }
+        ]
+    },
+    {
+        "id":"mikhail_rats_done",
+        "message":"Thanks for taking care of the rats. I'd still love some bread.",
+        "replies":[
+            {
+                "text":"What about the bread?",
+                "nextPhraseID":"mikhail_bread_select"
+            },
+            {
+                "text":"Never mind, let's talk about the other things.",
+                "nextPhraseID":"mikhail_default"
+            }
+        ]
+    },
+    {
+        "id":"mikhail_all_tasks_done",
+        "message":"Not for now. Thanks for taking care of the bread and rats.",
+        "replies":[
             {
                 "text":"Never mind, let's talk about the other things.",
                 "nextPhraseID":"mikhail_default"
