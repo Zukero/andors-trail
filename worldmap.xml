@@ -290,16 +290,6 @@
     <map id="waytobrimhaven4" x="333" y="268"/>
     <map id="waytobrimhaven5" x="343" y="268"/>
     <map id="waytobrimhaven6" x="364" y="269"/>
-    <map id="hilltown7" x="60" y="300"/>
-    <map id="hilltown8" x="33" y="300"/>
-    <map id="hilltown6" x="75" y="238"/>
-    <map area="hilltown" id="hilltown1" x="44" y="269"/>
-    <map area="hilltown" id="hilltown2" x="44" y="238"/>
-    <map id="hilltown3" x="32" y="238"/>
-    <map id="hilltown4" x="33" y="269"/>
-    <map id="hilltown5" x="75" y="269"/>
-    <map id="hilltown9" x="60" y="227"/>
-    <map id="hilltown10" x="32" y="227"/>
     <map id="waytolake6" x="678" y="190"/>
     <map id="waytolake7" x="643" y="229"/>
     <map id="waytolake7b" x="649" y="255"/>
@@ -318,6 +308,5 @@
     <namedarea id="vilegard" name="Vilegard" type="settlement"/>
     <namedarea id="prim" name="Prim" type="settlement"/>
     <namedarea id="stoutford" name="Stoutford" type="settlement"/>
-    <namedarea id="hilltown" name="Hilltown" type="settlement"/>
   </segment>
 </worldmap>
