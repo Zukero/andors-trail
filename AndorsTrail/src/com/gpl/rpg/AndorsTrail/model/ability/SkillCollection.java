@@ -52,6 +52,7 @@ public final class SkillCollection {
 		,specializationDualWield
 		,specialization2hand
 		,specializationWeaponShield
+		,resistanceSpore
 	}
 
 	// should be in the same number &U order as in arrays.xml
@@ -122,6 +123,7 @@ public final class SkillCollection {
 	public static final int DUALWIELD_LEVEL1_OFFHAND_AP_COST_PERCENT = 50;
 	public static final int PER_SKILLPOINT_INCREASE_SPECIALIZATION_DUALWIELD_AC_PERCENT = 50;
 	public static final int PER_SKILLPOINT_INCREASE_SPECIALIZATION_DUALWIELD_BC_PERCENT = 50;
+	public static final int PER_SKILLPOINT_INCREASE_RESISTANCE_SPORE = 100;
 
 	private static final int MAX_LEVEL_BARTER = (int) Math.floor((float) Constants.MARKET_PRICEFACTOR_PERCENT / PER_SKILLPOINT_INCREASE_BARTER_PRICEFACTOR_PERCENTAGE);
 	private static final int MAX_LEVEL_BARKSKIN = 5;
@@ -230,6 +232,7 @@ public final class SkillCollection {
 				SkillLevelRequirement.requireExperienceLevels(45, 0)
 				,SkillLevelRequirement.requireOtherSkill(SkillID.fightstyleWeaponShield, 2)
 			}));
+		initializeSkill(new SkillInfo(SkillID.resistanceSpore, 1, SkillInfo.LevelUpType.onlyByQuests, SkillCategory.immunity, null));
 	}
 
 	public SkillInfo getSkill(SkillID skillID) {
