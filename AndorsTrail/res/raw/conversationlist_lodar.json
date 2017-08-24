@@ -533,12 +533,8 @@
                     {
                         "requireType":"questProgress",
                         "requireID":"shortcut_lodar",
-                        "value":10
-                    },
-                    {
-                        "requireType":"questProgress",
-                        "requireID":"shortcut_lodar",
-                        "value":30
+                        "value":10,
+                        "negate":true
                     }
                 ]
             },
