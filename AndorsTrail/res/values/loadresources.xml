@@ -12,6 +12,7 @@
 		<item>@raw/actorconditions_v0611_2</item>
 		<item>@raw/actorconditions_v0612_2</item>
 		<item>@raw/actorconditions_v070</item>
+		<item>@raw/actorconditions_bogsten</item>
 	</array>
 
 	<array name="loadresource_items">
@@ -38,6 +39,7 @@
 		<item>@raw/itemlist_v070_questitems</item>
 		<item>@raw/itemlist_shortcut_lodar</item>
 		<item>@raw/itemlist_pathway_fallhaven</item>
+		<item>@raw/itemlist_bogsten</item>
 	</array>
 
 	<array name="loadresource_droplists">
@@ -59,6 +61,7 @@
 		<item>@raw/droplists_v070_mobs</item>
 		<item>@raw/droplists_shortcut_lodar</item>
 		<item>@raw/droplists_pathway_fallhaven</item>
+		<item>@raw/droplists_bogsten</item>
 	</array>
 
 	<array name="loadresource_quests">
@@ -77,6 +80,7 @@
 		<item>@raw/questlist_shortcut_lodar</item>
 		<item>@raw/questlist_pathway_fallhaven</item>
 		<item>@raw/questlist_halvor_surprise</item>
+		<item>@raw/questlist_bogsten</item>
 	</array>
 
 	<array name="loadresource_conversationlists">
@@ -236,6 +240,7 @@
 		<item>@raw/conversationlist_pathway_fallhaven</item>
 		<item>@raw/conversationlist_halvor_surprise</item>
 		<item>@raw/conversationlist_toszylae_fix</item>
+		<item>@raw/conversationlist_bogsten</item>
 	</array>
 
 	<array name="loadresource_monsters">
@@ -265,6 +270,7 @@
 		<item>@raw/monsterlist_v070_npcs</item>
 		<item>@raw/monsterlist_pathway_fallhaven</item>
 		<item>@raw/monsterlist_halvor_surprise</item>
+		<item>@raw/monsterlist_bogsten</item>
 	</array>
 
 	<array name="loadresource_maps">
@@ -683,5 +689,11 @@
 		<item>@xml/stoutford_smith</item>
 		<item>@xml/stoutford_smith_basement</item>
 		<item>@xml/stoutford_tavern</item>
+
+		<item>@xml/bogsten0</item>
+		<item>@xml/bogsten1</item>
+		<item>@xml/bogsten2</item>
+		<item>@xml/bogsten3</item>
+		<item>@xml/bogsten4</item>
 	</array>
 </resources>
