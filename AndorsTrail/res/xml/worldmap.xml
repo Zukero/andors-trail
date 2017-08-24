@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <worldmap>
+<segment id="bogstencave" x="0" y="1">
+ <map id="bogsten2" x="0" y="1"/>
+ <map id="bogsten3" x="9" y="23"/>
+ <map id="bogsten4" x="35" y="26"/>
+</segment>
 <segment id="bwentry" x="14" y="387">
  <map id="blackwater_mountain5a" x="14" y="387" />
  <map id="blackwater_mountain5" x="35" y="387" />
@@ -8,7 +13,7 @@
 </segment>
 <segment id="bwentry2" x="46" y="368">
  <map id="blackwater_mountain7" x="47" y="368" /> 
-<map id="blackwater_mountain7a" x="46" y="399" />  
+ <map id="blackwater_mountain7a" x="46" y="399" />  
 </segment>
 <segment id="bwsettlement" x="0" y="414">
  <map id="blackwater_mountain43" x="37" y="414" />
@@ -258,6 +263,9 @@
  <map id="stoutford_se" x="63" y="506" area="stoutford"/>
  <map id="stoutford_sw" x="38" y="506" area="stoutford"/>
  <map id="stoutford_nw" x="32" y="476" area="stoutford"/>
+
+ <map id="bogsten0" x="382" y="481"/>
+
  <namedarea id="charwoodh" name="Charwood" type="settlement"/>
  <namedarea id="crossglen" name="Crossglen" type="settlement"/>
  <namedarea id="crossroads" name="Crossroads Guardhouse" type="other"/>
