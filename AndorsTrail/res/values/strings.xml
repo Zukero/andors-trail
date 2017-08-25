@@ -114,6 +114,7 @@
 
 	<!-- <string name="key_required">A specific key is required to pass.</string> -->
 
+    <string name="iteminfo_title_equipped">(Equipped)</string>
 	<string name="iteminfo_category">Category: </string>
 	<string name="iteminfo_action_use">Use</string>
 	<string name="iteminfo_action_equip">Equip</string>

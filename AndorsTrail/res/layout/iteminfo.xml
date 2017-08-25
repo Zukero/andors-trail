@@ -64,6 +64,118 @@
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				/>
+
+			<LinearLayout
+				android:id="@+id/compareinfo"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical"
+				android:padding="@dimen/dialog_margin"
+				>
+				<TextView
+					android:id="@+id/compareinfo_title"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:text="@string/inventory_info"
+					style="@style/titleWithIcon"
+					android:drawableLeft="@drawable/equip_weapon"
+					/>
+
+				<TextView
+					android:id="@+id/compareinfo_description"
+					android:textStyle="italic"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginBottom="@dimen/section_margin"
+					/>
+
+				<TextView
+					android:id="@+id/compareinfo_displaytype"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					/>
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal"
+					android:gravity="center_vertical"
+					android:layout_marginBottom="@dimen/section_margin"
+					>
+					<TextView
+						android:text="@string/iteminfo_category"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						/>
+					<TextView
+						android:id="@+id/compareinfo_category"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						/>
+				</LinearLayout>
+
+				<com.gpl.rpg.AndorsTrail.view.ItemEffectsView
+					android:id="@+id/compareinfo_effects"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					/>
+			</LinearLayout>
+
+			<LinearLayout
+				android:id="@+id/compare2info"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical"
+				android:padding="@dimen/dialog_margin"
+				>
+				<TextView
+					android:id="@+id/compare2info_title"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:text="@string/inventory_info"
+					style="@style/titleWithIcon"
+					android:drawableLeft="@drawable/equip_weapon"
+					/>
+
+				<TextView
+					android:id="@+id/compare2info_description"
+					android:textStyle="italic"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginBottom="@dimen/section_margin"
+					/>
+
+				<TextView
+					android:id="@+id/compare2info_displaytype"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					/>
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal"
+					android:gravity="center_vertical"
+					android:layout_marginBottom="@dimen/section_margin"
+					>
+					<TextView
+						android:text="@string/iteminfo_category"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						/>
+					<TextView
+						android:id="@+id/compare2info_category"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						/>
+				</LinearLayout>
+
+				<com.gpl.rpg.AndorsTrail.view.ItemEffectsView
+					android:id="@+id/compare2info_effects"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					/>
+			</LinearLayout>
 		</LinearLayout>
 	</ScrollView>
 
