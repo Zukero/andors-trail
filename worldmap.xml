@@ -308,5 +308,6 @@
     <namedarea id="vilegard" name="Vilegard" type="settlement"/>
     <namedarea id="prim" name="Prim" type="settlement"/>
     <namedarea id="stoutford" name="Stoutford" type="settlement"/>
+    <namedarea id="hilltown" name="Hilltown" type="settlement"/>
   </segment>
 </worldmap>

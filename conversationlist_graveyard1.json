@@ -832,25 +832,38 @@
     },
     {
         "id":"lankson00",
-        "message":"Welcome to my shop! I'm Lankson."
-    },
-    {
-        "id":"lankson10",
-        "message":"I opened this store several weeks ago but you are my first customer.",
+        "message":"Good day. I'm Lankson. Welcome to my shop!",
         "replies":[
             {
                 "text":"N",
-                "nextPhraseID":"lankson20"
+                "nextPhraseID":"lankson10"
+            }
+        ]
+    },
+    {
+        "id":"lankson10",
+        "message":"I moved to Vilegard and opened this store several weeks ago but you are my first customer.",
+        "replies":[
+            {
+                "text":"N",
+                "nextPhraseID":"lankson11"
             }
         ]
     },
     {
         "id":"lankson20",
-        "message":"It's the strangest thing but nobody in this town will talk to me. They are very suspicious of outsiders.",
+        "message":"It's the strangest thing but nobody in this town will talk to me.",
         "replies":[
             {
-                "text":"Jolnor runs the game around here. He is a real bitch.",
-                "nextPhraseID":"lankson30"
+                "text":"I had the same problem. They are very suspicious of outsiders. Talk to Jolnor. Prove to him that you are a friend to Vilegard.",
+                "nextPhraseID":"lankson30",
+                "requires":[
+                    {
+                        "requireType":"questProgress",
+                        "requireID":"vilegard",
+                        "value":30
+                    }
+                ]
             }
         ]
     },
@@ -946,14 +959,6 @@
                 "value":40
             }
         ]
-    },
-    {
-        "id":"hilltownsign",
-        "message":"Welcome to Hilltown. Please do not step on our flowerbeds."
-    },
-    {
-        "id":"hilltowndirection",
-        "message":"North: Hilltown\nWest: Carn Tower"
     },
     {
         "id":"lostfound1",
@@ -1182,18 +1187,6 @@
     {
         "id":"lankson_begin",
         "replies":[
-            {
-                "text":"N",
-                "nextPhraseID":"lankson10",
-                "requires":[
-                    {
-                        "requireType":"questProgress",
-                        "requireID":"vilegard",
-                        "value":30,
-                        "negate":false
-                    }
-                ]
-            },
             {
                 "text":"N",
                 "nextPhraseID":"lankson00"
@@ -1426,6 +1419,16 @@
                         "negate":true
                     }
                 ]
+            }
+        ]
+    },
+    {
+        "id":"lankson11",
+        "message":"Unfortunately, I do not have any merchandise at the moment. Actually, I\u2019ve been having difficulty acquiring new items.",
+        "replies":[
+            {
+                "text":"N",
+                "nextPhraseID":"lankson20"
             }
         ]
     }

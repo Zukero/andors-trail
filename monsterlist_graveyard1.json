@@ -271,25 +271,6 @@
         "phraseID":"lankson00"
     },
     {
-        "id":"deathcob",
-        "name":"Death cob",
-        "iconID":"monsters_rltiles1:4",
-        "maxHP":60,
-        "maxAP":10,
-        "moveCost":5,
-        "monsterClass":"undead",
-        "attackDamage":{
-            "min":5,
-            "max":6
-        },
-        "spawnGroup":"deathcob",
-        "droplistID":"waterwayamushroom",
-        "attackCost":3,
-        "attackChance":80,
-        "blockChance":90,
-        "damageResistance":3
-    },
-    {
         "id":"cavefairy",
         "name":"Cave fairy",
         "iconID":"monsters_ld1:202",
