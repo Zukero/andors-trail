@@ -528,19 +528,7 @@
             },
             {
                 "text":"The way to come here is a real maze and the path is tricky to find. I think I've lost my way a hundred times. Do you know of an easier way?",
-                "nextPhraseID":"lodar_shortcut_0",
-                "requires":[
-                    {
-                        "requireType":"questProgress",
-                        "requireID":"shortcut_lodar",
-                        "value":10
-                    },
-                    {
-                        "requireType":"questProgress",
-                        "requireID":"shortcut_lodar",
-                        "value":30
-                    }
-                ]
+                "nextPhraseID":"lodar_shortcut_0"
             },
             {
                 "text":"I found the cave you mentioned but unfortunately the path doesn't go anywhere. I noticed a weird torch burning in a purple glow though. Do you know anything about this ?",
