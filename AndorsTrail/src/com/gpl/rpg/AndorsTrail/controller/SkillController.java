@@ -126,6 +126,7 @@ public final class SkillController {
 		int result = 0;
 		result += getActorConditionEffectChanceRollBiasFromResistanceSkills(effect, player);
 		result += getActorConditionEffectChanceRollBias(effect, player, SkillID.shadowBless, SkillCollection.PER_SKILLPOINT_INCREASE_RESISTANCE_SHADOW_BLESS);
+		result += getActorConditionEffectChanceRollBiasFromResistanceAbility(effect, player);
 		return result;
 	}
 
@@ -144,6 +145,15 @@ public final class SkillController {
 		}
 
 		return getActorConditionEffectChanceRollBias(effect, player, skill, SkillCollection.PER_SKILLPOINT_INCREASE_RESISTANCE_CHANCE_PERCENT);
+	}
+
+	private static int getActorConditionEffectChanceRollBiasFromResistanceAbility(ActorConditionEffect effect, Player player) {
+		SkillID skill;
+		skill = SkillID.resistanceSpore;
+		int skillLevel = player.getSkillLevel(skill);
+		if (skillLevel > 0 || effect.conditionType.conditionTypeID == "spore_poison")
+			return getActorConditionEffectChanceRollBias(effect, player, skill, SkillCollection.PER_SKILLPOINT_INCREASE_RESISTANCE_SPORE);
+		return 0;
 	}
 
 	private static int getActorConditionEffectChanceRollBias(ActorConditionEffect effect, Player player, SkillID skill, int chanceIncreasePerSkillLevel) {

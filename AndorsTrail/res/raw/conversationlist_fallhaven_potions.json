@@ -21,6 +21,29 @@
                         "value":10
                     }
                 ]
+            },
+            {
+                "text":"Old man Bogsten is sick. He was attacked by a giant mushroom. Do you have a cure ?",
+                "nextPhraseID":"fallhaven_pot_bogsten_0",
+                "requires":[
+                    {
+                        "requireType":"questLatestProgress",
+                        "requireID":"bogsten",
+                        "value":10,
+                        "negate":false
+                    }
+                ]
+            },
+            {
+                "text":"Hi!",
+                "nextPhraseID":"bogsten_sel",
+                "requires":[
+                    {
+                        "requireType":"questProgress",
+                        "requireID":"bogsten",
+                        "value":40
+                    }
+                ]
             }
         ]
     },
@@ -382,6 +405,255 @@
                 "rewardType":"questProgress",
                 "rewardID":"antifoodp",
                 "value":40
+            }
+        ]
+    },
+    {
+        "id":"fallhaven_pot_bogsten_0",
+        "message":"That must be a spore infection ! These can be nasty, deadly even. However, to make a cure, I will need a sample of these spores. Can you get some ? Four will do.",
+        "replies":[
+            {
+                "text":"Sure. Be right back.",
+                "nextPhraseID":"fallhaven_pot_bogsten_1"
+            },
+            {
+                "text":"Spores ? No way !",
+                "nextPhraseID":"X"
+            }
+        ]
+    },
+    {
+        "id":"fallhaven_pot_bogsten_1",
+        "message":"Hurry up. We may not have much time.",
+        "replies":[
+            {
+                "text":"N",
+                "nextPhraseID":"X"
+            }
+        ],
+        "rewards":[
+            {
+                "rewardType":"questProgress",
+                "rewardID":"bogsten",
+                "value":20
+            }
+        ]
+    },
+    {
+        "id":"bogsten_sel",
+        "replies":[
+            {
+                "text":"N",
+                "nextPhraseID":"fallhaven_pot_bogsten_cure_2_0",
+                "requires":[
+                    {
+                        "requireType":"questProgress",
+                        "requireID":"bogsten",
+                        "value":110
+                    }
+                ]
+            },
+            {
+                "text":"N",
+                "nextPhraseID":"fallhaven_pot_bogsten_cure_1_0",
+                "requires":[
+                    {
+                        "requireType":"questProgress",
+                        "requireID":"bogsten",
+                        "value":50
+                    },
+                    {
+                        "requireType":"questProgress",
+                        "requireID":"bogsten",
+                        "value":110,
+                        "negate":true
+                    }
+                ]
+            },
+            {
+                "text":"N",
+                "nextPhraseID":"fallhaven_pot_bogsten_cure_0_0",
+                "requires":[
+                    {
+                        "requireType":"questProgress",
+                        "requireID":"bogsten",
+                        "value":40
+                    },
+                    {
+                        "requireType":"questProgress",
+                        "requireID":"bogsten",
+                        "value":110,
+                        "negate":true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id":"fallhaven_pot_bogsten_cure_0_0",
+        "message":"Have you found the spores I asked for ?",
+        "replies":[
+            {
+                "text":"Here they are.",
+                "nextPhraseID":"fallhaven_pot_bogsten_cure_0_1",
+                "requires":[
+                    {
+                        "requireType":"questProgress",
+                        "requireID":"bogsten",
+                        "value":40
+                    },
+                    {
+                        "requireType":"inventoryRemove",
+                        "requireID":"fungi_spore",
+                        "value":4
+                    }
+                ]
+            },
+            {
+                "text":"No, not yet.",
+                "nextPhraseID":"X"
+            }
+        ]
+    },
+    {
+        "id":"fallhaven_pot_bogsten_cure_0_1",
+        "message":"I'm glad you brought these quickly. They are some of the deadliest. I will prepare the cure right now.",
+        "replies":[
+            {
+                "text":"N",
+                "nextPhraseID":"fallhaven_pot_bogsten_cure_0_2"
+            }
+        ]
+    },
+    {
+        "id":"fallhaven_pot_bogsten_cure_0_2",
+        "message":"Here. It is ready. Quick, go give it to Bogsten.",
+        "replies":[
+            {
+                "text":"N",
+                "nextPhraseID":"X"
+            }
+        ],
+        "rewards":[
+            {
+                "rewardType":"questProgress",
+                "rewardID":"bogsten",
+                "value":50
+            },
+            {
+                "rewardType":"giveItem",
+                "rewardID":"bogsten_cure",
+                "value":1
+            }
+        ]
+    },
+    {
+        "id":"fallhaven_pot_bogsten_cure_1_0",
+        "message":"Is Bogsten cured ?",
+        "replies":[
+            {
+                "text":"Yes and he gave me these mushrooms.",
+                "nextPhraseID":"fallhaven_pot_bogsten_cure_1_1",
+                "requires":[
+                    {
+                        "requireType":"questProgress",
+                        "requireID":"bogsten",
+                        "value":100
+                    },
+                    {
+                        "requireType":"inventoryRemove",
+                        "requireID":"bag_fungi",
+                        "value":1
+                    }
+                ]
+            },
+            {
+                "text":"Yes",
+                "nextPhraseID":"X",
+                "requires":[
+                    {
+                        "requireType":"questProgress",
+                        "requireID":"bogsten",
+                        "value":55
+                    }
+                ]
+            },
+            {
+                "text":"No",
+                "nextPhraseID":"X"
+            }
+        ]
+    },
+    {
+        "id":"fallhaven_pot_bogsten_cure_1_1",
+        "message":"These are rare and powerful mushrooms. Bogsten must really be thankful. I can prepare something for you with these.",
+        "replies":[
+            {
+                "text":"Please go ahead.",
+                "nextPhraseID":"fallhaven_pot_bogsten_cure_1_2"
+            },
+            {
+                "text":"Maybe this was not a complete waste of time after all.",
+                "nextPhraseID":"fallhaven_pot_bogsten_cure_1_2"
+            },
+            {
+                "text":"Maybe later.",
+                "nextPhraseID":"X"
+            }
+        ]
+    },
+    {
+        "id":"fallhaven_pot_bogsten_cure_1_2",
+        "message":"You can buy me some more anytime should you need them.",
+        "replies":[
+            {
+                "text":"Thank you.",
+                "nextPhraseID":"X"
+            }
+        ],
+        "rewards":[
+            {
+                "rewardType":"giveItem",
+                "rewardID":"bogsten_potion",
+                "value":2
+            },
+            {
+                "rewardType":"questProgress",
+                "rewardID":"bogsten",
+                "value":110
+            }
+        ]
+    },
+    {
+        "id":"fallhaven_pot_bogsten_cure_2_0",
+        "message":"",
+        "replies":[
+            {
+                "text":"[Buy] [Underground Fighter Potion] [145 gold]",
+                "nextPhraseID":"fallhaven_pot_bogsten_cure_2_1",
+				"requires":[
+                    {
+                        "requireType":"inventoryRemove",
+                        "requireID":"gold",
+                        "value":145
+                    }
+				]
+            }
+        ]
+    },
+    {
+        "id":"fallhaven_pot_bogsten_cure_2_1",
+        "replies":[
+            {
+                "text":"N",
+                "nextPhraseID":"X"
+            }
+        ],
+        "rewards":[
+            {
+                "rewardType":"giveItem",
+                "rewardID":"bogsten_potion",
+                "value":1
             }
         ]
     }

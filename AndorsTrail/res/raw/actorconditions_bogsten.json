@@ -1,0 +1,23 @@
+[
+    {
+        "id":"spore_allergy",
+        "iconID":"actorconditions_1:14",
+        "name":"Spore Allergy",
+        "category":"blood",
+        "isStacking":1,
+        "abilityEffect":{
+            "increaseAttackChance":-10
+        }
+    },
+    {
+        "id":"spore_poison",
+        "iconID":"actorconditions_1:16",
+        "name":"Spore Poisoning",
+        "category":"blood",
+        "isStacking":1,
+        "abilityEffect":{
+            "increaseAttackChance":-10,
+            "increaseMaxHP":-10
+        }
+    }
+]

@@ -1,0 +1,122 @@
+[
+    {
+        "id":"bogmers_staff",
+        "iconID":"items_misc_6:4",
+        "name":"Bogmer's Staff",
+        "displaytype":"extraordinary",
+        "category":"scepter",
+        "equipEffect":{
+            "increaseAttackDamage":{
+                "min":8,
+                "max":8
+            },
+            "increaseAttackCost":7,
+            "increaseAttackChance":18,
+            "increaseBlockChance":7
+        }
+    },
+    {
+        "id":"underground_scepter",
+        "iconID":"items_misc_6:12",
+        "name":"Underground Scepter",
+        "displaytype":"extraordinary",
+        "category":"scepter",
+        "equipEffect":{
+            "increaseAttackDamage":{
+                "min":8,
+                "max":10
+            },
+            "increaseAttackCost":6,
+            "increaseAttackChance":22,
+            "increaseBlockChance":4
+        },
+        "hitEffect":{
+            "conditionsTarget":[
+                {
+                    "condition":"spore_allergy",
+                    "magnitude":2,
+                    "duration":10,
+                    "chance":"5"
+                }
+            ]
+        }
+    },
+    {
+        "id":"bogsten_potion",
+        "iconID":"items_tometik1:31",
+        "name":"Underground Fighter Potion",
+        "displaytype":"rare",
+        "hasManualPrice":1,
+        "baseMarketCost":145,
+        "category":"pot",
+        "useEffect":{
+            "increaseCurrentHP":{
+                "min":10,
+                "max":10
+            },
+            "increaseCurrentAP":{
+                "min":2,
+                "max":2
+            },
+            "conditionsSource":[
+                {
+                    "condition":"spore_allergy",
+                    "magnitude":-99,
+                    "chance":"100"
+                },
+                {
+                    "condition":"spore_poison",
+                    "magnitude":-99,
+                    "chance":"100"
+                }
+            ]
+        }
+    },
+    {
+        "id":"fungi_spore",
+        "iconID":"items_misc_3:74",
+        "name":"Fungi Spore",
+        "displaytype":"ordinary",
+        "hasManualPrice":1,
+        "baseMarketCost":10,
+        "category":"animal"
+    },
+    {
+        "id":"mashed_worms",
+        "iconID":"items_misc_2:179",
+        "name":"Mashed Worms",
+        "displaytype":"ordinary",
+        "hasManualPrice":1,
+        "baseMarketCost":20,
+        "category":"animal"
+    },
+    {
+        "id":"bogsten_key",
+        "iconID":"items_misc:21",
+        "name":"Bogsten's key",
+        "displaytype":"quest",
+        "category":"other",
+        "description":"The key to Bogsten's backyard."
+    },
+    {
+        "id":"bogsten_necklace",
+        "iconID":"items_necklaces_1:10",
+        "name":"Bogsten's necklace",
+        "displaytype":"quest",
+        "category":"other"
+    },
+    {
+        "id":"bogsten_cure",
+        "iconID":"items_consumables:33",
+        "name":"Greenish potion",
+        "displaytype":"quest",
+        "category":"pot"
+    },
+    {
+        "id":"bag_fungi",
+        "iconID":"items_misc_6:28",
+        "name":"Bag with mushrooms",
+        "displaytype":"quest",
+        "category":"other"
+    }
+]

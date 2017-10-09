@@ -683,4 +683,8 @@ Every skill level increases the attack chance of weapons with %1$d %% of their o
 	<string name="skill_sort_name">Name</string>
 	<string name="skill_sort_points">Points</string>
 	<string name="skill_sort_unlocked">Unlocked</string>
+
+	<string name="skill_title_resistance_spore">Resistance conditions</string>
+	<string name="skill_shortdescription_resistance_spore">Resistance against conditions</string>
+	<string name="skill_longdescription_resistance_spore">Resistance for Spore Poison</string>
 </resources>

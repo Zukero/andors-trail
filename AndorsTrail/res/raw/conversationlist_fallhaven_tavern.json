@@ -10,6 +10,10 @@
             {
                 "text":"Are there any rooms available?",
                 "nextPhraseID":"bela_room_select"
+            },
+            {
+                "text":"Thanks, bye.",
+                "nextPhraseID":"X"
             }
         ]
     },
@@ -25,6 +29,29 @@
                         "requireType":"inventoryRemove",
                         "requireID":"gold",
                         "value":10
+                    },
+                    {
+                        "requireType":"questProgress",
+                        "requireID":"fallhaventavern1",
+                        "value":10,
+                        "negate":true
+                    }
+                ]
+            },
+            {
+                "text":"Buy [10 gold]",
+                "nextPhraseID":"bela_room_2_1",
+                "requires":[
+                    {
+                        "requireType":"inventoryRemove",
+                        "requireID":"gold",
+                        "value":10
+                    },
+                    {
+                        "requireType":"questProgress",
+                        "requireID":"fallhaventavern2",
+                        "value":10,
+                        "negate":true
                     }
                 ]
             },
@@ -50,7 +77,28 @@
         "rewards":[
             {
                 "rewardType":"questProgress",
-                "rewardID":"fallhaventavern",
+                "rewardID":"fallhaventavern1",
+                "value":10
+            }
+        ]
+    },
+    {
+        "id":"bela_room_2_1",
+        "message":"Thanks. Take the next room down the hall.",
+        "replies":[
+            {
+                "text":"Thank you. There was something else I wanted to talk about.",
+                "nextPhraseID":"bela"
+            },
+            {
+                "text":"Thanks, bye.",
+                "nextPhraseID":"X"
+            }
+        ],
+        "rewards":[
+            {
+                "rewardType":"questProgress",
+                "rewardID":"fallhaventavern2",
                 "value":10
             }
         ]

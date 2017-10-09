@@ -1,0 +1,88 @@
+[
+    {
+        "id":"bogsten",
+        "name":"Fungi Panic",
+        "showInLog":1,
+        "stages":[
+            {
+                "progress":10,
+                "logText":"I met old man Bogsten in his cabin. He is sick after encountering a giant mushroom and wants me to go see the potion merchant in Fallhaven to get a cure."
+            },
+            {
+                "progress":20,
+                "logText":"The potion merchant needs four spore samples to prepare the cure. I should go back to see Bogsten."
+            },
+            {
+                "progress":30,
+                "logText":"I should go to the mushroom cave from there and collect the spore samples."
+            },
+            {
+                "progress":35,
+                "logText":"I have opened Bogsten's backyard door."
+            },
+            {
+                "progress":40,
+                "logText":"I have collected the spores. I should go back to see the potion merchant."
+            },
+            {
+                "progress":50,
+                "logText":"The potion merchant gave me the cure. I can now give it to Bogsten."
+            },
+            {
+                "progress":55,
+                "logText":"Bogsten is cured.",
+                "rewardExperience":500
+            },
+            {
+                "progress":60,
+                "logText":"Bogsten says the evil forces in his cave are preventing him from working. He asked me to check his cave and gave me his necklace."
+            },
+            {
+                "progress":70,
+                "logText":"I met an old sorcerer named Zuul'khan in the cave. He told me Bogsten's family imprisoned him using an ancient petrifying spell, but thanks to Bogsten's laxity, he is now free. He wants me to kill Bogsten and bring him back Bogsten's staff."
+            },
+            {
+                "progress":80,
+                "logText":"I've decided to slay Zuul'khan."
+            },
+            {
+                "progress":90,
+                "logText":"I've defeated Zuul'khan, but he is not dead. He disappeared into the ground. I should tell Bogsten about what happened."
+            },
+            {
+                "progress":100,
+                "logText":"Bogsten now remembers the petrifying spell. He will make sure that Zuul'khan cannot come back. He gave me a bag of mushrooms and told me I should bring them to the potion merchant.",
+                "rewardExperience":2000
+            },
+            {
+                "progress":110,
+                "logText":"The potion merchant said these were rare mushrooms, and prepared two \"Underground Fighter\" potions for me. He will sell me some more if I come back.",
+                "finishesQuest":1
+            },
+            {
+                "progress":115,
+                "logText":"Zuul'khan's offer seemed interesting. I have to go kill Bogsten."
+            },
+            {
+                "progress":125,
+                "logText":"I killed Bogsten and found his staff. He was using it as a cane !"
+            },
+            {
+                "progress":135,
+                "logText":"I've decided to keep Bogsten's staff for me, and kill Zuul'khan."
+            },
+            {
+                "progress":145,
+                "logText":"I've defeated Zuul'khan, but he is not dead. He disappeared into the ground.",
+                "rewardExperience":2000,
+                "finishesQuest":1
+            },
+            {
+                "progress":155,
+                "logText":"I gave Bogsten's staff to Zuul'khan. He rewarded me with permanent immunity to the spore poison.",
+                "rewardExperience":2000,
+                "finishesQuest":1
+            }
+        ]
+    }
+]
