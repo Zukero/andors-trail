@@ -444,22 +444,45 @@ public final class MainActivity
 
 	@Override
 	public void onPlayerPickedUpGroundLoot(Loot loot) {
-		if (controllers.preferences.displayLoot == AndorsTrailPreferences.DISPLAYLOOT_NONE) return;
-		if (!showToastForPickedUpItems(loot)) return;
+		if (!showToastForLoot(loot)) return;
 
 		final String msg = Dialogs.getGroundLootPickedUpMessage(this, loot);
 		showToast(msg, Toast.LENGTH_LONG);
 	}
 
-	private boolean showToastForPickedUpItems(Loot loot) {
-		switch (controllers.preferences.displayLoot) {
-			case AndorsTrailPreferences.DISPLAYLOOT_TOAST:
+	public static boolean showToastForLoot(int displayLootPreference, Loot loot) {
+		switch (displayLootPreference) {
+			case AndorsTrailPreferences.DISPLAYLOOT_DIALOG_ALWAYS:
 			case AndorsTrailPreferences.DISPLAYLOOT_DIALOG_FOR_ITEMS_ELSE_TOAST:
+			case AndorsTrailPreferences.DISPLAYLOOT_TOAST:
+			case AndorsTrailPreferences.DISPLAYLOOT_DIALOG_RARE_ELSE_TOAST:
 				return true;
+			case AndorsTrailPreferences.DISPLAYLOOT_DIALOG_FOR_ITEMS:
 			case AndorsTrailPreferences.DISPLAYLOOT_TOAST_FOR_ITEMS:
 				return loot.hasItems();
+			case AndorsTrailPreferences.DISPLAYLOOT_TOAST_RARE_ELSE_NONE:
+			case AndorsTrailPreferences.DISPLAYLOOT_DIALOG_RARE_ELSE_NONE:
+				return loot.hasRareItems();
 		}
 		return false;
+	}
+
+	public static boolean showDialogForLoot(int displayLootPreference, Loot loot) {
+		switch (displayLootPreference) {
+			case AndorsTrailPreferences.DISPLAYLOOT_DIALOG_ALWAYS:
+				return true;
+			case AndorsTrailPreferences.DISPLAYLOOT_DIALOG_FOR_ITEMS:
+			case AndorsTrailPreferences.DISPLAYLOOT_DIALOG_FOR_ITEMS_ELSE_TOAST:
+				return loot.hasItems();
+			case AndorsTrailPreferences.DISPLAYLOOT_DIALOG_RARE_ELSE_TOAST:
+			case AndorsTrailPreferences.DISPLAYLOOT_DIALOG_RARE_ELSE_NONE:
+				return loot.hasRareItems();
+		}
+		return false;
+	}
+
+	private boolean showToastForLoot(Loot loot) {
+		return showToastForLoot(controllers.preferences.displayLoot, loot);
 	}
 
 	@Override
@@ -474,7 +497,7 @@ public final class MainActivity
 		if (controllers.preferences.displayLoot == AndorsTrailPreferences.DISPLAYLOOT_NONE) return;
 
 		final Loot combinedLoot = Loot.combine(loot);
-		if (!showToastForPickedUpItems(combinedLoot)) return;
+		if (!showToastForLoot(combinedLoot)) return;
 
 		final String msg = Dialogs.getMonsterLootPickedUpMessage(this, combinedLoot, exp);
 		showToast(msg, Toast.LENGTH_LONG);

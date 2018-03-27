@@ -6,7 +6,7 @@ import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
 
 public final class ItemType {
 
-	public static enum DisplayType {
+	public enum DisplayType {
 		ordinary
 		,quest
 		,legendary

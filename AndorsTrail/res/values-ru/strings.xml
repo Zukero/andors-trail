@@ -220,9 +220,17 @@
 	<string name="preferences_combat_speed_title">Скорость схватки</string>
 	<string name="preferences_combat_speed">Выбор скорости атаки монстров.</string>
 
-	<string name="preferences_display_loot_dialog">Показывать диалог</string>
+	<string name="preferences_display_loot_dialog">Всегда показывать диалог</string>
+	<string name="preferences_display_loot_dialog_on_items">Показывать диалог при нахождении предметов</string>
+	<string name="preferences_display_loot_dialog_on_items_or_toast">Диалог для предметов, иначе нотификация</string>
 	<string name="preferences_display_loot_toast">Короткое уведомление</string>
+	<string name="preferences_display_loot_toast_on_items">Нотификация при нахождении предметов</string>
+	<string name="preferences_display_loot_toast_rare_else_none">Нотификация при нахождении редких предметов</string>
+	<string name="preferences_display_loot_dialog_rare_else_none">Диалог при нахождении редких предметов</string>
+	<string name="preferences_display_loot_dialog_rare_else_toast">Диалог при нахождении редких предметов, иначе нотификация</string>
 	<string name="preferences_display_loot_never">Не показывать</string>
+
+
 	<string name="preferences_attackspeed_instant">Мгновенно (без анимации)</string>
 	<string name="preferences_attackspeed_fast">Быстро</string>
 	<string name="preferences_attackspeed_normal">Нормально</string>

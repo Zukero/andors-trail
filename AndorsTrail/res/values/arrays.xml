@@ -64,6 +64,9 @@
 		<item>@string/preferences_display_loot_dialog_on_items_or_toast</item>
 		<item>@string/preferences_display_loot_toast</item>
 		<item>@string/preferences_display_loot_toast_on_items</item>
+		<item>@string/preferences_display_loot_toast_rare_else_none</item>
+		<item>@string/preferences_display_loot_dialog_rare_else_none</item>
+		<item>@string/preferences_display_loot_dialog_rare_else_toast</item>
 		<item>@string/preferences_display_loot_never</item>
 	</string-array>
 	<string-array name="preferences_display_loot_values">
@@ -72,6 +75,9 @@
 		<item>4</item>
 		<item>1</item>
 		<item>5</item>
+		<item>6</item>
+		<item>7</item>
+		<item>8</item>
 		<item>2</item>
 	</string-array>
 

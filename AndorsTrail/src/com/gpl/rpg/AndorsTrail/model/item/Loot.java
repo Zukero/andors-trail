@@ -47,6 +47,12 @@ public final class Loot {
 	public boolean hasItems() {
 		return !items.isEmpty();
 	}
+	public boolean hasRareItems() {
+		for (ItemContainer.ItemEntry item: items.items) {
+			if (!item.itemType.isOrdinaryItem()) return true;
+		}
+		return false;
+	}
 	public boolean isContainer() {
 		return !isVisible;
 	}

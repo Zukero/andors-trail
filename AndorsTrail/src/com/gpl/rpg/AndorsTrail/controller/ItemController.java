@@ -1,6 +1,7 @@
 package com.gpl.rpg.AndorsTrail.controller;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
+import com.gpl.rpg.AndorsTrail.activity.MainActivity;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.listeners.QuickSlotListeners;
@@ -93,13 +94,13 @@ public final class ItemController {
 	}
 
 	public void playerSteppedOnLootBag(Loot loot) {
-		if (pickupLootBagWithoutConfirmation(loot)) {
+		if (confirmOnPickupLootBag(loot)) {
+			controllers.mapController.worldEventListeners.onPlayerSteppedOnGroundLoot(loot);
+			consumeNonItemLoot(loot);
+		} else {
 			controllers.mapController.worldEventListeners.onPlayerPickedUpGroundLoot(loot);
 			pickupAll(loot);
 			removeLootBagIfEmpty(loot);
-		} else {
-			controllers.mapController.worldEventListeners.onPlayerSteppedOnGroundLoot(loot);
-			consumeNonItemLoot(loot);
 		}
 	}
 
@@ -115,22 +116,15 @@ public final class ItemController {
 		}
 	}
 
-	private boolean pickupLootBagWithoutConfirmation(Loot bag) {
+	private boolean confirmOnPickupLootBag(Loot bag) {
 		if (bag.isContainer()) return false;
-		switch (controllers.preferences.displayLoot) {
-			case AndorsTrailPreferences.DISPLAYLOOT_DIALOG_ALWAYS:
-				return false;
-			case AndorsTrailPreferences.DISPLAYLOOT_DIALOG_FOR_ITEMS:
-			case AndorsTrailPreferences.DISPLAYLOOT_DIALOG_FOR_ITEMS_ELSE_TOAST:
-				if (bag.hasItems()) return false;
-		}
-		return true;
+		return MainActivity.showDialogForLoot(controllers.preferences.displayLoot, bag);
 	}
 
 	private boolean pickupLootBagsWithoutConfirmation(Collection<Loot> bags) {
 		if (controllers.preferences.displayLoot == AndorsTrailPreferences.DISPLAYLOOT_DIALOG_ALWAYS) return false;
 		for (Loot bag : bags) {
-			if (!pickupLootBagWithoutConfirmation(bag)) return false;
+			if (confirmOnPickupLootBag(bag)) return false;
 		}
 		return true;
 	}

@@ -96,7 +96,6 @@ public class ItemContainer {
 		}
 		return -1;
 	}
-	public boolean hasItem(String itemTypeID) { return findItem(itemTypeID) != null; }
 	public boolean hasItem(String itemTypeID, int minimumQuantity) {
 		return getItemQuantity(itemTypeID) >= minimumQuantity;
 	}
