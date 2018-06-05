@@ -1,0 +1,19 @@
+[
+    {
+        "id":"nocmar_complete",
+        "message":"By the Shadow. You actually found a heartstone. I thought I wouldn't live to see the day.",
+        "replies":[
+            {
+                "text":"N",
+                "nextPhraseID":"nocmar_complete_2"
+            }
+        ],
+        "rewards":[
+            {
+                "rewardType":"questProgress",
+                "rewardID":"nocmar",
+                "value":50
+            }
+        ]
+    }
+]

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+	<!-- Do not translate this. -->
+	<string name="about_copyright">Copyright © 2010–2013 Oskar Wiksten&lt;br /&gt;&lt;br /&gt;</string>
+	<string name="about_authors">
+		WEBSITE&lt;br /&gt;
+        &lt;a href="http://andorstrail.com/"&gt;Andorstrail.com &lt;/a&gt;&lt;br /&gt;
+        Web site provided by Scott Devaney&lt;br /&gt;
+        PROGRAMING&lt;br /&gt;
+		Original programming by Oskar Wiksten&lt;br /&gt;
+        Additional programming by Samuel Plentz&lt;br /&gt;
+		Additional programming by Uwe Jugel&lt;br /&gt;
+		Additional programming by Olivier Samyn&lt;br /&gt;
+		Additional programming by Ethan Wessel&lt;br /&gt;
+		Additional programming by Scott Lund&lt;br /&gt;
+		Additional programming by &lt;a href="https://github.com/Zukero"&gt;Kevin Pochat&lt;/a&gt;&lt;br /&gt;
+		Additional programming by Lucas Delvallet&lt;br /&gt;
+		Additional programming by Florian Doublet&lt;br /&gt;
+        CONTENT&lt;br /&gt;
+        Additional maps by Michael Schmid&lt;br /&gt;
+		Additional maps by Pete Wheeler&lt;br /&gt;
+		Additional maps by Ian Haase&lt;br /&gt;
+        Additional graphics by Karvis&lt;br /&gt;
+        Additional ideas by Nicholas Franks (Taledus)&lt;br /&gt;
+		Additional content and ideas by Tom Jobes&lt;br /&gt;
+		Additional content and ideas by Stan &quot;Meirerion&quot;&lt;br /&gt;
+		Additional content and ideas by &lt;a href="http://gulisanolaw.com"&gt;Mike Gulisano&lt;/a&gt;&lt;br /&gt;
+        TRANSLATIONS&lt;br /&gt;
+		Russian translation by Dreamer..., e.solodookhin, shell.andor, konstmih, istasman, Aleksey Kabanov, Alexander Zubok, Paul Sulemenkov and dromoz&lt;br /&gt;
+		Italian translation by k6blue, liogiu, Joker and Andrea Luciano Damico&lt;br /&gt;
+		French translation by LeSanglier, Misty Soul, zorun.42, Marwane K. and olivier&lt;br /&gt;
+		German translation by Bomber, Samuel Plentz, cngunners14, Phoenixor, Tutar and Mütze&lt;br /&gt;
+		English proofreading by taws34 and Elyon&lt;br /&gt;
+		English proofreading and testing by Stephen Stalnaker&lt;br /&gt;
+		Hebrew translation by eitanbm&lt;br /&gt;
+		Portuguese translation by mira&lt;br /&gt;
+		Portuguese translation by Mauro Carvalho Chehab&lt;br /&gt;
+		Japanese translation by surgecurrent&lt;br /&gt;
+		Polish translation by tobik9090siemens, DanielS and Piotr Wieczorek&lt;br /&gt;
+        FORUMS&lt;br /&gt;
+		Forum moderated by Tim Davis&lt;br /&gt;
+		Forum moderated by Josh Kloos&lt;br /&gt;
+		Forum moderated by Travis Miller&lt;br /&gt;
+		Forum moderated by Matthew B. White (Nyktos)&lt;br /&gt;
+		Forum moderated by Brent May&lt;br /&gt;
+        GRAPHICS&lt;br /&gt;
+		&lt;a href="http://telles0808.deviantart.com/art/RPG-Maker-VX-RTP-Tileset-159218223"&gt;Map tilesets graphics by telles0808&lt;/a&gt;&lt;br /&gt;
+		&lt;a href="http://ails.deviantart.com/art/420-Pixel-Art-Icons-for-RPG-129892453"&gt;Item tilesets graphics by Ails&lt;/a&gt;&lt;br /&gt;
+		&lt;a href="http://redknight91.deviantart.com/art/Arena-Game-Sprites-154661559"&gt;Hero graphics by RedKnight91&lt;/a&gt;&lt;br /&gt;
+		&lt;a href="http://nacred.deviantart.com/art/Sprite-Sheet-171751308"&gt;Additional monster graphics by nacred&lt;/a&gt;&lt;br /&gt;
+		&lt;a href="http://opengameart.org/content/whispers-of-avalon-item-icons"&gt;Additional graphics by Meway, Len Pabin, Auran, Silviyius&lt;/a&gt;&lt;br /&gt;
+		&lt;a href="http://opengameart.org/content/10-basic-rpg-enemies"&gt;Additional graphics by Stephen Challener (Redshrike)&lt;/a&gt; &lt;a href="http://opengameart.org/content/more-rpg-enemies"&gt;(more)&lt;/a&gt;&lt;br /&gt;
+		&lt;a href="http://opengameart.org/content/skull"&gt;Additional graphics by Jorge.Avila&lt;/a&gt;&lt;br /&gt;
+		&lt;a href="http://opengameart.org/content/dark-fantasy-item-sprites"&gt;Additional graphics by Gwes&lt;/a&gt;&lt;br /&gt;
+		&lt;a href="http://pousse.rapiere.free.fr/tome/"&gt;Additional graphics by David Gervais&lt;/a&gt;&lt;br /&gt;
+		&lt;a href="http://forums.wesnoth.org/viewtopic.php?f=19&amp;t=12207&amp;start=75"&gt;Additional graphics by turin&lt;/a&gt;&lt;br /&gt;
+		&lt;a href="http://opengameart.org/content/zombies-skeletons"&gt;Additional graphics by artisticdude&lt;/a&gt;&lt;br /&gt;
+		&lt;a href="http://pixelhack.blogspot.com/"&gt;Additional graphics by Mindflayer / Necroleachate&lt;/a&gt;&lt;br /&gt;
+		&lt;a href="http://opengameart.org/content/items-set"&gt;Additional graphics by Artur Reterski&lt;/a&gt;&lt;br /&gt;
+		&lt;a href="http://opengameart.org/content/farming-tilesets-magic-animations-and-ui-elements"&gt;Additional graphics by Daniel Eddeland&lt;/a&gt;&lt;br /&gt;
+		&lt;a href="http://opengameart.org/content/liberated-pixel-cup-base-assets-sprites-map-tiles"&gt;Additional graphics by Lanea Zimmerman (AKA Sharm)&lt;/a&gt;&lt;br /&gt;
+		&lt;a href="http://art.gnome.org/themes/icon"&gt;Additional graphics by Gnome icon artists&lt;/a&gt;&lt;br /&gt;
+		&lt;a href="http://forums.rpgmakerweb.com/index.php?/topic/5434-its-a-mad-mad-mad-mad-world-maddies-edits-and-clumping/"&gt;Additional graphics by Paladin-Cleric of Awesome&lt;/a&gt;&lt;br /&gt;
+		&lt;a href="http://ayene-chan.deviantart.com/gallery/32324562"&gt;Additional graphics by Ayene-chan&lt;/a&gt;&lt;br /&gt;
+		&lt;a href="http://vxresource.wordpress.com/2010/03/17/the-real-macks-tileset/"&gt;Additional graphics by Mack&lt;/a&gt;&lt;br /&gt;
+		&lt;a href="http://forums.rpgmakerweb.com/index.php?/topic/9178-amazing-avys-awesome-arrrpg-maker-stuff/ "&gt;Additional graphics by Avery, Gits&lt;/a&gt;&lt;br /&gt;
+		&lt;a href="http://vxresource.wordpress.com/category/resources/tilesets/"&gt;Additional graphics by vxresource.wordpress.com&lt;/a&gt;&lt;br /&gt;
+		This website shares tiles with the general public for free with the agreement of their original creators.&lt;br /&gt;
+		&lt;br /&gt;
+		Additional graphics by DeBray Bailey&lt;br /&gt;
+		&lt;a href="http://rltiles.sourceforge.net"&gt;Monster tileset graphics by rltiles.sourceforge.net&lt;/a&gt;&lt;br /&gt;
+		Part of (or All) the graphic tiles used in this program is the public domain roguelike tileset "RLTiles".
+		Some of the tiles have been modified by Oskar Wiksten.
+		You can find the original tileset at &lt;a href="http://rltiles.sf.net"&gt;http://rltiles.sf.net&lt;/a&gt;&lt;br /&gt;
+		&lt;br /&gt;
+		Some of the graphic data in this software are free game resources distributed by REFMAP (&lt;a href="http://www.tekepon.net/fsm"&gt;http://www.tekepon.net/fsm&lt;/a&gt;).
+		You must not use the graphic data which is in this software, for the purpose except playing this game. When you want to get these resources, go to the website above.&lt;br /&gt;
+	</string>
+</resources>
