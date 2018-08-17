@@ -653,7 +653,7 @@ Every skill level increases the attack chance of weapons with %1$d %% of their o
 	<!-- Added in v0.7.1 -->
 
 	<string name="preferences_ui_use_localized_resources_title">Use localized resources</string>
-	<string name="preferences_ui_use_localized_resources">Use translation of interface and content, where available. (requires restart)</string>
+	<string name="preferences_ui_use_localized_resources">Program restart required to use translation of interface and content, where available.</string>
 	<string name="change_locale_requires_restart">Program restart required to change language. Andor\'s Trail has been closed.</string>
 
 	<!-- =========================================== -->
@@ -696,7 +696,7 @@ Every skill level increases the attack chance of weapons with %1$d %% of their o
 	<string name="skill_sort_unlocked">Unlocked</string>
 	
 	<string name="preferences_display_theme_title">Theme</string>
-	<string name="preferences_display_theme">Choose the UI theme. (Requires program restart)</string>
+	<string name="preferences_display_theme">Program restart required to choose UI theme.</string>
 	<string name="preferences_display_theme_blue">Cobalt</string>
 	<string name="preferences_display_theme_green">Malachite</string>
 	<string name="preferences_display_theme_charcoal">Obsidian</string>
