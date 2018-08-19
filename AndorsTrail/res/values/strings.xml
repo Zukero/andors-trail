@@ -277,7 +277,7 @@
 
 	<string name="preferences_display_category">Display</string>
 	<string name="preferences_display_fullscreen_title">Fullscreen</string>
-	<string name="preferences_display_fullscreen">Program restart required to display the game in fullscreen mode.</string>
+	<string name="preferences_display_fullscreen">Changing fullscreen view requires program restart.</string>
 	<string name="preferences_dialog_category">Dialog confirmation</string>
 	<string name="preferences_dialog_confirmrest_title">Confirm rest</string>
 	<string name="preferences_dialog_confirmrest">Gives a question about whether you want to rest when entering a bed. Otherwise, you will always automatically rest.</string>
@@ -652,9 +652,9 @@ Every skill level increases the attack chance of weapons with %1$d %% of their o
 	<!-- =========================================== -->
 	<!-- Added in v0.7.1 -->
 
-	<string name="preferences_ui_use_localized_resources_title">Use localized resources</string>
-	<string name="preferences_ui_use_localized_resources">Program restart required to use translation of interface and content, where available.</string>
-	<string name="change_locale_requires_restart">Program restart required to change language. Andor\'s Trail has been closed.</string>
+	<string name="preferences_ui_use_localized_resources_title">Localize resources</string>
+	<string name="preferences_ui_use_localized_resources">Changing language of interface and content requires program restart.</string>
+	<string name="change_locale_requires_restart">Andor\'s Trail has been closed to change language.</string>
 
 	<!-- =========================================== -->
 	<!-- Added in v0.7.2 -->
@@ -696,11 +696,11 @@ Every skill level increases the attack chance of weapons with %1$d %% of their o
 	<string name="skill_sort_unlocked">Unlocked</string>
 	
 	<string name="preferences_display_theme_title">Theme</string>
-	<string name="preferences_display_theme">Program restart required to choose UI theme.</string>
+	<string name="preferences_display_theme">Changing UI theme requires program restart.</string>
 	<string name="preferences_display_theme_blue">Cobalt</string>
 	<string name="preferences_display_theme_green">Malachite</string>
 	<string name="preferences_display_theme_charcoal">Obsidian</string>
-	<string name="change_theme_requires_restart">Program restart required to change UI theme. Andor\'s Trail has been closed.</string>
+	<string name="change_theme_requires_restart">Andor\'s Trail has been closed to change UI theme.</string>
 	
 	
 </resources>
