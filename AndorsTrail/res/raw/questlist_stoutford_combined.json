@@ -63,8 +63,12 @@
                 "logText":"Caeda asked for my help to clear out the monsters in the caves so that she can go back there and attend to the flowers."
             },
             {
+                "progress":55,
+                "logText":"Many monsters are dead now. The rest wouldn't dare anymore to pass by the statue."
+            },
+            {
                 "progress":60,
-                "logText":"I killed the monsters and told Caeda, so that she can attend to the glade.",
+                "logText":"I told Caeda, so that she can attend to the glade.",
                 "finishesQuest":1
             }
         ]

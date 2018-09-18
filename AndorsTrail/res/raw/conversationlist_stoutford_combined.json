@@ -712,7 +712,8 @@
         "message":"Oh, it is you again. Did you find my key?",
         "replies":[
             {
-                "text":"No, not yet."
+                "text":"No, not yet.",
+                "nextPhraseID":"X"
             }
         ]
     },
@@ -1100,7 +1101,17 @@
         "message":"With all these trolls around I don't feel safe to go through the cave and take care of the flowers in the glade.",
         "replies":[
             {
-                "text":"The scorpions are bad enough, but the trolls are really dangerous.",
+                "text":"N",
+                "nextPhraseID":"caeda_root40_1a"
+            }
+        ]
+    },
+    {
+        "id":"caeda_root40_1a",
+        "message":"The scorpions are bad enough, but the trolls are really dangerous. I know that they hate the statue, but I am scared they can reach past it.",
+        "replies":[
+            {
+                "text":"N",
                 "nextPhraseID":"caeda_root40_2"
             }
         ]
@@ -1110,7 +1121,7 @@
         "message":"Would it be too much to ask if you could get rid of the trolls?",
         "replies":[
             {
-                "text":"I could clear the caves a bit more. No problem.",
+                "text":"I can teach them to stay further away from the statue. No problem.",
                 "nextPhraseID":"X"
             }
         ],
@@ -3026,6 +3037,75 @@
                         "negate":true
                     }
                 ]
+            }
+        ]
+    },
+    {
+        "id":"script_lakecave_cleared",
+        "replies":[
+            {
+                "text":"N",
+                "nextPhraseID":"script_lakecave_cleared_1",
+                "requires":[
+                    {
+                        "requireType":"questProgress",
+                        "requireID":"secret_garden",
+                        "value":50
+                    },
+                    {
+                        "requireType":"questProgress",
+                        "requireID":"secret_garden",
+                        "value":55,
+                        "negate":true
+                    },
+                    {
+                        "requireType":"questProgress",
+                        "requireID":"secret_garden",
+                        "value":60,
+                        "negate":true
+                    },
+                    {
+                        "requireType":"killedMonster",
+                        "requireID":"cave_troll_2",
+                        "value":7
+                    },
+                    {
+                        "requireType":"killedMonster",
+                        "requireID":"cave_troll_3",
+                        "value":15
+                    },
+                    {
+                        "requireType":"killedMonster",
+                        "requireID":"cave_troll_4",
+                        "value":7
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id":"script_lakecave_cleared_1",
+        "message":"Many of the trolls are dead now. The rest will no longer dare to approach the statue.",
+        "rewards":[
+            {
+                "rewardType":"questProgress",
+                "rewardID":"secret_garden",
+                "value":55
+            },
+            {
+                "rewardType":"removeSpawnArea",
+                "rewardID":"lakecave0_9",
+                "mapName":"lakecave0"
+            },
+            {
+                "rewardType":"removeSpawnArea",
+                "rewardID":"lakecave0_9_1",
+                "mapName":"lakecave0"
+            },
+            {
+                "rewardType":"removeSpawnArea",
+                "rewardID":"lakecave0_9_2",
+                "mapName":"lakecave0"
             }
         ]
     },
@@ -8442,7 +8522,7 @@
     },
     {
         "id":"stn_gyra_29_130",
-        "message":"To find the helmet, we should really search all the rooms in the castle.",
+        "message":"To find the helmet, we should really search all the rooms within the castle and its walls.",
         "rewards":[
             {
                 "rewardType":"createTimer",

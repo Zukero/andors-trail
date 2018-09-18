@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.5" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="32" tileheight="32" infinite="0" nextobjectid="35">
+<map version="1.0" tiledversion="1.1.5" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="32" tileheight="32" infinite="0" nextobjectid="36">
  <tileset firstgid="1" name="map_bed_1" tilewidth="32" tileheight="32" tilecount="128" columns="16">
   <image source="../drawable/map_bed_1.png" width="512" height="256"/>
  </tileset>
@@ -254,6 +254,11 @@
   </object>
   <object id="33" name="lakecave2_script_keycheck3" type="script" x="864" y="96" width="32" height="32"/>
   <object id="19" name="lakecave2_script_keycheck1" type="script" x="640" y="64" width="288" height="160"/>
+  <object id="35" name="script_lakecave_cleared" type="script" x="32" y="96" width="896" height="832">
+   <properties>
+    <property name="when" value="step"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="Spawn" visible="0">
   <object id="6" name="lakecave2_1" type="spawn" x="64" y="96" width="288" height="512">
