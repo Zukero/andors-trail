@@ -4,7 +4,7 @@
         "iconID":"actorconditions_1:35",
         "name":"Sustenance",
         "category":"physical",
-	"isPositive":1,
+        "isPositive":1,
         "roundEffect":{
             "increaseCurrentHP":{
                 "min":1,

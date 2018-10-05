@@ -4,7 +4,7 @@
         "iconID":"actorconditions_1:41",
         "name":"Bless",
         "category":"spiritual",
-	"isPositive":1,
+        "isPositive":1,
         "abilityEffect":{
             "increaseAttackChance":5
         }

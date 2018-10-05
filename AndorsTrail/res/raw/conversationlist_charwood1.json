@@ -232,7 +232,7 @@
     },
     {
         "id":"khorailla_cheddar",
-		"switchToNPC":"khorailla_cheddar",
+        "switchToNPC":"khorailla_cheddar",
         "message":"Ah, you really know what's good.",
         "replies":[
             {
@@ -240,5 +240,5 @@
                 "text":"I hope so. It was a long way to come."
             }
         ]
-	}
+    }
 ]

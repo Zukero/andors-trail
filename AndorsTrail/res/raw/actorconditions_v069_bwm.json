@@ -4,7 +4,7 @@
         "iconID":"actorconditions_1:87",
         "name":"Minor speed",
         "category":"physical",
-	"isPositive":1,
+        "isPositive":1,
         "abilityEffect":{
             "increaseMaxAP":2
         }
@@ -54,7 +54,7 @@
         "iconID":"actorconditions_1:90",
         "name":"Minor berserker rage",
         "category":"mental",
-	"isPositive":1,
+        "isPositive":1,
         "abilityEffect":{
             "increaseAttackChance":60,
             "increaseMaxHP":35,

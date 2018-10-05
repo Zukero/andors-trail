@@ -1515,7 +1515,7 @@
                         "requireType":"killedMonster",
                         "requireID":"erwyn",
                         "value":2,
-						"negate":true
+                        "negate":true
                     }
                 ]
             }
@@ -1579,7 +1579,6 @@
             {
                 "text":"Thank you.",
                 "nextPhraseID":"X"
-
             }
         ],
         "rewards":[

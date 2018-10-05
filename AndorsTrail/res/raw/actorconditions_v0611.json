@@ -41,7 +41,7 @@
         "iconID":"actorconditions_1:70",
         "name":"Focused damage",
         "category":"mental",
-	"isPositive":1,
+        "isPositive":1,
         "abilityEffect":{
             "increaseAttackDamage":{
                 "min":3,
@@ -55,7 +55,7 @@
         "iconID":"actorconditions_1:98",
         "name":"Focused accuracy",
         "category":"mental",
-	"isPositive":1,
+        "isPositive":1,
         "abilityEffect":{
             "increaseAttackChance":40,
             "increaseAttackCost":1

@@ -1892,7 +1892,7 @@
     },
     {
         "id":"stoutford_widow_thorns20_5",
-		"switchToNPC":"none",
+        "switchToNPC":"none",
         "message":"Aryfola just glares at you. Her eyes are icy cold."
     },
     {
@@ -2312,7 +2312,7 @@
                         "requireType":"questProgress",
                         "requireID":"stn_nondisplay",
                         "value":200,
-						"negate":true
+                        "negate":true
                     }
                 ]
             },
@@ -2323,13 +2323,13 @@
                         "requireType":"killedMonster",
                         "requireID":"blornvale_wolf",
                         "value":1,
-						"negate":true
+                        "negate":true
                     }
                 ]
             },
             {
                 "nextPhraseID":"blornvale_shop1_6"
-			}
+            }
         ]
     },
     {
@@ -2552,7 +2552,7 @@
                         "requireType":"questProgress",
                         "requireID":"stn_nondisplay",
                         "value":202
-					}
+                    }
                 ]
             },
             {
@@ -2580,7 +2580,7 @@
                         "requireType":"questProgress",
                         "requireID":"thorns_vengeance",
                         "value":200,
-						"negate":true
+                        "negate":true
                     }
                 ]
             },
@@ -2592,7 +2592,7 @@
                         "requireType":"questProgress",
                         "requireID":"thorns_vengeance",
                         "value":200
-					}
+                    }
                 ]
             }
         ]
@@ -4607,26 +4607,26 @@
             {
                 "nextPhraseID":"stoutford_castle_3_2",
                 "requires":[
-					{
+                    {
                         "requireType":"questProgress",
                         "requireID":"stn_nondisplay",
-                        "value":148					
-					},
-					{
+                        "value":148
+                    },
+                    {
                         "requireType":"questProgress",
                         "requireID":"stn_nondisplay",
-                        "value":49					
-					}
+                        "value":49
+                    }
                 ]
             },
             {
                 "nextPhraseID":"stoutford_castle_3a",
                 "requires":[
-					{
+                    {
                         "requireType":"questProgress",
                         "requireID":"stn_nondisplay",
-                        "value":148					
-					}
+                        "value":148
+                    }
                 ]
             },
             {
@@ -4658,12 +4658,12 @@
             {
                 "nextPhraseID":"stoutford_castle_3_2",
                 "requires":[
-					{
+                    {
                         "requireType":"questProgress",
                         "requireID":"stn_nondisplay",
-                        "value":49					
-					}
-				]
+                        "value":49
+                    }
+                ]
             },
             {
                 "nextPhraseID":"stoutford_castle_3a"
@@ -4768,11 +4768,11 @@
                         "requireID":"erwyn2",
                         "value":1
                     },
-					{
+                    {
                         "requireType":"questProgress",
                         "requireID":"stn_nondisplay",
                         "value":48
-					}
+                    }
                 ]
             },
             {
@@ -4808,17 +4808,17 @@
                         "requireID":"erwyn",
                         "value":1
                     },
-					{
+                    {
                         "requireType":"questProgress",
                         "requireID":"stn_nondisplay",
                         "value":48
-					},
-					{
+                    },
+                    {
                         "requireType":"questProgress",
                         "requireID":"stn_nondisplay",
                         "value":49,
-						"negate":true
-					}
+                        "negate":true
+                    }
                 ]
             },
             {
@@ -4829,12 +4829,12 @@
                         "requireID":"erwyn_coin",
                         "value":2
                     },
-					{
+                    {
                         "requireType":"questProgress",
                         "requireID":"stn_nondisplay",
                         "value":49,
-						"negate":true
-					}
+                        "negate":true
+                    }
                 ]
             },
             {
@@ -4844,13 +4844,13 @@
                         "requireType":"inventoryKeep",
                         "requireID":"erwyn_coin",
                         "value":2,
-						"negate":true
-
+                        "negate":true
                     },
-					{
+                    {
                         "requireType":"questProgress",
                         "requireID":"stn_nondisplay",
-                        "value":49					}
+                        "value":49
+                    }
                 ]
             }
         ]
@@ -4861,9 +4861,9 @@
         "replies":[
             {
                 "text":"N",
-				"nextPhraseID":"check_erwyn_1a"
+                "nextPhraseID":"check_erwyn_1a"
             }
-		],
+        ],
         "rewards":[
             {
                 "rewardType":"removeQuestProgress",
@@ -4907,7 +4907,7 @@
                     }
                 ]
             }
-		],
+        ],
         "rewards":[
             {
                 "rewardType":"spawnAll",

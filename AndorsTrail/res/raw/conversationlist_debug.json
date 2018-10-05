@@ -1,188 +1,188 @@
 [
     {
-        "id": "debugshop",
-        "message": "Welcome adventurer!",
-        "replies": [
+        "id":"debugshop",
+        "message":"Welcome adventurer!",
+        "replies":[
             {
-                "text": "Trade items very very long text",
-                "nextPhraseID": "S"
+                "text":"Trade items very very long text",
+                "nextPhraseID":"S"
             },
             {
-                "text": "Bye",
-                "nextPhraseID": "X"
+                "text":"Bye",
+                "nextPhraseID":"X"
             },
             {
-                "text": "Fight",
-                "nextPhraseID": "F"
+                "text":"Fight",
+                "nextPhraseID":"F"
             }
         ]
     },
     {
-        "id": "debugquest",
-        "message": "Debug quest start\nTest.",
-        "rewards": [
+        "id":"debugquest",
+        "message":"Debug quest start\nTest.",
+        "rewards":[
             {
-                "rewardType": "questProgress",
-                "rewardID": "debugquest",
-                "value": 10
+                "rewardType":"questProgress",
+                "rewardID":"debugquest",
+                "value":10
             }
         ],
-        "replies": [
+        "replies":[
             {
-                "text": "Iron sword*2",
-                "nextPhraseID": "debugquest2",
-                "requires": [
+                "text":"Iron sword*2",
+                "nextPhraseID":"debugquest2",
+                "requires":[
                     {
-                        "requireType": "inventoryRemove",
-                        "requireID": "dagger0",
-                        "value": 1
+                        "requireType":"inventoryRemove",
+                        "requireID":"dagger0",
+                        "value":1
                     }
                 ]
             },
             {
-                "text": "Progress+=10",
-                "nextPhraseID": "debugquest4"
+                "text":"Progress+=10",
+                "nextPhraseID":"debugquest4"
             },
             {
-                "text": "Progress=100",
-                "nextPhraseID": "debugquest1",
-                "requires": [
+                "text":"Progress=100",
+                "nextPhraseID":"debugquest1",
+                "requires":[
                     {
-                        "requireType": "questProgress",
-                        "requireID": "debugquest",
-                        "value": "100"
+                        "requireType":"questProgress",
+                        "requireID":"debugquest",
+                        "value":"100"
                     }
                 ]
             }
         ]
     },
     {
-        "id": "debugquest1",
-        "message": "Yes, you have already completed this quest.",
-        "rewards": [
+        "id":"debugquest1",
+        "message":"Yes, you have already completed this quest.",
+        "rewards":[
             {
-                "rewardType": "dropList",
-                "rewardID": "debuglist1"
+                "rewardType":"dropList",
+                "rewardID":"debuglist1"
             }
         ],
-        "replies": [
+        "replies":[
             {
-                "text": "Next",
-                "nextPhraseID": "debugquest3"
+                "text":"Next",
+                "nextPhraseID":"debugquest3"
             }
         ]
     },
     {
-        "id": "debugquest2",
-        "message": "Thank you for the items.",
-        "rewards": [
+        "id":"debugquest2",
+        "message":"Thank you for the items.",
+        "rewards":[
             {
-                "rewardType": "questProgress",
-                "rewardID": "debugquest",
-                "value": 100
+                "rewardType":"questProgress",
+                "rewardID":"debugquest",
+                "value":100
             }
         ],
-        "replies": [
+        "replies":[
             {
-                "text": "Next",
-                "nextPhraseID": "debugquest3"
+                "text":"Next",
+                "nextPhraseID":"debugquest3"
             }
         ]
     },
     {
-        "id": "debugquest3",
-        "message": "Quest is now completed.",
-        "replies": [
+        "id":"debugquest3",
+        "message":"Quest is now completed.",
+        "replies":[
             {
-                "text": "Bye",
-                "nextPhraseID": "X"
+                "text":"Bye",
+                "nextPhraseID":"X"
             }
         ]
     },
     {
-        "id": "debugquest4",
-        "message": "More info. Quest progress should now be updated to 20.",
-        "rewards": [
+        "id":"debugquest4",
+        "message":"More info. Quest progress should now be updated to 20.",
+        "rewards":[
             {
-                "rewardType": "questProgress",
-                "rewardID": "debugquest",
-                "value": 20
+                "rewardType":"questProgress",
+                "rewardID":"debugquest",
+                "value":20
             }
         ],
-        "replies": [
+        "replies":[
             {
-                "text": "Back",
-                "nextPhraseID": "debugquest"
+                "text":"Back",
+                "nextPhraseID":"debugquest"
             }
         ]
     },
     {
-        "id": "debugsign",
-        "message": "This should be a signpost."
+        "id":"debugsign",
+        "message":"This should be a signpost."
     },
     {
-        "id": "debugrequireskey",
-        "message": "This tile requires a quest progress."
+        "id":"debugrequireskey",
+        "message":"This tile requires a quest progress."
     },
-   {
-    "id": "debugrequires10gold",
-    "replies": [
-      {
-        "text": "Too bad.",
-        "nextPhraseID": "X"
-      },
-      {
-        "text": "Well, gimme 10 gold then !",
-        "nextPhraseID": "debugrequires10gold_1"
-      }
-    ],
-    "message": "This tile costs 10 gold !"
-  },
-  {
-    "id": "debugrequires10gold_1",
-    "replies": [
-      {
-        "requires": [
-          {
-            "requireType": "spentGold",
-            "requireID": "gold",
-            "value": 100
-          }
-        ],
-        "nextPhraseID": "debugrequires10gold_3"
-      },
-      {
-        "nextPhraseID": "debugrequires10gold_2"
-      }
-    ]
-  },
-  {
-    "id": "debugrequires10gold_2",
-    "rewards": [
+    {
+        "id":"debugrequires10gold",
+        "replies":[
             {
-                "rewardType": "dropList",
-                "rewardID": "debugrequires10gold_droplist"
+                "text":"Too bad.",
+                "nextPhraseID":"X"
+            },
+            {
+                "text":"Well, gimme 10 gold then !",
+                "nextPhraseID":"debugrequires10gold_1"
             }
-    ],
-    "replies": [
-      {
-        "text": "When I come to debugmap, I always feel like a star.",
-        "nextPhraseID": "X"
-      }
-    ],
-    "message": "OK. But only because it's you M. Coder."
-  },
-  {
-    "id": "debugrequires10gold_3",
-    "replies": [
-      {
-        "text": "Damn.",
-        "nextPhraseID": "X"
-      }
-    ],
-    "message": "Sorry. You already spent 100 gold..."
-  },
-  {
+        ],
+        "message":"This tile costs 10 gold !"
+    },
+    {
+        "id":"debugrequires10gold_1",
+        "replies":[
+            {
+                "requires":[
+                    {
+                        "requireType":"spentGold",
+                        "requireID":"gold",
+                        "value":100
+                    }
+                ],
+                "nextPhraseID":"debugrequires10gold_3"
+            },
+            {
+                "nextPhraseID":"debugrequires10gold_2"
+            }
+        ]
+    },
+    {
+        "id":"debugrequires10gold_2",
+        "rewards":[
+            {
+                "rewardType":"dropList",
+                "rewardID":"debugrequires10gold_droplist"
+            }
+        ],
+        "replies":[
+            {
+                "text":"When I come to debugmap, I always feel like a star.",
+                "nextPhraseID":"X"
+            }
+        ],
+        "message":"OK. But only because it's you M. Coder."
+    },
+    {
+        "id":"debugrequires10gold_3",
+        "replies":[
+            {
+                "text":"Damn.",
+                "nextPhraseID":"X"
+            }
+        ],
+        "message":"Sorry. You already spent 100 gold..."
+    },
+    {
         "message":"Hmm... beer...",
         "id":"signbeer"
     },
@@ -194,7 +194,7 @@
                 "nextPhraseID":"npc3_1",
                 "text":"Beer!"
             },
-           	{
+            {
                 "nextPhraseID":"npc3_3",
                 "text":"No filter!"
             },
@@ -262,115 +262,115 @@
         "id":"signnobeer"
     },
     {
-    	"id":"npc3_2",
-    	"message":"OK.",
-    	"rewards":[
-        	{
-            	"rewardType":"changeMapFilter",
-            	"rewardID":"black80",
-            	"mapName":"debugmap"
-        	}
-    	]
-	},
+        "id":"npc3_2",
+        "message":"OK.",
+        "rewards":[
+            {
+                "rewardType":"changeMapFilter",
+                "rewardID":"black80",
+                "mapName":"debugmap"
+            }
+        ]
+    },
     {
-    	"id":"npc3_3",
-    	"message":"OK.",
-    	"rewards":[
-        	{
-            	"rewardType":"changeMapFilter",
-            	"rewardID":"none",
-            	"mapName":"debugmap"
-        	}
-    	]
-	},
+        "id":"npc3_3",
+        "message":"OK.",
+        "rewards":[
+            {
+                "rewardType":"changeMapFilter",
+                "rewardID":"none",
+                "mapName":"debugmap"
+            }
+        ]
+    },
     {
-    	"id":"npc3_4",
-    	"message":"OK.",
-    	"rewards":[
-        	{
-            	"rewardType":"changeMapFilter",
-            	"rewardID":"redtint",
-            	"mapName":"debugmap"
-        	}
-    	]
-	},
+        "id":"npc3_4",
+        "message":"OK.",
+        "rewards":[
+            {
+                "rewardType":"changeMapFilter",
+                "rewardID":"redtint",
+                "mapName":"debugmap"
+            }
+        ]
+    },
     {
-    	"id":"npc3_5",
-    	"message":"OK.",
-    	"rewards":[
-        	{
-            	"rewardType":"changeMapFilter",
-            	"rewardID":"black20",
-            	"mapName":"debugmap"
-        	}
-    	]
-	},
+        "id":"npc3_5",
+        "message":"OK.",
+        "rewards":[
+            {
+                "rewardType":"changeMapFilter",
+                "rewardID":"black20",
+                "mapName":"debugmap"
+            }
+        ]
+    },
     {
-    	"id":"npc3_6",
-    	"message":"OK.",
-    	"rewards":[
-        	{
-            	"rewardType":"changeMapFilter",
-            	"rewardID":"black40",
-            	"mapName":"debugmap"
-        	}
-    	]
-	},
+        "id":"npc3_6",
+        "message":"OK.",
+        "rewards":[
+            {
+                "rewardType":"changeMapFilter",
+                "rewardID":"black40",
+                "mapName":"debugmap"
+            }
+        ]
+    },
     {
-    	"id":"npc3_7",
-    	"message":"OK.",
-    	"rewards":[
-        	{
-            	"rewardType":"changeMapFilter",
-            	"rewardID":"black60",
-            	"mapName":"debugmap"
-        	}
-    	]
-	},
+        "id":"npc3_7",
+        "message":"OK.",
+        "rewards":[
+            {
+                "rewardType":"changeMapFilter",
+                "rewardID":"black60",
+                "mapName":"debugmap"
+            }
+        ]
+    },
     {
-    	"id":"npc3_8",
-    	"message":"OK.",
-    	"rewards":[
-        	{
-            	"rewardType":"changeMapFilter",
-            	"rewardID":"invert",
-            	"mapName":"debugmap"
-        	}
-    	]
-	},
+        "id":"npc3_8",
+        "message":"OK.",
+        "rewards":[
+            {
+                "rewardType":"changeMapFilter",
+                "rewardID":"invert",
+                "mapName":"debugmap"
+            }
+        ]
+    },
     {
-    	"id":"npc3_9",
-    	"message":"OK.",
-    	"rewards":[
-        	{
-            	"rewardType":"changeMapFilter",
-            	"rewardID":"greentint",
-            	"mapName":"debugmap"
-        	}
-    	]
-	},
+        "id":"npc3_9",
+        "message":"OK.",
+        "rewards":[
+            {
+                "rewardType":"changeMapFilter",
+                "rewardID":"greentint",
+                "mapName":"debugmap"
+            }
+        ]
+    },
     {
-    	"id":"npc3_10",
-    	"message":"OK.",
-    	"rewards":[
-        	{
-            	"rewardType":"changeMapFilter",
-            	"rewardID":"bluetint",
-            	"mapName":"debugmap"
-        	}
-    	]
-	},
+        "id":"npc3_10",
+        "message":"OK.",
+        "rewards":[
+            {
+                "rewardType":"changeMapFilter",
+                "rewardID":"bluetint",
+                "mapName":"debugmap"
+            }
+        ]
+    },
     {
-    	"id":"npc3_11",
-    	"message":"OK.",
-    	"rewards":[
-        	{
-            	"rewardType":"changeMapFilter",
-            	"rewardID":"bw",
-            	"mapName":"debugmap"
-        	}
-    	]
-	},
+        "id":"npc3_11",
+        "message":"OK.",
+        "rewards":[
+            {
+                "rewardType":"changeMapFilter",
+                "rewardID":"bw",
+                "mapName":"debugmap"
+            }
+        ]
+    },
     {
         "id":"chaotic_rewarder_0",
         "message":"What do you want ?",
