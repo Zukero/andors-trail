@@ -15,7 +15,7 @@
         "iconID":"actorconditions_1:70",
         "name":"Blessing of Shadow strength",
         "category":"spiritual",
-	"isPositive":1,
+        "isPositive":1,
         "abilityEffect":{
             "increaseAttackDamage":{
                 "min":1,
