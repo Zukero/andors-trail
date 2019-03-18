@@ -17,6 +17,7 @@ public final class Requirement {
 		,consumedBonemeals
 		,hasActorCondition
 		,factionScore
+		,random				// Requirement will be randomly fulfilled. Value (0-100) is the chance in percent.
 	}
 
 	public final RequirementType requireType;
@@ -76,6 +77,8 @@ public final class Requirement {
 			return requireID != null && value >= 0;
 		case wear:
 			return requireID != null;
+		case random:
+			return value >= 0 && value <= 100;
 		default:
 			return false;
 		}

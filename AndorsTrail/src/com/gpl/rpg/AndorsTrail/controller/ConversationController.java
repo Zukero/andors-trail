@@ -304,6 +304,9 @@ public final class ConversationController {
 			case factionScore:
 				result = player.getAlignment(requirement.requireID) >= requirement.value;
 				break;
+			case random:
+				result = Constants.roll100(requirement.value);
+				break;
 			default:
 				result =  true;
 		}
