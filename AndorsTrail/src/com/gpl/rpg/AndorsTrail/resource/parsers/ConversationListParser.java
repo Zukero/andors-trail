@@ -24,7 +24,7 @@ public final class ConversationListParser extends JsonCollectionParserFor<Phrase
 		protected Requirement parseObject(JSONObject o) throws JSONException {
 			return new Requirement(
 					Requirement.RequirementType.valueOf(o.getString(JsonFieldNames.ReplyRequires.requireType))
-					,o.getString(JsonFieldNames.ReplyRequires.requireID)
+					,o.optString(JsonFieldNames.ReplyRequires.requireID)
 					,o.optInt(JsonFieldNames.ReplyRequires.value, 0)
 					,o.optBoolean(JsonFieldNames.ReplyRequires.negate, false)
 			);
