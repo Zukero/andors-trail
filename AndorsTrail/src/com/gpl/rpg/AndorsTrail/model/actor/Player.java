@@ -113,7 +113,7 @@ public final class Player extends Actor {
 		this.alignments.clear();
 		this.ap.set(baseTraits.maxAP, baseTraits.maxAP);
 		this.health.set(baseTraits.maxHP, baseTraits.maxHP);
-		this.conditions.clear();
+		this.effectiveConditions.clear();
 
 		Loot startItems = new Loot();
 		dropLists.getDropList(DropListCollection.DROPLIST_STARTITEMS).createRandomLoot(startItems, this);
@@ -304,10 +304,7 @@ public final class Player extends Actor {
 		this.health.set(new Range(src, fileversion));
 		this.position.set(new Coord(src, fileversion));
 		if (fileversion > 16) {
-			final int numConditions = src.readInt();
-			for(int i = 0; i < numConditions; ++i) {
-				this.conditions.add(new ActorCondition(src, world, fileversion));
-			}
+			this.effectiveConditions.FromParcel(src, world, fileversion);
 		}
 
 		if (fileversion >= 43) {
@@ -385,10 +382,7 @@ public final class Player extends Actor {
 		ap.writeToParcel(dest);
 		health.writeToParcel(dest);
 		position.writeToParcel(dest);
-		dest.writeInt(conditions.size());
-		for (ActorCondition c : conditions) {
-			c.writeToParcel(dest);
-		}
+		effectiveConditions.writeToParcel(dest);
 		dest.writeInt(immunities.size());
 		for (ActorCondition c : immunities) {
 			c.writeToParcel(dest);

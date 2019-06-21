@@ -311,9 +311,10 @@
 	<!-- =========================================== -->
 	<!-- Added in v0.6.9 -->
 
-	<string name="actorinfo_currentconditions">Active conditions</string> <!-- Translated as: affliction / statuseffect / temporary effect -->
+	<string name="actorinfo_currentconditions">Active conditions (following conditions in sublines)</string> <!-- Translated as: affliction / statuseffect / temporary effect -->
 	<string name="actorcondition_info_removes_all">Removes all %1$s</string>
 	<string name="actorcondition_info_immunity">Immune to %1$s</string>
+	<string name="actorcondition_sources">, %1$d sources</string>
 	<string name="iteminfo_effect_chance_of">%1$s chance of %2$s</string>
 	<string name="iteminfo_effect_duration">(%1$d rounds)</string>
 

@@ -13,6 +13,9 @@ import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionEffect;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionType;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
+import com.gpl.rpg.AndorsTrail.model.ability.effectivecondition.EffectiveActorCondition;
+import com.gpl.rpg.AndorsTrail.model.ability.effectivecondition.EffectiveActorConditionList;
+import com.gpl.rpg.AndorsTrail.model.ability.effectivecondition.EffectiveActorConditionEffect;
 import com.gpl.rpg.AndorsTrail.model.ability.traits.AbilityModifierTraits;
 import com.gpl.rpg.AndorsTrail.model.ability.traits.StatsModifierTraits;
 import com.gpl.rpg.AndorsTrail.model.actor.Actor;
@@ -48,6 +51,7 @@ public final class ActorStatsController {
 			applyActorCondition(player, e, ActorCondition.DURATION_FOREVER);
 		}
 	}
+
 	public void removeConditionsFromUnequippedItem(Player player, ItemType itemType) {
 		ItemTraits_OnEquip equipEffects = itemType.effects_equip;
 		if (equipEffects == null) return;
@@ -58,49 +62,17 @@ public final class ActorStatsController {
 			}
 			if (e.isRemovalEffect()) continue;
 			if (e.magnitude <= 0) continue;
-			if (e.conditionType.isStacking) {
-				removeStackableActorCondition(player, e.conditionType, e.magnitude, ActorCondition.DURATION_FOREVER);
-			} else {
-				removeNonStackableActorCondition(player, e.conditionType, e.magnitude, ActorCondition.DURATION_FOREVER);
+
+			EffectiveActorCondition c = player.effectiveConditions.removeAppliedEffect(e.conditionType, new EffectiveActorConditionEffect(e.magnitude, e.duration));
+			if (c != null) {
+				if (c.appliedEffectsCount() == 0) {
+					actorConditionListeners.onActorConditionRemoved(player, c);
+				} else {
+					actorConditionListeners.onActorConditionChanged(player, c);
+				}
 			}
 		}
 	}
-
-	private void removeStackableActorCondition(Actor actor, ActorConditionType type, int magnitude, int duration) {
-		for(int i = actor.conditions.size() - 1; i >= 0; --i) {
-			ActorCondition c = actor.conditions.get(i);
-			if (!type.conditionTypeID.equals(c.conditionType.conditionTypeID)) continue;
-			if (c.duration != duration) continue;
-
-			if (c.magnitude > magnitude) {
-				c.magnitude -= magnitude;
-				actorConditionListeners.onActorConditionMagnitudeChanged(actor, c);
-			} else {
-				actor.conditions.remove(i);
-				actorConditionListeners.onActorConditionRemoved(actor, c);
-			}
-			break;
-		}
-	}
-
-	private void removeNonStackableActorCondition(Player player, ActorConditionType type, int magnitude, int duration) {
-		for (Inventory.WearSlot slot : Inventory.WearSlot.values()) {
-			ItemType t = player.inventory.getItemTypeInWearSlot(slot);
-			if (t == null) continue;
-
-			ItemTraits_OnEquip equipEffects = t.effects_equip;
-			if (equipEffects == null) continue;
-			if (equipEffects.addedConditions == null) continue;
-			for (ActorConditionEffect e : equipEffects.addedConditions) {
-				if (!e.conditionType.conditionTypeID.equals(type.conditionTypeID)) continue;
-				if (e.duration != duration) continue;
-				// The player is wearing some other item that gives this condition. It will not be removed now.
-				return;
-			}
-		}
-		removeStackableActorCondition(player, type, magnitude, duration);
-	}
-	
 
 	private void removeActorConditionImmunity(Player player, ActorConditionType type, int magnitude, int duration) {
 		for (Inventory.WearSlot slot : Inventory.WearSlot.values()) {
@@ -138,7 +110,7 @@ public final class ActorStatsController {
 			if (equipEffects.addedConditions == null) continue;
 			for (ActorConditionEffect e : equipEffects.addedConditions) {
 				if (!e.conditionType.conditionTypeID.equals(type.conditionTypeID)) continue;
-				//There's another immunity (a temporary one for example) active. No nned to keep looking.
+				//There's another immunity (a temporary one for example) active. No need to keep looking.
 				if (e.isImmunity()) return;
 				// The player is wearing some other item that gives this formerly immune actor condition
 				toReapply.add(e);
@@ -147,7 +119,7 @@ public final class ActorStatsController {
 		for (ActorConditionEffect e : toReapply) {
 			applyActorCondition(player, e, ActorCondition.DURATION_FOREVER);
 		}
-	}	
+	}
 
 	public void applyActorCondition(Actor actor, ActorConditionEffect e) { applyActorCondition(actor, e, e.duration); }
 	private void applyActorCondition(Actor actor, ActorConditionEffect e, int duration) {
@@ -164,54 +136,18 @@ public final class ActorStatsController {
 				}
 			}
 			if (!immune) {
-				if (e.conditionType.isStacking) {
-					addStackableActorCondition(actor, e, duration);
+				boolean existing = (actor.effectiveConditions.getConditionOfType(e.conditionType.conditionTypeID) != null);
+				EffectiveActorCondition effective = actor.effectiveConditions.applyEffect(e.conditionType, new EffectiveActorConditionEffect(e.magnitude, e.duration));
+				if (existing) {
+					actorConditionListeners.onActorConditionChanged(actor, effective);
 				} else {
-					addNonStackableActorCondition(actor, e, duration);
+					actorConditionListeners.onActorConditionAdded(actor, effective);
 				}
 			}
 		}
 		recalculateActorCombatTraits(actor);
 	}
 
-	private void addStackableActorCondition(Actor actor, ActorConditionEffect e, int duration) {
-		final ActorConditionType type = e.conditionType;
-		int magnitude = e.magnitude;
-
-		for(int i = actor.conditions.size() - 1; i >= 0; --i) {
-			ActorCondition c = actor.conditions.get(i);
-			if (!type.conditionTypeID.equals(c.conditionType.conditionTypeID)) continue;
-			if (c.duration == duration) {
-				// If the actor already has a condition of this type and the same duration, just increase the magnitude instead.
-				c.magnitude += magnitude;
-				actorConditionListeners.onActorConditionMagnitudeChanged(actor, c);
-				return;
-			}
-		}
-		ActorCondition c = new ActorCondition(type, magnitude, duration);
-		actor.conditions.add(c);
-		actorConditionListeners.onActorConditionAdded(actor, c);
-	}
-	private void addNonStackableActorCondition(Actor actor, ActorConditionEffect e, int duration) {
-		final ActorConditionType type = e.conditionType;
-
-		for(int i = actor.conditions.size() - 1; i >= 0; --i) {
-			ActorCondition c = actor.conditions.get(i);
-			if (!type.conditionTypeID.equals(c.conditionType.conditionTypeID)) continue;
-			if (c.magnitude > e.magnitude) return;
-			if (c.magnitude == e.magnitude) {
-				if (c.duration >= duration) return;
-			}
-			// If the actor already has this condition, but of a lower magnitude, we remove the old one and add this higher magnitude.
-			actor.conditions.remove(i);
-			actorConditionListeners.onActorConditionRemoved(actor, c);
-		}
-
-		ActorCondition c = e.createCondition(duration);
-		actor.conditions.add(c);
-		actorConditionListeners.onActorConditionAdded(actor, c);
-	}
-	
 	private void addActorConditionImmunity(Actor actor, ActorConditionEffect e, int duration) {
 		final ActorConditionType type = e.conditionType;
 
@@ -221,7 +157,7 @@ public final class ActorStatsController {
 			if (c.duration >= duration) return;
 			// If the actor already has this immunity, but of a shorter duration, we replace the old immunity by the new, longer one.
 			actor.immunities.remove(i);
-			actorConditionListeners.onActorConditionRemoved(actor, c);
+			actorConditionListeners.onActorConditionImmunityRemoved(actor, c);
 		}
 
 		ActorCondition c = e.createCondition(duration);
@@ -230,26 +166,28 @@ public final class ActorStatsController {
 	}
 
 	public void removeAllTemporaryConditions(final Actor actor) {
-		for(int i = actor.conditions.size() - 1; i >= 0; --i) {
-			ActorCondition c = actor.conditions.get(i);
-			if (!c.isTemporaryEffect()) continue;
-			actor.conditions.remove(i);
-			actorConditionListeners.onActorConditionRemoved(actor, c);
+		for(int i = actor.effectiveConditions.size() - 1; i >= 0; --i) {
+			EffectiveActorCondition c = actor.effectiveConditions.removeAppliedTemporaryEffects(i);
+			if (c != null){
+				if (c.appliedEffectsCount() < 1) {
+					actorConditionListeners.onActorConditionRemoved(actor, c);
+				} else {
+					actorConditionListeners.onActorConditionChanged(actor, c);
+				}
+			}
 		}
 	}
 
 	private void removeAllConditionsOfType(final Actor actor, final String conditionTypeID) {
-		for(int i = actor.conditions.size() - 1; i >= 0; --i) {
-			ActorCondition c = actor.conditions.get(i);
-			if (!c.conditionType.conditionTypeID.equals(conditionTypeID)) continue;
-			actor.conditions.remove(i);
+		EffectiveActorCondition c = actor.effectiveConditions.removeConditionOfType(conditionTypeID);
+		if (c != null) {
 			actorConditionListeners.onActorConditionRemoved(actor, c);
 		}
 	}
 
 	private void applyEffectsFromCurrentConditions(Actor actor) {
-		for (ActorCondition c : actor.conditions) {
-			applyAbilityEffects(actor, c.conditionType.abilityEffect, c.magnitude);
+		for (EffectiveActorCondition c : actor.effectiveConditions) {
+			applyAbilityEffects(actor, c.conditionType.abilityEffect, c.getMagnitude());
 		}
 	}
 
@@ -299,7 +237,7 @@ public final class ActorStatsController {
 	}
 
 	public void applyConditionsToPlayer(Player player, boolean isFullRound) {
-		if (player.conditions.isEmpty() && player.immunities.isEmpty()) return;
+		if (player.effectiveConditions.isEmpty() && player.immunities.isEmpty()) return;
 		if (!isFullRound) removeConditionsFromSkillEffects(player);
 
 		applyStatsEffects(player, isFullRound);
@@ -313,42 +251,45 @@ public final class ActorStatsController {
 
 	private void removeConditionsFromSkillEffects(Player player) {
 		if (SkillController.rollForSkillChance(player, SkillCollection.SkillID.rejuvenation, SkillCollection.PER_SKILLPOINT_INCREASE_REJUVENATION_CHANCE)) {
-			int i = getRandomConditionForRejuvenate(player);
-			if (i >= 0) {
-				ActorCondition c = player.conditions.get(i);
-				if (c.magnitude > 1) {
-					c.magnitude -= 1;
-					actorConditionListeners.onActorConditionMagnitudeChanged(player, c);
-				} else {
-					player.conditions.remove(i);
-					actorConditionListeners.onActorConditionRemoved(player, c);
+			ActorCondition c = getRandomConditionForRejuvenate(player.effectiveConditions);
+			if (c != null) {
+				EffectiveActorCondition e = player.effectiveConditions.getConditionOfType(c.conditionType.conditionTypeID);
+				if (e != null && c.magnitude > 1) {
+					e.addEffect(new EffectiveActorConditionEffect(c.magnitude - 1, c.duration));
+				}
+				e = player.effectiveConditions.removeAppliedEffect(c.conditionType, new EffectiveActorConditionEffect(c.magnitude, c.duration));
+				if (e != null) {
+					if (e.appliedEffectsCount() == 0) {
+						actorConditionListeners.onActorConditionRemoved(player, e);
+					} else {
+						actorConditionListeners.onActorConditionChanged(player, e);
+					}
 				}
 				recalculatePlayerStats(player);
 			}
 		}
 	}
 
-	private static int getRandomConditionForRejuvenate(Player player) {
-		int i = -1;
-		int count = 0;
-		int potentialConditions[] = new int[player.conditions.size()];
-		for (ActorCondition c : player.conditions) {
-			i++;
-
+	private static ActorCondition getRandomConditionForRejuvenate(EffectiveActorConditionList conditions) {
+		ArrayList<ActorCondition> potentialConditions = new ArrayList<ActorCondition>();
+		for (EffectiveActorCondition c : conditions) {
 			if (!c.isTemporaryEffect())
 				continue;
 			if (c.conditionType.isPositive)
 				continue;
 			if (c.conditionType.conditionCategory == ActorConditionType.ConditionCategory.spiritual)
 				continue;
-
-			potentialConditions[count++] = i;
+			for (EffectiveActorConditionEffect r : c.getAppliedEffectsAsUnmodifiableList()) {
+				if (r.isTemporaryEffect()) {
+					potentialConditions.add(new ActorCondition(c.conditionType, r.magnitude, r.duration));
+				}
+			}
 		}
 
-		if (count == 0)
-			return -1;
+		if (potentialConditions.size() == 0)
+			return null;
 
-		return potentialConditions[Constants.rnd.nextInt(count)];
+		return potentialConditions.get(Constants.rnd.nextInt(potentialConditions.size()));
 	}
 
 	public void applyConditionsToMonsters(PredefinedMap map, boolean isFullRound) {
@@ -362,7 +303,7 @@ public final class ActorStatsController {
 	}
 
 	private void applyConditionsToMonster(Monster monster, boolean isFullRound) {
-		if (monster.conditions.isEmpty()) return;
+		if (monster.effectiveConditions.isEmpty()) return;
 		applyStatsEffects(monster, isFullRound);
 		if (monster.isDead()) {
 			controllers.combatController.playerKilledMonster(monster);
@@ -374,34 +315,33 @@ public final class ActorStatsController {
 
 	private void applyStatsEffects(Actor actor, boolean isFullRound) {
 		// Apply negative effects before positive effects
-		for (ActorCondition c : actor.conditions) {
+		for (EffectiveActorCondition c : actor.effectiveConditions) {
 			if (!c.conditionType.isPositive) applyStatsEffects(actor, isFullRound, c);
 		}
-		for (ActorCondition c : actor.conditions) {
+		for (EffectiveActorCondition c : actor.effectiveConditions) {
 			if (c.conditionType.isPositive) applyStatsEffects(actor, isFullRound, c);
 		}
 		controllers.effectController.startEnqueuedEffect(actor.position);
 	}
-	private void applyStatsEffects(Actor actor, boolean isFullRound, ActorCondition c) {
+	private void applyStatsEffects(Actor actor, boolean isFullRound, EffectiveActorCondition c) {
 		StatsModifierTraits effect = isFullRound ? c.conditionType.statsEffect_everyFullRound : c.conditionType.statsEffect_everyRound;
-		boolean hasEffect = applyStatsModifierEffect(actor, effect, c.magnitude);
+		boolean hasEffect = applyStatsModifierEffect(actor, effect, c.getMagnitude());
 		if (hasEffect) actorConditionListeners.onActorConditionRoundEffectApplied(actor, c);
 	}
 
 	private void decreaseDurationAndRemoveConditions(Actor actor) {
 		boolean removedAnyConditions = false;
-		for(int i = actor.conditions.size() - 1; i >= 0; --i) {
-			ActorCondition c = actor.conditions.get(i);
-			if (!c.isTemporaryEffect()) continue;
-			if (c.duration <= 1) {
-				actor.conditions.remove(i);
-				actorConditionListeners.onActorConditionRemoved(actor, c);
-				removedAnyConditions = true;
-			} else {
-				c.duration -= 1;
-				actorConditionListeners.onActorConditionDurationChanged(actor, c);
+		for(int i = actor.effectiveConditions.size() - 1; i >= 0; --i) {
+			EffectiveActorCondition e = actor.effectiveConditions.decreaseDurationAndRemoveEffects(i);
+			if (e != null) {
+				if (e.appliedEffectsCount() == 0) {
+					actorConditionListeners.onActorConditionRemoved(actor, e);
+				} else {
+					actorConditionListeners.onActorConditionChanged(actor, e);
+				}
 			}
 		}
+
 		for(int i = actor.immunities.size() - 1; i >= 0; --i) {
 			ActorCondition c = actor.immunities.get(i);
 			if (!c.isTemporaryEffect()) continue;
@@ -412,6 +352,7 @@ public final class ActorStatsController {
 			} else {
 				c.duration -= 1;
 				actorConditionListeners.onActorConditionImmunityDurationChanged(actor, c);
+				continue; // the immunity is still active no need to check for coditions to reapply
 			}
 			if (actor instanceof Player) {
 				Player player = (Player) actor;
@@ -465,7 +406,7 @@ public final class ActorStatsController {
 			controllers.effectController.startEnqueuedEffect(source.position);
 		}
 	}
-	
+
 	public void applyHitReceivedEffect(Actor source, Actor target, ItemTraits_OnHitReceived effect) {
 		applyUseEffect(source, target, effect);
 		if (effect.changedStats_target != null) {
@@ -527,11 +468,11 @@ public final class ActorStatsController {
 			applyUseEffect(player, null, type.effects_kill);
 		}
 	}
-	
+
 	public void applyOnDeathEffectsToPlayer(Player player, Actor monster) {
 		ItemTraits_OnUse onDeathEffect = monster.getOnDeathEffects();
 		if (onDeathEffect == null) return;
-		
+
 		applyUseEffect(player, null, onDeathEffect);
 	}
 

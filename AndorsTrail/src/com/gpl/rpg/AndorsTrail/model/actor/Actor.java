@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
+import com.gpl.rpg.AndorsTrail.model.ability.effectivecondition.EffectiveActorConditionList;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnHitReceived;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
 import com.gpl.rpg.AndorsTrail.util.Coord;
@@ -24,7 +25,7 @@ public class Actor {
 	// TODO: Should be privates
 	public final Range ap = new Range();
 	public final Range health = new Range();
-	public final ArrayList<ActorCondition> conditions = new ArrayList<ActorCondition>();
+	public final EffectiveActorConditionList effectiveConditions = new EffectiveActorConditionList();
 	public final ArrayList<ActorCondition> immunities = new ArrayList<ActorCondition>();
 	public int moveCost;
 	public int attackCost;
@@ -94,10 +95,4 @@ public class Actor {
 		return ap.current >= cost;
 	}
 
-	public boolean hasCondition(final String conditionTypeID) {
-		for (ActorCondition c : conditions) {
-			if (c.conditionType.conditionTypeID.equals(conditionTypeID)) return true;
-		}
-		return false;
-	}
 }
