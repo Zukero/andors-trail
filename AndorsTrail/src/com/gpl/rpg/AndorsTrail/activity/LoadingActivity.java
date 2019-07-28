@@ -158,6 +158,8 @@ public final class LoadingActivity extends Activity implements OnResourcesLoaded
 		}
 		if (loadResult == Savegames.LoadSavegameResult.savegameIsFromAFutureVersion) {
 			showLoadingFailedDialog(R.string.dialog_loading_failed_incorrectversion);
+		} else if (loadResult == Savegames.LoadSavegameResult.cheatingDetected) {
+			showLoadingFailedDialog(R.string.dialog_loading_failed_cheat);
 		} else {
 			showLoadingFailedDialog(R.string.dialog_loading_failed_message);
 		}

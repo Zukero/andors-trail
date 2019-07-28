@@ -106,7 +106,27 @@ public class StartScreenActivity_MainMenu extends Fragment {
 		startscreen_load.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				Dialogs.showLoad(StartScreenActivity_MainMenu.this);
+				AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(getActivity());
+				if (hasExistingGame && app != null && app.getWorld() != null && app.getWorld().model != null
+						&& app.getWorld().model.statistics != null && !app.getWorld().model.statistics.hasUnlimitedSaves()) {
+					final Dialog d = CustomDialogFactory.createDialog(getActivity(),
+							getString(R.string.startscreen_load_game),
+							getResources().getDrawable(android.R.drawable.ic_delete),
+							getString(R.string.startscreen_load_game_confirm),
+							null,
+							true);
+					CustomDialogFactory.addButton(d, android.R.string.ok, new View.OnClickListener() {
+						@Override
+						public void onClick(View v) {
+							Dialogs.showLoad(StartScreenActivity_MainMenu.this);
+						}
+					});
+					CustomDialogFactory.addDismissButton(d, android.R.string.cancel);
+					CustomDialogFactory.show(d);
+
+				} else {
+					Dialogs.showLoad(StartScreenActivity_MainMenu.this);
+				}
 			}
 		});
 		
@@ -131,12 +151,14 @@ public class StartScreenActivity_MainMenu extends Fragment {
 		String playerName;
 		String displayInfo = null;
 		int iconID = TileManager.CHAR_HERO;
+		boolean isDead = false;
 
 		FileHeader header = Savegames.quickload(getActivity(), Savegames.SLOT_QUICKSAVE);
 		if (header != null && header.playerName != null) {
 			playerName = header.playerName;
 			displayInfo = header.displayInfo;
 			iconID = header.iconID;
+			isDead = header.isDead;
 		} else {
 			// Before fileversion 14 (v0.6.7), quicksave was stored in Shared preferences
 			SharedPreferences p = getActivity().getSharedPreferences("quicksave", Activity.MODE_PRIVATE);
@@ -146,7 +168,7 @@ public class StartScreenActivity_MainMenu extends Fragment {
 			}
 		}
 		hasExistingGame = (playerName != null);
-		setButtonState(playerName, displayInfo, iconID);
+		setButtonState(playerName, displayInfo, iconID, isDead);
 
 		if (isNewVersion()) {
 			Dialogs.showNewVersion(getActivity());
@@ -168,13 +190,13 @@ public class StartScreenActivity_MainMenu extends Fragment {
 		listener = null;
 	}
 	
-	private void setButtonState(final String playerName, final String displayInfo, int iconID) {
-		startscreen_continue.setEnabled(hasExistingGame);
+	private void setButtonState(final String playerName, final String displayInfo, int iconID, boolean isDead) {
+		startscreen_continue.setEnabled(hasExistingGame && !isDead);
 		startscreen_newgame.setEnabled(true);
 		if (hasExistingGame) {
 			TileManager tm = AndorsTrailApplication.getApplicationFromActivity(getActivity()).getWorld().tileManager;
 			tm.setImageViewTileForPlayer(getResources(), save_preview_hero_icon, iconID);
-			save_preview_hero_desc.setText(playerName + ", " + displayInfo);
+			save_preview_hero_desc.setText((isDead ? getString(R.string.rip_startscreen) : "") + playerName + ", " + displayInfo);
 			save_preview_holder.setVisibility(View.VISIBLE);
 		} else {
 			save_preview_holder.setVisibility(View.GONE);

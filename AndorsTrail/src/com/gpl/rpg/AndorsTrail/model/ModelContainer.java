@@ -20,10 +20,10 @@ public final class ModelContainer {
 	public PredefinedMap currentMap;
 	public LayeredTileMap currentTileMap;
 
-	public ModelContainer() {
+	public ModelContainer(int startLives, boolean unlimitedSaves) {
 		player = new Player();
 		uiSelections = new InterfaceData();
-		statistics = new GameStatistics();
+		statistics = new GameStatistics(unlimitedSaves, startLives);
 		worldData = new WorldData();
 	}
 

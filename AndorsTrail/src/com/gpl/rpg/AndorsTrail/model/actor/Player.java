@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map.Entry;
+import java.util.UUID;
 
 import android.util.SparseIntArray;
 
@@ -44,6 +45,8 @@ public final class Player extends Actor {
 	private String spawnMap;
 	private String spawnPlace;
 	private final HashMap<String, Integer> alignments = new HashMap<String, Integer>();
+	public String id = UUID.randomUUID().toString();
+	public long savedVersion = 1; // the version get's increased for cheat detection everytime a player with limited saves is saved
 
 	// Unequipped stats
 	public static final class PlayerBaseTraits {
@@ -365,6 +368,11 @@ public final class Player extends Actor {
 				this.alignments.put(faction, alignment);
 			}
 		}
+
+		if (fileversion >= 48) {
+			this.id = src.readUTF();
+			this.savedVersion = src.readLong();
+		}
 	}
 
 	public void writeToParcel(DataOutputStream dest) throws IOException {
@@ -421,6 +429,8 @@ public final class Player extends Actor {
 			dest.writeUTF(e.getKey());
 			dest.writeInt(e.getValue());
 		}
+		dest.writeUTF(id);
+		dest.writeLong(savedVersion);
 	}
 }
 

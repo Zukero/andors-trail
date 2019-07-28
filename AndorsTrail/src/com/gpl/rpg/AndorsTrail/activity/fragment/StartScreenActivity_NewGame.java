@@ -20,12 +20,15 @@ import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.WorldSetup;
 import com.gpl.rpg.AndorsTrail.activity.LoadingActivity;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
+import com.gpl.rpg.AndorsTrail.view.SpinnerEmulator;
 
 public class StartScreenActivity_NewGame extends Fragment {
 
 	private TextView startscreen_enterheroname;
 	
 	private int selectedIconID = TileManager.CHAR_HERO;
+	private int startLives = -1;
+	private boolean unlimitedSaves = true;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -39,7 +42,40 @@ public class StartScreenActivity_NewGame extends Fragment {
 		
 		
 		startscreen_enterheroname = (TextView) root.findViewById(R.id.startscreen_enterheroname);
-		
+
+		new SpinnerEmulator(root, R.id.startscreen_mode_selector_button, R.array.startscreen_mode_selector, R.string.startscreen_game_mode) {
+			@Override
+			public void setValue(int value) {
+				if (value == 0) {
+					startLives = -1;
+					unlimitedSaves = true;
+				} else {
+					unlimitedSaves = false;
+					if (value == 1) {
+						startLives = -1;
+					} else if (value == 2) {
+						startLives = 50;
+					} else if (value == 3) {
+						startLives = 10;
+					} else if (value == 4) {
+						startLives = 3;
+					} else {
+						startLives = 1;
+					}
+				}
+			}
+
+			@Override
+			public void selectionChanged(int value) {
+
+			}
+
+			@Override
+			public int getValue() {
+				return 0;
+			}
+		};
+
 		final RadioGroup group = (RadioGroup) root.findViewById(R.id.newgame_spritegroup);
 		group.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			
@@ -114,6 +150,8 @@ public class StartScreenActivity_NewGame extends Fragment {
 		setup.loadFromSlot = loadFromSlot;
 		setup.newHeroName = name;
 		setup.newHeroIcon = selectedIconID;
+		setup.newHeroStartLives = startLives;
+		setup.newHeroUnlimitedSaves = unlimitedSaves;
 		gameCreationOver();
 		startActivity(new Intent(getActivity(), LoadingActivity.class));
 	}

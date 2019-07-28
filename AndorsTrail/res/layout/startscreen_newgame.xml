@@ -80,6 +80,38 @@
             android:layout_height="wrap_content"
             android:inputType="textPersonName" />
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:background="?attr/ui_theme_stdframe_bitmap"
+        android:clickable="true"
+        android:gravity="bottom|start"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/startscreen_mode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:text="@string/startscreen_game_mode" />
+    </LinearLayout>
+    <LinearLayout
+        style="@style/AndorsTrail_Style_StdFrame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:orientation="horizontal" >
+        <Button
+            android:id="@+id/startscreen_mode_selector_button"
+            style="@style/AndorsTrail_Style_SpinnerEmulator"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

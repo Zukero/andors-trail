@@ -25,8 +25,14 @@ public final class GameStatistics {
 	private final HashMap<String, Integer> killedMonsters = new HashMap<String, Integer>();
 	private final HashMap<String, Integer> usedItems = new HashMap<String, Integer>();
 	private int spentGold = 0;
+	private boolean unlimitedSaves = true;
+	private int startLives = -1; // -1 --> unlimited
 
-	public GameStatistics() { }
+	public GameStatistics(boolean unlimitedSaves, int startLives) {
+		this.unlimitedSaves = unlimitedSaves;
+		this.startLives = startLives;
+	}
+
 	public void addMonsterKill(String monsterTypeID) {
 		if (!killedMonsters.containsKey(monsterTypeID)) killedMonsters.put(monsterTypeID, 1);
 		else killedMonsters.put(monsterTypeID, killedMonsters.get(monsterTypeID) + 1);
@@ -50,6 +56,16 @@ public final class GameStatistics {
 	public int getSpentGold() {
 		return spentGold;
 	}
+
+	public boolean hasUnlimitedSaves() { return unlimitedSaves; }
+
+	public boolean hasUnlimitedLives() { return startLives == -1; }
+
+	public int getStartLives() { return startLives; }
+
+	public int getLivesLeft() { return hasUnlimitedLives() ? -1 : startLives - deaths; }
+
+	public boolean isDead() { return !hasUnlimitedLives() && getLivesLeft() < 1; }
 
 	public int getNumberOfKillsForMonsterType(String monsterTypeID) {
 		Integer v = killedMonsters.get(monsterTypeID);
@@ -167,6 +183,11 @@ public final class GameStatistics {
 			this.usedItems.put(name, value);
 		}
 		this.spentGold = src.readInt();
+
+		if (fileversion < 48) return;
+
+		this.startLives = src.readInt();
+		this.unlimitedSaves = src.readBoolean();
 	}
 
 	public void writeToParcel(DataOutputStream dest) throws IOException {
@@ -184,5 +205,7 @@ public final class GameStatistics {
 			dest.writeInt(e.getValue());
 		}
 		dest.writeInt(spentGold);
+		dest.writeInt(startLives);
+		dest.writeBoolean(unlimitedSaves);
 	}
 }

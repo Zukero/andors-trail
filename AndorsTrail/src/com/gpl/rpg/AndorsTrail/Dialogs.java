@@ -244,6 +244,25 @@ public final class Dialogs {
 		});
 	}
 
+	public static void showHeroDied(final MainActivity mainActivity, final ControllerContext controllers) {
+		final Dialog d = CustomDialogFactory.createDialog(mainActivity,
+				mainActivity.getResources().getString(R.string.dialog_game_over_title),
+				mainActivity.getResources().getDrawable(R.drawable.ui_icon_combat),
+				mainActivity.getResources().getString(R.string.dialog_game_over_text),
+				null,
+				true);
+
+		CustomDialogFactory.addDismissButton(d, android.R.string.ok);
+
+		showDialogAndPause(d, controllers, new OnDismissListener() {
+			@Override
+			public void onDismiss(DialogInterface arg0) {
+				mainActivity.finish();
+			}
+		});
+	}
+
+
 	public static Intent getIntentForItemInfo(final Context ctx, String itemTypeID, ItemInfoActivity.ItemInfoAction actionType, String buttonText, boolean buttonEnabled, Inventory.WearSlot inventorySlot) {
 		Intent intent = new Intent(ctx, ItemInfoActivity.class);
 		intent.putExtra("buttonText", buttonText);
@@ -324,11 +343,33 @@ public final class Dialogs {
 			Toast.makeText(mainActivity, R.string.menu_save_saving_not_allowed_in_combat, Toast.LENGTH_SHORT).show();
 			return false;
 		}
-		controllerContext.gameRoundController.pause();
-		Intent intent = new Intent(mainActivity, LoadSaveActivity.class);
-		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/save"));
-		mainActivity.startActivityForResult(intent, MainActivity.INTENTREQUEST_SAVEGAME);
-		return true;
+
+		if (!world.model.statistics.hasUnlimitedSaves()) {
+			final Dialog d = CustomDialogFactory.createDialog(mainActivity,
+					mainActivity.getResources().getString(R.string.menu_save_switch_character_title),
+					null,
+					mainActivity.getResources().getString(R.string.menu_save_switch_character),
+					null,
+					true);
+			CustomDialogFactory.addButton(d, android.R.string.ok, new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					controllerContext.gameRoundController.pause();
+					Intent intent = new Intent(mainActivity, LoadSaveActivity.class);
+					intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/save"));
+					mainActivity.startActivityForResult(intent, MainActivity.INTENTREQUEST_SAVEGAME);
+				}
+			});
+			CustomDialogFactory.addDismissButton(d, android.R.string.cancel);
+			CustomDialogFactory.show(d);
+			return false;
+		} else {
+			controllerContext.gameRoundController.pause();
+			Intent intent = new Intent(mainActivity, LoadSaveActivity.class);
+			intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/save"));
+			mainActivity.startActivityForResult(intent, MainActivity.INTENTREQUEST_SAVEGAME);
+			return true;
+		}
 	}
 
 	public static void showLoad(final Activity currentActivity) {

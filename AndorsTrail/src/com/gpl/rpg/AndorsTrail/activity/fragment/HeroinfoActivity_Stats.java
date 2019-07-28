@@ -19,6 +19,7 @@ import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.Dialogs;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.model.GameStatistics;
 import com.gpl.rpg.AndorsTrail.model.actor.HeroCollection;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.Inventory;
@@ -35,6 +36,7 @@ public final class HeroinfoActivity_Stats extends Fragment {
 
 	private WorldContext world;
 	private Player player;
+	private GameStatistics statistics;
 
 	private View view;
 	private Button levelUpButton;
@@ -53,6 +55,7 @@ public final class HeroinfoActivity_Stats extends Fragment {
 	private TableLayout heroinfo_basestats_table;
 	private ViewGroup heroinfo_container;
 
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -60,6 +63,7 @@ public final class HeroinfoActivity_Stats extends Fragment {
 		if (!app.isInitialized()) return;
 		this.world = app.getWorld();
 		this.player = world.model.player;
+		this.statistics = world.model.statistics;
 	}
 
 	@Override
@@ -72,7 +76,23 @@ public final class HeroinfoActivity_Stats extends Fragment {
 		
 		TextView tv = (TextView) v.findViewById(R.id.heroinfo_title);
 		if (tv != null) {
-			tv.setText(player.getName());
+			String description = player.getName() + "\n";
+			final Resources res = getResources();
+			if (statistics.hasUnlimitedLives() && statistics.hasUnlimitedSaves()) {
+				description += res.getString(R.string.heroinfo_unlimited_lives_and_saves);
+			} else if (statistics.hasUnlimitedLives()) {
+				description += res.getString(R.string.heroinfo_unlimited_lives);
+			} else {
+				if (statistics.getStartLives() == 1 && !statistics.hasUnlimitedSaves()) {
+					description += res.getString(R.string.heroinfo_hardcore_mode);
+				} else {
+					description += res.getString(R.string.heroinfo_lives_left, statistics.getLivesLeft(), statistics.getStartLives());
+					if (statistics.hasUnlimitedSaves()) {
+						description += res.getString(R.string.heroinfo_unlimited_saves);
+					}
+				}
+			}
+			tv.setText(description);
 			tv.setCompoundDrawablesWithIntrinsicBounds(HeroCollection.getHeroLargeSprite(player.iconID), 0, 0, 0);
 		}
 		heroinfo_container = (ViewGroup) v.findViewById(R.id.heroinfo_container);

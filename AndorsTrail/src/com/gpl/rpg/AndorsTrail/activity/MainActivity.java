@@ -149,6 +149,9 @@ public final class MainActivity
 			final int slot = data.getIntExtra("slot", 1);
 			if (save(slot)) {
 				Toast.makeText(this, getResources().getString(R.string.menu_save_gamesaved, slot), Toast.LENGTH_SHORT).show();
+				if (!world.model.statistics.hasUnlimitedSaves()) {
+					finish();
+				}
 			} else {
 				Toast.makeText(this, R.string.menu_save_failed, Toast.LENGTH_LONG).show();
 			}
@@ -188,9 +191,11 @@ public final class MainActivity
 		super.onResume();
 		if (!AndorsTrailApplication.getApplicationFromActivity(this).getWorldSetup().isSceneReady) return;
 
-		controllers.gameRoundController.resume();
-
-		updateStatus();
+		if (world.model.statistics.isDead()) this.finish();
+		else {
+			controllers.gameRoundController.resume();
+			updateStatus();
+		}
 	}
 
 	private void unsubscribeFromModel() {
@@ -452,7 +457,11 @@ public final class MainActivity
 
 	@Override
 	public void onPlayerDied(int lostExp) {
-		message(getString(R.string.combat_hero_dies, lostExp));
+		if (!world.model.statistics.isDead()) {
+			message(getString(R.string.combat_hero_dies, lostExp));
+		} else {
+			Dialogs.showHeroDied(this, controllers);
+		}
 	}
 
 	@Override

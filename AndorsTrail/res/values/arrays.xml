@@ -8,6 +8,16 @@
 		<item>@string/questlog_includecompleted_onlycompleted</item>
 	</string-array>
 
+	<!-- Order is hardcoded within StartScreenActivity_NewGame-->
+	<string-array name="startscreen_mode_selector">
+		<item>Unlimited saves and lives</item>
+		<item>Unlimited lives</item>
+		<item>50 lives</item>
+		<item>10 lives</item>
+		<item>3 lives</item>
+		<item>1 life (hardcore mode)</item>
+	</string-array>
+
 	<!-- Order is hardcoded within HeroInfoActivity_inventory-->
 	<string-array name="inventorylist_category_filters">
 		<item>@string/inventory_category_all</item>

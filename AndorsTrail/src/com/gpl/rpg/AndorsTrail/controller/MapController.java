@@ -129,8 +129,11 @@ public final class MapController {
 		if (lostExp < 0) lostExp = 0;
 		controllers.actorStatsController.addExperience(-lostExp);
 		world.model.statistics.addPlayerDeath(lostExp);
-		controllers.movementController.respawnPlayerAsync();
-		lotsOfTimePassed();
+
+		if (!world.model.statistics.isDead()) {
+			controllers.movementController.respawnPlayerAsync();
+			lotsOfTimePassed();
+		}
 		worldEventListeners.onPlayerDied(lostExp);
 	}
 

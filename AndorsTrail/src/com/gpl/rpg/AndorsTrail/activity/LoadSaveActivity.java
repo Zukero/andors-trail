@@ -108,9 +108,22 @@ public final class LoadSaveActivity extends Activity implements OnClickListener 
 	}
 	
 	private void addSavegameSlotButtons(ViewGroup parent, LayoutParams params, List<Integer> usedSavegameSlots) {
+		int unused = 1;
 		for (int slot : usedSavegameSlots) {
 			final FileHeader header = Savegames.quickload(this, slot);
 			if (header == null) continue;
+
+			while (unused < slot){
+				Button b = new Button(this);
+				b.setLayoutParams(params);
+				b.setTag(unused);
+				b.setOnClickListener(this);
+				b.setText(getString(R.string.loadsave_empty_slot, unused));
+				tileManager.setImageViewTileForPlayer(getResources(), b, header.iconID);
+				parent.addView(b, params);
+				unused++;
+			}
+			unused++;
 
 			Button b = new Button(this);
 			b.setLayoutParams(params);
@@ -139,6 +152,7 @@ public final class LoadSaveActivity extends Activity implements OnClickListener 
 	private String getConfirmOverwriteQuestion(int slot) {
 		if (isLoading) return null;
 		if (slot == SLOT_NUMBER_CREATE_NEW_SLOT) return null;					// if we're creating a new slot
+        if (!Savegames.getSlotFile(slot).exists()) return null;
 
 		if (preferences.displayOverwriteSavegame == AndorsTrailPreferences.CONFIRM_OVERWRITE_SAVEGAME_ALWAYS) {
 			return getString(R.string.loadsave_save_overwrite_confirmation_all);
@@ -160,42 +174,73 @@ public final class LoadSaveActivity extends Activity implements OnClickListener 
 	@Override
 	public void onClick(View view) {
 		final int slot = (Integer) view.getTag();
-		final String message = getConfirmOverwriteQuestion(slot);
 
-		if (message != null) {
-			final String title =
-				getString(R.string.loadsave_save_overwrite_confirmation_title) + ' '
-				+ getString(R.string.loadsave_save_overwrite_confirmation_slot, slot);
-//			new AlertDialog.Builder(this)
-//				.setIcon(android.R.drawable.ic_dialog_alert)
-//				.setTitle(title)
-//				.setMessage(message)
-//				.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-//					@Override
-//					public void onClick(DialogInterface dialog, int which) {
-//						loadsave(slot);
-//					}
-//				})
-//				.setNegativeButton(android.R.string.no, null)
-//				.show();
-			final Dialog d = CustomDialogFactory.createDialog(this, 
-					title, 
-					getResources().getDrawable(android.R.drawable.ic_dialog_alert), 
-					message, 
-					null, 
-					true);
-			
-			CustomDialogFactory.addButton(d, android.R.string.yes, new View.OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						loadsave(slot);
-					}
-				});
-			CustomDialogFactory.addDismissButton(d, android.R.string.no);
-			
-			CustomDialogFactory.show(d);
+		if (isLoading) {
+			if(!Savegames.getSlotFile(slot).exists()) {
+				showErrorLoadingEmptySlot();
+			} else {
+				final FileHeader header = Savegames.quickload(this, slot);
+				if (header != null && !header.hasUnlimitedSaves) {
+					showSlotGetsDeletedOnLoadWarning(slot);
+				} else {
+					loadsave(slot);
+				}
+			}
 		} else {
-			loadsave(slot);
+			final String message = getConfirmOverwriteQuestion(slot);
+			if (message != null) {
+				showConfirmoverwriteQuestion(slot, message);
+			} else {
+				loadsave(slot);
+			}
 		}
+	}
+
+	private void showErrorLoadingEmptySlot() {
+		final Dialog d = CustomDialogFactory.createDialog(this,
+				getString(R.string.startscreen_error_loading_game),
+				getResources().getDrawable(android.R.drawable.ic_dialog_alert),
+				getString(R.string.startscreen_error_loading_empty_slot),
+				null,
+				true);
+		CustomDialogFactory.addDismissButton(d, android.R.string.ok);
+		CustomDialogFactory.show(d);
+	}
+
+	private void showSlotGetsDeletedOnLoadWarning(int slot) {
+		final Dialog d = CustomDialogFactory.createDialog(this,
+				getString(R.string.startscreen_attention_slot_gets_delete_on_load),
+				getResources().getDrawable(android.R.drawable.ic_dialog_alert),
+				getString(R.string.startscreen_attention_message_slot_gets_delete_on_load),
+				null,
+				true);
+		CustomDialogFactory.addButton(d, android.R.string.ok, new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				loadsave(slot);
+			}
+		});
+		CustomDialogFactory.show(d);
+	}
+
+	private void showConfirmoverwriteQuestion(int slot, String message) {
+		final String title =
+				getString(R.string.loadsave_save_overwrite_confirmation_title) + ' '
+						+ getString(R.string.loadsave_save_overwrite_confirmation_slot, slot);
+		final Dialog d = CustomDialogFactory.createDialog(this,
+				title,
+				getResources().getDrawable(android.R.drawable.ic_dialog_alert),
+				message,
+				null,
+				true);
+
+		CustomDialogFactory.addButton(d, android.R.string.yes, new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				loadsave(slot);
+			}
+		});
+		CustomDialogFactory.addDismissButton(d, android.R.string.no);
+		CustomDialogFactory.show(d);
 	}
 }

@@ -28,6 +28,8 @@ public final class WorldSetup {
 	public boolean isSceneReady = false;
 	public String newHeroName;
 	public int newHeroIcon;
+	public int newHeroStartLives;
+	public boolean newHeroUnlimitedSaves;
 	private Savegames.LoadSavegameResult loadResult;
 
 	public WorldSetup(WorldContext world, ControllerContext controllers, Context androidContext) {
@@ -149,7 +151,7 @@ public final class WorldSetup {
 
 	private void createNewWorld() {
 		Context ctx = androidContext.get();
-		world.model = new ModelContainer();
+		world.model = new ModelContainer(newHeroStartLives, newHeroUnlimitedSaves);
 		world.model.player.initializeNewPlayer(world.dropLists, newHeroName, newHeroIcon);
 
 		controllers.actorStatsController.recalculatePlayerStats(world.model.player);

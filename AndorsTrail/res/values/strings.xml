@@ -19,10 +19,15 @@
 	<string name="dialog_loading_failed_title">Load Failed</string>
 	<string name="dialog_loading_failed_message">Andor\'s Trail was unable to load the savegame file.\n\n:(\n\nThe file may be damaged or incomplete.</string>
 	<string name="dialog_loading_failed_incorrectversion">Andor\'s Trail was unable to load the savegame file. This savegame file is created with a newer version than what is currently running.</string>
+	<string name="dialog_loading_failed_cheat">Andor\'s Trail was unable to load the savegame file. This savegame file has already been continued.</string>
 
 	<string name="dialog_recenter">Recenter</string>
 	<string name="dialog_close">Close</string>
 	<string name="dialog_more">More</string>
+
+    <string name="dialog_game_over_title">Game over</string>
+    <string name="dialog_game_over_text">You take your last breath and die.</string>
+    <string name="rip_startscreen">(RIP)</string>
 
 	<string name="dialog_monsterencounter_title">Encounter</string>
 	<string name="dialog_monsterencounter_message">Do you want to attack?\nDifficulty: %1$s</string>
@@ -50,6 +55,13 @@
 	<string name="heroinfo_experiencepoints">Experience points (XP):</string>
 	<string name="heroinfo_actionpoints">Action points (AP):</string>
 	<string name="heroinfo_quests">Quests</string>
+    <string name="heroinfo_unlimited_lives_and_saves">unlimited lives and saves</string>
+    <string name="heroinfo_unlimited_lives">unlimited lives</string>
+    <string name="heroinfo_hardcore_mode">1 life (hardcore mode)</string>
+    <string name="heroinfo_lives_left">%1$d/%2$d lives left</string>
+    <string name="heroinfo_unlimited_saves">, unlimited saves</string>
+
+
 
 	<string name="combat_attack">Attack (%1$d AP)</string>
 	<string name="combat_move">Move (%1$d AP)</string>
@@ -143,6 +155,13 @@
 	<string name="startscreen_selectherosprite">Choose your hero</string>
 	<string name="startscreen_enterheroname">Enter hero name</string>
 	<string name="startscreen_load">Load</string>
+	<string name="startscreen_game_mode">Mode</string>
+	<string name="startscreen_load_game">Load game</string>
+	<string name="startscreen_load_game_confirm">The current game is unsaved and you will loose your character.</string>
+	<string name="startscreen_error_loading_game">Error loading game</string>
+	<string name="startscreen_error_loading_empty_slot">Can\'t load from an empty slot.</string>
+	<string name="startscreen_attention_slot_gets_delete_on_load">Attention</string>
+	<string name="startscreen_attention_message_slot_gets_delete_on_load">Loading this game deletes its save slot. You will have to save again before switching to another game.</string>
 
 	<!-- <string name="conversation_title">%1$s says</string> -->
 	<string name="conversation_rewardexp"> [You gained %1$d experience]</string>
@@ -471,6 +490,8 @@
 	<string name="traitsinfo_base_max_hp">Max HP:</string>
 	<string name="traitsinfo_base_max_ap">Max AP:</string>
 	<string name="menu_save_saving_not_allowed_in_combat">Cannot save the game while in combat.</string>
+	<string name="menu_save_switch_character_title">Switch character</string>
+	<string name="menu_save_switch_character">Saving allows you to switch to another character and later continue the current game. Do you want to save and exit the current game?</string>
 
 	<string name="preferences_optimized_drawing_title">Optimized drawing</string>
 	<string name="preferences_optimized_drawing">Disable this if you see graphical artifacts. Enabling this option will make the game only redraw changed parts of the screen every frame.</string>
@@ -548,6 +569,8 @@
 
 	<string name="loadsave_save_overwrite_confirmation_all">Are you sure you want to overwrite this savegame?</string>
 	<string name="loadsave_save_overwrite_confirmation_slot">(slot %1$d)</string>
+	<string name="loadsave_empty_slot">%1$d.&lt;empty&gt;</string>
+
 	<string name="preferences_display_overwrite_savegame_entries_always_confirm">Always show confirmation dialog box</string>
 	<string name="preferences_display_overwrite_savegame_entries_confirm_overwrite">Only show when overwriting a different playername</string>
 	<string name="preferences_display_overwrite_savegame_entries_never_confirm">Never display confirmation dialog box</string>
