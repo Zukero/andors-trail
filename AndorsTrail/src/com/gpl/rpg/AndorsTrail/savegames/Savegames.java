@@ -186,7 +186,7 @@ public final class Savegames {
 		public boolean skipIcon = false;
 		
 		public String describe() {
-			return playerName + ", " + displayInfo;
+			return (fileversion == AndorsTrailApplication.DEVELOPMENT_INCOMPATIBLE_SAVEGAME_VERSION ? "(D) " : "") + playerName + ", " + displayInfo;
 		}
 
 

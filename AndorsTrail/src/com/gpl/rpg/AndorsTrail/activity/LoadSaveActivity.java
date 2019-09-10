@@ -160,6 +160,22 @@ public final class LoadSaveActivity extends Activity implements OnClickListener 
 	@Override
 	public void onClick(View view) {
 		final int slot = (Integer) view.getTag();
+
+		if (!isLoading && slot != SLOT_NUMBER_CREATE_NEW_SLOT && AndorsTrailApplication.CURRENT_VERSION == AndorsTrailApplication.DEVELOPMENT_INCOMPATIBLE_SAVEGAME_VERSION) {
+			final FileHeader header = Savegames.quickload(this, slot);
+			if (header != null && header.fileversion != AndorsTrailApplication.DEVELOPMENT_INCOMPATIBLE_SAVEGAME_VERSION) {
+				final Dialog d = CustomDialogFactory.createDialog(this,
+						"Overwriting not allowed",
+						getResources().getDrawable(android.R.drawable.ic_dialog_alert),
+						"You are currently using a development version of Andor's trail. Overwriting a regular savegame is not allowed in development mode.",
+						null,
+						true);
+				CustomDialogFactory.addDismissButton(d, android.R.string.ok);
+				CustomDialogFactory.show(d);
+				return;
+			}
+		}
+
 		final String message = getConfirmOverwriteQuestion(slot);
 
 		if (message != null) {
