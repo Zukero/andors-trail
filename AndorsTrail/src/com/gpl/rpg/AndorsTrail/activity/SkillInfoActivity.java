@@ -151,6 +151,7 @@ public final class SkillInfoActivity extends Activity {
 		case specializationDualWield: return R.string.skill_title_specialization_dualwield;
 		case specialization2hand: return R.string.skill_title_specialization_2hand;
 		case specializationWeaponShield: return R.string.skill_title_specialization_weapon_shield;
+		case weaponProficiencyPole: return R.string.skill_title_weapon_prof_pole;
 		default:
 			return -1;
 		}
@@ -200,6 +201,7 @@ public final class SkillInfoActivity extends Activity {
 		case specializationDualWield: return res.getString(R.string.skill_longdescription_specialization_dualwield, SkillCollection.PER_SKILLPOINT_INCREASE_SPECIALIZATION_DUALWIELD_AC_PERCENT, SkillCollection.PER_SKILLPOINT_INCREASE_SPECIALIZATION_DUALWIELD_BC_PERCENT);
 		case specialization2hand: return res.getString(R.string.skill_longdescription_specialization_2hand, SkillCollection.PER_SKILLPOINT_INCREASE_SPECIALIZATION_2HAND_DMG_PERCENT, SkillCollection.PER_SKILLPOINT_INCREASE_SPECIALIZATION_2HAND_AC_PERCENT);
 		case specializationWeaponShield: return res.getString(R.string.skill_longdescription_specialization_weapon_shield, SkillCollection.PER_SKILLPOINT_INCREASE_SPECIALIZATION_WEAPON_AC_PERCENT, SkillCollection.PER_SKILLPOINT_INCREASE_SPECIALIZATION_WEAPON_DMG_PERCENT);
+		case weaponProficiencyPole: return res.getString(R.string.skill_longdescription_weapon_prof_pole, SkillCollection.PER_SKILLPOINT_INCREASE_WEAPON_PROF_AC_PERCENT, SkillCollection.PER_SKILLPOINT_INCREASE_WEAPON_PROF_BC_PERCENT, SkillCollection.PER_SKILLPOINT_INCREASE_WEAPON_PROF_CS_PERCENT);
 		default:
 			return "";
 		}

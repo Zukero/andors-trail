@@ -15,18 +15,21 @@ public final class SkillInfo {
 	public final LevelUpType levelupVisibility;
 	public final SkillLevelRequirement[] levelupRequirements;
 	public final SkillCollection.SkillCategory categoryType;
+	public final int position;
 	public SkillInfo(
 			SkillCollection.SkillID id
 			, int maxLevel
 			, LevelUpType levelupVisibility
 			, SkillCollection.SkillCategory categoryType
 			, SkillLevelRequirement[] levelupRequirements
+			, int position
 	) {
 		this.id = id;
 		this.maxLevel = maxLevel;
 		this.levelupVisibility = levelupVisibility;
 		this.levelupRequirements = levelupRequirements;
 		this.categoryType = categoryType;
+		this.position = position;
 	}
 
 	public boolean hasMaxLevel() {

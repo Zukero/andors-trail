@@ -188,7 +188,7 @@
         "iconID":"items_weapons_3:3",
         "name":"Scythe",
         "displaytype":"ordinary",
-        "category":"scythe",
+        "category":"pole",
         "description":"This looks more suited to farming than fighting",
         "equipEffect":{
             "increaseAttackDamage":{
@@ -207,7 +207,7 @@
         "displaytype":"ordinary",
         "hasManualPrice":1,
         "baseMarketCost":464,
-        "category":"scythe",
+        "category":"pole",
         "description":"This looks more suited to farming than fighting",
         "equipEffect":{
             "increaseAttackDamage":{

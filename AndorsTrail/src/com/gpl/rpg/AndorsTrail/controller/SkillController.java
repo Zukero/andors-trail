@@ -284,11 +284,13 @@ public final class SkillController {
 				return SkillID.weaponProficiency1hsword;
 			else if (itemCategoryID.equals("2hsword"))
 				return SkillID.weaponProficiency2hsword;
-			else if (itemCategoryID.equals("axe") || itemCategoryID.equals("axe2h") || itemCategoryID.equals("scythe"))
+			else if (itemCategoryID.equals("axe") || itemCategoryID.equals("axe2h"))
 				return SkillID.weaponProficiencyAxe;
 			else if (itemCategoryID.equals("club") || itemCategoryID.equals("staff") || itemCategoryID.equals("mace")
 					|| itemCategoryID.equals("scepter") || itemCategoryID.equals("hammer") || itemCategoryID.equals("hammer2h") || itemCategoryID.equals("whip"))
 				return SkillID.weaponProficiencyBlunt;
+            else if (itemCategoryID.equals("pole"))
+                return SkillID.weaponProficiencyPole;
 		} else if (category.isShield()) {
 			return SkillID.armorProficiencyShield;
 		} else if (category.isArmor()) {

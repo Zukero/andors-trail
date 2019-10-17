@@ -582,6 +582,7 @@
 	<string name="skill_title_specialization_dualwield">Specialization: Dual wield</string>
 	<string name="skill_title_specialization_2hand">Specialization: Two-handed weapon</string>
 	<string name="skill_title_specialization_weapon_shield">Specialization: Weapon and shield</string>
+	<string name="skill_title_weapon_prof_pole">Pole weapon proficiency</string>
 
 	<string name="skill_shortdescription_weapon_prof_dagger">Better at fighting with daggers</string>
 	<string name="skill_shortdescription_weapon_prof_1hsword">Better at fighting with one-handed swords</string>
@@ -599,6 +600,7 @@
 	<string name="skill_shortdescription_specialization_dualwield">Expert at dual wielding</string>
 	<string name="skill_shortdescription_specialization_2hand">Expert at two-handed weapons</string>
 	<string name="skill_shortdescription_specialization_weapon_shield">Expert at fighting with weapon and shield</string>
+	<string name="skill_shortdescription_weapon_prof_pole">Better at fighting with pole weapons</string>
 
 	<string name="skill_longdescription_weapon_prof_dagger">For each skill level, increases attack chance when using daggers and shortswords by %1$d %% of the item\'s base attack chance, increases block chance by %2$d %% of the item\'s base block chance, and increases critical skill by %3$d %% of the item\'s base critical skill.</string>
 	<string name="skill_longdescription_weapon_prof_1hsword">For each skill level, increases attack chance of rapiers, longswords and broadswords by %1$d %% of the item\'s base attack chance, increases block chance by %2$d %% of the item\'s base block chance, and increases critical skill by %3$d %% of the item\'s base critical skill.</string>
@@ -626,6 +628,7 @@ Every skill level increases the attack chance of weapons with %1$d %% of their o
 	<string name="skill_longdescription_specialization_dualwield">Increases the attack chance of both wielded weapons by an additional %1$d %% of their original attack chances, in addition to the benefits given by the weapon style skill. The block chances of both wielded weapons are also increased by %2$d %% of their original block chances.</string>
 	<string name="skill_longdescription_specialization_2hand">Increases damage potential of two-handed weapons by an additional %1$d %% of the original damage potential, in addition to the benefits given by the weapon style skill. The attack chances of two-handed weapons are also increased by %2$d %% of their original attack chances.</string>
 	<string name="skill_longdescription_specialization_weapon_shield">Increases both attack chances and damage potential of weapons. The attack chance is increased by %1$d %% of the original attack chance, and the damage potential is increased by %2$d %% of the original damage potential.</string>
+	<string name="skill_longdescription_weapon_prof_pole">For each skill level, increases attack chance when using pole weapons by %1$d %% of the item\'s base attack chance, increases block chance by %2$d %% of the item\'s base block chance, and increases critical skill by %3$d %% of the item\'s base critical skill.</string>
 
 	<string name="preferences_quickslots_placement">Quickslot position</string>
 	<string name="preferences_quickslots_placement_summary">Where to place the quickslots</string>

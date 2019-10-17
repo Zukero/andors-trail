@@ -98,6 +98,13 @@
         "inventorySlot":"weapon"
     },
     {
+        "id":"pole",
+        "name":"Pole weapon",
+        "actionType":"equip",
+        "size":"large",
+        "inventorySlot":"weapon"
+    },
+    {
         "id":"buckler",
         "name":"Buckler",
         "actionType":"equip",

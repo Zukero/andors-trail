@@ -108,7 +108,7 @@ public final class HeroinfoActivity_Skills extends Fragment {
 
 	private void reloadShownSort() {
 		int v = world.model.uiSelections.selectedSkillSort;
-		if(v ==0);
+		if(v==0) getCurrentCategoryAdapter().sortDefault();
 		if(v==1) getCurrentCategoryAdapter().sortByName();
 		if(v==2) getCurrentCategoryAdapter().sortByPoints();
 		if(v==3) getCurrentCategoryAdapter().sortByUnlocked();

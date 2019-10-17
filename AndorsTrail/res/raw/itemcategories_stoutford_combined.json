@@ -5,12 +5,5 @@
         "actionType":"equip",
         "size":"std",
         "inventorySlot":"weapon"
-    },
-    {
-        "id":"scythe",
-        "name":"Scythe",
-        "actionType":"equip",
-        "size":"large",
-        "inventorySlot":"weapon"
     }
 ]

@@ -45,7 +45,7 @@ public final class SkillListAdapter extends ArrayAdapter<SkillInfo> {
 		Collections.sort(result, new Comparator<SkillInfo>() {
 			@Override
 			public int compare(SkillInfo a, SkillInfo b) {
-				return a.id.ordinal() - b.id.ordinal();
+				return a.position - b.position;
 			}
 		});
 		return result;
@@ -63,7 +63,7 @@ public final class SkillListAdapter extends ArrayAdapter<SkillInfo> {
 		Collections.sort(result, new Comparator<SkillInfo>() {
 			@Override
 			public int compare(SkillInfo a, SkillInfo b) {
-				return a.id.ordinal() - b.id.ordinal();
+				return a.position - b.position;
 			}
 		});
 		return result;
@@ -158,9 +158,20 @@ public final class SkillListAdapter extends ArrayAdapter<SkillInfo> {
 		case specializationDualWield: return R.string.skill_shortdescription_specialization_dualwield;
 		case specialization2hand: return R.string.skill_shortdescription_specialization_2hand;
 		case specializationWeaponShield: return R.string.skill_shortdescription_specialization_weapon_shield;
+		case weaponProficiencyPole: return R.string.skill_shortdescription_weapon_prof_pole;
 		default:
 			return -1;
 		}
+	}
+
+	public void sortDefault(){
+		Comparator<SkillInfo> comparatorName = new Comparator<SkillInfo>() {
+			@Override
+			public int compare(SkillInfo a, SkillInfo b) {
+				return a.position - b.position;
+			}
+		};
+		this.sort(comparatorName);
 	}
 
 	public void sortByName(){
