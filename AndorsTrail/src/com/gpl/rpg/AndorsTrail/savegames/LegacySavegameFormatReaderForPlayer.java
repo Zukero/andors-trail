@@ -127,7 +127,7 @@ public final class LegacySavegameFormatReaderForPlayer {
 	}
 
 	private static void correctActorConditionsFromItemsPre0611b1(Player player, String conditionTypeID, WorldContext world, ControllerContext controllers, String itemTypeIDWithCondition) {
-		if (!player.hasCondition(conditionTypeID)) return;
+		if ((player.effectiveConditions.getConditionOfType(conditionTypeID) == null)) return;
 		boolean hasItemWithCondition = false;
 		for (Inventory.WearSlot slot : Inventory.WearSlot.values()) {
 			ItemType t = player.inventory.getItemTypeInWearSlot(slot);

@@ -5,7 +5,6 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.item.DropList;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer;
@@ -133,10 +132,7 @@ public final class Monster extends Actor {
 		this.health.readFromParcel(src, fileversion);
 		this.position.readFromParcel(src, fileversion);
 		if (fileversion > 16) {
-			final int numConditions = src.readInt();
-			for(int i = 0; i < numConditions; ++i) {
-				conditions.add(new ActorCondition(src, world, fileversion));
-			}
+			this.effectiveConditions.FromParcel(src, world, fileversion);
 		}
 
 		if (fileversion >= 34) {
@@ -175,10 +171,7 @@ public final class Monster extends Actor {
 		ap.writeToParcel(dest);
 		health.writeToParcel(dest);
 		position.writeToParcel(dest);
-		dest.writeInt(conditions.size());
-		for (ActorCondition c : conditions) {
-			c.writeToParcel(dest);
-		}
+		effectiveConditions.writeToParcel(dest);
 		dest.writeInt(moveCost);
 
 		dest.writeBoolean(forceAggressive);

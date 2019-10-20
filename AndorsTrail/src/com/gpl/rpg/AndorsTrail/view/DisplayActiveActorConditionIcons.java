@@ -19,6 +19,8 @@ import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.listeners.ActorConditionListener;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
+import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionType;
+import com.gpl.rpg.AndorsTrail.model.ability.effectivecondition.EffectiveActorCondition;
 import com.gpl.rpg.AndorsTrail.model.actor.Actor;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
 import com.gpl.rpg.AndorsTrail.util.ThemeHelper;
@@ -55,43 +57,35 @@ public final class DisplayActiveActorConditionIcons implements ActorConditionLis
 	}
 
 	@Override
-	public void onActorConditionAdded(Actor actor, ActorCondition condition) {
+	public void onActorConditionAdded(Actor actor, EffectiveActorCondition condition) {
 		if (actor != target) return;
 		ActiveConditionIcon icon = getFirstFreeIcon();
-		icon.setActiveCondition(condition, false);
+		icon.setActiveCondition(condition);
 		icon.show();
 		updateIconState();
 	}
 
 	@Override
-	public void onActorConditionRemoved(Actor actor, ActorCondition condition) {
+	public void onActorConditionRemoved(Actor actor, EffectiveActorCondition condition) {
 		if (actor != target) return;
-		ActiveConditionIcon icon = getIconFor(condition, false);
+		ActiveConditionIcon icon = getIconForCondition(condition);
 		if (icon == null) return;
 		icon.hide(true);
 		updateIconState();
 	}
 
 	@Override
-	public void onActorConditionDurationChanged(Actor actor, ActorCondition condition) { 
+	public void onActorConditionChanged(Actor actor, EffectiveActorCondition condition) {
 		if (actor != target) return;
-		ActiveConditionIcon icon = getIconFor(condition, false);
+		ActiveConditionIcon icon = getIconForCondition(condition);
 		if (icon == null) return;
 		icon.setIconAndText();
 	}
 
 	@Override
-	public void onActorConditionMagnitudeChanged(Actor actor, ActorCondition condition) {
+	public void onActorConditionRoundEffectApplied(Actor actor, EffectiveActorCondition condition) {
 		if (actor != target) return;
-		ActiveConditionIcon icon = getIconFor(condition, false);
-		if (icon == null) return;
-		icon.setIconAndText();
-	}
-
-	@Override
-	public void onActorConditionRoundEffectApplied(Actor actor, ActorCondition condition) {
-		if (actor != target) return;
-		ActiveConditionIcon icon = getIconFor(condition, false);
+		ActiveConditionIcon icon = getIconForCondition(condition);
 		if (icon == null) return;
 		icon.pulseAnimate();
 	}
@@ -101,7 +95,7 @@ public final class DisplayActiveActorConditionIcons implements ActorConditionLis
 	public void onActorConditionImmunityAdded(Actor actor, ActorCondition condition) {
 		if (actor != target) return;
 		ActiveConditionIcon icon = getFirstFreeIcon();
-		icon.setActiveCondition(condition, true);
+		icon.setActiveImmunity(condition);
 		icon.show();
 		updateIconState();
 	}
@@ -109,7 +103,7 @@ public final class DisplayActiveActorConditionIcons implements ActorConditionLis
 	@Override
 	public void onActorConditionImmunityRemoved(Actor actor, ActorCondition condition) {
 		if (actor != target) return;
-		ActiveConditionIcon icon = getIconFor(condition, true);
+		ActiveConditionIcon icon = getIconForImmunity(condition);
 		if (icon == null) return;
 		icon.hide(true);
 		updateIconState();
@@ -118,7 +112,7 @@ public final class DisplayActiveActorConditionIcons implements ActorConditionLis
 	@Override
 	public void onActorConditionImmunityDurationChanged(Actor actor, ActorCondition condition) {
 		if (actor != target) return;
-		ActiveConditionIcon icon = getIconFor(condition, false);
+		ActiveConditionIcon icon = getIconForImmunity(condition);
 		if (icon == null) return;
 		icon.setIconAndText();
 	}
@@ -136,11 +130,11 @@ public final class DisplayActiveActorConditionIcons implements ActorConditionLis
 	private void cleanUp() {
 		for (ActiveConditionIcon icon : currentConditionIcons) icon.hide(false);
 		if (target != null) {
-			for (ActorCondition condition : target.conditions) {
-				getFirstFreeIcon().setActiveCondition(condition, false);
+			for (EffectiveActorCondition condition : target.effectiveConditions) {
+				getFirstFreeIcon().setActiveCondition(condition);
 			}
 			for (ActorCondition condition : target.immunities) {
-				getFirstFreeIcon().setActiveCondition(condition, true);
+				getFirstFreeIcon().setActiveImmunity(condition);
 			}
 		}
 		updateIconState();
@@ -250,15 +244,15 @@ public final class DisplayActiveActorConditionIcons implements ActorConditionLis
 
 	private final class ActiveConditionIcon implements AnimationListener {
 		public final int id;
-		private boolean immunity = false;
-		public ActorCondition condition;
+		public ActorCondition immunity;
+		public EffectiveActorCondition condition;
 		public final ActiveConditionIconImageView image;
 //		public final TextView text;
 		private final Animation onNewIconAnimation;
 		private final Animation onRemovedIconAnimation;
 		private final Animation onAppliedEffectAnimation;
 		final Resources res;
-		
+
 		public ActiveConditionIcon(Context context, int id) {
 			this.id = id;
 			this.image = new ActiveConditionIconImageView(context);
@@ -274,29 +268,56 @@ public final class DisplayActiveActorConditionIcons implements ActorConditionLis
 			res = context.getResources();
 		}
 
-		private void setActiveCondition(ActorCondition condition, boolean immunity) {
-			this.immunity = immunity;
+		private void setActiveCondition(EffectiveActorCondition condition) {
+			this.immunity = null;
 			this.condition = condition;
-			
 			
 			setIconAndText();
 			image.setVisibility(View.VISIBLE);
 		}
 
+		private void setActiveImmunity(ActorCondition immunity) {
+			this.immunity = immunity;
+			this.condition = null;
+
+			setIconAndText();
+			image.setVisibility(View.VISIBLE);
+		}
+
+
 		public void setIconAndText() {
-			String duration = null;
-			String magnitude = null;
-			boolean showMagnitude = (condition.magnitude != 1 && condition.magnitude != ActorCondition.MAGNITUDE_REMOVE_ALL);
+			String durationText = null;
+			String magnitudeText = null;
+
+			ActorConditionType conditionType;
+			int magnitude;
+			int duration;
+
+			if (immunity != null) {
+				conditionType = immunity.conditionType;
+				magnitude = immunity.magnitude;
+				duration = immunity.duration;
+			} else
+			{
+				conditionType = condition.conditionType;
+				magnitude = condition.getMagnitude();
+				duration = condition.getDuration();
+			}
+
+			boolean showMagnitude = (magnitude != 1 && magnitude != ActorCondition.MAGNITUDE_REMOVE_ALL);
 			if (showMagnitude) {
-				magnitude = "x"+Integer.toString(condition.magnitude);
+				magnitudeText = "x"+Integer.toString(magnitude);
 			}
-			if (condition.duration == ActorCondition.DURATION_FOREVER || condition.duration == ActorCondition.DURATION_NONE) {
-				duration = "\u221e";
+			if (duration == ActorCondition.DURATION_FOREVER || duration == ActorCondition.DURATION_NONE) {
+				durationText = "\u221e";
 			} else {
-				duration = Integer.toString(condition.duration);
+				durationText = Integer.toString(duration);
 			}
-			tileManager.setImageViewTile(DisplayActiveActorConditionIcons.this.androidContext.get(), image, condition.conditionType, immunity, magnitude, duration);
-			
+
+			if(condition != null && condition.hasMultipleDurations())
+				durationText = durationText + "\u2026";
+
+			tileManager.setImageViewTile(DisplayActiveActorConditionIcons.this.androidContext.get(), image, conditionType, this.immunity != null, magnitudeText, durationText);
 		}
 
 		public void hide(boolean useAnimation) {
@@ -349,12 +370,20 @@ public final class DisplayActiveActorConditionIcons implements ActorConditionLis
 		}
 	}
 
-	private ActiveConditionIcon getIconFor(ActorCondition condition, boolean immunity) {
+	private ActiveConditionIcon getIconForImmunity(ActorCondition immunity) {
 		for (ActiveConditionIcon icon : currentConditionIcons) {
-			if (icon.condition == condition && icon.immunity == immunity) return icon;
+			if (icon.immunity == immunity) return icon;
 		}
 		return null;
 	}
+
+	private ActiveConditionIcon getIconForCondition(EffectiveActorCondition condition) {
+		for (ActiveConditionIcon icon : currentConditionIcons) {
+			if (icon.condition == condition) return icon;
+		}
+		return null;
+	}
+
 	private ActiveConditionIcon getFirstFreeIcon() {
 		for (ActiveConditionIcon icon : currentConditionIcons) {
 			if (!icon.isVisible()) return icon;

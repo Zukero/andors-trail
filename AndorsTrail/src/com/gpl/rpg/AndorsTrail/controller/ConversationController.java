@@ -302,7 +302,7 @@ public final class ConversationController {
 				result =  stats.getNumberOfUsedBonemealPotions() >= requirement.value;
 				break;
 			case hasActorCondition:
-				result =  player.hasCondition(requirement.requireID);
+				result = (player.effectiveConditions.getConditionOfType(requirement.requireID) != null);
 				break;
 			case factionScore:
 				result = player.getAlignment(requirement.requireID) >= requirement.value;

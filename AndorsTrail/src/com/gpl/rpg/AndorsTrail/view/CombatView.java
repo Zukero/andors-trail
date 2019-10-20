@@ -26,6 +26,7 @@ import com.gpl.rpg.AndorsTrail.controller.listeners.ActorStatsListener;
 import com.gpl.rpg.AndorsTrail.controller.listeners.CombatSelectionListener;
 import com.gpl.rpg.AndorsTrail.controller.listeners.CombatTurnListener;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
+import com.gpl.rpg.AndorsTrail.model.ability.effectivecondition.EffectiveActorCondition;
 import com.gpl.rpg.AndorsTrail.model.actor.Actor;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
@@ -211,9 +212,9 @@ public final class CombatView extends RelativeLayout implements CombatSelectionL
 			hideConditionsButton();
 			return;
 		}
-		if (currentMonster.conditions.size()+currentMonster.immunities.size() > 0) {
-			if (currentMonster.conditions.size() > 0) world.tileManager.setImageViewTile(getContext(), monsterConditionsButton, currentMonster.conditions.get(0).conditionType, false, Integer.toString(currentMonster.conditions.size()+currentMonster.immunities.size()), null);
-			else world.tileManager.setImageViewTile(getContext(), monsterConditionsButton, currentMonster.immunities.get(0).conditionType, true, Integer.toString(currentMonster.conditions.size()+currentMonster.immunities.size()), null);
+		if (currentMonster.effectiveConditions.size()+currentMonster.immunities.size() > 0) {
+			if (currentMonster.effectiveConditions.size() > 0) world.tileManager.setImageViewTile(getContext(), monsterConditionsButton, currentMonster.effectiveConditions.get(0).conditionType, false, Integer.toString(currentMonster.effectiveConditions.size()+currentMonster.immunities.size()), null);
+			else world.tileManager.setImageViewTile(getContext(), monsterConditionsButton, currentMonster.immunities.get(0).conditionType, true, Integer.toString(currentMonster.effectiveConditions.size()+currentMonster.immunities.size()), null);
 			showConditionsButton();
 			if (conditionsBarToggled) showConditionsBar();
 		} else {
@@ -374,25 +375,21 @@ public final class CombatView extends RelativeLayout implements CombatSelectionL
 	public void onPlayerUseCostChanged(Player actor, int newMoveCost) {}
 
 	@Override
-	public void onActorConditionAdded(Actor actor, ActorCondition condition) {
+	public void onActorConditionAdded(Actor actor, EffectiveActorCondition condition) {
 		if (actor == currentMonster) updateConditions();
 	}
 
 	@Override
-	public void onActorConditionRemoved(Actor actor, ActorCondition condition) {
+	public void onActorConditionRemoved(Actor actor, EffectiveActorCondition condition) {
 		if (actor == currentMonster) updateConditions();
 	}
 
 	@Override
-	public void onActorConditionDurationChanged(Actor actor, ActorCondition condition) {
+	public void onActorConditionChanged(Actor actor, EffectiveActorCondition condition) {
 	}
 
 	@Override
-	public void onActorConditionMagnitudeChanged(Actor actor, ActorCondition condition) {
-	}
-
-	@Override
-	public void onActorConditionRoundEffectApplied(Actor actor, ActorCondition condition) {
+	public void onActorConditionRoundEffectApplied(Actor actor, EffectiveActorCondition condition) {
 	}
 
 	@Override
