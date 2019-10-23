@@ -7,18 +7,18 @@
 	<string name="exit_to_menu">Exit to menu</string>
 	<string name="menu_settings">Preferences</string>
 	<string name="menu_save">Save</string>
-	<string name="menu_save_gamesaved">Game was saved to slot %1$d</string>
+	<string name="menu_save_gamesaved">Game saved to slot %1$d</string>
 	<string name="menu_save_failed">Failed to save game! Is the SD card mounted and writable?</string>
 
 	<string name="loadsave_title_save">Save game</string>
 	<string name="loadsave_title_load">Load saved game</string>
 	<string name="loadsave_selectslot">Select slot</string>
-	<string name="savegame_currenthero_displayinfo">level %1$d, %2$d exp, %3$d gold</string>
+	<string name="savegame_currenthero_displayinfo">level %1$d, %2$d XP, %3$d gold</string>
 
 	<string name="dialog_loading_message">Loading resources…</string>
-	<string name="dialog_loading_failed_title">Load Failed</string>
-	<string name="dialog_loading_failed_message">Andor\'s Trail was unable to load the savegame file.\n\n:(\n\nThe file may be damaged or incomplete.</string>
-	<string name="dialog_loading_failed_incorrectversion">Andor\'s Trail was unable to load the savegame file. This savegame file is created with a newer version than what is currently running.</string>
+	<string name="dialog_loading_failed_title">Loading Failed</string>
+	<string name="dialog_loading_failed_message">Andor\'s Trail could not load the savegame.\n\n:(\n\nThe file may be damaged or incomplete.</string>
+	<string name="dialog_loading_failed_incorrectversion">Andor\'s Trail could not load the savegame. The file was created with a newer version than is currently running.</string>
 
 	<string name="dialog_recenter">Recenter</string>
 	<string name="dialog_close">Close</string>
@@ -64,11 +64,11 @@
 	<string name="combat_monsteraction">%1$s is attacking.</string>
 	<!-- <string name="combat_cannotexitcombat">You cannot exit combat since there are adjacent monsters. You first have to move by long-clicking a place with no adjacent monster, before you may end the combat.</string> -->
 	<string name="combat_result_monstermiss">%1$s misses!</string>
-	<string name="combat_result_monsterhit">%1$s hits you for %2$d hp!</string>
-	<string name="combat_result_monsterhitcritical">%1$s gets a critical hit for %2$d hp!</string>
+	<string name="combat_result_monsterhit">%1$s hits you for %2$d HP!</string>
+	<string name="combat_result_monsterhitcritical">%1$s gets a critical hit for %2$d HP!</string>
 	<string name="combat_result_heromiss">Your attack misses.</string>
-	<string name="combat_result_herohit">You hit %1$s for %2$d hp!</string>
-	<string name="combat_result_herohitcritical">You get a critical hit on %1$s for %2$d hp!</string>
+	<string name="combat_result_herohit">You hit %1$s for %2$d HP!</string>
+	<string name="combat_result_herohitcritical">You get a critical hit on %1$s for %2$d HP!</string>
 	<string name="combat_result_herokillsmonster">%1$s dies!</string>
 	<string name="combat_not_enough_ap">Not enough AP left this round.</string>
 	<string name="combat_hero_dies">You fall unconscious, but fortunately wake up alive, dazed and fatigued. You lost %1$d experience.</string>
@@ -92,14 +92,14 @@
 	<string name="inventory_item_equipped">You equipped %1$s.</string>
 
 	<string name="dialog_loot_pickall">Pick up all</string>
-	<string name="dialog_loot_foundgold">You found %1$d gold. </string>
-	<string name="dialog_loot_pickedupitem">You picked up an item. </string>
-	<string name="dialog_loot_pickedupitems">You picked up %1$d items. </string>
+	<string name="dialog_loot_foundgold">You found %1$d gold.</string>
+	<string name="dialog_loot_pickedupitem">You picked up an item.</string>
+	<string name="dialog_loot_pickedupitems">You picked up %1$d items.</string>
 	<string name="dialog_groundloot_title">Items</string>
-	<string name="dialog_groundloot_message">You found some items. </string>
+	<string name="dialog_groundloot_message">You found some items.</string>
 	<string name="dialog_monsterloot_title">Victory</string>
-	<string name="dialog_monsterloot_message">You survived the encounter. </string>
-	<string name="dialog_monsterloot_gainedexp">You gained %1$d experience. </string>
+	<string name="dialog_monsterloot_message">You survived the encounter.</string>
+	<string name="dialog_monsterloot_gainedexp">You gained %1$d experience.</string>
 
 	<string name="monster_difficulty_veryeasy">Very easy</string>
 	<string name="monster_difficulty_easy">Easy</string>
@@ -183,7 +183,7 @@
 	<string name="about_button2">Authors</string>
 	<string name="about_button3">License</string>
 	<string name="about_contents1">
-		Welcome to Andor\'s Trail, an open-source roguelike RPG on Android.&lt;br /&gt;
+		Welcome to Andor\'s Trail, an open source roguelike RPG on Android.&lt;br /&gt;
 		&lt;br /&gt;
 		&lt;a href="http://andorstrail.com/"&gt;Game forums on andorstrail.com for questions and gameplay discussions.&lt;/a&gt;&lt;br /&gt;
 		&lt;br /&gt;
@@ -231,7 +231,7 @@
 <p>________________</p>
 <h1>Combat</h1>
 
-<p>Actions taken during battle cost AP...</p>
+<p>Actions taken during battle cost AP…</p>
 
 <div><b>Attacking</b> - [3AP] *</div>
 <img alt="attacking" src="doubleattackexample.png" />
@@ -245,7 +245,7 @@
 <p>________________</p>
 <h1>Advanced Combat</h1>
 
-<div>During Combat, long press a tile adjacent to the Hero...</div>
+<div>During Combat, long press a tile adjacent to the Hero…</div>
 
 <div><b>To Flee</b></div>
 <p>(chosen tile is highlighted - Attack Button changes to Move)</p>
@@ -277,12 +277,12 @@
 
 	<string name="preferences_display_category">Display</string>
 	<string name="preferences_display_fullscreen_title">Fullscreen</string>
-	<string name="preferences_display_fullscreen">Displays the game in fullscreen mode. (Requires restart)</string>
+	<string name="preferences_display_fullscreen">Changes to fullscreen view, following a program restart.</string>
 	<string name="preferences_dialog_category">Dialog confirmation</string>
 	<string name="preferences_dialog_confirmrest_title">Confirm rest</string>
 	<string name="preferences_dialog_confirmrest">Gives a question about whether you want to rest when entering a bed. Otherwise, you will always automatically rest.</string>
 	<string name="preferences_dialog_confirmattack_title">Confirm attack</string>
-	<string name="preferences_dialog_confirmattack">Enables the \'Do you want to attack..?\' dialog box when attacking a monster.</string>
+	<string name="preferences_dialog_confirmattack">Enables the \'Do you want to attack?\' dialog box when attacking a monster.</string>
 	<string name="preferences_dialog_monsterloot_title">Display monster loot</string>
 	<string name="preferences_dialog_monsterloot">Choose how you want to show the results of a fight to be shown (gold, experience, items).</string>
 	<string name="preferences_combat_category">Combat</string>
@@ -355,10 +355,10 @@
 	<!-- =========================================== -->
 	<!-- Added in v0.6.10 -->
 
-	<string name="preferences_movement_dpad_position_title">Virtual d-pad</string>
+	<string name="preferences_movement_dpad_position_title">Virtual D-pad</string>
 	<string name="preferences_movement_dpad_position">Enables a virtual on-screen directional pad to guide movement.</string>
-	<string name="preferences_movement_dpad_minimizeable_title">Minimizable d-pad</string>
-	<string name="preferences_movement_dpad_minimizeable">If the virtual d-pad is enabled, this setting allows the d-pad to be minimized by pressing its center.</string>
+	<string name="preferences_movement_dpad_minimizeable_title">Minimizable D-pad</string>
+	<string name="preferences_movement_dpad_minimizeable">If the virtual D-pad is enabled, this setting allows it to be minimized by pressing its center.</string>
 
 	<string name="preferences_movement_dpad_positions_disabled">Disabled</string>
 	<string name="preferences_movement_dpad_positions_lower_right">Lower right corner</string>
@@ -484,7 +484,7 @@
 
 	<string name="skill_title_shadow_bless">Dark blessing of the Shadow</string>
 	<string name="skill_shortdescription_shadow_bless">Resistance against all types of conditions</string>
-	<string name="skill_longdescription_shadow_bless">Lowers the chance of being afflicted with all types of conditions by %1$d %%. This includes all types of conditions caused by monster attacks such as Poison, Dazed or Fatigue.</string>
+	<string name="skill_longdescription_shadow_bless">Lowers the chance of being afflicted with all types of conditions by %1$d %%. This includes all types of conditions caused by monster attacks such as \'Poison\', \'Dazed\' or \'Fatigue\'.</string>
 
 	<string name="inventory_movetop">Move to top</string>
 	<string name="inventory_movebottom">Move to bottom</string>
@@ -493,7 +493,7 @@
 
 	<string name="skill_title_crit1">Internal bleeding</string>
 	<string name="skill_shortdescription_crit1">Chance of internal bleeding</string>
-	<string name="skill_longdescription_crit1">For every critical hit made, there is a %1$d %% chance that the hit will cause internal bleeding on the target, effectively causing the \'Internal bleeding\' condition on the target. Internal bleeding severely lowers offensive combat abilities, making the target less able to land successful attacks.</string>
+	<string name="skill_longdescription_crit1">For every critical hit made, there is a %1$d %% chance that the hit will cause internal bleeding on the target, effectively causing the \'Internal bleeding\' condition on the target. Internal bleeding severely lowers offensive combat abilities, making the target less able to land attacks.</string>
 	<string name="skill_title_crit2">Fracture</string>
 	<string name="skill_shortdescription_crit2">Chance of bone fracture</string>
 	<string name="skill_longdescription_crit2">For every critical hit made, there is a %1$d %% chance that the hit will fracture some of the target\'s bones, effectively causing the \'Fracture\' condition on the target. This will severely lower the target\'s defensive combat abilities, making it less able to defend itself in subsequent attacks.</string>
@@ -505,7 +505,7 @@
 	<string name="skill_longdescription_taunt">When an attacker makes an attack that misses, there is a %1$d %% chance that the attacker loses %2$d action points (AP). This applies to all types of melee attacks against you.</string>
 	<string name="skill_title_concussion">Concussion</string>
 	<string name="skill_shortdescription_concussion">Chance of concussion</string>
-	<string name="skill_longdescription_concussion">When making an attack on a target whose block chance (BC) is at least %1$d lower than your attack chance (AC), there is a %2$d %% chance that the hit will cause a concussion on the target. A concussion will severely lower the target\'s offensive combat abilities, making the target less able to land successful attacks.</string>
+	<string name="skill_longdescription_concussion">When making an attack on a target whose block chance (BC) is at least %1$d lower than your attack chance (AC), there is a %2$d %% chance that the hit will cause a concussion on the target. A concussion will severely lower the target\'s offensive combat abilities, making the target less able to land attacks.</string>
 
 	<string name="about_button4">About</string>
 
@@ -609,7 +609,7 @@
 	<string name="skill_longdescription_armor_prof_shield">Increase damage resistance by %1$d per skill level while having a shield equipped.</string>
 	<string name="skill_longdescription_armor_prof_unarmored">While fighting without having any piece of armor equipped, gain %1$d block chance per skill level. Items made of cloth are not considered as being armor.</string>
 	<string name="skill_longdescription_armor_prof_light">For every skill level, increases the block chance of every piece of light armor being worn by %1$d %% of their original block chances. Light armors include leather, light metal and hide armors.</string>
-	<string name="skill_longdescription_armor_prof_heavy">For every skill level, increases the block chance of every piece of heavy armor being worn by %1$d %% of their original block chances. Pieces of heavy armor have their movement penalties reduced by %2$d %% per skill level, and their attack speed penalties reduced by %3$d %% per skill level. Heavy armors include metal armors, chain mail and plate mail.</string>
+	<string name="skill_longdescription_armor_prof_heavy">For every skill level, increases the block chance of every piece of heavy armor being worn by %1$d %% of their original block chances. Pieces of heavy armor have their movement penalties reduced by %2$d %% per skill level, and their attack speed penalties reduced by %3$d %% per skill level. Heavy armors include metal armors, chain- and platemail.</string>
 	<string name="skill_longdescription_fightstyle_dualwield">"Gives benefits when fighting with two weapons at the same time, one in the main hand and one in the off-hand.
 
 Without this skill, only %1$d %% of a weapon\'s qualities may be used when equipped in the off-hand. This includes attack chance, critical skill, damage potential and block chance. Without this skill, attack speed (AP cost) of making an attack is the sum of the attack speed of the main weapon and that of the weapon used in the off-hand.
@@ -656,9 +656,9 @@ Every skill level increases the attack chance of weapons with %1$d %% of their o
 	<!-- =========================================== -->
 	<!-- Added in v0.7.1 -->
 
-	<string name="preferences_ui_use_localized_resources_title">Use localized resources</string>
-	<string name="preferences_ui_use_localized_resources">Use translation of interface and content, where available. (requires restart)</string>
-	<string name="change_locale_requires_restart">Changing locale requires restart. Andor\'s Trail has been closed.</string>
+	<string name="preferences_ui_use_localized_resources_title">Localize resources</string>
+	<string name="preferences_ui_use_localized_resources">Changes language of interface and content, following a program restart.</string>
+	<string name="change_locale_requires_restart">Andor\'s Trail has been closed to change language.</string>
 
 	<!-- =========================================== -->
 	<!-- Added in v0.7.2 -->
@@ -700,11 +700,11 @@ Every skill level increases the attack chance of weapons with %1$d %% of their o
 	<string name="skill_sort_unlocked">Unlocked</string>
 	
 	<string name="preferences_display_theme_title">Theme</string>
-	<string name="preferences_display_theme">Choose the UI theme. (requires restart)</string>
+	<string name="preferences_display_theme">Changes the UI theme, following a program restart.</string>
 	<string name="preferences_display_theme_blue">Cobalt</string>
 	<string name="preferences_display_theme_green">Malachite</string>
 	<string name="preferences_display_theme_charcoal">Obsidian</string>
-	<string name="change_theme_requires_restart">Changing UI theme requires restart. Andor\'s Trail has been closed.</string>
+	<string name="change_theme_requires_restart">Andor\'s Trail has been closed to change UI theme.</string>
 	
 	<string name="storage_permissions_mandatory">Access to storage is mandatory for Andor\'s Trail to handle saved games and worldmap. Closing Andor\'s Trail.</string>
 	
