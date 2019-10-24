@@ -3,9 +3,12 @@
   <component name="EclipseModuleManager" forced_jdk="true">
     <conelement value="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK" />
     <conelement value="com.android.ide.eclipse.adt.LIBRARIES" />
+    <conelement value="com.android.ide.eclipse.adt.DEPENDENCIES" />
     <src_description expected_position="1">
       <src_folder value="file://$MODULE_DIR$/src" expected_position="0" />
       <src_folder value="file://$MODULE_DIR$/gen" expected_position="1" />
+      <src_folder value="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK" expected_position="2" />
+      <src_folder value="com.android.ide.eclipse.adt.LIBRARIES" expected_position="3" />
     </src_description>
   </component>
   <component name="FacetManager">
@@ -20,17 +23,9 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gen" isTestSource="false" generated="true" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="Android API 19 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/libs/android-support-v4.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
+    <orderEntry type="library" exported="" name="com.android.ide.eclipse.adt.DEPENDENCIES" level="application" />
+    <orderEntry type="library" name="android-support-v4" level="project" />
   </component>
 </module>
-
