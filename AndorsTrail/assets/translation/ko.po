@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: andors-trail\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-10 11:48+0000\n"
-"PO-Revision-Date: 2019-10-28 22:55+0900\n"
+"PO-Revision-Date: 2019-10-28 23:00+0900\n"
 "Last-Translator: 김현수 <naturezikimi@naver.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/andors-trail/game-content/ko/>\n"
 "Language: ko\n"
@@ -120,7 +120,7 @@ msgstr "그림자 재생의 축복 "
 
 #: actorconditions_v0611_2.json:shadowbless_acc
 msgid "Blessing of Shadow accuracy"
-msgstr ""
+msgstr "피가 흐르는 그림자의 정확도"
 
 #: actorconditions_v0611_2.json:shadowbless_guard
 msgid "Shadow guardian blessing"
@@ -1290,7 +1290,7 @@ msgstr "신경쓰지 말아요. 난 단지 약탈을 위해 그것을 했을 뿐
 
 #: conversationlist_jan.json:irogotu
 msgid "Well hello there. Another adventurer coming to steal my bounty. This is MY CAVE. The treasure will be MINE!"
-msgstr ""
+msgstr "안녕, 안녕 또 다른 모험가가 내 현상금을 훔치러 온다. 이건 내 CAVE야. 보물은 MINE이 될 것이다!"
 
 #: conversationlist_jan.json:irogotu:0
 msgid "Did you kill Gandir?"
