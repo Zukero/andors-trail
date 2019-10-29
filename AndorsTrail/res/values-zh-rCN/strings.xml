@@ -32,7 +32,7 @@
     <string name="heroinfo_totalexperience">总经验</string>
     <string name="dialog_monsterencounter_title">遭遇</string>
     <string name="dialog_monsterencounter_message">你想攻击吗？
-\n难度:% 1$s</string>
+\n难度:%1$s</string>
     <string name="dialog_monsterencounter_info">信息</string>
     <string name="dialog_monsterencounter_conditions">状态</string>
     <string name="status_ap">行动点数：</string>

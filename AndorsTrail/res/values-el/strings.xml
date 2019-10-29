@@ -11,13 +11,13 @@
     <string name="loadsave_selectslot">Επιλογή υποδοχής</string>
     <string name="dialog_loading_message">Φόρτωση πόρων…</string>
     <string name="dialog_loading_failed_title">Η φόρτωση απέτυχε</string>
-    <string name="savegame_currenthero_displayinfo">επίπεδο %1$ημ, %2$d εξ., %3$ημ.χρυσό</string>
+    <string name="savegame_currenthero_displayinfo">επίπεδο %1$d, %2$d εξ., %3$d.χρυσό</string>
     <string name="dialog_loading_failed_incorrectversion">"Το Trail  του  Andor δεν μπόρεσε να φορτώσει το αρχείο που αποθηκεύτηκε το παιχνίδι. Αυτό το αρχείο έχει δημιουργηθεί με μια νεότερη εκδοχή από αυτήν που λειτουργεί τώρα."</string>
     <string name="dialog_recenter">Στοχεύστε πάλι</string>
     <string name="dialog_close">Κλείνω</string>
     <string name="dialog_monsterencounter_title">Συναντώ</string>
-    <string name="dialog_monsterencounter_message">Θέλεις να επιτεθείς\?
-\nΒαθμός δυσκολίας : % 1$s</string>
+    <string name="dialog_monsterencounter_message">Θέλεις να επιτεθείς\? 
+\nΒαθμός δυσκολίας : %1$s</string>
     <string name="dialog_monsterencounter_info">Πληροφορίες</string>
     <string name="dialog_monsterencounter_conditions">Συνθήκες</string>
     <string name="status_hp">HP:</string>
@@ -35,7 +35,7 @@
     <string name="heroinfo_inventory">Απογραφή</string>
     <string name="heroinfo_inventory_categories">Κατηγορία</string>
     <string name="heroinfo_inventory_sort">Επιλέγω μέσω,διαλέγω</string>
-    <string name="heroinfo_gold">Χρυσός: %1$ημέρες</string>
+    <string name="heroinfo_gold">Χρυσός: %1$d</string>
     <string name="heroinfo_healthpoints">Βαθμός υγείας (HP):</string>
     <string name="heroinfo_experiencepoints">Επίπεδα εμπειρίας (ΧΡ):</string>
     <string name="heroinfo_actionpoints">Σημεία δράσης (ΑΡ):</string>
@@ -58,12 +58,12 @@
     <string name="combat_result_herohitcritical">Δέχεσαι σοβαρό κτύπημα %1$s για %2$d hp!</string>
     <string name="combat_result_herokillsmonster">Ο %1$s πεθαίνει!</string>
     <string name="combat_not_enough_ap">Δεν έμεινε αρκετό AP σε αυτόν τον γύρο.</string>
-    <string name="combat_hero_dies">Πέφτεις αναίσθητος, αλλά ευτυχώς ξυπνάς ζωντανός, άναυδος και κουρασμένος. Έχασες %1$ ημ. εμπειρίας.</string>
+    <string name="combat_hero_dies">Πέφτεις αναίσθητος, αλλά ευτυχώς ξυπνάς ζωντανός, άναυδος και κουρασμένος. Έχασες %1$d εμπειρίας.</string>
     <string name="combat_miss_animation_message">ΔΕΣΠΟΙΝΙΣ</string>
     <string name="combat_taunt_monster">Δαμάζεις %1$s!</string>
-    <string name="combat_condition_player_apply">Είσαι επηρεασμένος από % 1$s.</string>
-    <string name="combat_condition_player_clear">Έχεις απαλλαγεί από το %1$ s.</string>
-    <string name="combat_condition_player_immune">Τώρα είσαι ανοσοποιημένος έναντι του %1$ s.</string>
+    <string name="combat_condition_player_apply">Είσαι επηρεασμένος από %1$s.</string>
+    <string name="combat_condition_player_clear">Έχεις απαλλαγεί από το %1$s.</string>
+    <string name="combat_condition_player_immune">Τώρα είσαι ανοσοποιημένος έναντι του %1$s.</string>
     <string name="app_description">Εκούσια φαντασία RPG</string>
     <string name="dialog_loading_failed_message">Το Andor\'s Trail δεν μπόρεσε να φορτώσει τον φάκελλο που περιείχε το παιχνίδι.
 \nΟ φάκελλος μπορεί να είναι κατεστραμμένος ή μη ολοκληρωμένος.</string>
@@ -78,7 +78,7 @@
     <string name="inventory_drop">Ρίψη</string>
     <string name="inventory_item_used">Χρησιμοποιήσατε το %1$s.</string>
     <string name="inventory_item_dropped">%1$s σβήστηκε.</string>
-    <string name="inventory_item_equipped">Εξοπλίσατε το % του 1$s.</string>
+    <string name="inventory_item_equipped">Εξοπλίσατε το του %1$s.</string>
     <string name="dialog_loot_pickall">Πάρτε τα όλα</string>
     <string name="dialog_loot_foundgold">"Βρήκες  %1$d χρυσό."</string>
     <string name="dialog_loot_pickedupitem">Επιλέξατε θέμα.</string>
@@ -111,8 +111,8 @@
     <string name="iteminfo_action_equip">Εξοπλισμός</string>
     <string name="iteminfo_action_unequip">Χωρίς εξοπλισμό</string>
     <string name="iteminfo_action_use_ap">Χρήση (%1$d AP)</string>
-    <string name="iteminfo_action_equip_ap">Εξοπλισμός (%1$ AP)</string>
-    <string name="iteminfo_action_unequip_ap">Χωρίς εξοπλισμό (%1$δολ. AP)</string>
+    <string name="iteminfo_action_equip_ap">Εξοπλισμός (%1$d AP)</string>
+    <string name="iteminfo_action_unequip_ap">Χωρίς εξοπλισμό (%1$d AP)</string>
     <string name="startscreen_continue">Συνεχίστε το παρόν παιχνίδι.</string>
     <string name="startscreen_newgame">Νέο παιχνίδι</string>
     <string name="startscreen_newgame_start">Αρχίστε το παιχνίδι</string>
@@ -127,13 +127,13 @@
     <string name="shop_buy">Αγοράζω</string>
     <string name="shop_sell">Πουλώ</string>
     <string name="shop_infoitem">Πληροφορίες</string>
-    <string name="shop_sellitem">Πουλώ (%1$δολάρια χρυσό)</string>
+    <string name="shop_sellitem">Πουλώ (%1$d χρυσό)</string>
     <string name="shop_yourgold">Ο χρυσός σας: %1$d</string>
     <string name="shop_item_sort">Διαλέγω</string>
     <string name="levelup_title">Αναβαθμίζω</string>
     <string name="levelup_buttontext">Ανεβάζω</string>
     <string name="levelup_add_health">Βελτιώστε υγεία (+%1$d HP)</string>
-    <string name="levelup_add_attackdamage_description">"Προσθέτει ένα  %1$δ στην βασική βλάβη επίθεσης."</string>
+    <string name="levelup_add_attackdamage_description">"Προσθέτει ένα  %1$d στην βασική βλάβη επίθεσης."</string>
     <string name="dialog_rest_title">Ξεκούραση</string>
     <string name="dialog_rest_confirm_message">Θέλετε να ξεκουραστείτε εδώ\?</string>
     <string name="dialog_rest_message">Ξεκουραστήκατε και έχετε ξαναβρεί την υγεία σας.</string>
@@ -141,4 +141,5 @@
     <string name="about_button2">Συγγραφείς</string>
     <string name="about_button3">Άδεια</string>
     <string name="about_contents3">"Αυτό το πρόγραμμα είναι δωρεά λογισμικό; μπορείτε να το διανείμετε πάλι και/ή τροποποιήσετε σύμφωνα με τους όρους του GNU Γενική Δημόσια Άδεια  όπως δημοσιεύτηκε από το Ίδρυμα Δωρεάν Λογισμικού  ; και η εκδοχή 2 της Άδειας , ή κατά την επιλογή σας) οιασδήποτε μετέπειτα εκδοχής.&lt;br /&gt; &lt;br /&gt; Αυτό το πρόγραμμα παρέχεται με την ελπίδα πως θα είναι χρήσιμο, αλλά ΔΙΧΩΣ ΚΑΜΙΑ ΕΓΓΥΗΣΗ ; ούτε και την εγγύηση που αναφέρεται στον  ΕΜΠΟΡΙΚΟ ΣΚΟΠΟ ή ΚΑΤΑΛΛΗΛΟΤΗΤΑ ΓΙΑ ΕΝΑΝ ΕΙΔΙΚΟ ΣΚΟΠΟ . Δες την  Γενική Επίσημη Άδεια  GNU για περισσότερες λεπτομέρειες .&lt;br /&gt; &lt;br /&gt; Θα πρέπει να έχεις λάβει ένα αντίγραφο του GNU Γενική Δημόσια Άδεια  μαζί με αυτό το πρόγραμμα; Αν όχι, δες &lt;a href=http://www.gnu.org/licenses&gt;http://www.gnu.org/licenses&lt;/a&gt;&lt;br /&gt; &lt;br /&gt; Για τον κώδικα πηγής και αιτήματα χαρακτηριστικών, επισκεφτείτε την σελίδα του πρότζεκτ στο  &lt;a href=https://github.com/Zukero/andors-trail/&gt;https://github.com/Zukero/andors-trail/&lt;/a&gt;&lt;br /&gt;"</string>
+    <string name="localize_resources_from_mo_filename">el.mo</string>
 </resources>

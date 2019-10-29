@@ -1478,7 +1478,7 @@
         "message":"What? I haven't been informed of that. Since you seem like an inexperienced kid, I don't believe you.",
         "replies":[
             {
-                "text":"Ergh ... Mr Laumwill is grateful for your protection. However ... Ah! He has given this reward of 1000gp for your efforts.",
+                "text":"Ergh ... Mr Laumwill is grateful for your protection. However ... Ah! He has given this reward of 1000 gold for your efforts.",
                 "nextPhraseID":"ff_captain_guild02_2a",
                 "requires":[
                     {

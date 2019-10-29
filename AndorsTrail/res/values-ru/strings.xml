@@ -48,10 +48,10 @@
     <string name="combat_monsteraction">%1$s атакует.</string>
     <string name="combat_result_monstermiss">%1$s промахнулся!</string>
     <string name="combat_result_monsterhit">%1$s ударил вас на %2$d ОЗ!</string>
-    <string name="combat_result_monsterhitcritical">%1$s наносит критический удар на %2$d ОЗ!</string>
+    <string name="combat_result_monsterhitcritical">%1$s наносит крит. удар на %2$d ОЗ!</string>
     <string name="combat_result_heromiss">Вы промахнулись.</string>
     <string name="combat_result_herohit">Вы атакуете, %1$s теряет %2$d ОЗ!</string>
-    <string name="combat_result_herohitcritical">Вы наносите критический удар! %1$s теряет %2$d ОЗ!</string>
+    <string name="combat_result_herohitcritical">Вы наносите крит. удар! %1$s теряет %2$d ОЗ!</string>
     <string name="combat_result_herokillsmonster">%1$s убит!</string>
     <string name="combat_not_enough_ap">Не хватает ОД в этом раунде.</string>
     <string name="combat_hero_dies">Вы падаете без сознания, но, к счастью, просыпаетесь живым, ошеломленным и усталым. Вы потеряли %1$d опыта.</string>
@@ -106,7 +106,7 @@
     <string name="startscreen_enterheroname">Введите имя героя</string>
     <string name="startscreen_load">Загрузить</string>
     <string name="traitsinfo_criticalhit_skill">Навык критического удара:</string>
-    <string name="traitsinfo_criticalhit_multiplier">Критический множитель:</string>
+    <string name="traitsinfo_criticalhit_multiplier">Крит. множитель:</string>
     <string name="iteminfo_category">Категория:</string>
     <string name="startscreen_newgame_confirm">Вы потеряете свою текущую игру и своего текущего персонажа, вы уверены, что хотите начать новую игру\?</string>
     <string name="conversation_rewardexp">[Получено %1$d опыта]</string>
@@ -379,7 +379,7 @@
     <string name="inventory_movetop">Положить вверх</string>
     <string name="inventory_movebottom">Положить вниз</string>
     <string name="actorinfo_immune_criticals">Иммунитет к критическим ударам</string>
-    <string name="traitsinfo_criticalhit_effectivechance">Эффективный шанс крит. удара:</string>
+    <string name="traitsinfo_criticalhit_effectivechance">Реальный шанс крит. удара:</string>
     <string name="skill_title_crit1">Внутреннее кровотечение</string>
     <string name="skill_shortdescription_crit1">Шанс вызвать внутреннее кровотечение</string>
     <string name="skill_longdescription_crit1">При каждом критическом ударе, есть %1$d %% шанс, что он вызовет внутренние кровотечение у цели. Внутреннее кровотечение сильно снижает боевые способности, что делает цель менее способной совершать атаки.</string>
