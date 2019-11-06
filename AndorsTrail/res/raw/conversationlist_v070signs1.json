@@ -57,7 +57,7 @@
     },
     {
         "id":"sign_rbfcr1_3",
-        "message":"While examining them, you recall the the old man Ogam in Vilegard spoke of some 'Rocky Formations'. Could this be what he was referring to? If that is the case, you wonder if this path might lead to Lodar's hideaway.",
+        "message":"While examining them, you recall the old man Ogam in Vilegard spoke of some 'Rocky Formations'. Could this be what he was referring to? If that is the case, you wonder if this path might lead to Lodar's hideaway.",
         "rewards":[
             {
                 "rewardType":"questProgress",

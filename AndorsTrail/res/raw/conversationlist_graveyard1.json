@@ -1647,7 +1647,7 @@
     },
     {
         "id":"algore_x81",
-        "message":"The magical barrier at the cemetary could only be penetrated by someone carrying the text, which contained several magical inscriptions.",
+        "message":"The magical barrier at the cemetery could only be penetrated by someone carrying the text, which contained several magical inscriptions.",
         "replies":[
             {
                 "text":"N",
@@ -1667,7 +1667,7 @@
     },
     {
         "id":"graveyardtraveler_60",
-        "message":" Maybe he knows more. You should give him a visit.",
+        "message":"Maybe he knows more. You should give him a visit.",
         "replies":[
             {
                 "text":"OK, I'll do that.",

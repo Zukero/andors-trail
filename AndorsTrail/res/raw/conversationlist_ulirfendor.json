@@ -1094,7 +1094,7 @@
     },
     {
         "id":"ulirfendor_helmet_4",
-        "message":"I am not certain of what the term 'The Dark Protector' refers to. At first I thought it might be some creature protecting something, but this helmet seems to fit better in on what the shrine speaks of.",
+        "message":"I am not certain of what the term 'The Dark Protector' refers to. At first I thought it might be some creature protecting something, but this helmet seems to better fit what the shrine speaks of.",
         "replies":[
             {
                 "text":"N",
@@ -1514,7 +1514,7 @@
     },
     {
         "id":"ulirfendor_dp_bless_2",
-        "message":"The blessing will grant you the aid of the Shadow while in combat, protecting you from harmful effects that you opponent might inflict upon you.",
+        "message":"The blessing will grant you the aid of the Shadow while in combat, protecting you from harmful effects that your opponent might inflict upon you.",
         "replies":[
             {
                 "text":"Thank you, but that will not be necessary. I am just happy to help.",
