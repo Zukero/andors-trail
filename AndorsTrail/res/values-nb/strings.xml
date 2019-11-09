@@ -38,7 +38,7 @@
     <string name="combat_flee">Flykt</string>
     <string name="combat_begin_flee">Du kan nå flykte fra kamp ved å klikke i den retningen du ønsker å flykte i.</string>
     <string name="combat_flee_failed">Fluktforsøket feilet!</string>
-    <string name="combat_status_ap">AP: %$1d</string>
+    <string name="combat_status_ap">AP: %1$d</string>
     <string name="combat_monsterhealth">Liv:</string>
     <string name="combat_monsteraction">%1$s angriper.</string>
     <string name="combat_result_monstermiss">%1$s bommer!</string>

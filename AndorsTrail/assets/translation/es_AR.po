@@ -264,6 +264,22 @@ msgstr ""
 msgid "Mind fog"
 msgstr ""
 
+#: actorconditions_omicronrg9.json:guild03_restingAC
+msgid "Resting"
+msgstr ""
+
+#: actorconditions_omicronrg9.json:g03_concentration
+msgid "Concentration"
+msgstr ""
+
+#: actorconditions_omicronrg9.json:g03_combo
+msgid "Combo"
+msgstr ""
+
+#: actorconditions_omicronrg9.json:carrying_ambelie
+msgid "Carrying Ambelie"
+msgstr ""
+
 #: conversationlist_mikhail.json:mikhail_gamestart
 msgid "Oh good, you are awake."
 msgstr ""
@@ -289,6 +305,7 @@ msgid "Do you have any more tasks for me?"
 msgstr ""
 
 #: conversationlist_mikhail.json:mikhail_default:3
+#: conversationlist_umar.json:umar_return_1:0
 msgid "Do you have any tasks for me?"
 msgstr ""
 
@@ -499,6 +516,8 @@ msgstr ""
 #: conversationlist_graveyard1.json:throthaus_2:1
 #: conversationlist_trader_teksin.json:teksin11:2
 #: conversationlist_trader_teksin.json:teksin50:3
+#: conversationlist_omicronrg9.json:dunla_guild_2a:1
+#: conversationlist_omicronrg9.json:dunla_guild_2b:0
 msgid "Do you have anything to trade?"
 msgstr ""
 
@@ -530,7 +549,7 @@ msgstr ""
 
 #: conversationlist_crossglen.json:drunk1:0
 #: conversationlist_crossglen_odair.json:odair4:2
-#: conversationlist_fallhaven_tavern.json:bela_room_1:1
+#: conversationlist_fallhaven_tavern.json:bela_room_1:2
 #: conversationlist_vilegard_tavern.json:vilegard_tavern_drunk_1:0
 #: conversationlist_guynmart2.json:guynmart_s_rob6b_10:1
 #: conversationlist_guynmart2_npc.json:guynmart_rob6_10:1
@@ -757,6 +776,7 @@ msgid "Thank you for the information. There was something more I wanted to ask y
 msgstr ""
 
 #: conversationlist_crossglen_leonid.json:leonid_crossglen9:1
+#: conversationlist_omicronrg9.json:umar_guild03_31a:1
 msgid "Thank you for the information. Bye."
 msgstr ""
 
@@ -778,6 +798,7 @@ msgstr ""
 #: conversationlist_stoutford.json:tahalendor_rumblings10x_0:0
 #: conversationlist_stoutford_combined.json:stoutford_widow_12:1
 #: conversationlist_stoutford_combined.json:stoutford_widow_roots30_2:1
+#: conversationlist_omicronrg9.json:leta_guild_1b:1
 msgid "Shadow be with you."
 msgstr ""
 
@@ -863,13 +884,17 @@ msgid "Hey, this is my house, get out of here!"
 msgstr ""
 
 #: conversationlist_crossglen_leta.json:leta1:0
-#: conversationlist_remgard_villagers1.json:morgisia:1
-msgid "But I was just..."
+msgid "But I was just ..."
 msgstr ""
 
 #: conversationlist_crossglen_leta.json:leta1:1
 #: conversationlist_crossglen_leta.json:leta2:0
 msgid "What about your husband Oromir?"
+msgstr ""
+
+#: conversationlist_crossglen_leta.json:leta1:2
+#: conversationlist_crossglen_leta.json:leta1:3
+msgid "Umar sent me."
 msgstr ""
 
 #: conversationlist_crossglen_leta.json:leta2
@@ -916,7 +941,7 @@ msgstr ""
 
 #: conversationlist_crossglen_leta.json:oromir1:0
 #: conversationlist_fallhaven_vacor.json:vacor_begin
-#: conversationlist_umar.json:umar_return_1:0
+#: conversationlist_umar.json:umar_return_1:19
 #: conversationlist_remgard_villagers1.json:remgard_villager8
 #: conversationlist_stoutford.json:kayla_1
 #: conversationlist_stoutford.json:glasforn_initial_0
@@ -942,6 +967,7 @@ msgstr ""
 #: conversationlist_guynmart_npc.json:guynmart_100:0
 #: conversationlist_stoutford_combined.json:odirath_3_5:0
 #: conversationlist_stoutford_combined.json:stn_colonel_122:0
+#: conversationlist_omicronrg9.json:umar_guild03_18a:1
 msgid "OK."
 msgstr ""
 
@@ -999,6 +1025,9 @@ msgstr ""
 #: conversationlist_guynmart_npc.json:guynmart_nuik_60:1
 #: conversationlist_guynmart_npc.json:guynmart_nuik_70:2
 #: conversationlist_stoutford_combined.json:stoutford_widow_thorns80_2:0
+#: conversationlist_omicronrg9.json:umar_guild_2b:0
+#: conversationlist_omicronrg9.json:umar_guild_5b:0
+#: conversationlist_omicronrg9.json:umar_guild02_6b:0
 msgid "Bye."
 msgstr ""
 
@@ -1070,6 +1099,9 @@ msgstr ""
 #: conversationlist_fallhaven_bucus.json:bucus_umar_3:0
 #: conversationlist_kaori.json:kaori_2:0
 #: conversationlist_stoutford_combined.json:yolgen_task_0_2:2
+#: conversationlist_omicronrg9.json:troublemaker_guild_8a:1
+#: conversationlist_omicronrg9.json:leta_guild_1b:0
+#: conversationlist_omicronrg9.json:umar_guild03_30:2
 msgid "OK, bye."
 msgstr ""
 
@@ -1570,7 +1602,11 @@ msgid "Can you tell me more about the church?"
 msgstr ""
 
 #: conversationlist_fallhaven_church.json:thoronir_default:2
-msgid "Are the bonemeal potions ready yet?"
+msgid "Are the Bonemeal potions ready yet?"
+msgstr ""
+
+#: conversationlist_fallhaven_church.json:thoronir_default:3
+msgid "I really need your help!"
 msgstr ""
 
 #: conversationlist_fallhaven_church.json:thoronir_shadow_1
@@ -2064,6 +2100,10 @@ msgstr ""
 msgid "[Buy for 10 gold]"
 msgstr ""
 
+#: conversationlist_fallhaven_tavern.json:bela_room_1:1
+msgid "I really need to rest but I don't have 10 gold. I will wash the dishes. [Wash the dishes]"
+msgstr ""
+
 #: conversationlist_fallhaven_tavern.json:bela_room_2
 msgid "Thanks. Take the last room down at the end of the hall."
 msgstr ""
@@ -2239,6 +2279,8 @@ msgid "Yes, we thieves have a strong presence here."
 msgstr ""
 
 #: conversationlist_fallhaven_gaela.json:gaela_1:0
+#: conversationlist_omicronrg9.json:umar_guild03_19d:0
+#: conversationlist_omicronrg9.json:Feygard_BG_guild03_2:0
 msgid "Anything more?"
 msgstr ""
 
@@ -2647,6 +2689,9 @@ msgstr ""
 #: conversationlist_stoutford_combined.json:yolgen_castle_0_1:0
 #: conversationlist_stoutford_combined.json:yolgen_castle_6:0
 #: conversationlist_stoutford_combined.json:stn_colonel_64:0
+#: conversationlist_omicronrg9.json:dunla_guild_2a:0
+#: conversationlist_omicronrg9.json:umar_guild03_24a:0
+#: conversationlist_omicronrg9.json:umar_guild02_32:1
 msgid "Thank you."
 msgstr ""
 
@@ -3317,6 +3362,7 @@ msgid "That stew looks disgusting."
 msgstr ""
 
 #: conversationlist_thievesguild_1.json:thievesguild_cook_2:2
+#: conversationlist_omicronrg9.json:umar_guild_2a:2
 msgid "Never mind, bye."
 msgstr ""
 
@@ -3462,6 +3508,10 @@ msgstr ""
 msgid "Can I take a look at what supplies you have available?"
 msgstr ""
 
+#: conversationlist_thievesguild_1.json:thievesguild_troublemaker_1:3
+msgid "Umar sent me to talk about my first job here."
+msgstr ""
+
 #: conversationlist_thievesguild_1.json:thievesguild_troublemaker_2
 msgid "I keep an eye on our supplies for the guild."
 msgstr ""
@@ -3544,7 +3594,7 @@ msgid "Well, there was one thing a few weeks ago. One of our guild members got a
 msgstr ""
 
 #: conversationlist_farrik.json:farrik_6
-msgid "The Fallhaven guard has started to get really annoyed at us lately. Probably because we have been very successful in our recent missions."
+msgid "The Fallhaven guard has started to get really annoyed with us lately. Probably because we have been very successful in our recent missions."
 msgstr ""
 
 #: conversationlist_farrik.json:farrik_7
@@ -3584,16 +3634,16 @@ msgid "Yeah, I guess so. But for the guild's sake, we would rather have our frie
 msgstr ""
 
 #: conversationlist_farrik.json:farrik_12:0
-#: conversationlist_farrik.json:farrik_17:1
-msgid "Maybe I should tell the guards that you are planning to get him out?"
-msgstr ""
-
-#: conversationlist_farrik.json:farrik_12:1
 msgid "Don't worry, your secret plan to free him is safe with me."
 msgstr ""
 
-#: conversationlist_farrik.json:farrik_12:2
+#: conversationlist_farrik.json:farrik_12:1
 msgid "[Lie] Don't worry, your secret plan to free him is safe with me."
+msgstr ""
+
+#: conversationlist_farrik.json:farrik_12:2
+#: conversationlist_farrik.json:farrik_17:1
+msgid "Maybe I should tell the guards that you are planning to get him out?"
 msgstr ""
 
 #: conversationlist_farrik.json:farrik_13
@@ -3664,15 +3714,15 @@ msgid "How does that sound to you? Do you think you are up to it?"
 msgstr ""
 
 #: conversationlist_farrik.json:farrik_22:0
-msgid "Sure, sounds easy!"
+msgid "No, this is really starting to sound like a bad idea."
 msgstr ""
 
 #: conversationlist_farrik.json:farrik_22:1
-msgid "Sounds a bit dangerous, but I guess I'll try."
+msgid "Sure, sounds easy!"
 msgstr ""
 
 #: conversationlist_farrik.json:farrik_22:2
-msgid "No, this is really starting to sound like a bad idea."
+msgid "Sounds a bit dangerous, but I guess I'll try."
 msgstr ""
 
 #: conversationlist_farrik.json:farrik_23
@@ -3693,10 +3743,6 @@ msgid "I am not done yet, but I am working on it."
 msgstr ""
 
 #: conversationlist_farrik.json:farrik_return_1:1
-msgid "[Lie] It is done. He should be no problem during the night."
-msgstr ""
-
-#: conversationlist_farrik.json:farrik_return_1:2
 msgid "It is done. He should be no problem during the night."
 msgstr ""
 
@@ -3717,7 +3763,19 @@ msgid "Thank you for your help with the guard captain earlier."
 msgstr ""
 
 #: conversationlist_farrik.json:farrik_26
-msgid "Oh you did? Well done. You have my thanks, friend."
+msgid "That's very useful information. Well done. You have my thanks, friend."
+msgstr ""
+
+#: conversationlist_farrik.json:farrik_return_3
+msgid "So did you tell the Warden about our plan then?"
+msgstr ""
+
+#: conversationlist_farrik.json:farrik_return_3:0
+msgid "No, I haven't talked to him."
+msgstr ""
+
+#: conversationlist_farrik.json:farrik_return_3:1
+msgid "[Lie]. No. I went there, but I overheard the Warden saying there was no real threat, so they will lower security. So maybe you can carry out your mission without me being involved."
 msgstr ""
 
 #: conversationlist_fallhaven_warden.json:fallhaven_warden
@@ -3885,7 +3943,7 @@ msgid "When they do decide to break him free, we will be prepared. Maybe we can 
 msgstr ""
 
 #: conversationlist_fallhaven_warden.json:fallhaven_warden_23
-msgid "Thank you again for the information. While I'm not sure how you may know this, I really appreciate you telling me."
+msgid "Thank you again for the information. I'm not sure how you may know this, but I really appreciate you telling me."
 msgstr ""
 
 #: conversationlist_fallhaven_warden.json:fallhaven_warden_24
@@ -3893,6 +3951,7 @@ msgid "I want you to go one step further and tell them that we will have less se
 msgstr ""
 
 #: conversationlist_fallhaven_warden.json:fallhaven_warden_24:0
+#: conversationlist_omicronrg9.json:umar_guild03_10c
 msgid "Sure, I can do that."
 msgstr ""
 
@@ -3958,12 +4017,80 @@ msgid "Hello again, my friend."
 msgstr ""
 
 #: conversationlist_umar.json:umar_return_1:1
+msgid "Are you going to tell me about the key?"
+msgstr ""
+
+#: conversationlist_umar.json:umar_return_1:2
+msgid "Crackshot is dead."
+msgstr ""
+
+#: conversationlist_umar.json:umar_return_1:3
+msgid "What am I supposed to do again?"
+msgstr ""
+
+#: conversationlist_umar.json:umar_return_1:4
+msgid "What are your plans for the traitors?"
+msgstr ""
+
+#: conversationlist_umar.json:umar_return_1:5
+msgid "Can you continue with what you were telling me about the traitors?"
+msgstr ""
+
+#: conversationlist_umar.json:umar_return_1:6
+msgid "We are supposed to talk about something."
+msgstr ""
+
+#: conversationlist_umar.json:umar_return_1:7
+#: conversationlist_umar.json:umar_return_1:8
+msgid "We were supposed to talk about something, right?"
+msgstr ""
+
+#: conversationlist_umar.json:umar_return_1:9
+msgid "I've finally finished the job."
+msgstr ""
+
+#: conversationlist_umar.json:umar_return_1:10
+msgid "What am I suppossed to do again?"
+msgstr ""
+
+#: conversationlist_umar.json:umar_return_1:11
+#: conversationlist_umar.json:umar_return_1:12
+msgid "What am I supposed to do with the noblewoman?"
+msgstr ""
+
+#: conversationlist_umar.json:umar_return_1:13
+msgid "I have to talk to you about the noblewoman."
+msgstr ""
+
+#: conversationlist_umar.json:umar_return_1:14
+msgid "I have brought the hostage."
+msgstr ""
+
+#: conversationlist_umar.json:umar_return_1:15
+#: conversationlist_umar.json:umar_return_1:16
+#: conversationlist_umar.json:umar_return_1:17
+msgid "Anything more about my new task?"
+msgstr ""
+
+#: conversationlist_umar.json:umar_return_1:18
+msgid "Troublemaker sent me. I have finished the job."
+msgstr ""
+
+#: conversationlist_umar.json:umar_return_1:20
 #: conversationlist_umar.json:umar_return_2:1
 msgid "Nice to meet you. Goodbye."
 msgstr ""
 
 #: conversationlist_umar.json:umar_return_2:0
 msgid "Can you repeat what you said about Andor?"
+msgstr ""
+
+#: conversationlist_umar.json:umar_return_2:2
+msgid "Yes, I want to know more about the Thieves' Guild."
+msgstr ""
+
+#: conversationlist_umar.json:umar_return_2:3
+msgid "I've been thinking about joining the guild."
 msgstr ""
 
 #: conversationlist_umar.json:umar_novisit_1
@@ -4015,7 +4142,7 @@ msgid "We try to be above their bickering and differences. They may fight as muc
 msgstr ""
 
 #: conversationlist_umar.json:umar_7:0
-msgid "What conflict?"
+msgid "What differences?"
 msgstr ""
 
 #: conversationlist_umar.json:umar_7:1
@@ -4027,11 +4154,11 @@ msgid "Where have you been the last couple of years? Don't you know of the brewi
 msgstr ""
 
 #: conversationlist_umar.json:umar_conflict_2
-msgid "The royal guard, led by Lord Geomyr in Feygard, are trying to ward off the recent increase in illegal activities, and are therefore imposing more restrictions on what is allowed and not."
+msgid "The royal guard, led by Lord Geomyr in Feygard, are trying to ward off the recent increase in illegal activities, and are therefore imposing more restrictions on what is or is not allowed."
 msgstr ""
 
 #: conversationlist_umar.json:umar_conflict_3
-msgid "The priests of the Shadow, mostly seated in Nor City, are opponents to the new restrictions, saying that they limit the ways that they can please the Shadow."
+msgid "The priests of the Shadow, mostly seated in Nor City, are opposed to the new restrictions, saying that they limit the ways that they can please the Shadow."
 msgstr ""
 
 #: conversationlist_umar.json:umar_conflict_4
@@ -4060,7 +4187,7 @@ msgid "Whatever, that doesn't concern me."
 msgstr ""
 
 #: conversationlist_umar.json:umar_andor_1
-msgid "He asked me for my support, and asked of how to find Lodar."
+msgid "He asked me for my support, and asked about how to find Lodar."
 msgstr ""
 
 #: conversationlist_umar.json:umar_andor_1:0
@@ -4092,7 +4219,7 @@ msgid "I really shouldn't tell you. How to get to him is one of our closely guar
 msgstr ""
 
 #: conversationlist_umar.json:umar_lodar_2
-msgid "However, I heard that you helped us find the key of Luthor. This is something we have been trying to get to for a long time."
+msgid "However, I heard that you helped us find the key of Luthor. This is something we have been trying to get for a long time."
 msgstr ""
 
 #: conversationlist_umar.json:umar_lodar_3
@@ -4431,6 +4558,10 @@ msgstr ""
 
 #: conversationlist_vilegard_tavern.json:dunla_1
 msgid "Me? I am no one. You didn't even see me. You certainly did not talk to me."
+msgstr ""
+
+#: conversationlist_vilegard_tavern.json:dunla_1:0
+msgid "Troublemaker sent me to get your report."
 msgstr ""
 
 #: conversationlist_vilegard_tavern.json:tharwyn_1
@@ -4797,6 +4928,7 @@ msgstr ""
 #: conversationlist_guynmart_npc.json:guynmart_steward4_210:0
 #: conversationlist_stoutford_combined.json:stn_colonel_131_4a:0
 #: conversationlist_stoutford_combined.json:stn_colonel_131_4b:0
+#: conversationlist_omicronrg9.json:guild03_hideout3_exit_1:0
 msgid "What?"
 msgstr ""
 
@@ -4827,6 +4959,9 @@ msgstr ""
 
 #: conversationlist_ogam.json:ogam_4:1
 #: conversationlist_blackwater_throdna.json:throdna_9:0
+#: conversationlist_omicronrg9.json:troublemaker_guild_4:0
+#: conversationlist_omicronrg9.json:umar_guild02_3
+#: conversationlist_omicronrg9.json:umar_guild03_27c:0
 msgid "What do you mean?"
 msgstr ""
 
@@ -5076,6 +5211,10 @@ msgstr ""
 msgid "If you like it so much in Feygard, why would you even leave?"
 msgstr ""
 
+#: conversationlist_ambelie.json:ambelie_6:2
+msgid "Ehh ... I'm here to ... escort you safely to Nor City."
+msgstr ""
+
 #: conversationlist_ambelie.json:ambelie_7
 msgid "Don't you know of Nor City? I will take note that the savages here haven't even heard of the city."
 msgstr ""
@@ -5166,6 +5305,10 @@ msgstr ""
 #: conversationlist_foamingflask_guards.json:ff_captain_1:0
 #: conversationlist_foamingflask_guards.json:ff_captain_1:1
 msgid "I have a shipment of iron swords from Gandoren for you."
+msgstr ""
+
+#: conversationlist_foamingflask_guards.json:ff_captain_1:4
+msgid "Hi! I have been sent by Herg ... Hertzsen Laumwill, patriarch of the Laumwill family, to bring back her daughter!"
 msgstr ""
 
 #: conversationlist_foamingflask_guards.json:ff_captain_2
@@ -5514,6 +5657,7 @@ msgstr ""
 #: conversationlist_duaina.json:duaina_2:0
 #: conversationlist_lodarfg4.json:lodar_fg4_5:2
 #: conversationlist_stoutford.json:tahalendor_erwyn_1
+#: conversationlist_omicronrg9.json:guild03_hideout3_exit_2:0
 msgid "What are you talking about?"
 msgstr ""
 
@@ -9709,6 +9853,10 @@ msgstr ""
 msgid "This is my hiding spot! Now leave me."
 msgstr ""
 
+#: conversationlist_crossroads_1.json:fanamor_6:0
+msgid "Umar sent me with the words \"You are no one.No one knows you.No one has seen you.\" Now give me the journal please."
+msgstr ""
+
 #: conversationlist_crossroads_1.json:crossroads_guard_r_1
 msgid "Did you hear? Some thieves down in Fallhaven were planning an escape for one of the imprisoned thieves in the prison there."
 msgstr ""
@@ -9722,7 +9870,7 @@ msgid "It's good to know that there are at least a few decent people still aroun
 msgstr ""
 
 #: conversationlist_crossroads_1.json:crossroads_guard_1
-msgid "Aren't you a bit young to be travelling around here all by yourself?"
+msgid "Aren't you a bit young to be traveling around here all by yourself?"
 msgstr ""
 
 #: conversationlist_crossroads_1.json:crossroads_guard_2
@@ -10720,7 +10868,7 @@ msgid "No, let me guess - you want to know if I have any items to trade?"
 msgstr ""
 
 #: conversationlist_crossroads_2.json:celdar_2
-msgid "Let me tell you something son. I do not want to buy anything from you, nor do I want to sell you anything. I just want to be left alone here, now that I have made it all the way to this safe haven."
+msgid "Let me tell you something. I do not want to buy anything from you, nor do I want to sell you anything. I just want to be left alone here, now that I have made it all the way to this safe haven."
 msgstr ""
 
 #: conversationlist_crossroads_2.json:celdar_3
@@ -12127,7 +12275,6 @@ msgstr ""
 
 #: conversationlist_algangror.json:algangror_1:4
 #: conversationlist_algangror.json:algangror_return_1:4
-#: conversationlist_algangror.json:algangror_return_d2:0
 msgid "I am sent by Jhaeld to end whatever it is you do to the people of Remgard."
 msgstr ""
 
@@ -12320,6 +12467,10 @@ msgstr ""
 
 #: conversationlist_algangror.json:algangror_return_d2
 msgid "You should probably leave before you tip something over that might ... ahem ... break. He he."
+msgstr ""
+
+#: conversationlist_algangror.json:algangror_return_d2:0
+msgid "I was sent by Jhaeld to end whatever it is you are doing to the people of Remgard."
 msgstr ""
 
 #: conversationlist_algangror.json:algangror_return_d2:1
@@ -12753,6 +12904,7 @@ msgstr ""
 
 #: conversationlist_remgard_bridgeguard.json:remgardb_3:0
 #: conversationlist_lodar.json:lodar_andor9:0
+#: conversationlist_omicronrg9.json:troublemaker_guild_4:1
 msgid "Please continue."
 msgstr ""
 
@@ -13924,6 +14076,9 @@ msgstr ""
 #: conversationlist_rothses.json:rothses_imp_gloves_w:0
 #: conversationlist_rothses.json:rothses_imp_armour_w:0
 #: conversationlist_stoutford_combined.json:berbane_200_3
+#: conversationlist_omicronrg9.json:umar_guild_5a:1
+#: conversationlist_omicronrg9.json:troublemaker_guild_8a:0
+#: conversationlist_omicronrg9.json:Feygard_BG_guild03_4:0
 msgid "Anything else?"
 msgstr ""
 
@@ -15408,7 +15563,7 @@ msgid "Algangror is dead."
 msgstr ""
 
 #: conversationlist_jhaeld.json:jhaeld_killalg_1
-msgid "I find this very hard to believe. For to have killed Algangror would have been a difficult task, given her power."
+msgid "I find this very hard to believe. For you to have killed Algangror would have been a difficult task, given her power."
 msgstr ""
 
 #: conversationlist_jhaeld.json:jhaeld_killalg_1:0
@@ -16118,6 +16273,10 @@ msgstr ""
 
 #: conversationlist_remgard_villagers1.json:morgisia:0
 msgid "That's right. Hand over all your belongings and you may still live."
+msgstr ""
+
+#: conversationlist_remgard_villagers1.json:morgisia:1
+msgid "But I was just..."
 msgstr ""
 
 #: conversationlist_remgard_villagers1.json:morgisia:2
@@ -17761,8 +17920,7 @@ msgid "Oh yes. The mighty axes. You can do a lot of damage with them, if you kno
 msgstr ""
 
 #: conversationlist_falothen.json:falothen1_7_a1
-#: conversationlist_falothen.json:falothen1_2nd_a1
-msgid "I can teach you how to get better at fighting with all types of axes, from the small hatchet up to the larger two-handed greataxes. That way, you can be very versatile in your choice of weapons."
+msgid "I can teach you how to get better at fighting with all types of axes, from the small hatchet up to the larger two-handed greataxes. Even a scythe, although not designed for combat, can do a lot of damage if you know how to use it. That way, you can be very versatile in your choice of weapons."
 msgstr ""
 
 #: conversationlist_falothen.json:falothen1_7_a1:0
@@ -17775,8 +17933,7 @@ msgid "[Falothen teaches you the axe skill]"
 msgstr ""
 
 #: conversationlist_falothen.json:falothen1_7_b
-#: conversationlist_falothen.json:falothen1_2nd_b0
-msgid "Now, blunt weapons is my way of categorizing everything from the simple club, to maces up to quarterstaves. The technique for using them well is mostly the same."
+msgid "Now, blunt weapons is my way of categorizing everything from the simple club, to maces up to quarterstaves, and even whips. The technique for using them well is mostly the same, although whips are obviously somewhat different."
 msgstr ""
 
 #: conversationlist_falothen.json:falothen1_7_b1
@@ -17872,8 +18029,16 @@ msgstr ""
 msgid "Sounds good. Teach me how to fight with daggers. Here are two Oegyth crystals and 5000 gold as payment."
 msgstr ""
 
+#: conversationlist_falothen.json:falothen1_2nd_a1
+msgid "I can teach you how to get better at fighting with all types of axes, from the small hatchet up to the larger two-handed greataxes. That way, you can be very versatile in your choice of weapons."
+msgstr ""
+
 #: conversationlist_falothen.json:falothen1_2nd_a1:0
 msgid "Sounds good. Teach me how to fight with axes. Here are two Oegyth crystals and 5000 gold as payment."
+msgstr ""
+
+#: conversationlist_falothen.json:falothen1_2nd_b0
+msgid "Now, blunt weapons is my way of categorizing everything from the simple club, to maces up to quarterstaves. The technique for using them well is mostly the same."
 msgstr ""
 
 #: conversationlist_falothen.json:falothen1_2nd_b1:0
@@ -22021,6 +22186,7 @@ msgid "It'd better be worth it."
 msgstr ""
 
 #: conversationlist_stoutford.json:glasforn_rumblings60_0:2
+#: conversationlist_omicronrg9.json:umar_guild03_2:1
 msgid "I'm all ears."
 msgstr ""
 
@@ -22122,7 +22288,7 @@ msgid "They aren't common, but I have heard stories. They are powerful and live 
 msgstr ""
 
 #: conversationlist_stoutford.json:tahalendor_rumblings80_4
-msgid "I'm surprised such a young boy as you managed to survive encountering one, let alone actually kill it."
+msgid "I'm surprised such a young kid as you managed to survive encountering one, let alone actually kill it."
 msgstr ""
 
 #: conversationlist_stoutford.json:tahalendor_rumblings80_2bis
@@ -22336,6 +22502,7 @@ msgstr ""
 #: conversationlist_stoutford_combined.json:blornvale_thorns70_10
 #: conversationlist_stoutford_combined.json:blornvale_thorns74_1:0
 #: conversationlist_stoutford_combined.json:key_wild21a:0
+#: conversationlist_omicronrg9.json:umar_guild02_23a:1
 msgid "Yes."
 msgstr ""
 
@@ -23672,6 +23839,7 @@ msgstr ""
 #: conversationlist_guynmart_npc.json:guynmart_maid_11:1
 #: conversationlist_stoutford_combined.json:blornvale_shop1_4:0
 #: conversationlist_stoutford_combined.json:erwyn_child_10
+#: conversationlist_omicronrg9.json:umar_guild02_5c:0
 msgid "Oh."
 msgstr ""
 
@@ -26233,7 +26401,7 @@ msgid "Great! I will wait for your return."
 msgstr ""
 
 #: conversationlist_guynmart2_npc.json:guynmart_wise_200
-msgid "Cheddar! I can't belive it!"
+msgid "Cheddar! I can't believe it!"
 msgstr ""
 
 #: conversationlist_guynmart2_npc.json:guynmart_wise_202
@@ -26465,6 +26633,7 @@ msgstr ""
 
 #: conversationlist_stoutford_combined.json:cornith_2:0
 #: conversationlist_stoutford_combined.json:tahalendor_rumblings10x_1:0
+#: conversationlist_omicronrg9.json:umar_guild02_27d:0
 msgid "OK. Thanks."
 msgstr ""
 
@@ -27288,6 +27457,7 @@ msgstr ""
 #: conversationlist_stoutford_combined.json:stoutford_widow_thorns72_0
 #: conversationlist_stoutford_combined.json:stoutford_widow_thorns74_0
 #: conversationlist_stoutford_combined.json:stoutford_widow_thorns72_70
+#: conversationlist_omicronrg9.json:Feygard_BG_guild03_1:0
 msgid "Any news about the murderer?"
 msgstr ""
 
@@ -27821,7 +27991,7 @@ msgid "Here lies Zorin, the first to tend this glade. Its beauty would be dimini
 msgstr ""
 
 #: conversationlist_stoutford_combined.json:script_lakecave0_1
-msgid "You see large shapes moving in the shadows to the East. It looks dangerous that way!"
+msgid "You see large shapes moving in the shadows to the east. It looks dangerous that way!"
 msgstr ""
 
 #: conversationlist_stoutford_combined.json:script_lakecave0_2
@@ -29658,6 +29828,2275 @@ msgstr ""
 msgid "Now you have got a headache. You really should give up trying to sleep."
 msgstr ""
 
+#: conversationlist_omicronrg9.json:umar_guild_1
+msgid "I see .... So you want to get involved in our Guild?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild_1:0
+msgid "Yes, you seem like reasonable people."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild_1:1
+msgid "Whatever. It's just curiosity."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild_1:2
+msgid "No, not really. I'm not interested in being a smug thief."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild_2a
+msgid "Well, you've shown us you are trustworthy by bringing that key. However, doing just one task does not prove to us that you are eligable to be a member of our guild."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild_2a:0
+msgid "But I really want to join your guild!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild_2a:1
+msgid "Really? I didn't see any of your members bringing you \"that\" key."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild_2b
+msgid "I'm sorry to hear that. Good luck."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild_3
+msgid "OK, OK. You will get a chance. But I warn you that from now on, you cannot go back on your choice."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild_4a
+msgid "So what is your decision?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild_4a:0
+msgid "Haven't you understood? Just tell me what I have to do."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild_4a:1
+msgid "I will take the opportunity."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild_4a:2
+msgid "I need some time to think about it."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild_5a
+msgid "Very well. Let's see if you're good enough to join our guild. Talk with Troublemaker. He will tell you what you have to do."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild_5a:0
+msgid "All right! I'll go see him."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild_6a
+msgid "Fine. I will keep an eye on you."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild_6b
+msgid "Not for now. Make sure nobody sees you doing suspicious things. Good luck."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild_6b:0
+msgid "I will be careful. Bye."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild_5b
+msgid "I understand your doubts. Come back when you're prepared."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild_1
+msgid "Argh, another annoying apprentice ... I mean, sorry. I know you were the one who brought us the key."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild_2
+msgid "OK, now listen up! "
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild_3
+msgid "As I expect you are aware, we're not welcome in many places. In fact, we're being pursued by Fallhaven patrols. That's why we are here. This place is safe."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild_4
+msgid "But we need supplies to survive, and also to maintain the Guild's influence. We are not just common robbers."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild_5
+msgid ""
+"We don't just steal gold or goods. We steal information. Secrets, shipment reports, strategic locations.\n"
+"Do you know what I mean?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild_5:0
+msgid "Get to the point please."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild_5:1
+msgid "Yes, I understand."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild_6
+msgid "We have spies and scouts in certain key locations, gathering information. These locations are places frequented by people from Feygard and also from Nor City."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild_7
+msgid "So you will be the intermediary this time, collecting our spies' journals and bringing them to me."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild_7:0
+msgid "Sounds easy, I'll do it."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild_7:1
+msgid "That's not my favourite kind of job, but I will bring them."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild_7:2
+msgid "No, I'm too strong to be just a mere broker."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild_8a
+msgid ""
+"Good. We have three people on the job.\n"
+"The first one is a spy in Crossglen, Leta. I believe you know her.\n"
+"One of our veteran spies, Dunla, is disguised as a vendor in Vilegard Tavern.\n"
+"And finally we have Fanamor, watching what is happening around Crossroads Guardhouse. Search for them in this order."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild_8b
+msgid "Hmpf. Go kill some beetles with your strength!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild_9
+msgid ""
+"Ah! I almost forgot. You have to say the password if you want them to give you the journal.\n"
+"The password is \"You are no one. No one knows you. No one has seen you.\" Good luck."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild_9:0
+msgid "I will keep that in mind. Bye."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:dunla_guild_1
+msgid "What? I don't know what you are talking about."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:dunla_guild_1:0
+#: conversationlist_omicronrg9.json:dunla_guild_1:1
+msgid "You are no one. No one knows you. No one has seen you."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:dunla_guild_2a
+msgid "So, you are one of us. Here, take my journal."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:dunla_guild_2b
+msgid "Sorry, I don't have any more information for you."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:dunla_guild_2b:1
+msgid "Ok, bye."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:fanamor_guild_1
+msgid "Finally! I was getting tired of waiting here killing these beasts ..."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:fanamor_guild_2
+msgid "Take this. All I've seen is written here ..."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:feygard_scout_1
+msgid "Halt! You have been caught!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:fanamor_guild_3
+msgid "In the blink of an eye, Fanamor starts attacking the scout."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:feygard_scout_2
+msgid ""
+"Argh ... damned trash, take this! \n"
+"(His sword swings quickly, and severely wounds Fanamor)"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:feygard_scout_3
+msgid ""
+"(Grabs the book)\n"
+"What have we here? A lost kid trying to do business with this scum, hah? \n"
+"You are under arrest!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:feygard_scout_3:0
+msgid "Not without a fight!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:feygard_scout_3:1
+msgid "How dare you! Prepare to die, useless soldier!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:feygard_scout_3:2
+#: conversationlist_omicronrg9.json:rebthief2_g03_1:2
+msgid "For the shadow!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:fanamor_guild_4
+msgid ""
+"Tsch ... I ... cannot ...\n"
+"You kid, protect the book!\n"
+""
+msgstr ""
+
+#: conversationlist_omicronrg9.json:leta_guild_1a
+msgid "Umar you say? I don't know any Umar!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:leta_guild_1a:0
+msgid "(Whispering) You are no one. No one knows you. No one has seen you."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:leta_guild_2
+msgid "How do you ...? Whatever, you are one of us."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:leta_guild_2:0
+msgid "Umar sent me to get your journal."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:leta_guild_3
+msgid "Here. Make sure you don't raise any suspicion on your future jobs. Bye kid."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:leta_guild_1b
+msgid "I gave you all the information I have gathered. Now leave me alone."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:fanamor_guild_5
+msgid "Wow, you ... you really got rid of him ...."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:fanamor_guild_5:0
+msgid "Did you doubt me?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:fanamor_guild_5:1
+msgid "Yes, even though he was strong, as we can expect of Feygard soldiers ..."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:fanamor_guild_5a
+msgid "Watch out! Behind you!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:fanamor_guild_5a:0
+msgid "What ...?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:fanamor_guild_6
+msgid "Argh ... The Feygard Scout hit me badly. I have not much time ... I am bleeding very heavily."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:fanamor_guild_6:0
+msgid "I don't think so."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:fanamor_guild_6:1
+msgid "Can I help?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:fanamor_guild_7a
+msgid "Yes, I am. I have no time for jokes!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:fanamor_guild_7b
+msgid "I need a bandage quickly, or I will never return to the guild house."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:fanamor_guild_7b:0
+msgid "Yeah, OK."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:fanamor_guild_7b:1
+msgid "I will find a bandage for you, don't worry."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:fanamor_guild_8
+msgid "Have you brought me that bandage?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:fanamor_guild_8:0
+msgid "Yes, I have it!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:fanamor_guild_8:1
+msgid "I'm still searching."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:fanamor_guild_9b
+msgid "Hurry up! I do not have much time ..."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:fanamor_guild_0
+msgid "(You look away when you see the corpse of Fanamor. Anklebiters probably had something to do with this horrible event.)"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:fanamor_guild_0:0
+msgid "[Bury the corpse.]"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:thoronir_guild_1
+msgid "What's the matter, my child?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:thoronir_guild_1:0
+msgid "Ehm ... My father has cut himself with an axe, and we don't have any bandages!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:thoronir_guild_1:1
+msgid "Fanamor, a member of Thieves' Guild, is severely wounded. Please give me a bandage for her!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:thoronir_guild_2a
+msgid "Let me see ..."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:thoronir_guild_3
+msgid "This is what I have, take it. I expect this will be useful."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:thoronir_guild_3:0
+msgid "May the Shadow walk with you, my friend."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:thoronir_guild_3:1
+msgid "Thank you, I won't forget this!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:fanamor_guild_9a
+msgid ""
+"(You help Fanamor put the bandage on the wound)\n"
+"\n"
+"... I think I will be able ... to move in a few minutes. See you at the Guild. Thank you kid."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:fanamor_guild_9a:0
+msgid "I'm glad to hear that. Bye."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:fanamor_guild_9a:1
+msgid "Nothing for me."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild_10
+msgid "How is the mission going?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild_10:0
+msgid "I've brought all the journals."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild_10:1
+msgid "I have the journals, but one of your spies, Fanamor, was killed by a Feygard scout."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild_10:2
+msgid "I gave you the journals, so where's my reward?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild_10:3
+msgid "Almost done."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild_10:4
+msgid "Well, but can I take a look at your supplies again?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild_11a
+msgid "Well done kid! You can now consider yourself skilled enough to be a part of this guild."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild_11a:0
+#: conversationlist_omicronrg9.json:umar_guild03_17a:0
+msgid "Thank you!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild_11a:1
+msgid "Yes .... So where is my reward?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild_11b
+msgid "Well, that is the price of being one of us. There's always risk."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild_11c
+msgid "Return to me when you are done."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild_11c:0
+msgid "OK, I will."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild_11c:1
+msgid "Can you tell me again what I'm supposed to do?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild_12b
+msgid ""
+"You have to retrieve information from our spies.\n"
+"The first one is a spy in Crossglen, Leta. I believe you know her.\n"
+"One of our veteran spies, Dunla, is disguised as a vendor in Vilegard Tavern.\n"
+"And finally we have Fanamor, watching what is happening around Crossroads Guardhouse. Search for them in this order."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild_13b
+msgid "And don't forget the password: You are no one. No one knows you. No one has seen you."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild_13b:0
+msgid "Understood, bye."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild_12a
+msgid "You should talk with Umar. Maybe he has another task ... one that's more in your line of work, you know."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild_12a:0
+msgid "Sure, I will talk to him."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild_12a:1
+msgid "At least I got some gold. Bye!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild_13a
+msgid "Hi again, kid. What do you want?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild_13a:0
+msgid "OK ... It's done. She's alright, and probably eating some bread now."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild_13a:1
+msgid "I've dealt with the lady."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild_13a:2
+msgid "I still have to take our guest to her quarters."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild_13a:3
+msgid "I have to ...(you look at Ambelie) find a better place for her."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild_13a:4
+msgid "Can I take a look at the Guild's current supplies?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:fanamor_guild_10
+msgid "Hello, friend! Thank you for all you've done for me."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:fanamor_guild_10:0
+msgid "It was nothing. Bye."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:fanamor_guild_10:1
+msgid "It's my job. Nice to see you survived those anklebiters ..."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild_4b
+msgid "What have you decided?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild_4b:0
+msgid "I will take your opportunity!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild_4b:1
+msgid "I'm still confused, sorry."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_1
+msgid "Excellent, young friend. Consider yourself a member of our Guild."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_1:0
+msgid "Meh, that was nothing special. Bye."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_1:1
+msgid "OK, nice to see you again."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_1:2
+msgid "Hah, what an honor! It has been so, so difficult ...."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_2
+msgid "I detect a certain sarcasm in your words."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_2:0
+msgid "No, no .... Never mind, see you later."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_2:1
+msgid "That's maybe because I am trying to be sarcastic ..."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_3:0
+msgid "Just give me a high-risk job, please."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_3:1
+msgid "I mean my last job was a piece of cake. I need something more exciting!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_4
+msgid "If you want me to give you a more difficult task, then I am happy to do so."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_4:0
+msgid "Well, so?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_4:1
+msgid "OK, in that case tell me what it is."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_5a
+msgid "But first I have to clarify something. You need to be more careful not to give information to outsiders about the Thieves Guild."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_5a:0
+msgid "Did I?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_5a:1
+#: conversationlist_omicronrg9.json:umar_guild02_5c:1
+msgid "You're right. It will not happen again."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_5b
+msgid "Yes, you mentioned Fanamor's membership to Thoronir."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_5c
+msgid "Fortunately, Thoronir will keep quiet, as he certainly does not want to give up our donations."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_5d
+msgid "You still have many things to learn, young apprentice."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_5z
+msgid "Well, before I can give you a very demanding job, I need you to do another ... retrieval task."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_5z:0
+msgid "Anything for the glory o... Oops, I mean OK"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_5z:1
+msgid "Sigh. If you insist ..."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_5z:2
+msgid "Hmm, sounds boring. I decline."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_6a
+msgid "Excellent. I warn you that this is not an ordinary retrieval. It's more like a ... kidnapping."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_6a:0
+msgid "Now that sounds more interesting."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_6a:1
+msgid "Can you get to the point please?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_6a:2
+msgid "Sounds too shady for me. I think I prefer to not do that task for now."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_6b
+msgid "Just tell me when you want to do the job. Bye"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild_7
+msgid ""
+"OK, listen carefully.\n"
+"We have heard a noble woman has decided to travel outside Feygard."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_8
+msgid ""
+"Nothing unusual about that. But in this case we've discovered that the woman is the daughter of Hertzsen Laumwill, patriarch of the Laumwill family.\n"
+"\n"
+"(You look around, trying to remember someone, but nothing comes to you)"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_9
+msgid "To help you understand, they are one of the richest Feygard families, very close to Lord Geomyr."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_9:0
+msgid "OK, so what I have to do?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_9:1
+msgid "I ... understand. So what's my task?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_10
+msgid "I want you to bring the noble woman here, so that we can ask for a substantial ransom from her generous father."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_10:0
+msgid "Consider it done."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_10:1
+msgid "Where can I find this woman?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_11a
+msgid "Great ... Before you go, I should tell you where she is."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_11b
+msgid "Scouts have seen the lady in the Foaming flask tavern. We do not want to be discovered, so act quietly. Guards are a problem though. It's up to you how you choose to solve the guards problem."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_11b:0
+msgid "Yes. I understand."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_11b:1
+msgid "Seems difficult, but whatever. I'll do it."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_12
+msgid "Good luck. Return to me when you're done."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_12:0
+msgid "Wait, wait! How am I supposed to ..."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_12:1
+msgid "I will bring her, even if I have to eliminate Feygard's entire army!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_13
+msgid "Use your tongue, young man. Sometimes it is more important than your sword skills."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_13:0
+msgid "Hah! I don't think so. But anyway, thank you for the advice."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_13:1
+msgid "I'll do that, thanks for the advice."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_14
+msgid "Remember that if you are discovered, you are no one. No one knows you. And of course, no one has seen you. You are now a member of the guild, so don't fail."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_14:0
+msgid "You still think I'm a novice, right? You're going to see that you're wrong!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_14:1
+msgid "Understood. Bye."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_15
+msgid "No, I've told you all you need to know. Now leave me please, I've work to do."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_1
+msgid "Why? I don't know you, commoner. Why would I be willing to trust a savage looking kid?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_1:0
+msgid "But I'm not a commoner! I'm a ... Feygard spy. These clothes are my disguise!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_1:1
+msgid "I'm stronger than those smug guards."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_2
+msgid "Anyway, I prefer to stay in this place for now. Get away from me!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_2:0
+msgid "Hmpf .... Goodbye"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ff_captain_guild02_1
+msgid "What? I haven't been informed of that. Since you seem like an inexperienced kid, I don't believe you."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ff_captain_guild02_1:0
+msgid "Ergh ... Mr Laumwill is grateful for your protection. However ... Ah! He has given this reward of 1000gp for your efforts."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ff_captain_guild02_1:1
+msgid "Trust me, I'm the one that delivered those swords from Gandoren to you!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ff_captain_guild02_1:2
+msgid "(I would like to bribe the captain, but I need at least 1000 Gold) I will come back later."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ff_captain_guild02_2a
+msgid "Oh! What a considerable reward! OK, OK. Only Feygard people are so generous!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ff_captain_guild02_3
+msgid "I have to stay here to supervise my guards. They sometimes need educating about what to do. I assume you're able to escort her without problems?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ff_captain_guild02_3:0
+msgid "[Lie]For the glory of Feygard, I will!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ff_captain_guild02_3:1
+msgid "[Lie]Don't worry, she's safe with me."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ff_captain_guild02_2b
+msgid "Oh, I see. Maybe you're right."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_3
+msgid "You again?!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_3:0
+msgid "[Lie] Sorry, but I have to take you back home!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_3:1
+msgid "(Knock her out) Time to sleep!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_4a
+msgid "No! I won't go anywhere with you, commoner! Guards, guards!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ff_captain_guild02_4
+msgid "Haha! Sorry lady, but your father wants you back home. I also believe this dirty tavern is no place for a woman like you, haha!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ff_captain_guild02_4:0
+msgid "Yes, you have to come with me."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_5
+msgid "NO! I've said no! Don't bother me. Get away from me!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_5:0
+msgid "Sorry about this (Knock her out)."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_5:1
+msgid "[Whispering] You fool! Be quiet. Listen to me if you want to save your life."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_4b
+msgid "(You tap her on the back of the head with the handle of your weapon, and she falls unconsicious)"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_4b:0
+msgid "Fine ..."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:Feygard_BG_guild02_1
+msgid ""
+"Halt! The road to Fallhaven is closed due to recent information about a dangerous criminal who has been seen not far from here.\n"
+"That criminal commited a murder only hours ago."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:Feygard_BG_guild02_1:0
+msgid "But I really need to pass!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:Feygard_BG_guild02_2a
+msgid ""
+"Sorry, I'm not able to decide who passes. This barricade will be here until we catch or kill the criminal.\n"
+"\n"
+"(You take a look into your map. There seems to be another way to reach Fallhaven, heading up to the North)"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:Feygard_BG_guild02_2a:0
+msgid "OK, thank you anyway."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_16
+msgid ""
+"(You put Ambelie, who is still unconsicious, in a chair next to you)\n"
+"\n"
+"Oh! How how did you get here so fast? I've heard reports of a barricade blocking the way from the Duleian road to Fallhaven."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_16:0
+msgid "Barricades, guards ... no big thing for me."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_16:1
+msgid "I found a shortcut."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_17
+msgid "OK, well done. Now we will have to find a better place for our guest. Keeping this lady here could be dangerous for us."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_17:0
+msgid "I'm sure that's the case, but that's not my problem anymore. Right?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_17:1
+msgid "Do you have any ideas?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_18a
+msgid "Yes it is."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_18a:0
+msgid "Well, I have no choice. What should I do?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_18b
+msgid "Hmm, let me think about it ...."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_19
+msgid "We are supposed to have one room for receiving \"visitors\". However, I don't know if It's finished."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_19:0
+msgid "Great, more boring \"moving\" tasks, right?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_19:1
+msgid "And so?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_20
+msgid "Hmm, I believe Troublemaker knows the actual state of that place. Ask him, and if it's possible leave our guest there."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_20:0
+msgid "OK, I will. (You lift Ambelie up and carry her on your shoulders)"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_20:1
+msgid "Hmpf ... Bye (You lift Ambelie up and carry her on your shoulders)"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild02_1
+msgid "So do you want to kill her quietly?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild02_1:0
+msgid "No, just I want a suitable place to leave her until ..."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild02_1:1
+msgid "What? No, I am just asking you for a place for this type of job. Umar told me you knew of somewhere."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild02_2a
+msgid "Yeah, the ransom. I'm a veteran kid, don't forget that."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild02_2b
+msgid "Hmpf, be more specific next time. I'm not a mind-reader!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild02_3
+msgid "Well, I understand. Yes I have a place, but there's a problem. That place is at the other end of the town, next to the graveyard."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild02_3:0
+msgid "I don't think that will present a major problem for me."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild02_3:1
+msgid "I got here without any problem. Why I would have problems crossing through town?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild02_4
+msgid "Well, anyway, I'm building a way underground to reach it without being seen. It will be ready next time, I promise."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild02_4:0
+msgid "Whatever, anything more?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild02_4:1
+msgid "Thank you. I will go there."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild02_5b
+msgid "OK. Make sure you're not seen doing suspicious things!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild02_5a
+msgid "Yes, there is something."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild02_6
+msgid "I almost forgot. Take this key. Make sure you put it in correctly to open the hatchway."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild02_6:0
+msgid "You forget many things, right?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild02_6:1
+msgid "Hmm, OK. I will keep that in mind."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild02_7
+msgid "I have better things to do than help an apprentice. Leave me. Hmpf."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild02_hatchlever_2b
+msgid "Looking around the room, you see an unusual mechanism. A crowbar with a locked chain that prevents a lever from beng moved."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild02_hatchlever_2b:0
+msgid "Try to break the chain."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild02_hatchlever_2b:1
+#: conversationlist_omicronrg9.json:guild02_hatchlever_3b:1
+#: conversationlist_omicronrg9.json:ambelie_guild02_7b:0
+msgid "Leave."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild02_hatchlever_3b
+msgid "You hit the chain, but all you get is a mark on your weapon and frustration, as the chain is still intact."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild02_hatchlever_3b:0
+msgid "Hit it again."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild02_hatchlever_2a
+msgid "This is probably the place Troublemaker mentioned. You see a crowbar with a locked chain that surrounds the whole mechanism, stopping it from moving. The key seems to fit into the lock."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild02_hatchlever_2a:0
+msgid "Put the key into the lock."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild02_hatchlever_3a
+msgid ""
+"You insert the key in the lock. You can hear strange noises and creaks as you turn the key. You make an extra effort, and finally the heavy chain falls on the floor, freeing the mechanism.\n"
+"\n"
+"When you move the lever the floor starts trembling, and eventually a hatch appears that  leads downstairs."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild02_door_1
+msgid "This cell looks like the right place for a hostage."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild02_door_1:0
+msgid "Put Ambelie inside the room."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild02_door_2
+msgid "You leave Ambelie in the cell and close the door."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild02_8
+msgid ""
+"Ah, yes ... that captive. Take this food and make sure she is comfortable enough. We don't want her starving right?\n"
+"(Troublemaker gives you some bread)"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild02_8:0
+msgid "Argh. OK. What a tedious job!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild02_8:1
+msgid "Understoood."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_7b
+msgid "(Ambelie seems to be resting, dead to the world. The entire room is quiet. You really don't like this cold place)"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_7a
+msgid "(You take a look at the cell. Ambelie has awakened. When she looks at you, her face turns pale)"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_7a:0
+msgid "Hello! I have food for you."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_7a:1
+msgid "Hey, you! Take this food quickly, I have no time to waste!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_8
+msgid "Wh..what do you want? What have you done to me? Where in the world am I? Answer me!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_8:0
+msgid "That does not concern you. Take this food please."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_8:1
+msgid "Look, if you don't shut up I will silence you my own way, OK?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_9b
+msgid "Don't hurt me please! I will be quiet."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_9b:0
+msgid "Now take this food ... Without complaining!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_9a
+msgid "Food, you say? "
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_9a:0
+msgid "Yes, that's what I said."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_9a:1
+msgid "Are you deaf or something? Take this bread and stop bothering me!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_10
+msgid "Bread? That's not a worthy food for a noblewoman like me! Oh my, where am I?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_10:0
+msgid "If you prefer going without food in this ugly cell for a long while then I don't care."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_10:1
+msgid "Do you prefer to eat the floor, bad mannered woman?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_11
+msgid "S..sorry, please ... Yes I'm hungry ... Will you give me that? *sniffs*"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_11:0
+msgid "[Give the Bread]"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_12
+msgid "Th..thanks. Now, please tell me, where am I?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_12:0
+msgid "Sorry, but I cannot reveal that to you right now. Bye."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_12:1
+msgid "That doesn't matter! If you behave well maybe you will be out of here sooner rather than later."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_13
+msgid "... Fine *sniffs*."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_14
+msgid "(You look again through the bars. Ambelie is still there, alive, and gnawing on the bread you gave her earlier.)"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild02_9
+msgid "Excellent. From now on me and my fellows will take care of her."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild02_9:0
+msgid "Very well. I will go and talk to Umar again. Bye."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild02_9:1
+msgid "But ..."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild02_9_1
+msgid "Do that."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild02_10
+msgid "Hey, what are you waiting for? Leave me and go talk with Umar or something!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild02_10:0
+msgid "You don't need to be rude! I will leave."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:troublemaker_guild02_10:1
+msgid "I'll talk to him. Bye."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_21
+msgid "Simple. Talk with Troublemaker about this job. He probably knows of some safe place to keep her. Then return to me."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_21:0
+msgid "OK, thanks."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_21:1
+msgid "Understood."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_22
+msgid "Fine .... Although you look odd. What's the matter?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_22:0
+msgid "It's OK ... it's just that is not my kind of work."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_22:1
+msgid "Urgh ... I just need better tasks! Do you still think I'm not yet ready?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_23a
+msgid "Sometimes people must do things that they don't like. Maybe you're still too young to understand that?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_23a:0
+msgid "Not at all."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_23b
+msgid "No, nothing of the kind! I was .... Well, let's talk."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_24a
+msgid "Well .... Anyway, I promise we won't give you those kind of jobs for a while."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_24a:0
+#: conversationlist_omicronrg9.json:umar_guild03_19d
+msgid "Fine."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_24a:1
+msgid "That is good news for me."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_24b
+msgid "Great, so let's talk then."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_25
+msgid "First of all, take this gold for a job well done. We have already sent people to ask for the ransom."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_26
+msgid ""
+"(Umar looks a little worried)\n"
+"\n"
+"This is really not your line of work huh?\n"
+"I suggest you rest for a while before doing more. You look tired."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_26:0
+msgid "I'm not tired at all."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_26:1
+msgid "Tired? I don't know what that means!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_26:2
+msgid "Good idea."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_27a
+msgid "I prefer that you are completely rested before talking about work."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_27a:0
+msgid "Ugh ... OK."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_27a:1
+msgid "I'm always rested!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_27b
+msgid "Don't be overconfident. Take my advice and rest. We'll talk tomorrow."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_27b:0
+msgid "Tsch. All right, sir."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_27c
+msgid ""
+"Come back to me when you're prepared. Bear in mind that your next task isn't going to be as easy as the ones you already did.\n"
+"We'll talk about that tomorrow."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_27c:0
+msgid "I expected that. See you tomorrow then."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_27c:1
+msgid "Easy? Argh, they've been so difficult! Good night."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild03_rest1
+msgid "(You should go to the bed now. You take off your bag and grab the blanket. This bed is more comfortable than you thought, but maybe that's because you are really exhausted. Finally, you blow out the candle in the room.)"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild03_rest2
+msgid "Umar was clear. Sleep, then return. I should do what he said and go to bed."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild03_rest3
+msgid "(The night here is anything but quiet. You can hear wolves' howls, as they become more active during the night. Even people's conversations can be overheard. However, you couldn't care less about that right now. You finally fall asleep)"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild03_rest4
+msgid "(The sun rises and you open your eyes. You feel fully rested and eager to talk with Umar. He's probably waiting for you.)"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild03_rest0a
+msgid "I should not leave the city now. Father told me once that monsters and beasts are more dangerous at night."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild03_rest0b
+msgid "Why am I heading in this direction? The tavern isn't in this way!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild03_rest0c
+msgid "It would be better to not bother people at this hour."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_1
+msgid "I see you are better than yesterday."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_1:0
+msgid "Indeed I am!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_1:1
+msgid "Yes ..."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_2
+msgid "Fine. Listen to me carefully."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_2:0
+msgid "Sure, tell me what you have to say."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_3
+msgid "Here in the guild, as you know, members range from apprentices to veterans. The veterans are usually specialized in specific jobs."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_4
+msgid "Troublemaker is my right hand man. He's in charge of planning jobs that have some level of complexity."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_5
+msgid "Pickpocket has developed his stealth skills to such an extreme that he's able to take your equipment, and you'll barely even feel it."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_5:0
+msgid "Woah, how is that possible?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_5:1
+msgid "I don't believe you."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_6a
+msgid "Each person has their own way to reach the top."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_6b
+msgid "Believe me, I'm not lying."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_7
+msgid "Anyway, the fact is that one of our veterans has betrayed us."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_7:0
+msgid "Betrayed ... us?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_8
+msgid "Yes. He and his former comrades were sent to the Fallhaven catacombs."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_8:0
+msgid "I thought the work there was done since I brought the key of Luthor to you."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_8:1
+msgid "And what happened then?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_9
+msgid "The key is just the first part. We need to decipher the runes in the key in order to reach the crypt."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_9:0
+msgid "What crypt? I've never heard of it."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_9:1
+msgid "And what did they do?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_10b
+msgid "The team leader and others loyal to him killed the rest of the team and escaped with the key, before entering the church. They have probably deciphered the code and they want to sell the information to the highest bidder. That happened three nights ago."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_10b:0
+msgid "Why did they do that?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_10b:1
+#: conversationlist_omicronrg9.json:umar_guild03_26a:0
+#: conversationlist_omicronrg9.json:umar_guild03_28c
+msgid "I see ...."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_10a
+msgid "Let's just say that's not important to you at this moment. What they did is more important now."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_10a:0
+msgid "So, what did they do?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_11a
+msgid "Honestly, I don't know for certain."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_11b
+msgid "Appearently they decided the Guild wasn't the best option, so they turned greedy and betrayed us. That's more common than I would like to admit."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_11b:0
+msgid "What filthy and disloyal people."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_11b:1
+msgid "They have signed their own death sentence."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_12
+msgid "There's more. Two days ago the southern route from here to the Duleian road was closed, because there was a murder. Soldiers are trying to prevent the murderer from escaping to the west."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_12:0
+msgid "And you think the traitors are involved in that?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_13
+msgid "I'm pretty sure about it. The team leader is the one we call \"Crackshot\", as he is a master of murder, torture and the subjugation arts. He's really a dangerous man."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_13:0
+msgid "So, do you have a plan?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_13:1
+msgid "What am I supposed to do?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_14
+msgid "Hmm ... I think we have no choice. We'll have to deal with him and his henchmen ... forever."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_14:0
+msgid "OK, leave this to me. That's finally the kind of work I was searching for."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_14:1
+msgid "I ... I prefer to not get involved into this. Sorry."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_15a
+msgid "Are you completely sure? You will be alone against trained thieves and other criminals whose sole objective is to earn more and more gold."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_15a:0
+msgid "I can deal with them with my bare hands!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_15a:1
+msgid "Don't worry, I'll be careful."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_15b
+msgid "Maybe it's not the best time. We must bring him down. Think about it. There are probably many lives at risk ..."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_15b:0
+msgid "I will, I promise. Bye."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_16
+msgid "Whatever, I do believe you are capable. Regardless, be cautious with Crackshot. He's powerful, and his attacks can severely wound or kill you. Clear?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_16:0
+msgid "Bah, words are worth nothing now. It's going to be a nice fight."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_16:1
+msgid "Yes, understood!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_17a
+msgid "If you say so. Your self-confidence is a good aspect of your personality."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_17b
+msgid "However, there's still a problem. We're not completely sure about the location of Crackshot's new hideout."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_17b:0
+msgid "What? How I will find him then?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_17b:1
+msgid "He will show up sooner or later ..."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_18a
+msgid "Probably people near the Duleian road guard tower know more. See if you can ask them for tips."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_18a:0
+msgid "Whatever. I'll find him."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_18b
+msgid "Maybe, but it will be faster if you question people near the Duleian road guard tower. The Duleian road is the place where we think he was last seen."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_18b:0
+msgid "OK, I will ask there."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_18b:1
+msgid "Argh, the Duleian road is big! "
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_19a
+msgid "Sorry, I have no more information. If you need anything come back. Good luck."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_19a:0
+msgid "This will be interesting. Bye!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_19a:1
+msgid "Thank you. See you again."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_19b
+msgid "That's why you have to ask."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_19c
+msgid "Make sure you don't talk about the Guild and his relationship with us. Don't trust anyone."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_19c:0
+msgid "Understood!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_19c:1
+msgid "I won't even trust my shadow."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_20
+msgid "Remember, this is an important mission! Don't forget it again!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_21
+msgid "First, you must find Crackshot's hideout."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_22
+msgid "Then you will have to deal with him and his henchmen, and finally bring back the Key of Luthor to us."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_23
+msgid "Understood?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_23:0
+msgid "Yes!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_23:1
+msgid "Understood ..."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_23:2
+msgid "Can you explain it to me again?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_24a
+msgid "Excellent. Good luck."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_24b
+msgid ""
+"Are you serious?\n"
+"Bah, I'll repeat it for you ..."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:crossroads_guild03_1
+msgid "Aren't you a bit young to be travelling around here all by yourself?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:crossroads_guild03_1:0
+msgid "Sorry, have you heard anything about a murder?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:crossroads_guild03_2
+msgid "Yeah, Feygard authorities have sent more patrols to the south. Appearently there is a group of criminals hiding in the forest"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:crossroads_guild03_3
+msgid "Now go away kid, I'm working!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:benbyr_guild03_1
+msgid "(This man seems to be inmersed in his thoughts)"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:benbyr_guild03_1:0
+msgid "Hi. Have you heard about the murder not far from here?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:benbyr_guild03_2
+msgid ""
+"What? A murder?\n"
+"I don't know what you're talking about, sorry."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:benbyr_guild03_2:0
+msgid "Civilians! You never see anything. Bye."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:benbyr_guild03_2:1
+msgid "OK, thank you anyway!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:Feygard_BG_guild03_1
+msgid "Sorry, kid! I'm unable to let you pass. Orders from above!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:Feygard_BG_guild03_1:1
+msgid "Tsch, Bye!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:Feygard_BG_guild03_2
+msgid "Yes. He's not alone!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:Feygard_BG_guild03_3
+msgid "Yes! We have sent patrols to the north. There's a place infested by larval burrowers."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:Feygard_BG_guild03_4
+msgid "He and the other criminals are probably hiding there!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:Feygard_BG_guild03_5
+msgid ""
+"Yes! Those crimin ...\n"
+"Wait, you don't have to know this information! Forget everything I've said!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:Feygard_BG_guild03_5:0
+msgid "I will, bye!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:Feygard_BG_guild03_5:1
+msgid "[Lie]I will!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:Feygard_BG_guild03_0
+msgid "Halt! The road to Fallhaven is closed due to a murder commited three days ago."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:Feygard_BG_guild03_0:0
+msgid "Hey! I live in Crossglen. How do you expect me to get there?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild03_blood_1a
+msgid "(You look at the floor. The blood hasn't coagulated yet. It seems there has been a recent fight between two or more people.)"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild03_blood_1b
+msgid "(The same blood stains. They are coagulating more and more. Soon they will be just another mark on the floor.)"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild03_blood_2a
+msgid "(More blood. There's no doubt, there has been a fight here.)"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild03_blood_2b
+msgid "(Looking again at the same blood marks won't achieve anything except wasted time.)"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild03_sword_clashing
+msgid ""
+"ARGH!! *sword clashing*\n"
+"\n"
+"Sergeant! Sergeant!\n"
+"... *laughter*"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild03_sword_clashing:0
+msgid "That sounds like fighting nearby. I should check into that."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild03_deadpatrol_1_1
+msgid "(You see, horrified, how this man is bleeding out rapidly. He has countless cuts and his face is mutilated. You can almost hear his gasps.)"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild03_deadpatrol_1_1:0
+msgid "Shadow, embrace him."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild03_deadpatrol_1_1:1
+msgid "For the glory of Feygard, you will be avenged!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild03_deadpatrol_2_1
+msgid "Sar...gent. *gasps*."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild03_deadpatrol_2_2
+msgid ""
+"Y..you kid ... Argh! *spits up blood*.\n"
+"That guy is not ... Argh."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild03_deadpatrol_2_2:0
+#: conversationlist_omicronrg9.json:guild03_deadpatrol_2_2:1
+msgid "What guy?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild03_deadpatrol_2_3
+msgid ""
+"No ... he's not .... Agggh!\n"
+"[He has stopped breathing. I cannot do anything for him. Better to move on.]"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild03_deadpatrol_2_3:0
+msgid "Shadow, embrace him ...."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild03_deadpatrol_2_3:1
+msgid "I'll save your sergeant!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild03_doorlock_2
+msgid "(The terrible smell of blood here is unbearable. However, I should check whether those men are alive.)"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild03_doorlock_3
+msgid "No way. There are countless cobwebs. I should go through the door."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild03_doorlock_1
+msgid "I think I should check those strange blood marks before going on ...."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:rebthief_guild03_1
+msgid ""
+"Another idiot trying to pass through here, eh?\n"
+"Your life ends here!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:rebthief_guild03_1:0
+msgid "The people you've killed will be avenged."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:FeygardSerg_guild03_1
+msgid ""
+"(Gives you a surprised look). How ...?\n"
+"Who are you kid?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:FeygardSerg_guild03_1:0
+msgid "Eh ... I am ..."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:FeygardSerg_guild03_1:1
+msgid "That doesn't ..."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:FeygardSerg_guild03_2
+msgid ""
+"Wait! That's not actually important.\n"
+"Leave this dangerous place, right now!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:FeygardSerg_guild03_2:0
+msgid "You are right. It would be better to leave."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:FeygardSerg_guild03_2:1
+msgid "Hah! No way, I won't give up."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:FeygardSerg_guild03_2:2
+msgid "I'm here because ... I'm here to help you!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:FeygardSerg_guild03_3
+msgid "My whole patrol is dead! Why do you think you have any chance of success?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:FeygardSerg_guild03_3:0
+msgid "I managed to reach this place. Is that not enough for you?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:FeygardSerg_guild03_3:1
+msgid "I'm not here to discuss that with you."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:FeygardSerg_guild03_4a
+msgid "It's your life, do whatever you want."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:FeygardSerg_guild03_4a:0
+msgid "Please tell me what do you know about the current situation."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:FeygardSerg_guild03_4b
+msgid "Indeed, I don't know why are you here!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:FeygardSerg_guild03_5
+msgid "I don't know much. Only that me and my patrol were sent here to arrest a murderer. But what we found was unexpected."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:FeygardSerg_guild03_5:0
+msgid "Unexpected?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:FeygardSerg_guild03_6
+msgid "We reached these passages via a forest cavern, and went through the beasts without any major problem. Suddenly, the suspect appeared with a group of men, probably his allies or subordinates ..."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:FeygardSerg_guild03_7
+msgid "Those people were fast. Very fast and very dangerous. They killed them! My fellows, all of them defeated!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:FeygardSerg_guild03_8
+msgid "I managed to get rid of most of them, but I'm severely wounded and unable to continue ..."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:FeygardSerg_guild03_9a
+msgid ""
+"Don't you understand? You must leave this place before you can't.\n"
+"\n"
+"He's playing with us!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:FeygardSerg_guild03_9a:0
+msgid "You are right. I will leave."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:FeygardSerg_guild03_9a:1
+msgid "Take these supplies and leave. I'll avenge your mates."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:FeygardSerg_guild03_9a:2
+msgid "Don't worry. You must report this before it is too late. I'll go there instead of you."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:FeygardSerg_guild03_10
+msgid "Agh, thank you. You are valiant, kid. I hope to see you when we are both out of here. I'll invite you for a drink!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:FeygardSerg_guild03_10:0
+msgid "OK, thank you. Now I have to run."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:FeygardSerg_guild03_10:1
+msgid "Yeah, sounds good. For the glory of Feygard I'll avenge your mates!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild03_Hentrance_1
+msgid "(You see a hole leading to a cave. Maybe this is a good place to start searching.)"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:FeygardSerg_guild03_9b
+msgid "Kid, why are you still here? Leave me, I'm just resting a bit."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:FeygardSerg_guild03_9b:0
+msgid "Don't be rude! I'm here to help you. Please leave and go to a safer place."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:FeygardSerg_guild03_9b:1
+msgid "Calm down. Take these supplies and call backup!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:rebthief2_g03_1
+msgid "You couldn't be in a worse place to play hide and seek, kid. Die!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:rebthief2_g03_1:0
+msgid "I'm not playing that!!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:rebthief2_g03_1:1
+msgid "Now your mates will play that with your corpse!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild03_crackshot_1
+msgid "Oh ho! Welcome to my base, kid."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild03_crackshot_1:0
+msgid "Hmm .... This is not the place where I would choose to live."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild03_crackshot_1:1
+msgid "You are under arrest for the crimes you've commited against Feygard!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild03_crackshot_2a
+msgid "Haven't you realized yet? Your life is not going to be much longer."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild03_crackshot_2a:0
+msgid "Hah! Let's see if you're as strong as Umar has said."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild03_crackshot_2a:1
+msgid "Prepare to die!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild03_crackshot_2b
+msgid "*laugh* Are you serious?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild03_crackshot_3
+msgid "Do you really believe such words are worth anything here?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild03_crackshot_4
+msgid "Let's see if you can arrest me after I have finished with you!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild03_crackshot_4:0
+msgid "The Feygard soldiers will be avenged!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild03_crackshot_4:1
+msgid "Your head will serve as proof!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild03_hideout3_lock
+msgid "The lock seems to match with the key of Luthor."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild03_hideout3_lock:0
+msgid "Insert the key of Luthor into the lock."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild03_hideout3_lock:1
+msgid "Insert the blessed key of Luthor into the lock."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild03_hideout3_exit_1
+msgid "W..wait ...."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild03_hideout3_exit_2
+msgid ""
+"(The dying Crackshot is in agony. He looks at you despairingly)\n"
+"It is curs...sed."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild03_hideout3_exit_3
+msgid ""
+"The key is cursed .... She ... I am ... (Crackshot finally dies, emitting a soft bluish breath)\n"
+""
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild03_hideout3_exit_3:0
+msgid "Bah .... Too many questions. I need to come back."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_25
+msgid "Excellent. Did he have the key with him?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_25:0
+msgid "Yes ... [give key]. Why is this key so important to us?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_25:1
+msgid "Sure, here, take it. And maybe it's time to give me some more information."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_25:2
+msgid "(Lie) No, I didn't find it."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_25:3
+msgid "He had the key, but I don't have it with me."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_25_1
+msgid "Don't try to fool me. I am Umar. I know you have it."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_25_1:0
+msgid "Oh. Yes, I remember now that I found the key. Here, take it."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_25_1:1
+msgid "Even if I have the key, I won't give it to you."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_25_3
+msgid "Why did it take so long? And do not look at me that way. I can not tell you anything about the key for now."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_25_1a
+msgid "Come back when you are sane again."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_25_2
+msgid "Then what you are waiting for? Go and get it!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_26a
+msgid "I'm sorry, but for now I can't say more."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_26a:1
+msgid "Tsch, OK."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_26b
+msgid "Be patient, my friend. Everything will come in due time."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_26b:0
+msgid "I expect my patience will be rewarded."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_26b:1
+msgid "If you say so ..."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_27a_1
+msgid "Anyway, you've done your work. My spies reported to me that you saved someone's life."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_27a_1:0
+#: conversationlist_omicronrg9.json:umar_guild03_27a_2:0
+msgid "If your spies help me, tasks would be easier."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_27a_1:1
+msgid "It is true .... Nobody important."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_27a_1:2
+msgid "Yeah. He was a Feygard officer ... a sergeant I think."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_27a_2
+msgid "Anyway, you've done your work. My spies reported to me you had saved someone's life."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_27a_2:1
+msgid "I tried to, unfortunately he didn't survive. But it was nobody important."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_27a_2:2
+msgid "No, he died at last. He was a Feygard officer ... a sergeant I think."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_27b
+msgid "Trust me, it will."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_27c
+msgid "I've told you to have patience, my friend. Any thief is dead without patience."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_27c:1
+msgid "Understood ...."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_28b
+msgid "I mean this is not the time to tell you what you want to know, sorry."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_28b:0
+msgid "Tsch, whatever."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_28b:1
+msgid "Yes, understood."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_28a
+msgid "Each of you have your own specific task. Spies must hide their identities, even to their allies."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_28a:0
+msgid "That makes sense."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_29
+msgid "Hmm! And now to business. Here's your reward for the good work."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_30
+msgid ""
+"Take 4000 gold coins, and some bottles of my favourite mead.\n"
+"Now you deserve a good rest, my friend. You have earned the trust of the Thieves Guild."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_30:0
+msgid "I'll be back soon."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_30:1
+msgid "Count me in for the next job."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_31b
+msgid "I will, no doubt about it."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_31a
+msgid "And last but not least, I have some useful information for you. The way from here to the southeast has been finally been opened, once Crackshot's hideout was discovered."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_31a:0
+msgid "Good, I'm not going to have to take that detour."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_32
+msgid "However, the Feygard presence is still significant. Be cautious with with what you do."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_32:0
+msgid "I will, thank you for the advice."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild03_32:1
+msgid "All is under control. Bye."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild04_1b
+msgid "No jobs today my young friend. Maybe some other day."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild04_1b:0
+msgid "I see. Bye."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild04_1b:1
+msgid "That's a shame. Find more time for my skills then."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild04_1a
+msgid "[Here, the story continues]"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_4c
+msgid "Wha... what are you referring to?"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_4c:0
+msgid "Sorry. Time to sleep! (Knock her out)"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_4c:1
+msgid "I'm here to detain you, and then ask for a ransom. "
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_15
+msgid "No way! Guards!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_15:0
+msgid "... Yes, no way. (Knock her out)"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_15:1
+msgid "I'm not going to hurt you, I don't want to do this."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_16b
+msgid "You! Don't go any further. Leave me!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_16b:0
+msgid "I'm not going to hurt you."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_17b
+msgid "I couldn't care less about you! Just ask the guards."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_17b:0
+msgid "Those untrained men aren't able to defend themselves. Don't make me laugh."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_17b:1
+msgid "Other people will get you, and they won't be as kind as me."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_17a
+msgid "I am safe here!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_17a:0
+msgid "You aren't, and my presence here is the proof!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_16a
+msgid "Then get out of my sight now!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_16a:0
+msgid "I can't.Things are not that easy! Other people will get you instead of me."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_16a:1
+msgid "They will probably kill me if I go back without you."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_18
+msgid "Stop. Then tell me what I can do!"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_18:0
+msgid "Give me something of value, and you won't see me again."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_18:1
+msgid "[Lie]I have enough gold, so if you give me something valuable .... The ransom we were going to ask will be covered."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_19
+msgid "Take this and leave me, please."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_19:0
+msgid "It has been a pleasure, my lady."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_19:1
+msgid "Sure, thank you."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_28
+msgid "I see guilt in your eyes, my young friend."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_28:0
+msgid "I couldn't accomplish the objective, I'm sorry."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_28:1
+msgid "I felt sorry for that woman, and I decided to extort her and get the gold directly."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_29a
+msgid "You don't need to tell me things I can see with my own eyes, it is a waste of time."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_30
+msgid ""
+"I expect more of you.That was your first mission inside the guild and you failed it!\n"
+""
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_30:0
+msgid "I brought a valuable necklace from the noblewoman."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_29b
+msgid "Being a good liar is a very valuable ability for the guild, but useless against me."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_31
+msgid ""
+"What we have here? (Umar's face gets a smile while he admires the neckace)\n"
+""
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_32
+msgid "Well. I will take it as compensation for your mistakes."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_32:0
+msgid "Again, I'm sorry."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:ambelie_guild02_20
+msgid "You already took my necklace. Leave me alone."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild02_hatchlever_5
+msgid "You already triggered the lever that opened a hatch which leads downstairs."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:FeygardSerg_guild03_dead
+msgid ""
+"You ... Argh ... \n"
+"[The sergeant takes one final breath and then dies. You should have come earlier. Now you will never get to know what he wanted to tell you.]"
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild03_hideout3_unlock
+msgid "The door opens."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:guild03_hideout3_lockmessage
+msgid "Something prevents the key from turning, so you cannot unlock the door."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_27d
+msgid "I'm afraid all the beds at the guild are taken for the night. We have arrangements at the inn in town though. If you tell them Umar sent you then you will not have to pay for a bed."
+msgstr ""
+
+#: conversationlist_omicronrg9.json:umar_guild02_27d:1
+msgid "I'll do that."
+msgstr ""
+
 #: itemcategories_1.json:dagger
 msgid "Dagger"
 msgstr ""
@@ -29871,6 +32310,14 @@ msgstr ""
 #: itemcategories_stoutford_combined.json:scythe
 #: itemlist_stoutford_combined.json:scythe
 msgid "Scythe"
+msgstr ""
+
+#: itemcategories_omicronrg9.json:healing
+msgid "Healing item"
+msgstr ""
+
+#: itemcategories_omicronrg9.json:gauntlet
+msgid "Gauntlet"
 msgstr ""
 
 #: itemlist_money.json:gold
@@ -30263,6 +32710,7 @@ msgid "Venomous Dagger"
 msgstr ""
 
 #: itemlist_quest.json:key_luthor
+#: itemlist_omicronrg9.json:g03_luthor
 #: questlist.json:bucus
 msgid "Key of Luthor"
 msgstr ""
@@ -31905,6 +34353,78 @@ msgstr ""
 
 #: itemlist_bugfix_0_7_4.json:gem7
 msgid "Shimmering opal"
+msgstr ""
+
+#: itemlist_omicronrg9.json:Dunla_journal
+msgid "Dunla's Journal"
+msgstr ""
+
+#: itemlist_omicronrg9.json:Fanamor_journal
+msgid "Fanamor's Journal"
+msgstr ""
+
+#: itemlist_omicronrg9.json:Leta_journal
+msgid "Leta's Journal"
+msgstr ""
+
+#: itemlist_omicronrg9.json:feygard_iron_dagger
+msgid "Feygard iron dagger"
+msgstr ""
+
+#: itemlist_omicronrg9.json:bandage
+msgid "Bandage"
+msgstr ""
+
+#: itemlist_omicronrg9.json:guildbrigK
+msgid "Guild brig key"
+msgstr ""
+
+#: itemlist_omicronrg9.json:meat2
+msgid "Rotten meat"
+msgstr ""
+
+#: itemlist_omicronrg9.json:meat2:description
+msgid "Even fly larvae have died eating this."
+msgstr ""
+
+#: itemlist_omicronrg9.json:g04_package
+msgid "Suspicious package"
+msgstr ""
+
+#: itemlist_omicronrg9.json:g04_package:description
+msgid "This box has a mark that you don't understand. Better not to open it."
+msgstr ""
+
+#: itemlist_omicronrg9.json:sword_g03_crackshot
+msgid "Yatagan"
+msgstr ""
+
+#: itemlist_omicronrg9.json:sword_g03_crackshot:description
+msgid "Crackshot's personal weapon"
+msgstr ""
+
+#: itemlist_omicronrg9.json:g03_luthor:description
+msgid "The ancient key has a bluish glow."
+msgstr ""
+
+#: itemlist_omicronrg9.json:g03_luthor2
+msgid "Blessed key of luthor"
+msgstr ""
+
+#: itemlist_omicronrg9.json:g03_luthor2:description
+msgid "The curse has disappeared."
+msgstr ""
+
+#: itemlist_omicronrg9.json:g02_ambelie
+msgid "Sapphire Necklace"
+msgstr ""
+
+#: itemlist_omicronrg9.json:g02_ambelie:description
+msgid "The jewelry that Ambelie gave me in exchange for her life."
+msgstr ""
+
+#: itemlist_omicronrg9.json:gauntlet_omi2_1
+msgid "Spiked Gloves"
 msgstr ""
 
 #: monsterlist_crossglen_animals.json:tiny_rat
@@ -34848,6 +37368,50 @@ msgstr ""
 
 #: monsterlist_stoutford_combined.json:none
 msgid "none"
+msgstr ""
+
+#: monsterlist_omicronrg9.json:feygard_scout
+msgid "Feygard scout"
+msgstr ""
+
+#: monsterlist_omicronrg9.json:Feygard_BG
+msgid "Feygard barricade guard"
+msgstr ""
+
+#: monsterlist_omicronrg9.json:unknown
+msgid "???"
+msgstr ""
+
+#: monsterlist_omicronrg9.json:g03_deadpatrol_1
+msgid "Dying patrol"
+msgstr ""
+
+#: monsterlist_omicronrg9.json:g03_deadpatrol_2
+msgid "Dying Patrol"
+msgstr ""
+
+#: monsterlist_omicronrg9.json:guild03_rebthief_1
+msgid "Rebelled thief"
+msgstr ""
+
+#: monsterlist_omicronrg9.json:g03_sergeant
+msgid "Feygard patrol sergeant"
+msgstr ""
+
+#: monsterlist_omicronrg9.json:g03_thief_2
+msgid "Thief warden"
+msgstr ""
+
+#: monsterlist_omicronrg9.json:g03_thief_3
+msgid "Rebelled rogue"
+msgstr ""
+
+#: monsterlist_omicronrg9.json:g03_crackshot
+msgid "Crackshot"
+msgstr ""
+
+#: monsterlist_omicronrg9.json:g03_crackshot_dying
+msgid "Dying Crackshot"
 msgstr ""
 
 #: questlist.json:andor
@@ -37801,6 +40365,252 @@ msgstr ""
 
 #: questlist_stoutford_combined.json:stoutford_castle:70
 msgid "I kept the ring for myself and didn't tell Yolgen about it. He was suspicious but couldn't do anything about it. I should keep looking for its previous owner."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves01
+msgid "Thief apprentice"
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves01:5
+msgid ""
+"After giving him the key of Luthor and talking with Umar about Andor, I needed to ask him about Thieves' Guild itself.\n"
+"I want to join them to see what kind of jobs they do."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves01:10
+msgid "Umar told me to talk with Troublemaker regarding my first task for the Guild."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves01:15
+msgid "Troublemaker told me to bring him three journals from spies of the guild. First I have to talk with Leta in my village, then with Dunla in Vilegard's tavern, and finally with Fanamor somewhere around Crossroads guardhouse."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves01:20
+msgid "I have to remember to tell them the password \"You are no one. No one knows you. No one has seen you.\""
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves01:25
+msgid "Leta gave me her journal and advised me to not raise suspicion."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves01:30
+msgid "I got Dunla's journal without any problem. I have set out to get the last journal."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves01:35
+msgid "Fanamor gave me her journal."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves01:40
+msgid "Fanamor has been gravely wounded, and the Feygard Scout grabbed the journal."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves01:45
+msgid "After I had killed the Feygard scout I talked again with Fanamor. She's losing blood quickly, so I have to bring her a bandage. I need to find a trustworthy priest."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves01:50
+msgid "Thoronir gave me a bandage. I have to return to Fanamor as soon as possible."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves01:51
+msgid "Unfortunately, I was not able to save Fanamor's life. However, I did get her journal."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves01:55
+msgid "Fanamor is alive and will find her own way to return."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves01:60
+msgid "I returned to Troublemaker and gave him the journals. He told me to talk with Umar."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves02
+msgid "Immaculate kidnapping"
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves02:2
+msgid "After completing my first task I'm considered a member of Thieves' Guild. Now I have to perform a very risky task. Umar sent me to kidnap a noble woman from Feygard, without being discovered."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves02:4
+msgid "She was recently seen in the Foaming Flask tavern."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves02:6
+msgid "Umar gave me some advice. My strength is not always the solution. I must \"use my tongue\" to avoid raising suspicion in the tavern."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves02:10
+msgid "Ambelie Laumwill doesn't want to come with me peacefully. I cannot make a scene, or the guards will alert other patrols. Maybe talking with them would solve the situation."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves02:15
+msgid "I have \"used my tongue\" with the main Feygard soldier in the Foaming Flask tavern. He gave me permission to \"escort back\" Ambelie."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves02:20
+msgid "I knocked out Ambelie. I will take her back to the Guild."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves02:21
+msgid "I have decided not to kidnap Ambelie. I must think of another solution."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves02:24
+msgid "Ambelie gave me a very valuable necklace. I must talk with Umar and persuade him to no longer pursue her."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves02:30
+msgid "I safely brought Ambelie to the basement. However, keeping her here could be dangerous."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves02:35
+msgid "Umar believes there is a secure room for these types of \"visitors\". I should talk to Troublemaker."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves02:40
+msgid "I have talked to Troublemaker about the place Umar believes it's okay to safely keep the hostage."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves02:45
+msgid "Troublemaker has given me the key to the Guild brig. I should take Ambelie there and leave her to wake up."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves02:50
+msgid "I've inserted the key and moved the lever. A hatchway has opened in the room."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves02:55
+msgid "I left Ambelie in that ugly, dark, and cold place. I should go back."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves02:60
+msgid "Troublemaker gave me some bread for Ambelie. The guild doesn't want her to starve to death. Indeed, they want her to be as comfortable as possible. I must go to the brig again."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves02:65
+msgid "I gave the bread to Ambelie. I should report Troublemaker that I completed the job."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves02:70
+msgid "The job finally seems to be finished. I just have to talk with Umar again. However, I do not feel good about this. Kidnappings are definitely not my kind of job."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves02:75
+msgid "I completed this task successfully. Umar told me they have sent couriers to Feygard, and the ransom is almost guaranteed. He paid me for my work."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves02:76
+msgid "Umar took the necklace as compensation for my errors. Everything is fine again."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves03
+msgid "The ruthless Crackshot"
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves03:1
+msgid "Time to rest and prepare myself to start the next job. I should go to the tavern."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves03:2
+msgid "I really need to take a break ...."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves03:3
+msgid "I am now fully rested, so I should go back to Umar."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves03:4
+msgid "Umar told me about a group of traitors led by a veteran of the Guild. It seems he stole the Key of Luthor."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves03:5
+msgid "Umar went on to say that this team leader  was known as \"Crackshot\". He is probably also the responsible for a murder on the Duleian road."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves03:10
+msgid "Crackshot and his henchmen are probably hiding somewhere near the Duleian road. I must ask people there whether they have seen them."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves03:11
+msgid "It seems that Benbyr, a suspicious man outside Crossroads Guardhouse, doesn't know what I'm talking about."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves03:15
+msgid "A Crossroads guard told me that Feygard has sent more soldiers to the south, to try and find the criminals' hideout."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves03:20
+msgid "The barricade guard has a big mouth, and told me all I needed to know. The hideout is near a place full of larval burrowers. I need to move faster than the patrols to reach the hideout before them."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves03:21
+msgid "I found a small hole which seems to lead to a cave. Crackshot and his henchmen are probably hiding there."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves03:22
+msgid "I reached the hideout and saw some recent blood stains. Maybe there was a fight there."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves03:23
+msgid "The blood trail goes further ...."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves03:24
+msgid "I heard screams and sword clashes nearby. I should take a look."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves03:25
+msgid "There was a massacre. The Feygard patrol reached this place, but they seem to have all been killed. I must continue."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves03:26
+msgid "As I progressed down the corridor the air became thicker. The blood smell was stronger, and I found another dying soldier. He said something about his sergeant and some other guy."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves03:27
+msgid "As I progressed down the corridor the air became thicker. The blood smell was stronger, and I found a dying soldier. He said something about his sergeant and some other guy."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves03:28
+msgid "I found another dying soldier. There was a massacre. The Feygard patrol reached this place, but they seem to have all been killed. I must continue."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves03:30
+msgid "I've found the patrol sergeant. He advised me to leave this dangerous place."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves03:31
+msgid "The patrol sergeant told me about what happened before. He's tired and wounded, so I willl avenge his fellows. "
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves03:32
+msgid "The patrol sergeant has left to call for backup. Now I'm alone again. Time to defeat Crackshot."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves03:35
+msgid "I killed Crackshot and he had the key of Luthor with him. I have to go back and report to Umar."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves03:36
+msgid "I tried to open the door behind Crackshot, but for some reason I cannot get the key into the lock."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves03:40
+msgid "The dying Crackshot said something about the key. If he told the truth, it could be cursed."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves03:41
+msgid "I tried to open the door behind Crackshot, but for some reason I could not get the key turned in the lock."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves03:45
+msgid "I reported about the situation to Umar, and gave him the key. He did not seem to want to tell me more about the key - yet."
+msgstr ""
+
+#: questlist_omicronrg9.json:Thieves03:50
+msgid "Finally, this job is done. Now I should take a rest and regain my strength."
 msgstr ""
 
 #: worldmap.xml:world1:crossglen

@@ -28,8 +28,8 @@ public final class AndorsTrailApplication extends Application {
 	public static final boolean DEVELOPMENT_VALIDATEDATA = false;
 	public static final boolean DEVELOPMENT_DEBUGMESSAGES = false;
 	public static final boolean DEVELOPMENT_INCOMPATIBLE_SAVEGAMES = DEVELOPMENT_DEBUGRESOURCES || DEVELOPMENT_DEBUGBUTTONS || DEVELOPMENT_FASTSPEED;
-	public static final int CURRENT_VERSION = DEVELOPMENT_INCOMPATIBLE_SAVEGAMES ? 999 : 47;
-	public static final String CURRENT_VERSION_DISPLAY = "0.7.6";
+	public static final int CURRENT_VERSION = DEVELOPMENT_INCOMPATIBLE_SAVEGAMES ? 999 : 48;
+	public static final String CURRENT_VERSION_DISPLAY = "0.7.7";
 	public static final boolean IS_RELEASE_VERSION = !CURRENT_VERSION_DISPLAY.matches(".*[a-d].*");
 
 	private final AndorsTrailPreferences preferences = new AndorsTrailPreferences();

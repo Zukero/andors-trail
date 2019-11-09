@@ -3,8 +3,8 @@
 <manifest 
 	xmlns:android="http://schemas.android.com/apk/res/android" 
 	package="com.gpl.rpg.AndorsTrail"
-	android:versionCode="47"
-	android:versionName="0.7.6"
+	android:versionCode="48"
+	android:versionName="0.7.7"
 	android:installLocation="auto"
 	>
 	<uses-sdk 
