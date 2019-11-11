@@ -383,4 +383,21 @@ public final class ItemController {
 		}
 	}
 
+	public int removeEquippedItem(String itemTypeID, int count) {
+		int removed = 0;
+		final Player player = world.model.player;
+		for (Inventory.WearSlot slot : Inventory.WearSlot.values()) {
+			ItemType type = player.inventory.getItemTypeInWearSlot(slot);
+			if (type != null && type.id.equals(itemTypeID)) {
+				player.inventory.setItemTypeInWearSlot(slot, null);
+				controllers.actorStatsController.removeConditionsFromUnequippedItem(player, type);
+				controllers.actorStatsController.recalculatePlayerStats(player);
+				removed++;
+				if (removed >= count) {
+					break;
+				}
+			}
+		}
+		return removed;
+	}
 }

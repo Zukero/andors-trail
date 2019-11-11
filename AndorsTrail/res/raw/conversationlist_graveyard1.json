@@ -249,7 +249,8 @@
                 "requires":[
                     {
                         "requireType":"wear",
-                        "requireID":"lifetaker"
+                        "requireID":"lifetaker",
+                        "value":1
                     }
                 ]
             },
@@ -266,6 +267,7 @@
                     {
                         "requireType":"wear",
                         "requireID":"lifetaker",
+                        "value":1,
                         "negate":true
                     }
                 ]

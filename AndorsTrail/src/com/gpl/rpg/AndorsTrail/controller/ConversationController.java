@@ -241,11 +241,11 @@ public final class ConversationController {
 		result.actorConditions.add(e);
 	}
 
-	private static void applyReplyEffect(final WorldContext world, final Reply reply) {
+	private static void applyReplyEffect(final WorldContext world, final Reply reply, ControllerContext controllers) {
 		if (!reply.hasRequirements()) return;
 
 		for (Requirement requirement : reply.requires) {
-			requirementFulfilled(world, requirement);
+			requirementFulfilled(world, requirement, controllers);
 		}
 	}
 
@@ -270,6 +270,7 @@ public final class ConversationController {
 				result = player.isLatestQuestProgress(requirement.requireID, requirement.value);
 				break;
 			case wear:
+			case wearRemove:
 				result =  player.inventory.isWearing(requirement.requireID, requirement.value);
 				break;
 			case inventoryKeep:
@@ -313,7 +314,7 @@ public final class ConversationController {
 		return requirement.negate ? !result : result;
 	}
 
-	public static void requirementFulfilled(WorldContext world, Requirement requirement) {
+	public static void requirementFulfilled(WorldContext world, Requirement requirement, ControllerContext controllers) {
 		Player p = world.model.player;
 		switch (requirement.requireType) {
 			case inventoryRemove:
@@ -323,6 +324,10 @@ public final class ConversationController {
 				} else {
 					p.inventory.removeItem(requirement.requireID, requirement.value);
 				}
+				break;
+            case wearRemove:
+                controllers.itemController.removeEquippedItem(requirement.requireID, requirement.value);
+                break;
 		}
 	}
 
@@ -354,7 +359,7 @@ public final class ConversationController {
 		public String getCurrentPhraseID() { return currentPhraseID; }
 
 		public void playerSelectedReply(final Resources res, Reply r) {
-			applyReplyEffect(world, r);
+			applyReplyEffect(world, r, controllers);
 			proceedToPhrase(res, r.nextPhrase, true, true);
 		}
 
@@ -411,7 +416,7 @@ public final class ConversationController {
 			if (currentPhrase.message == null) {
 				for (Reply r : currentPhrase.replies) {
 					if (!canSelectReply(world, r)) continue;
-					applyReplyEffect(world, r);
+					applyReplyEffect(world, r, controllers);
 					proceedToPhrase(res, r.nextPhrase, applyScriptEffects, displayPhraseMessage);
 					return;
 				}

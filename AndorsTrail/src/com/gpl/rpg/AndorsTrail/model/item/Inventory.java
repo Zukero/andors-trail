@@ -56,16 +56,7 @@ public final class Inventory extends ItemContainer {
 		wear[slot.ordinal()] = type;
 	}
 
-	public boolean isWearing(String itemTypeID) {
-		for(int i = 0; i < NUM_WORN_SLOTS; ++i) {
-			if (wear[i] == null) continue;
-			if (wear[i].id.equals(itemTypeID)) return true;
-		}
-		return false;
-	}
-
 	public boolean isWearing(String itemTypeID, int minNumber) {
-		if (minNumber == 0) return isWearing(itemTypeID);
 		for(int i = 0; i < NUM_WORN_SLOTS; ++i) {
 			if (wear[i] == null) continue;
 			if (wear[i].id.equals(itemTypeID)) minNumber--;

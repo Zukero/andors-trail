@@ -156,7 +156,7 @@ public final class MapController {
 
 	public boolean canEnterKeyArea(MapObject area) {
 		if (ConversationController.canFulfillRequirement(world, area.enteringRequirement)) {
-			ConversationController.requirementFulfilled(world, area.enteringRequirement);
+			ConversationController.requirementFulfilled(world, area.enteringRequirement, controllers);
 			return true;
 		}
 		worldEventListeners.onPlayerSteppedOnKeyArea(area);
@@ -187,7 +187,7 @@ public final class MapController {
 			for(ReplaceableMapSection replacement : tileMap.replacements) {
 				if (replacement.isApplied) continue;
 				if (!satisfiesCondition(replacement)) continue;
-				else ConversationController.requirementFulfilled(world, replacement.requirement);
+				else ConversationController.requirementFulfilled(world, replacement.requirement, controllers);
 				tileMap.applyReplacement(replacement);
 				for (ReplaceableMapSection impactedReplacement : tileMap.replacements) {
 					if (impactedReplacement.isApplied && impactedReplacement.replacementArea.intersects(replacement.replacementArea)) {
