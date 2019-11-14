@@ -84,6 +84,7 @@ public final class ActorStatsController {
 	}
 
 	private void removeNonStackableActorCondition(Player player, ActorConditionType type, int magnitude, int duration) {
+		int highestMagnitude = 0;
 		for (Inventory.WearSlot slot : Inventory.WearSlot.values()) {
 			ItemType t = player.inventory.getItemTypeInWearSlot(slot);
 			if (t == null) continue;
@@ -94,11 +95,14 @@ public final class ActorStatsController {
 			for (ActorConditionEffect e : equipEffects.addedConditions) {
 				if (!e.conditionType.conditionTypeID.equals(type.conditionTypeID)) continue;
 				if (e.duration != duration) continue;
-				// The player is wearing some other item that gives this condition. It will not be removed now.
-				return;
+				if (e.magnitude > highestMagnitude)
+					highestMagnitude = e.magnitude;
 			}
 		}
-		removeStackableActorCondition(player, type, magnitude, duration);
+
+		if (highestMagnitude < magnitude) {
+			removeStackableActorCondition(player, type, magnitude-highestMagnitude, duration);
+		}
 	}
 	
 
@@ -192,24 +196,53 @@ public final class ActorStatsController {
 		actor.conditions.add(c);
 		actorConditionListeners.onActorConditionAdded(actor, c);
 	}
+
 	private void addNonStackableActorCondition(Actor actor, ActorConditionEffect e, int duration) {
-		final ActorConditionType type = e.conditionType;
+        ActorCondition conditionWithSameDuration = null;
+        int effectiveMagnitude = e.magnitude;
+        final ActorConditionType type = e.conditionType;
 
-		for(int i = actor.conditions.size() - 1; i >= 0; --i) {
-			ActorCondition c = actor.conditions.get(i);
-			if (!type.conditionTypeID.equals(c.conditionType.conditionTypeID)) continue;
-			if (c.magnitude > e.magnitude) return;
-			if (c.magnitude == e.magnitude) {
-				if (c.duration >= duration) return;
-			}
-			// If the actor already has this condition, but of a lower magnitude, we remove the old one and add this higher magnitude.
-			actor.conditions.remove(i);
-			actorConditionListeners.onActorConditionRemoved(actor, c);
-		}
+        // Search for conditions with the same or higher duration
+        for(int i = actor.conditions.size() - 1; i >= 0; --i) {
+            ActorCondition c = actor.conditions.get(i);
+            if (!type.conditionTypeID.equals(c.conditionType.conditionTypeID)) continue;
+            if(c.duration >= duration) {
+                if (c.duration == duration)
+                    conditionWithSameDuration = c;
 
-		ActorCondition c = e.createCondition(duration);
-		actor.conditions.add(c);
-		actorConditionListeners.onActorConditionAdded(actor, c);
+                effectiveMagnitude -= c.magnitude;
+                if(effectiveMagnitude <1)
+                    return;
+                }
+        }
+
+        // reduce the magnitude of shorter running conditions
+        for(int i=actor.conditions.size() -1; i >= 0; --i) {
+            ActorCondition c = actor.conditions.get(i);
+            if (!type.conditionTypeID.equals(c.conditionType.conditionTypeID)) continue;
+            if (c.duration < duration) {
+                c.magnitude -= effectiveMagnitude;
+                if(c.magnitude <1)
+                {
+                    actor.conditions.remove(i);
+                    actorConditionListeners.onActorConditionRemoved(actor, c);
+                }
+                else
+                    actorConditionListeners.onActorConditionMagnitudeChanged(actor, c);
+            }
+        }
+
+        // if there is an existing condition with the same duration, we use it
+        if (conditionWithSameDuration != null) {
+            conditionWithSameDuration.magnitude += effectiveMagnitude;
+            actorConditionListeners.onActorConditionMagnitudeChanged(actor, conditionWithSameDuration);
+        }
+        else {
+            ActorCondition c = e.createCondition(duration);
+            c.magnitude = effectiveMagnitude;
+            actor.conditions.add(c);
+            actorConditionListeners.onActorConditionAdded(actor, c);
+        }
 	}
 	
 	private void addActorConditionImmunity(Actor actor, ActorConditionEffect e, int duration) {
