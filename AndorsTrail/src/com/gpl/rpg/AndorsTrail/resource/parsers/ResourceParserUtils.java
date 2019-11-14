@@ -47,10 +47,18 @@ public final class ResourceParserUtils {
 	public static ConstRange parseConstRange(JSONObject o) throws JSONException {
 		if (o == null) return null;
 
-		return new ConstRange(
+		ConstRange ret = new ConstRange(
 				o.getInt(JsonFieldNames.Range.max),
 				o.optInt(JsonFieldNames.Range.min)
 		);
+
+		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+			if (ret.current > ret.max) {
+				L.log("WARNING: Detected range where max value is lower than current value");
+			}
+		}
+
+		return ret;
 	}
 
 	public static final ConstRange always = one;

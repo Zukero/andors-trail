@@ -25,6 +25,7 @@ public final class ConstRange {
 	}
 	public String toMinMaxAbsString() {
 		if (isMax()) return Integer.toString(Math.abs(max));
+		else if (current < 0) return Math.abs(max) + "-" + Math.abs(current);
 		else return Math.abs(current) + "-" + Math.abs(max);
 	}
 	public boolean isMax() { return max == current;	}

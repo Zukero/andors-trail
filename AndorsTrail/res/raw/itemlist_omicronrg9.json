@@ -79,9 +79,11 @@
         "category":"food",
         "description":"Even fly larvae have died eating this.",
         "useEffect":{
+
+
             "increaseCurrentHP":{
-                "min":-10,
-                "max":-15
+                "min":-15,
+                "max":-10
             },
             "conditionsSource":[
                 {
