@@ -21,7 +21,7 @@ import com.gpl.rpg.AndorsTrail.model.ability.SkillInfo.SkillLevelRequirement;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.util.ThemeHelper;
 
-public final class SkillInfoActivity extends Activity {
+public final class SkillInfoActivity extends AndorsTrailBaseActivity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

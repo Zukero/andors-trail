@@ -20,7 +20,7 @@ import com.gpl.rpg.AndorsTrail.view.ItemEffectsView;
 import com.gpl.rpg.AndorsTrail.view.RangeBar;
 import com.gpl.rpg.AndorsTrail.view.TraitsInfoView;
 
-public final class MonsterInfoActivity extends Activity {
+public final class MonsterInfoActivity extends AndorsTrailBaseActivity {
 
 	private WorldContext world;
 	private ControllerContext controllers;

@@ -24,7 +24,7 @@ import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.Toast;
 
-public final class DisplayWorldMapActivity extends Activity {
+public final class DisplayWorldMapActivity extends AndorsTrailBaseActivity {
 	private WorldContext world;
 
 	private WebView displayworldmap_webview;

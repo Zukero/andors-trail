@@ -46,7 +46,7 @@ import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
 import com.gpl.rpg.AndorsTrail.util.ThemeHelper;
 
 public final class ConversationActivity
-		extends Activity
+		extends AndorsTrailBaseActivity
 		implements OnKeyListener
 		, ConversationController.ConversationStatemachine.ConversationStateListener {
 

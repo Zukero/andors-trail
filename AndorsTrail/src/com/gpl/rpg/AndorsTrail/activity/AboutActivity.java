@@ -16,7 +16,7 @@ import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.util.ThemeHelper;
 
-public final class AboutActivity extends Activity implements ImageGetter {
+public final class AboutActivity extends AndorsTrailBaseActivity implements ImageGetter {
 
 	/** Called when the activity is first created. */
 	@Override

@@ -18,7 +18,7 @@ import com.gpl.rpg.AndorsTrail.controller.Constants;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.util.ThemeHelper;
 
-public final class LevelUpActivity extends Activity {
+public final class LevelUpActivity extends AndorsTrailBaseActivity {
 	private WorldContext world;
 	private ControllerContext controllers;
 	private Player player;

@@ -29,7 +29,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public final class StartScreenActivity extends FragmentActivity implements OnNewGameRequestedListener, GameCreationOverListener, OnBackStackChangedListener {
+public final class StartScreenActivity extends AndorsTrailBaseFragmentActivity implements OnNewGameRequestedListener, GameCreationOverListener, OnBackStackChangedListener {
 
 	private TextView tv;
 	private TextView development_version;

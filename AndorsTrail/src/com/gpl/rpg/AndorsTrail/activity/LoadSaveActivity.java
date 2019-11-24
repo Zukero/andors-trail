@@ -29,7 +29,7 @@ import com.gpl.rpg.AndorsTrail.savegames.Savegames.FileHeader;
 import com.gpl.rpg.AndorsTrail.util.ThemeHelper;
 import com.gpl.rpg.AndorsTrail.view.CustomDialogFactory;
 
-public final class LoadSaveActivity extends Activity implements OnClickListener {
+public final class LoadSaveActivity extends AndorsTrailBaseActivity implements OnClickListener {
 	private boolean isLoading = true;
 	private static final int SLOT_NUMBER_CREATE_NEW_SLOT = -1;
 	private static final int SLOT_NUMBER_FIRST_SLOT = 1;

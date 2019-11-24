@@ -18,7 +18,7 @@ import com.gpl.rpg.AndorsTrail.util.ThemeHelper;
 import com.gpl.rpg.AndorsTrail.view.AbilityModifierInfoView;
 import com.gpl.rpg.AndorsTrail.view.ItemEffectsView_OnUse;
 
-public final class ActorConditionInfoActivity extends Activity {
+public final class ActorConditionInfoActivity extends AndorsTrailBaseActivity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

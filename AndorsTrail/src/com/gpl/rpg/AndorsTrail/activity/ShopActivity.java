@@ -16,7 +16,7 @@ import com.gpl.rpg.AndorsTrail.activity.fragment.ShopActivity_Buy;
 import com.gpl.rpg.AndorsTrail.activity.fragment.ShopActivity_Sell;
 import com.gpl.rpg.AndorsTrail.util.ThemeHelper;
 
-public final class ShopActivity extends FragmentActivity {
+public final class ShopActivity extends AndorsTrailBaseFragmentActivity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

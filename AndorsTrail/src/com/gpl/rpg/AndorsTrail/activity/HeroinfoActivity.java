@@ -1,5 +1,6 @@
 package com.gpl.rpg.AndorsTrail.activity;
 
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -18,7 +19,7 @@ import com.gpl.rpg.AndorsTrail.activity.fragment.HeroinfoActivity_Stats;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.util.ThemeHelper;
 
-public final class HeroinfoActivity extends FragmentActivity {
+public final class HeroinfoActivity extends AndorsTrailBaseFragmentActivity {
 	private WorldContext world;
 
 	private FragmentTabHost tabHost;

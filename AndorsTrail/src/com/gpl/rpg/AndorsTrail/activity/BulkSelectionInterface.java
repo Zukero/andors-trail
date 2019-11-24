@@ -29,7 +29,7 @@ import com.gpl.rpg.AndorsTrail.view.CustomDialogFactory;
  * @author ejwessel
  * Creates the BulkSelectionInterface dialog that allows for buy/drop/selling
  */
-public final class BulkSelectionInterface extends Activity implements TextWatcher {
+public final class BulkSelectionInterface extends AndorsTrailBaseActivity implements TextWatcher {
 
 	// class variables
 	public static enum BulkInterfaceType {

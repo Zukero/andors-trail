@@ -18,7 +18,7 @@ import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.util.ThemeHelper;
 import com.gpl.rpg.AndorsTrail.view.ItemEffectsView;
 
-public final class ItemInfoActivity extends Activity {
+public final class ItemInfoActivity extends AndorsTrailBaseActivity {
 
 	public static enum ItemInfoAction {
 		none, use, equip, unequip, buy, sell

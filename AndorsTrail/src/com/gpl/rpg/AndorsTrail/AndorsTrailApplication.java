@@ -60,13 +60,12 @@ public final class AndorsTrailApplication extends Application {
 		} else {
 			activity.getWindow().setFlags(0, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		}
-		setLocale(activity);
 	}
 
 	//Get default locale at startup, as somehow it seems that changing the app's 
 	//configured locale impacts the value returned by Locale.getDefault() nowadays.
 	private final Locale defaultLocale = Locale.getDefault();
-	
+
 	@SuppressLint("NewApi")
 	public boolean setLocale(Activity context) {
 		Resources res = context.getResources();

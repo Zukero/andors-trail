@@ -15,11 +15,22 @@ public final class Preferences extends PreferenceActivity {
 		setTheme(ThemeHelper.getBaseTheme());
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
-		if (AndorsTrailApplication.getApplicationFromActivity(this).getPreferences().fullscreen) {
+		AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
+		if (app.getPreferences().fullscreen) {
 			getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		} else {
 			getWindow().setFlags(0, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		}
+
+		app.setLocale(this);
 		addPreferencesFromResource(R.xml.preferences);
 	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
+		app.setLocale(this);
+	}
 }
+

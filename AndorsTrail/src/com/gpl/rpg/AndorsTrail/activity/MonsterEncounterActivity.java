@@ -16,7 +16,7 @@ import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.util.ThemeHelper;
 
-public final class MonsterEncounterActivity extends Activity {
+public final class MonsterEncounterActivity extends AndorsTrailBaseActivity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
