@@ -25,6 +25,7 @@ import android.os.Environment;
 import android.os.SystemClock;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
+import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.Constants;
@@ -45,8 +46,9 @@ public final class Savegames {
 		, cheatingDetected
 	}
 
-	public static boolean saveWorld(WorldContext world, Context androidContext, int slot, String displayInfo) {
+	public static boolean saveWorld(WorldContext world, Context androidContext, int slot) {
 		try {
+			final String displayInfo = androidContext.getString(R.string.savegame_currenthero_displayinfo, world.model.player.getLevel(), world.model.player.getTotalExperience(), world.model.player.getGold());
 			if (slot != SLOT_QUICKSAVE && !world.model.statistics.hasUnlimitedSaves()) {
 				world.model.player.savedVersion++;
 			}
@@ -105,6 +107,10 @@ public final class Savegames {
 			LoadSavegameResult result = loadWorld(androidContext.getResources(), world, controllers, fos, fh);
 			fos.close();
 			if (result == LoadSavegameResult.success && slot != SLOT_QUICKSAVE && !world.model.statistics.hasUnlimitedSaves()) {
+                // save to the quicksave slot before deleting the file
+                if (!saveWorld(world, androidContext, SLOT_QUICKSAVE)) {
+					return LoadSavegameResult.unknownError;
+				}
 				getSlotFile(slot).delete();
 				writeCheatCheck(androidContext, DENY_LOADING_BECAUSE_GAME_IS_CURRENTLY_PLAYED, fh.playerId);
 			}

@@ -160,8 +160,7 @@ public final class MainActivity
 	}
 
 	private boolean save(int slot) {
-		final Player player = world.model.player;
-		return Savegames.saveWorld(world, this, slot, getString(R.string.savegame_currenthero_displayinfo, player.getLevel(), player.getTotalExperience(), player.getGold()));
+		return Savegames.saveWorld(world, this, slot);
 	}
 
 	@Override
