@@ -45,7 +45,7 @@ Andor's Trail gameplay content is copyright by their respective authors and has 
 The graphics licenses and contributions can be found [here](/gfxcontrib.md).
 
 ## Wiki
-Here is our slightly out of date [Wiki](https://www.andorstrail.com/wiki/doku.php?id=andors_trail_wiki).
+Here is our slightly out of date [Wiki](https://docs.andorstrail.com/).
 ## Acknowledgments
 Additional shout-outs.
 
